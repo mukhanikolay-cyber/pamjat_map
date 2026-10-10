@@ -1,44 +1,50 @@
-const map = L.map('map').setView([53.9, 27.5], 6);
+const map = L.map('map', {
+    zoomControl: true,
+    attributionControl: true
+}).setView([53.9, 27.5], 6);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: ''
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 19
 }).addTo(map);
 
-const points = [
-    {
-        lat: 51.4333,
-        lng: 30.5833,
-        title: "Комарин",
-        date: "23 сентября 1943",
-        description: "Первый освобождённый районный центр Беларуси.",
-        link: "#" // ссылку на видео или фото
-    },
-    {
-        lat: 52.4414,
-        lng: 30.9971,
-        title: "Гомель",
-        date: "26 ноября 1943",
-        description: "Освобождён в ходе Гомельско-Речицкой операции.",
-        link: "#"
-    },
-    {
-        lat: 53.9022,
-        lng: 27.5618,
-        title: "Минск",
-        date: "3 июля 1944",
-        description: "Освобождён в ходе операции «Багратион».",
-        link: "#"
-    }
-];
-
-// маркеры
-points.forEach(point => {
-    const marker = L.marker([point.lat, point.lng]).addTo(map);
-
-    marker.bindPopup(`
-        <strong>${point.title}</strong><br>
-        <em>${point.date}</em><br>
-        ${point.description}<br>
-        <a href="${point.link}" target="_blank">Подробнее</a>
-    `);
+const defaultIcon = L.icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
 });
+
+fetch('points.json')
+    .then(response => {
+        if (!response.ok) throw new Error('Не удалось загрузить points.json');
+        return response.json();
+    })
+    .then(points => {
+        points.forEach(point => {
+            const marker = L.marker([point.lat, point.lng], {
+                icon: defaultIcon,
+                title: point.title,
+                riseOnHover: true 
+            }).addTo(map);
+
+            const linkHtml = point.link
+                ? `<br><a href="${point.link}" target="_blank" rel="noopener">Подробнее →</a>`
+                : '';
+
+            marker.bindPopup(`
+                <div style="min-width: 180px; max-width: 260px; font-family: system-ui, sans-serif;">
+                    <strong style="font-size: 15px;">${point.title}</strong><br>
+                    <em style="color: #666;">${point.date}</em>
+                    <hr style="margin: 6px 0; border: none; border-top: 1px solid #eee;">
+                    <div>${point.description || ''}</div>
+                    ${point.memory ? `<small style="color: #777;">${point.memory}</small>` : ''}
+                    ${linkHtml}
+                </div>
+            `);
+        });
+    })
+    .catch(error => console.error('Ошибка загрузки данных:', error));
