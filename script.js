@@ -18,38 +18,33 @@ const defaultIcon = L.icon({
     shadowSize: [41, 41]
 });
 
-fetch('/pamjat_map/points.json')
+fetch('points.json')
   .then(response => {
     if (!response.ok) throw new Error('Не удалось загрузить points.json: ' + response.status);
-    return response.text();
+    return response.json();
   })
-  .then(text => {
-    const decoder = new TextDecoder('utf-8');
-    const utf8Text = decoder.decode(new Uint8Array([...text].map(c => c.charCodeAt(0))));
-    return JSON.parse(utf8Text);
+  .then(points => {
+    points.forEach(point => {
+      const marker = L.marker([point.lat, point.lng], {
+        icon: defaultIcon,
+        title: point.title,
+        riseOnHover: true
+      }).addTo(map);
+
+      const linkHtml = point.link
+        ? `<br><a href="${point.link}" target="_blank" rel="noopener">Подробнее →</a>`
+        : '';
+
+      marker.bindPopup(`
+        <div style="min-width: 180px; max-width: 260px; font-family: system-ui, sans-serif;">
+          <strong style="font-size: 15px;">${point.title}</strong><br>
+          <em style="color: #666;">${point.date}</em>
+          <hr style="margin: 6px 0; border: none; border-top: 1px solid #eee;">
+          <div>${point.description || ''}</div>
+          ${point.memory ? `<small style="color: #777;">${point.memory}</small>` : ''}
+          ${linkHtml}
+        </div>
+      `);
+    });
   })
-    .then(points => {
-        points.forEach(point => {
-            const marker = L.marker([point.lat, point.lng], {
-                icon: defaultIcon,
-                title: point.title,
-                riseOnHover: true 
-            }).addTo(map);
-
-            const linkHtml = point.link
-                ? `<br><a href="${point.link}" target="_blank" rel="noopener">Подробнее →</a>`
-                : '';
-
-            marker.bindPopup(`
-                <div style="min-width: 180px; max-width: 260px; font-family: system-ui, sans-serif;">
-                    <strong style="font-size: 15px;">${point.title}</strong><br>
-                    <em style="color: #666;">${point.date}</em>
-                    <hr style="margin: 6px 0; border: none; border-top: 1px solid #eee;">
-                    <div>${point.description || ''}</div>
-                    ${point.memory ? `<small style="color: #777;">${point.memory}</small>` : ''}
-                    ${linkHtml}
-                </div>
-            `);
-        });
-    })
-    .catch(error => console.error('Ошибка загрузки данных:', error));
+  .catch(error => console.error('Ошибка загрузки данных:', error));
