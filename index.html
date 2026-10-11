@@ -29,6 +29,10 @@
     border-radius: 50%;
   }
 
+  .pin.capital {
+    box-shadow: 0 0 0 3px #ffd700, 0 2px 8px rgba(0,0,0,.5);
+  }
+
   .leaflet-popup-content-wrapper { border-radius: 10px; }
   .leaflet-popup-content {
     margin: 14px 16px;
@@ -127,34 +131,58 @@ function parseRuDate(str) {
   return new Date(y, m, d);
 }
 
-const START = new Date(1943, 8, 23);
-const END = new Date(1944, 6, 28);
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
-function pinColor(dateStr) {
+let allDates = [];
+
+function buildColorMap(points) {
+  const dates = points
+    .map(p => parseRuDate(p.date))
+    .filter(Boolean)
+    .sort((a, b) => a - b);
+
+  const unique = [];
+  for (const d of dates) {
+    if (!unique.length || d.getTime() !== unique[unique.length - 1].getTime()) {
+      unique.push(d);
+    }
+  }
+
+  allDates = unique;
+}
+
+function pinColor(dateStr, isCapital) {
+  if (isCapital) return '#ffd700';
+
   const d = parseRuDate(dateStr);
-  if (!d) return 'rgb(200,60,20)';
-  let t = (d - START) / (END - START);
-  t = Math.max(0, Math.min(1, t));
+  if (!d || !allDates.length) return 'rgb(255,145,20)';
+
+  let idx = 0;
+  for (let i = 0; i < allDates.length; i++) {
+    if (allDates[i].getTime() === d.getTime()) { idx = i; break; }
+  }
+
+  const t = allDates.length > 1 ? idx / (allDates.length - 1) : 0;
+
   const r = Math.round(255 - 65 * t);
   const g = Math.round(145 * (1 - t));
   const b = Math.round(20 * (1 - t));
   return `rgb(${r},${g},${b})`;
 }
 
-function makeIcon(dateStr) {
+function makeIcon(dateStr, isCapital) {
+  const cls = isCapital ? 'pin capital' : 'pin';
   return L.divIcon({
     className: '',
-    html: `<div class="pin" style="background:${pinColor(dateStr)}"></div>`,
+    html: `<div class="${cls}" style="background:${pinColor(dateStr, isCapital)}"></div>`,
     iconSize: [22, 22],
     iconAnchor: [11, 22],
     popupAnchor: [0, -24]
   });
-}
-
-function esc(s) {
-  return String(s == null ? '' : s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 function buildPopup(p) {
@@ -167,9 +195,13 @@ function buildPopup(p) {
   const mem = p.memory
     ? `<div class="popup-memory">${esc(p.memory)}</div>`
     : '';
-  const srcs = Array.isArray(p.sources) ? p.sources.filter(Boolean) : [];
+
+  const srcs = Array.isArray(p.sources) ? p.sources.filter(s => s && s.url) : [];
   const srcHtml = srcs.length
-    ? `<div class="popup-src">${srcs.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//, ''))}</a>`).join('')}</div>`
+    ? `<div class="popup-src">${srcs.map(s => {
+        const label = s.label || s.url.replace(/^https?:\/\//, '').split('/')[0];
+        return `<a href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.url)}">${esc(label)}</a>`;
+      }).join('')}</div>`
     : '';
 
   return `
@@ -195,22 +227,36 @@ fetch('points.json', { cache: 'no-store' })
     return r.json();
   })
   .then(points => {
+    buildColorMap(points);
+
     const markers = [];
     points.forEach(p => {
       if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
+
+      const isCapital = p.title === 'Минск';
       const m = L.marker([p.lat, p.lng], {
-        icon: makeIcon(p.date),
+        icon: makeIcon(p.date, isCapital),
         title: p.title,
         riseOnHover: true
       });
+
       m.bindPopup(buildPopup(p), {
         maxWidth: 360,
         minWidth: 320,
         closeButton: true,
         autoPanPadding: [40, 40]
       });
-      m.on('mouseover', function () { this.openPopup(); });
-      m.on('mouseout',  function () { this.closePopup(); });
+
+      m.on('popupopen', function () {
+        const el = this.getElement();
+        if (el) el.style.zIndex = 1000;
+      });
+
+      m.on('click', function () {
+        if (this.isPopupOpen()) return;
+        this.openPopup();
+      });
+
       markers.push(m);
     });
     cluster.addLayers(markers);
