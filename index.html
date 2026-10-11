@@ -164,7 +164,7 @@ function pinColor(dateStr, isCapital) {
   let idx = 0;
   for (let i = 0; i < allDates.length; i++) {
     if (allDates[i].getTime() === d.getTime()) { idx = i; break; }
-  }
+  } //,
 
   const t = allDates.length > 1 ? idx / (allDates.length - 1) : 0;
 
