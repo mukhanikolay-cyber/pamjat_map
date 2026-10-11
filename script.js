@@ -18,11 +18,16 @@ const defaultIcon = L.icon({
     shadowSize: [41, 41]
 });
 
-fetch('/pamjat_map/points.json')
-    .then(response => {
-        if (!response.ok) throw new Error('Не удалось загрузить points.json');
-        return response.json();
-    })
+fetch('points.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Не удалось загрузить points.json: ' + response.status);
+    return response.text();
+  })
+  .then(text => {
+    const decoder = new TextDecoder('utf-8');
+    const utf8Text = decoder.decode(new Uint8Array([...text].map(c => c.charCodeAt(0))));
+    return JSON.parse(utf8Text);
+  })
     .then(points => {
         points.forEach(point => {
             const marker = L.marker([point.lat, point.lng], {
