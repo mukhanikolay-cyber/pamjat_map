@@ -18,7 +18,7 @@ const defaultIcon = L.icon({
     shadowSize: [41, 41]
 });
 
-fetch('points.json')
+fetch('points.json', { cache: 'no-store' })
   .then(response => {
     if (!response.ok) throw new Error('Не удалось загрузить points.json: ' + response.status);
     return response.json();
