@@ -13,7 +13,6 @@
     "memoryPhoto": "",
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://archives.gov.by/", "label": "archives.gov.by" },
       { "url": "https://bragin.gov.by/", "label": "bragin.gov.by" }
     ]
   },
@@ -32,7 +31,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://gomel.gov.by/", "label": "gomel.gov.by" },
-      { "url": "https://cenadm.gov.by/", "label": "Аллея Героев" }
+      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
     ]
   },
   {
@@ -49,8 +48,7 @@
     "memoryPhoto": "",
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://minsk.gov.by/", "label": "minsk.gov.by" },
-      { "url": "https://heritage.gov.by/", "label": "Памятник танкистам-освободителям" }
+      { "url": "https://minsk.gov.by/", "label": "minsk.gov.by" }
     ]
   },
   {
@@ -68,7 +66,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://brest.gov.by/", "label": "brest.gov.by" },
-      { "url": "https://brest-fortress.by/", "label": "Брестская крепость-герой" }
+      { "url": "https://www.mil.by/", "label": "mil.by" }
     ]
   },
   {
@@ -122,7 +120,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://orsha.vitebsk-region.gov.by/", "label": "orsha.vitebsk-region.gov.by" },
-      { "url": "https://rgkm.museum.by/", "label": "rgkm.museum.by" }
+      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
     ]
   },
   {
@@ -158,7 +156,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://bobruisk.gov.by/", "label": "bobruisk.gov.by" },
-      { "url": "https://vayar.mil.by/", "label": "vayar.mil.by" }
+      { "url": "https://www.mil.by/", "label": "mil.by" }
     ]
   },
   {
@@ -176,7 +174,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://polotsk.vitebsk-region.gov.by/", "label": "polotsk.vitebsk-region.gov.by" },
-      { "url": "https://belta.by/", "label": "belta.by" }
+      { "url": "https://www.sb.by/", "label": "sb.by" }
     ]
   },
   {
@@ -194,7 +192,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://pinsk.gov.by/", "label": "pinsk.gov.by" },
-      { "url": "https://www.mil.by/", "label": "mil.by" }
+      { "url": "https://belta.by/", "label": "belta.by" }
     ]
   },
   {
@@ -230,7 +228,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://lida.gov.by/", "label": "lida.gov.by" },
-      { "url": "https://turismlida.by/", "label": "turismlida.by" }
+      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
     ]
   },
   {
@@ -284,7 +282,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://mozyrisp.gov.by/", "label": "mozyrisp.gov.by" },
-      { "url": "https://inform.mozyrlib.by/", "label": "inform.mozyrlib.by" }
+      { "url": "https://www.sb.by/", "label": "sb.by" }
     ]
   },
   {
@@ -302,7 +300,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://kalinkovichi.gov.by/", "label": "kalinkovichi.gov.by" },
-      { "url": "https://knews.by/", "label": "knews.by" }
+      { "url": "https://www.sb.by/", "label": "sb.by" }
     ]
   },
   {
@@ -320,7 +318,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://rechitsa.gov.by/", "label": "rechitsa.gov.by" },
-      { "url": "https://museum.by/", "label": "museum.by" }
+      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
     ]
   },
   {
@@ -338,7 +336,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://rogachev.gov.by/", "label": "rogachev.gov.by" },
-      { "url": "https://www.mil.by/", "label": "mil.by" }
+      { "url": "https://www.vayar.mil.by/", "label": "vayar.mil.by" }
     ]
   },
   {
@@ -374,7 +372,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://borisov.gov.by/", "label": "borisov.gov.by" },
-      { "url": "https://sp.sb.by/", "label": "sp.sb.by" }
+      { "url": "https://preslib.org.by/", "label": "preslib.org.by" }
     ]
   },
   {
@@ -392,7 +390,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://molodechno.gov.by/", "label": "molodechno.gov.by" },
-      { "url": "https://rw.by/", "label": "rw.by" }
+      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
     ]
   },
   {
@@ -410,7 +408,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://slutsk.gov.by/", "label": "slutsk.gov.by" },
-      { "url": "https://www.mil.by/", "label": "mil.by" }
+      { "url": "https://belta.by/", "label": "belta.by" }
     ]
   },
   {
@@ -428,7 +426,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://vileyka.gov.by/", "label": "vileyka.gov.by" },
-      { "url": "https://www.mil.by/", "label": "mil.by" }
+      { "url": "https://archmol.by/", "label": "archmol.by" }
     ]
   },
   {
@@ -445,7 +443,7 @@
     "memoryPhoto": "",
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://osipovichi-region.by/", "label": "osipovichi-region.by" },
+      { "url": "https://osipovichi.gov.by/", "label": "osipovichi.gov.by" },
       { "url": "https://mogilev-region.gov.by/", "label": "mogilev-region.gov.by" }
     ]
   },
@@ -481,8 +479,8 @@
     "memoryPhoto": "",
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://dubrovno.vitebsk-region.gov.by/", "label": "dubrovno.vitebsk-region.gov.by" },
-      { "url": "https://www.dubrovno.by/", "label": "dubrovno.by" }
+      { "url": "https://dubrovno.by/", "label": "dubrovno.by" },
+      { "url": "https://pridvinie.vlib.by/", "label": "pridvinie.vlib.by" }
     ]
   },
   {
@@ -500,7 +498,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://tolochin.vitebsk-region.gov.by/", "label": "tolochin.vitebsk-region.gov.by" },
-      { "url": "https://tolochincbs.by/", "label": "tolochincbs.by" }
+      { "url": "https://eng.belta.by/", "label": "eng.belta.by" }
     ]
   },
   {
@@ -590,7 +588,7 @@
     "sources": [
       { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
       { "url": "https://pridvinie.vlib.by/", "label": "pridvinie.vlib.by" },
-      { "url": "https://belarusenc.by/", "label": "belarusenc.by" }
+      { "url": "https://nlb.by/", "label": "nlb.by" }
     ]
   }
 ]
