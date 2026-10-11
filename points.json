@@ -8,12 +8,13 @@
     "operation": "Черниговско-Припятская операция",
     "units": "13-я армия, 8-я и 74-я стрелковые дивизии",
     "description": "Первый освобождённый районный центр БССР.",
-    "memory": "Памятник воинам-освободителям (1976), братская могила, мемориальный комплекс «Парк Победы».",
+    "memory": "Стела в честь воинов-освободителей 15-го стрелкового корпуса 13-й армии (1976), братская могила, ежегодный митинг.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarusenc.by",
-      "https://preslib.org.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://archives.gov.by/", "label": "archives.gov.by" },
+      { "url": "https://bragin.gov.by/", "label": "bragin.gov.by" }
     ]
   },
   {
@@ -29,8 +30,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.belarus.by",
-      "https://tops.gpk.gov.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://gomel.gov.by/", "label": "gomel.gov.by" },
+      { "url": "https://cenadm.gov.by/", "label": "Аллея Героев" }
     ]
   },
   {
@@ -46,8 +48,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.bdamlm.by",
-      "https://nlr.ru"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://minsk.gov.by/", "label": "minsk.gov.by" },
+      { "url": "https://heritage.gov.by/", "label": "Памятник танкистам-освободителям" }
     ]
   },
   {
@@ -63,8 +66,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://preslib.org.by",
-      "https://zviazda.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://brest.gov.by/", "label": "brest.gov.by" },
+      { "url": "https://brest-fortress.by/", "label": "Брестская крепость-герой" }
     ]
   },
   {
@@ -80,8 +84,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarus24.by",
-      "https://preslib.org.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://grodno.gov.by/", "label": "grodno.gov.by" },
+      { "url": "https://grodno-region.gov.by/", "label": "grodno-region.gov.by" }
     ]
   },
   {
@@ -97,8 +102,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.vitebsk-region.gov.by",
-      "https://preslib.org.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://vitebsk.gov.by/", "label": "vitebsk.gov.by" },
+      { "url": "https://vitebsk-region.gov.by/", "label": "vitebsk-region.gov.by" }
     ]
   },
   {
@@ -114,8 +120,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.belarus.by",
-      "https://zviazda.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://orsha.vitebsk-region.gov.by/", "label": "orsha.vitebsk-region.gov.by" },
+      { "url": "https://rgkm.museum.by/", "label": "rgkm.museum.by" }
     ]
   },
   {
@@ -131,8 +138,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://archives.gov.by",
-      "https://belta.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://mogilev.gov.by/", "label": "mogilev.gov.by" },
+      { "url": "https://mogilev-region.gov.by/", "label": "mogilev-region.gov.by" }
     ]
   },
   {
@@ -148,8 +156,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://preslib.org.by",
-      "https://belta.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://bobruisk.gov.by/", "label": "bobruisk.gov.by" },
+      { "url": "https://vayar.mil.by/", "label": "vayar.mil.by" }
     ]
   },
   {
@@ -165,8 +174,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.mil.by",
-      "https://polotsk.vitebsk-region.gov.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://polotsk.vitebsk-region.gov.by/", "label": "polotsk.vitebsk-region.gov.by" },
+      { "url": "https://belta.by/", "label": "belta.by" }
     ]
   },
   {
@@ -182,8 +192,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://preslib.org.by",
-      "https://www.mil.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://pinsk.gov.by/", "label": "pinsk.gov.by" },
+      { "url": "https://www.mil.by/", "label": "mil.by" }
     ]
   },
   {
@@ -199,8 +210,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://preslib.org.by",
-      "https://archives.gov.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://baranovichi.brest-region.gov.by/", "label": "baranovichi.brest-region.gov.by" },
+      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
     ]
   },
   {
@@ -216,8 +228,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://archives.gov.by",
-      "https://belarusenc.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://lida.gov.by/", "label": "lida.gov.by" },
+      { "url": "https://turismlida.by/", "label": "turismlida.by" }
     ]
   },
   {
@@ -233,8 +246,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarusenc.by",
-      "https://belta.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://slonim.gov.by/", "label": "slonim.gov.by" },
+      { "url": "https://belta.by/", "label": "belta.by" }
     ]
   },
   {
@@ -250,8 +264,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarusenc.by",
-      "https://volkvkh.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://volkovysk.gov.by/", "label": "volkovysk.gov.by" },
+      { "url": "https://sp.sb.by/", "label": "sp.sb.by" }
     ]
   },
   {
@@ -267,8 +282,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.nlb.by",
-      "https://www.vayar.mil.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://mozyrisp.gov.by/", "label": "mozyrisp.gov.by" },
+      { "url": "https://inform.mozyrlib.by/", "label": "inform.mozyrlib.by" }
     ]
   },
   {
@@ -284,8 +300,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarusenc.by",
-      "https://news.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://kalinkovichi.gov.by/", "label": "kalinkovichi.gov.by" },
+      { "url": "https://knews.by/", "label": "knews.by" }
     ]
   },
   {
@@ -301,8 +318,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://archives.gov.by",
-      "https://www.mil.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://rechitsa.gov.by/", "label": "rechitsa.gov.by" },
+      { "url": "https://museum.by/", "label": "museum.by" }
     ]
   },
   {
@@ -318,8 +336,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.vayar.mil.by",
-      "https://belarusenc.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://rogachev.gov.by/", "label": "rogachev.gov.by" },
+      { "url": "https://www.mil.by/", "label": "mil.by" }
     ]
   },
   {
@@ -335,8 +354,9 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://archives.gov.by",
-      "https://www.sb.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://zhlobin.gov.by/", "label": "zhlobin.gov.by" },
+      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
     ]
   },
   {
@@ -348,12 +368,13 @@
     "operation": "Минская наступательная операция (операция «Багратион»)",
     "units": "3-й Белорусский фронт",
     "description": "Освобождён в ходе Минской операции. 13 частям и соединениям присвоено почётное наименование «Борисовских».",
-    "memory": "Памятник воинам-освободителям, братская могила, мемориальная доска.",
+    "memory": "Памятник экипажу танка Павла Рака, мемориальный комплекс «Жертвам фашизма», братская могила.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belta.by",
-      "https://www.storyofvictory.sb.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://borisov.gov.by/", "label": "borisov.gov.by" },
+      { "url": "https://sp.sb.by/", "label": "sp.sb.by" }
     ]
   },
   {
@@ -365,12 +386,13 @@
     "operation": "Вильнюсская операция (операция «Багратион»)",
     "units": "3-й Белорусский фронт, 11-я гвардейская армия",
     "description": "Освобождён в ходе Вильнюсской операции. Важный железнодорожный узел.",
-    "memory": "Памятник воинам-освободителям, братская могила, мемориальные доски.",
+    "memory": "Мемориальный комплекс в честь освободителей (1982), памятник на братской могиле, Вечный огонь.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://archives.gov.by",
-      "https://www.rw.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://molodechno.gov.by/", "label": "molodechno.gov.by" },
+      { "url": "https://rw.by/", "label": "rw.by" }
     ]
   },
   {
@@ -382,12 +404,13 @@
     "operation": "Минская наступательная операция (операция «Багратион»)",
     "units": "1-й Белорусский фронт, конно-механизированная группа генерала И.А. Плиева",
     "description": "Освобождён в ходе Минской операции. Важный узел обороны противника.",
-    "memory": "Памятник воинам-освободителям, братская могила, Вечный огонь.",
+    "memory": "Памятник Освободителям (1967), памятный знак воинам-освободителям, братская могила.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belta.by",
-      "https://www.mil.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://slutsk.gov.by/", "label": "slutsk.gov.by" },
+      { "url": "https://www.mil.by/", "label": "mil.by" }
     ]
   },
   {
@@ -399,12 +422,13 @@
     "operation": "Минская наступательная операция (операция «Багратион»)",
     "units": "35-я гвардейская танковая бригада, 3-й гвардейский Сталинградский механизированный корпус",
     "description": "Освобождён в ходе Минской операции. Областной центр Белорусской ССР на момент освобождения.",
-    "memory": "Памятник воинам-освободителям, братская могила, мемориальная доска.",
+    "memory": "Памятник воинам-освободителям (обелиск, 1952), памятник дважды Герою Советского Союза А. А. Асланову.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.nlb.by",
-      "https://vileyka.gov.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://vileyka.gov.by/", "label": "vileyka.gov.by" },
+      { "url": "https://www.mil.by/", "label": "mil.by" }
     ]
   },
   {
@@ -416,12 +440,13 @@
     "operation": "Бобруйская наступательная операция (операция «Багратион»)",
     "units": "69-я стрелковая дивизия",
     "description": "Освобождён в ходе Бобруйской операции. Крупный железнодорожный узел.",
-    "memory": "Памятник воинам-освободителям, братская могила, мемориальная доска.",
+    "memory": "Мемориальный комплекс «Брицаловичи», памятник воинам-освободителям, братская могила.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarusenc.by",
-      "https://www.osipovichi.gov.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://osipovichi-region.by/", "label": "osipovichi-region.by" },
+      { "url": "https://mogilev-region.gov.by/", "label": "mogilev-region.gov.by" }
     ]
   },
   {
@@ -433,12 +458,13 @@
     "operation": "Могилевская наступательная операция (операция «Багратион»)",
     "units": "70-я стрелковая дивизия 33-й армии 2-го Белорусского фронта",
     "description": "Освобождён в ходе Могилевской операции. Районный центр Могилевской области.",
-    "memory": "Мемориал «Скорбящая мать», братская могила, памятник воинам-освободителям.",
+    "memory": "Мемориал «Скорбящая мать», памятник Освобождения, братская могила.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarusenc.by",
-      "https://mogilev-region.gov.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://gorki.gov.by/", "label": "gorki.gov.by" },
+      { "url": "https://mogilev-region.gov.by/", "label": "mogilev-region.gov.by" }
     ]
   },
   {
@@ -450,12 +476,13 @@
     "operation": "Витебско-Оршанская операция (операция «Багратион»)",
     "units": "331-я стрелковая дивизия 71-го стрелкового корпуса",
     "description": "Освобождён в ходе Витебско-Оршанской операции. Районный центр Витебской области.",
-    "memory": "Памятник воинам-освободителям, братская могила, мемориальная доска.",
+    "memory": "Памятник Герою Советского Союза Анне Никандровой, мемориальный комплекс «Рыленки», Аллея героев.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarusenc.by",
-      "https://www.dubrovno.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://dubrovno.vitebsk-region.gov.by/", "label": "dubrovno.vitebsk-region.gov.by" },
+      { "url": "https://www.dubrovno.by/", "label": "dubrovno.by" }
     ]
   },
   {
@@ -467,12 +494,13 @@
     "operation": "Витебско-Оршанская операция (операция «Багратион»)",
     "units": "3-й Белорусский фронт, 5-я гвардейская танковая армия",
     "description": "Освобождён в ходе Витебско-Оршанской операции. Важный узел дорог.",
-    "memory": "Памятник воинам-освободителям, братская могила, мемориальная доска.",
+    "memory": "Памятник «Освобождение» (1969), памятник на братской могиле, мемориальная доска.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://history.by",
-      "https://www.sb.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://tolochin.vitebsk-region.gov.by/", "label": "tolochin.vitebsk-region.gov.by" },
+      { "url": "https://tolochincbs.by/", "label": "tolochincbs.by" }
     ]
   },
   {
@@ -484,12 +512,13 @@
     "operation": "Минская наступательная операция (операция «Багратион»)",
     "units": "219-я танковая бригада 1-го механизированного корпуса 1-го Белорусского фронта",
     "description": "Освобождён в ходе Минской операции. Районный центр Минской области.",
-    "memory": "Мемориальный комплекс советским воинам и партизанам, братская могила.",
+    "memory": "Мемориальный комплекс советским воинам и партизанам, памятник воинам 219-й танковой бригады (танк ИС-3).",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://belarusenc.by",
-      "https://minoblturism.gov.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://kletsk.gov.by/", "label": "kletsk.gov.by" },
+      { "url": "https://minoblturism.gov.by/", "label": "minoblturism.gov.by" }
     ]
   },
   {
@@ -501,12 +530,13 @@
     "operation": "Минская наступательная операция (операция «Багратион»)",
     "units": "193-я стрелковая дивизия 1-го Белорусского фронта",
     "description": "Освобождён в ходе Минской операции. Известен Несвижским замком.",
-    "memory": "Памятник воинам-освободителям, братская могила, мемориальная доска.",
+    "memory": "Стела «Освобождение» (1967), мемориал «Слава героям-освободителям», братская могила.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://www.gamn.by",
-      "https://niasvizh.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://nesvizh.gov.by/", "label": "nesvizh.gov.by" },
+      { "url": "https://www.gamn.by/", "label": "gamn.by" }
     ]
   },
   {
@@ -518,12 +548,13 @@
     "operation": "Вильнюсская операция (операция «Багратион»)",
     "units": "35-я гвардейская танковая бригада, 7-я гвардейская механизированная бригада",
     "description": "Освобождён в ходе Вильнюсской операции. Важный опорный пункт немецкой обороны.",
-    "memory": "Памятный знак «Переправа», братская могила, памятник воинам-освободителям.",
+    "memory": "Мемориальный комплекс «Переправа», памятник погибшим воинам и партизанам, стела с изображением звезды.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://tops.gpk.gov.by",
-      "https://www.sb.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://smorgon.gov.by/", "label": "smorgon.gov.by" },
+      { "url": "https://tops.gpk.gov.by/", "label": "tops.gpk.gov.by" }
     ]
   },
   {
@@ -535,12 +566,13 @@
     "operation": "Минская наступательная операция (операция «Багратион»)",
     "units": "850-й стрелковый полк 277-й стрелковой дивизии 5-й армии 3-го Белорусского фронта, партизанская бригада имени К. Е. Ворошилова",
     "description": "Освобождён в ходе Минской операции. Районный центр Минской области.",
-    "memory": "Братская могила советских воинов и партизан, памятник воинам-освободителям.",
+    "memory": "Братская могила советских воинов и партизан, памятник «Скорбящая мать».",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://mobile.museum.by",
-      "https://belarusenc.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://myadel.gov.by/", "label": "myadel.gov.by" },
+      { "url": "https://minoblturism.gov.by/", "label": "minoblturism.gov.by" }
     ]
   },
   {
@@ -552,12 +584,13 @@
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
     "units": "159-я танковая бригада 1-го танкового корпуса, 154-я стрелковая дивизия 103-го стрелкового корпуса 6-й гвардейской армии 1-го Прибалтийского фронта",
     "description": "Освобождён в ходе Полоцкой операции. Город на реке Западная Двина.",
-    "memory": "Памятник воинам-освободителям, братская могила, мемориальная доска.",
+    "memory": "Памятник Освобождения, памятник в честь воинов 159-й танковой бригады, братская могила.",
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      "https://pridvinie.vlib.by",
-      "https://belarusenc.by"
+      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
+      { "url": "https://pridvinie.vlib.by/", "label": "pridvinie.vlib.by" },
+      { "url": "https://belarusenc.by/", "label": "belarusenc.by" }
     ]
   }
 ]
