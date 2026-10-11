@@ -164,7 +164,7 @@ function pinColor(dateStr, isCapital) {
   let idx = 0;
   for (let i = 0; i < allDates.length; i++) {
     if (allDates[i].getTime() === d.getTime()) { idx = i; break; }
-  } //,
+  }
 
   const t = allDates.length > 1 ? idx / (allDates.length - 1) : 0;
 
@@ -200,7 +200,7 @@ function buildPopup(p) {
   const srcHtml = srcs.length
     ? `<div class="popup-src">${srcs.map(s => {
         const label = s.label || s.url.replace(/^https?:\/\//, '').split('/')[0];
-        return `<a href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.url)}">${esc(label)}</a>`;
+        return`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" title="${esc(s.url)}">${esc(label)}</a>`;
       }).join('')}</div>`
     : '';
 
