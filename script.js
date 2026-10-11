@@ -1,50 +1,69 @@
-const map = L.map('map', {
-    zoomControl: true,
-    attributionControl: true
-}).setView([53.9, 27.5], 6);
+const map = L.map('map').setView([53.9, 27.5], 6);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    maxZoom: 19
+    attribution: '&copy; OpenStreetMap'
 }).addTo(map);
 
-const defaultIcon = L.icon({
-    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-});
+function getColor(dateStr) {
+    const parts = dateStr.split(' ');
+    const d = new Date(parts[2] + '-' + parts[1] + '-' + parts[0]);
+    const start = new Date('1943-09-23');
+    const end = new Date('1944-07-28');
+    const ratio = Math.min(1, Math.max(0, (d - start) / (end - start)));
+    const r = 255;
+    const g = Math.round(120 * (1 - ratio));
+    const b = 0;
+    return `rgb(${r}, ${g}, ${b})`;
+}
 
-fetch('points.json', { cache: 'no-store' })
-  .then(response => {
-    if (!response.ok) throw new Error('Не удалось загрузить points.json: ' + response.status);
-    return response.json();
-  })
-  .then(points => {
-    points.forEach(point => {
-      const marker = L.marker([point.lat, point.lng], {
-        icon: defaultIcon,
-        title: point.title,
-        riseOnHover: true
-      }).addTo(map);
-
-      const linkHtml = point.link
-        ? `<br><a href="${point.link}" target="_blank" rel="noopener">Подробнее →</a>`
-        : '';
-
-      marker.bindPopup(`
-        <div style="min-width: 180px; max-width: 260px; font-family: system-ui, sans-serif;">
-          <strong style="font-size: 15px;">${point.title}</strong><br>
-          <em style="color: #666;">${point.date}</em>
-          <hr style="margin: 6px 0; border: none; border-top: 1px solid #eee;">
-          <div>${point.description || ''}</div>
-          ${point.memory ? `<small style="color: #777;">${point.memory}</small>` : ''}
-          ${linkHtml}
-        </div>
-      `);
+function createIcon(date) {
+    const color = getColor(date);
+    return L.divIcon({
+        className: 'custom-marker',
+        html: `<div style="background: ${color}; width: 22px; height: 22px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid #fff; box-shadow: 0 0 6px rgba(0,0,0,.4); position: relative;"><div style="content: ''; position: absolute; inset: 5px; background: #fff; border-radius: 50%;"></div></div>`,
+        iconSize: [22, 22],
+        iconAnchor: [11, 22],
+        popupAnchor: [0, -22]
     });
-  })
-  .catch(error => console.error('Ошибка загрузки данных:', error));
+}
+
+fetch('points.json')
+    .then(r => r.json())
+    .then(points => {
+        points.forEach(p => {
+            const icon = createIcon(p.date);
+            const marker = L.marker([p.lat, p.lng], { icon, title: p.title }).addTo(map);
+
+            const imgCity = p.photo ? `<img class="popup-img" src="${p.photo}" alt="${p.title}">` : '';
+            const imgMem = p.memoryPhoto ? `<img class="popup-img" src="${p.memoryPhoto}" alt="Мемориал ${p.title}">` : '';
+
+            let sourcesHtml = '';
+            if (p.sources && p.sources.length) {
+                sourcesHtml = '<div class="popup-sources"><strong>Источники:</strong>';
+                p.sources.forEach(s => {
+                    sourcesHtml += `<a href="${s}" target="_blank">${s}</a>`;
+                });
+                sourcesHtml += '</div>';
+            }
+
+            const popupContent = `
+                <div class="popup-title">${p.title}</div>
+                <div class="popup-date">${p.date}</div>
+                ${imgCity}
+                <div class="popup-desc">${p.description}</div>
+                ${imgMem}
+                <div class="popup-memory">${p.memory}</div>
+                ${sourcesHtml}
+            `;
+
+            marker.bindPopup(popupContent, { maxWidth: 360 });
+
+            marker.on('mouseover', function () {
+                this.openPopup();
+            });
+            marker.on('mouseout', function () {
+                this.closePopup();
+            });
+        });
+    })
+    .catch(err => console.error('Ошибка загрузки данных:', err));
