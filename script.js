@@ -5,13 +5,13 @@
 const mapcenter = [53.7, 27.8];
 const mapzoom = 6;
 const minsk = 'Минск';
-const voblast = ['Минск', 'Гомель', 'Могилев', 'Витебск', 'Брест', 'Гродно'];
+const voblast = ['Гомель', 'Могилев', 'Витебск', 'Брест', 'Гродно'];
 
 const orange = [255, 155, 40];
 const redcolor = [170, 15, 15];
 
-const minproz = 0.16;
-const zatuhanie = 25;
+const minproz = 0.15;
+const zatuhanie = 3;
 
 const mecjacy = {
   'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3,
@@ -24,10 +24,12 @@ let mapref, clusterref;
 let pointdata = [];
 let infodata = {};
 let daty = [];
+let opori = [];           // "опорные" дни слайдера (offset от datestart)
 let datestart = null, dateend = null, datedays = 0;
 let markerrecs = [];
 let activecity = null;
-let lowval = 0, highval = 0;
+let lowidx = 0, highidx = 0;
+let lastpulse = 0;
 
 const sinput = document.getElementById('search');
 const sclear = document.getElementById('search-clear');
@@ -118,6 +120,17 @@ function sobratdaty(points) {
   }
 }
 
+// собрать "опорные" дни слайдера: каждая дата освобождения + следующий день
+function sobratopori() {
+  const set = {};
+  daty.forEach(d => {
+    const off = Math.round((d - datestart) / dayms);
+    set[off] = 1;
+    if (off + 1 <= datedays) set[off + 1] = 1;
+  });
+  opori = Object.keys(set).map(Number).sort((a, b) => a - b);
+}
+
 // цвет маркера: 75% порядок городов + 25% интервал по календарю
 function colorfordate(datestr) {
   const d = parsedate(datestr);
@@ -125,14 +138,12 @@ function colorfordate(datestr) {
 
   const t = d.getTime();
 
-  // позиция в очереди городов
   let seqidx = 0;
   for (let i = 0; i < daty.length; i++) {
     if (daty[i].getTime() === t) { seqidx = i; break; }
   }
   const seqpos = seqidx / (daty.length - 1);
 
-  // позиция по календарю
   const first = daty[0].getTime();
   const last = daty[daty.length - 1].getTime();
   const intpos = last > first ? (t - first) / (last - first) : 0;
@@ -334,19 +345,33 @@ function otkrytgorod(id) {
 }
 window.otkrytgorod = otkrytgorod;
 
-// ползунок периода
+// пульс маркера при выборе города, кулдаун против спама
+function pulsmarker(marker) {
+  const now = Date.now();
+  if (now - lastpulse < 900) return;
+  lastpulse = now;
+
+  const el = marker.getElement();
+  if (!el) return;
+  const pin = el.querySelector('.pin');
+  if (!pin) return;
+
+  pin.classList.remove('pulse');
+  void pin.offsetWidth;   // перезапуск анимации
+  pin.classList.add('pulse');
+  setTimeout(() => pin.classList.remove('pulse'), 1000);
+}
+
+// ползунок периода по "опорным" дням
 function zapuskslider() {
-  if (!daty.length) return;
+  if (!opor.length) return;
+  const last = opori.length - 1;
 
-  rangelow.min = 0;
-  rangelow.max = datedays;
-  rangelow.value = 0;
-  rangehigh.min = 0;
-  rangehigh.max = datedays;
-  rangehigh.value = datedays;
+  rangelow.min = 0; rangelow.max = last; rangelow.value = 0;
+  rangehigh.min = 0; rangehigh.max = last; rangehigh.value = last;
 
-  lowval = 0;
-  highval = datedays;
+  lowidx = 0;
+  highidx = last;
 
   rangelow.addEventListener('input', obnovitrange);
   rangehigh.addEventListener('input', obnovitrange);
@@ -356,38 +381,47 @@ function zapuskslider() {
 function obnovitrange() {
   let lo = +rangelow.value;
   let hi = +rangehigh.value;
-  if (lo > hi) {
-    if (document.activeElement === rangelow) { hi = lo; rangehigh.value = hi; }
-    else { lo = hi; rangelow.value = lo; }
+
+  // концы не толкают друг друга — упираются, между ними минимум 1 день
+  if (lo >= hi) {
+    if (document.activeElement === rangelow) {
+      lo = hi - 1; rangelow.value = lo;
+    } else {
+      hi = lo + 1; rangehigh.value = hi;
+    }
   }
-  lowval = lo;
-  highval = hi;
+
+  lowidx = lo;
+  highidx = hi;
   primenitrange();
 }
 
 function obnovitfill() {
-  const total = datedays || 1;
-  const l = (lowval / total) * 100;
-  const r = (highval / total) * 100;
+  const total = opori.length - 1 || 1;
+  const l = (lowidx / total) * 100;
+  const r = (highidx / total) * 100;
   rangefill.style.left = l + '%';
   rangefill.style.width = (r - l) + '%';
 
   // верхний z-index тому ползунку, что прижат к краю
-  rangelow.style.zIndex = (lowval >= datedays - 2) ? 5 : 3;
-  rangehigh.style.zIndex = (highval <= 2) ? 5 : 4;
+  rangelow.style.zIndex = (lowidx >= opori.length - 2) ? 5 : 3;
+  rangehigh.style.zIndex = (highidx <= 1) ? 5 : 4;
 
-  datelow.textContent = formatdate(addsutki(datestart, lowval));
-  datehigh.textContent = formatdate(addsutki(datestart, highval));
+  datelow.textContent = formatdate(addsutki(datestart, opori[lowidx]));
+  datehigh.textContent = formatdate(addsutki(datestart, opori[highidx]));
 }
 
 function primenitrange() {
   obnovitfill();
 
+  const lowday = opori[lowidx];
+  const highday = opori[highidx];
+
   markerrecs.forEach(rec => {
     const off = rec.dayoff;
     let op = 1;
-    if (off < lowval) op = Math.max(minproz, 1 - (lowval - off) / zatuhanie);
-    else if (off > highval) op = Math.max(minproz, 1 - (off - highval) / zatuhanie);
+    if (off < lowday) op = Math.max(minproz, 1 - (lowday - off) / zatuhanie);
+    else if (off > highday) op = Math.max(minproz, 1 - (off - highday) / zatuhanie);
     rec.marker.setOpacity(op);
     rec.marker.options.opac = op;
   });
@@ -454,6 +488,7 @@ Promise.all([
   infodata = info || {};
 
   sobratdaty(points);
+  sobratopori();
   initkarta();
 
   const markers = [];
@@ -514,12 +549,13 @@ listview.addEventListener('click', e => {
   const item = e.target.closest('.city-item');
   if (!item) return;
   const id = +item.dataset.id;
-  const p = pointdata.find(x => x.id === id);
-  if (!p) return;
+  const rec = markerrecs.find(r => r.point.id === id);
+  if (!rec) return;
 
   otkrytgorod(id);
 
   if (mapref) {
-    mapref.flyTo([p.lat, p.lng], Math.max(mapref.getZoom(), 9), { duration: 0.6 });
+    mapref.flyTo([rec.point.lat, rec.point.lng], Math.max(mapref.getZoom(), 9), { duration: 0.6 });
+    setTimeout(() => pulsmarker(rec.marker), 650);
   }
 });
