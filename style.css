@@ -6,7 +6,6 @@ html, body {
 }
 #map { position: absolute; inset: 0; z-index: 1; }
 
-/*правая панель*/
 .panel {
   position: absolute;
   top: 0; right: 0; bottom: 0;
@@ -18,16 +17,10 @@ html, body {
   z-index: 500;
   display: flex; flex-direction: column;
 }
-@media (max-width: 720px) {
-  .panel { width: 82vw; }
-}
+@media (max-width: 720px) { .panel { width: 82vw; } }
 
-.panel-head {
-  padding: 14px 14px 10px;
-  border-bottom: 1px solid #eee;
-}
+.panel-head { padding: 14px 14px 10px; border-bottom: 1px solid #eee; }
 
-/*поиск*/
 .search-box {
   position: relative;
   display: flex; align-items: center; gap: 8px;
@@ -56,7 +49,6 @@ html, body {
   display: flex; align-items: center; justify-content: center;
 }
 
-/*прокрутка*/
 .panel-view { flex: 1; overflow-y: auto; padding: 6px 0; }
 .panel-view[hidden] { display: none; }
 .panel-view::-webkit-scrollbar { width: 8px; }
@@ -64,7 +56,6 @@ html, body {
 .panel-view::-webkit-scrollbar-thumb { background: #d2d2d2; border-radius: 4px; }
 .panel-view::-webkit-scrollbar-thumb:hover { background: #b3b3b3; }
 
-/*города*/
 .city-item {
   display: flex; align-items: center; gap: 12px;
   padding: 10px 14px;
@@ -72,10 +63,7 @@ html, body {
   border-left: 3px solid transparent;
   transition: background .15s, border-color .15s;
 }
-.city-item:hover {
-  background: #f7f7f9;
-  border-left-color: #b30000;
-}
+.city-item:hover { background: #f7f7f9; border-left-color: #b30000; }
 .city-thumb {
   width: 54px; height: 54px; flex: 0 0 auto;
   border-radius: 8px;
@@ -94,16 +82,9 @@ html, body {
   font-size: 12.5px; color: #777; margin-top: 2px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.city-date {
-  font-size: 12px; color: #b30000; font-weight: 600; margin-top: 3px;
-}
-.empty-state {
-  padding: 30px 20px;
-  text-align: center;
-  color: #888; font-size: 14px;
-}
+.city-date { font-size: 12px; color: #b30000; font-weight: 600; margin-top: 3px; }
+.empty-state { padding: 30px 20px; text-align: center; color: #888; font-size: 14px; }
 
-/*просмотр*/
 .detail-back {
   display: inline-flex; align-items: center; gap: 4px;
   background: none; border: none;
@@ -112,10 +93,7 @@ html, body {
 }
 .detail-back:hover { text-decoration: underline; }
 .detail-body { padding: 6px 16px 24px; }
-.detail-title {
-  font-size: 22px; font-weight: 700; color: #b30000;
-  margin: 6px 0 4px;
-}
+.detail-title { font-size: 22px; font-weight: 700; color: #b30000; margin: 6px 0 4px; }
 .detail-date { font-size: 13.5px; color: #444; margin-bottom: 12px; }
 .detail-photo {
   width: 100%; border-radius: 8px; margin: 8px 0;
@@ -127,20 +105,11 @@ html, body {
   font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
   color: #b30000; margin: 0 0 6px; font-weight: 700;
 }
-.detail-section p {
-  font-size: 14px; line-height: 1.55; margin: 0 0 8px;
-}
-.detail-section ul {
-  margin: 0; padding-left: 18px;
-  font-size: 14px; line-height: 1.55;
-}
+.detail-section p { font-size: 14px; line-height: 1.55; margin: 0 0 8px; }
+.detail-section ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.55; }
 .detail-section ul li { margin-bottom: 4px; }
 
-.monument {
-  display: flex; gap: 10px;
-  padding: 8px 0;
-  border-top: 1px solid #eee;
-}
+.monument { display: flex; gap: 10px; padding: 8px 0; border-top: 1px solid #eee; }
 .monument:first-child { border-top: none; padding-top: 0; }
 .monument-photo {
   width: 60px; height: 60px; flex: 0 0 auto;
@@ -160,7 +129,6 @@ html, body {
 .detail-src a:hover { text-decoration: underline; }
 .detail-src a::before { content: "→ "; color: #b30000; font-weight: 700; }
 
-/* маркеры*/
 .pin-holder { background: none !important; border: none !important; }
 .pin {
   width: 100%; height: 100%;
@@ -180,18 +148,48 @@ html, body {
   background: #fff;
   border-radius: 50%;
 }
+
 .pin-major { border-width: 3px; }
-.pin-major::after { background: #b30000; inset: 5px; }
+.pin-major::after {
+  background: #ffd700;
+  inset: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
 .pin-capital {
   border-width: 3px;
   box-shadow:
     0 0 0 2px #ffd700,
-    0 0 0 4px rgba(255, 215, 0, .35),
+    0 0 0 4px rgba(255, 215, 0, .4),
     0 2px 8px rgba(0, 0, 0, .55);
 }
-.pin-capital::after { background: #ffd700; inset: 5px; }
+.pin-capital::after {
+  background: #ffd700;
+  inset: 5px;
+}
 
-/*вжухххх*/
+@keyframes pinpulse {
+  0% {
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, .45),
+      0 0 0 0 rgba(255, 255, 255, .95),
+      0 0 0 0 rgba(255, 255, 255, .55);
+  }
+  70% {
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, .45),
+      0 0 0 14px rgba(255, 255, 255, 0),
+      0 0 0 26px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, .45),
+      0 0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+.pin.pulse { animation: pinpulse 900ms ease-out 1; }
+
 .cluster-wrap { background: none !important; border: none !important; }
 .cluster-inner {
   color: #fff;
@@ -204,50 +202,44 @@ html, body {
   transition: background .25s, opacity .25s;
 }
 
-/*период*/
 .slider-bar {
   position: absolute;
   left: 50%;
-  bottom: 24px;
+  bottom: 20px;
   transform: translateX(-50%);
   width: min(560px, calc(100% - 400px));
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 14px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
-  padding: 14px 20px 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.16);
+  padding: 8px 18px 10px;
   z-index: 500;
 }
 @media (max-width: 960px) {
   .slider-bar {
     left: 16px; right: calc(82vw + 16px);
-    transform: none;
-    width: auto;
+    transform: none; width: auto;
   }
 }
 @media (max-width: 720px) {
-  .slider-bar {
-    right: 16px;
-    left: 16px;
-    bottom: 16px;
-  }
+  .slider-bar { right: 16px; left: 16px; bottom: 12px; }
 }
 
 .slider-head {
   display: flex; justify-content: space-between; align-items: baseline;
-  margin-bottom: 10px;
-  font-size: 12.5px;
+  margin-bottom: 4px;
+  font-size: 12px;
   color: #666;
 }
 .slider-label {
   text-transform: uppercase; letter-spacing: .08em;
-  font-weight: 700; font-size: 11px; color: #b30000;
+  font-weight: 700; font-size: 10.5px; color: #b30000;
 }
 .slider-values b { color: #1a1a1a; font-weight: 600; }
 .slider-values .sep { margin: 0 6px; color: #bbb; }
 
-.range-wrap { position: relative; height: 26px; }
+.range-wrap { position: relative; height: 20px; }
 .range-track {
   position: absolute;
   top: 50%; left: 0; right: 0;
@@ -265,7 +257,7 @@ html, body {
 .range-wrap input[type=range] {
   position: absolute;
   top: 0; left: 0;
-  width: 100%; height: 26px;
+  width: 100%; height: 20px;
   background: none;
   pointer-events: none;
   -webkit-appearance: none;
@@ -273,21 +265,21 @@ html, body {
   margin: 0; outline: none;
 }
 .range-wrap input[type=range]::-webkit-slider-runnable-track {
-  background: transparent; border: none; height: 26px;
+  background: transparent; border: none; height: 20px;
 }
 .range-wrap input[type=range]::-moz-range-track {
-  background: transparent; border: none; height: 26px;
+  background: transparent; border: none; height: 20px;
 }
 .range-wrap input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none; appearance: none;
-  width: 18px; height: 18px; border-radius: 50%;
+  width: 16px; height: 16px; border-radius: 50%;
   background: #b30000; border: 3px solid #fff;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
   cursor: grab; pointer-events: auto;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 .range-wrap input[type=range]::-moz-range-thumb {
-  width: 18px; height: 18px; border-radius: 50%;
+  width: 16px; height: 16px; border-radius: 50%;
   background: #b30000; border: 3px solid #fff;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
   cursor: grab; pointer-events: auto;
@@ -295,7 +287,6 @@ html, body {
 .range-wrap input[type=range]::-webkit-slider-thumb:active { cursor: grabbing; }
 .range-wrap input[type=range]::-moz-range-thumb:active { cursor: grabbing; }
 
-/*попап*/
 .leaflet-popup-content-wrapper { border-radius: 10px; }
 .leaflet-popup-content {
   margin: 14px 16px;
