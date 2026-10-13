@@ -23,8 +23,8 @@ const dayms = 86400000;
 let mapref, clusterref;
 let pointdata = [];
 let infodata = {};
-let daty = [];             // отсортированные уникальные даты (Date)
-let opori = [];            // день каждой даты + следующий день (offset от datestart)
+let daty = [];
+let opori = [];
 let datestart = null, datedays = 0;
 let markerrecs = [];
 let activecity = null;
