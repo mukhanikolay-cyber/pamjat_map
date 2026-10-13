@@ -10,8 +10,8 @@ const voblast = ['Гомель', 'Могилев', 'Витебск', 'Брест
 const orange = [255, 155, 40];
 const redcolor = [170, 15, 15];
 
-const minproz = 0.15;    // минимальная прозрачность вне диапазона
-const zatuhanie = 2;     // сколько "шагов" идёт затухание (в шагах шкалы дат)
+const minproz = 0.15;
+const zatuhanie = 2;
 
 const mecjacy = {
   'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3,
@@ -20,10 +20,19 @@ const mecjacy = {
 };
 const dayms = 86400000;
 
-let mapref, clusterref;
+const granica = {
+  color: '#000000',
+  weight: 2,
+  opacity: 0.75,
+  fillColor: '#b30000',
+  fillOpacity: 0.04,
+  dashArray: '4 4'
+};
+
+let mapref, clusterref, granicref;
 let pointdata = [];
 let infodata = {};
-let daty = [];       // отсортированные уникальные даты (Date)
+let daty = [];
 let markerrecs = [];
 let activecity = null;
 let lowidx = 0, highidx = 0;
@@ -39,8 +48,6 @@ const rangehigh = document.getElementById('range-hi');
 const rangefill = document.getElementById('range-fill');
 const datelow = document.getElementById('date-low');
 const datehigh = document.getElementById('date-high');
-
-/* ---------- утилиты ---------- */
 
 function parsedate(str) {
   const parts = String(str || '').trim().split(/\s+/);
@@ -406,6 +413,7 @@ function primenitrange() {
   if (clusterref) clusterref.refreshClusters();
 }
 
+// обработчик движения ползунков
 function onRangeInput(which) {
   if (!sliderready) return;
   const last = daty.length - 1;
@@ -476,6 +484,24 @@ function initkarta() {
   mapref.addLayer(clusterref);
 }
 
+function initgranica() {
+  fetch('belarus.json', { cache: 'no-store' })
+    .then(r => {
+      if (!r.ok) throw new Error('belarus.json: ' + r.status);
+      return r.json();
+    })
+    .then(geo => {
+      granicref = L.geoJSON(geo, {
+        style: () => granica,
+        interactive: false
+      });
+      granicref.addTo(mapref);
+      if (granicref.bringToBack) granicref.bringToBack();
+      console.log('граница беларуси добавлена');
+    })
+    .catch(err => console.warn('граница не загрузилась:', err));
+}
+
 Promise.all([
   fetch('points.json', { cache: 'no-store' }).then(r => {
     if (!r.ok) throw new Error('points.json: ' + r.status);
@@ -490,6 +516,7 @@ Promise.all([
 
   sobratdaty(points);
   initkarta();
+  initgranica();
 
   const markers = [];
   points.forEach(p => {
@@ -518,10 +545,8 @@ Promise.all([
 
   clusterref.addLayers(markers);
 
-  // запускаем слайдер только после того, как известны daty и markerrecs
   zapuskslider();
 
-  // на всякий случай продублируем обработчики через addEventListener
   rangelow.addEventListener('input', () => onRangeInput('lo'));
   rangehigh.addEventListener('input', () => onRangeInput('hi'));
 
