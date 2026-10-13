@@ -1,270 +1,49 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<link rel="icon" href="data:,">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Карта освобождения Беларуси 1943–1944</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-<style>
-  html, body { margin: 0; height: 100%; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-  #map { height: 100vh; width: 100%; }
-
-  .pin {
-    width: 22px;
-    height: 22px;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-    border: 2px solid #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,.45);
-    position: relative;
-  }
-  .pin::after {
-    content: "";
-    position: absolute;
-    inset: 5px;
-    background: #fff;
-    border-radius: 50%;
-  }
-
-  .pin.capital {
-    box-shadow: 0 0 0 3px #ffd700, 0 2px 8px rgba(0,0,0,.5);
-  }
-
-  .leaflet-popup-content-wrapper { border-radius: 10px; }
-  .leaflet-popup-content {
-    margin: 14px 16px;
-    width: 320px !important;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #1a1a1a;
-  }
-  .popup-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #b30000;
-    margin: 0 0 2px;
-  }
-  .popup-date {
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  .popup-img {
-    width: 100%;
-    max-height: 170px;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-    margin: 8px 0;
-    background: #eee;
-  }
-  .popup-desc {
-    margin: 8px 0;
-    font-size: 14.5px;
-    color: #1a1a1a;
-  }
-  .popup-memory {
-    margin: 12px 0 4px;
-    padding: 10px 12px;
-    background: #fff5f5;
-    border-left: 4px solid #b30000;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #1a1a1a;
-  }
-  .popup-memory::before {
-    content: "Память";
-    display: block;
-    font-size: 11px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: #b30000;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .popup-src {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid #eee;
-    font-size: 13px;
-  }
-  .popup-src a {
-    display: block;
-    color: #0b5ed7;
-    text-decoration: none;
-    padding: 3px 0;
-    word-break: break-word;
-  }
-  .popup-src a:hover { text-decoration: underline; }
-  .popup-src a::before { content: "→ "; color: #b30000; font-weight: 700; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карта освобождения Беларуси 1943–1944</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="map"></div>
+  <div id="map"></div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-<script>
-const map = L.map('map', { zoomControl: true }).setView([53.7, 27.8], 6);
+  <aside id="panel" class="panel">
+    <div class="panel-head">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="M21 21l-4.3-4.3"></path>
+        </svg>
+        <input id="search" type="text" placeholder="Поиск..." autocomplete="off" spellcheck="false">
+        <button id="search-clear" class="search-clear" type="button" hidden>×</button>
+      </div>
+    </div>
+    <div id="list-view" class="panel-view"></div>
+    <div id="detail-view" class="panel-view" hidden></div>
+  </aside>
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap',
-  maxZoom: 19
-}).addTo(map);
+  <div id="slider-bar" class="slider-bar">
+    <div class="slider-head">
+      <span class="slider-label">Период освобождения</span>
+      <span class="slider-values">
+        <b id="date-low">—</b><span class="sep">—</span><b id="date-high">—</b>
+      </span>
+    </div>
+    <div class="range-wrap">
+      <div class="range-track"><div id="range-fill" class="range-fill"></div></div>
+      <input id="range-lo" type="range" min="0" max="1" value="0" step="1">
+      <input id="range-hi" type="range" min="0" max="1" value="1" step="1">
+    </div>
+  </div>
 
-const MONTHS = {
-  'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3,
-  'мая': 4, 'июня': 5, 'июля': 6, 'августа': 7,
-  'сентября': 8, 'октября': 9, 'ноября': 10, 'декабря': 11
-};
-
-function parseRuDate(str) {
-  const p = String(str).trim().split(/\s+/);
-  const d = parseInt(p[0], 10);
-  const m = MONTHS[p[1]];
-  const y = parseInt(p[2], 10);
-  if (isNaN(d) || m === undefined || isNaN(y)) return null;
-  return new Date(y, m, d);
-}
-
-function esc(s) {
-  return String(s == null ? '' : s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-let allDates = [];
-
-function buildColorMap(points) {
-  const dates = points
-    .map(p => parseRuDate(p.date))
-    .filter(Boolean)
-    .sort((a, b) => a - b);
-
-  const unique = [];
-  for (const d of dates) {
-    if (!unique.length || d.getTime() !== unique[unique.length - 1].getTime()) {
-      unique.push(d);
-    }
-  }
-
-  allDates = unique;
-}
-
-function pinColor(dateStr, isCapital) {
-  if (isCapital) return '#ffd700';
-
-  const d = parseRuDate(dateStr);
-  if (!d || !allDates.length) return 'rgb(255,145,20)';
-
-  let idx = 0;
-  for (let i = 0; i < allDates.length; i++) {
-    if (allDates[i].getTime() === d.getTime()) { idx = i; break; }
-  }
-
-  const t = allDates.length > 1 ? idx / (allDates.length - 1) : 0;
-
-  const r = Math.round(255 - 65 * t);
-  const g = Math.round(145 * (1 - t));
-  const b = Math.round(20 * (1 - t));
-  return `rgb(${r},${g},${b})`;
-}
-
-function makeIcon(dateStr, isCapital) {
-  const cls = isCapital ? 'pin capital' : 'pin';
-  return L.divIcon({
-    className: '',
-    html: `<div class="${cls}" style="background:${pinColor(dateStr, isCapital)}"></div>`,
-    iconSize: [22, 22],
-    iconAnchor: [11, 22],
-    popupAnchor: [0, -24]
-  });
-}
-
-function buildPopup(p) {
-  const cityImg = p.photo && p.photo !== '#'
-    ? `<img class="popup-img" src="${esc(p.photo)}" alt="${esc(p.title)}" onerror="this.remove()">`
-    : '';
-  const memImg = p.memoryPhoto && p.memoryPhoto !== '#'
-    ? `<img class="popup-img" src="${esc(p.memoryPhoto)}" alt="Памятник — ${esc(p.title)}" onerror="this.remove()">`
-    : '';
-  const mem = p.memory
-    ? `<div class="popup-memory">${esc(p.memory)}</div>`
-    : '';
-
-  const srcs = Array.isArray(p.sources) ? p.sources.filter(s => s && s.url) : [];
-  const srcHtml = srcs.length
-    ? `<div class="popup-src">${srcs.map(s => {
-        const label = s.label || s.url.replace(/^https?:\/\//, '').split('/')[0];
-        return`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" title="${esc(s.url)}">${esc(label)}</a>`;
-      }).join('')}</div>`
-    : '';
-
-  return `
-    <div class="popup-title">${esc(p.title)}</div>
-    <div class="popup-date">${esc(p.date)} · ${esc(p.operation || '')}</div>
-    ${cityImg}
-    <div class="popup-desc">${esc(p.description || '')}</div>
-    ${memImg}
-    ${mem}
-    ${srcHtml}
-  `;
-}
-
-const cluster = L.markerClusterGroup({
-  showCoverageOnHover: false,
-  maxClusterRadius: 50
-});
-map.addLayer(cluster);
-
-fetch('points.json', { cache: 'no-store' })
-  .then(r => {
-    if (!r.ok) throw new Error('points.json: ' + r.status);
-    return r.json();
-  })
-  .then(points => {
-    buildColorMap(points);
-
-    const markers = [];
-    points.forEach(p => {
-      if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
-
-      const isCapital = p.title === 'Минск';
-      const m = L.marker([p.lat, p.lng], {
-        icon: makeIcon(p.date, isCapital),
-        title: p.title,
-        riseOnHover: true
-      });
-
-      m.bindPopup(buildPopup(p), {
-        maxWidth: 360,
-        minWidth: 320,
-        closeButton: true,
-        autoPanPadding: [40, 40]
-      });
-
-      m.on('popupopen', function () {
-        const el = this.getElement();
-        if (el) el.style.zIndex = 1000;
-      });
-
-      m.on('click', function () {
-        if (this.isPopupOpen()) return;
-        this.openPopup();
-      });
-
-      markers.push(m);
-    });
-    cluster.addLayers(markers);
-  })
-  .catch(err => {
-    console.error(err);
-    map.setView([53.7, 27.8], 6);
-  });
-</script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
