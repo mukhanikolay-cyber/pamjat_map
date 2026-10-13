@@ -23,9 +23,9 @@ const dayms = 86400000;
 let mapref, clusterref;
 let pointdata = [];
 let infodata = {};
-let daty = [];
-let opori = [];           // "опорные" дни слайдера (offset от datestart)
-let datestart = null, dateend = null, datedays = 0;
+let daty = [];             // отсортированные уникальные даты (Date)
+let opori = [];            // день каждой даты + следующий день (offset от datestart)
+let datestart = null, datedays = 0;
 let markerrecs = [];
 let activecity = null;
 let lowidx = 0, highidx = 0;
@@ -40,6 +40,8 @@ const rangehigh = document.getElementById('range-hi');
 const rangefill = document.getElementById('range-fill');
 const datelow = document.getElementById('date-low');
 const datehigh = document.getElementById('date-high');
+
+/* ---------- утилиты ---------- */
 
 // "23 сентября 1943" -> Date
 function parsedate(str) {
@@ -103,7 +105,8 @@ function nechotko(query, target) {
   return Math.max(0, 1 - dist / maxlen) * 0.7;
 }
 
-// собрать уникальные даты освобождения
+/* ---------- данные ---------- */
+
 function sobratdaty(points) {
   const uniq = {};
   points.forEach(p => {
@@ -115,13 +118,14 @@ function sobratdaty(points) {
   daty = Object.keys(uniq).map(k => uniq[k]).sort((a, b) => a - b);
   if (daty.length) {
     datestart = daty[0];
-    dateend = daty[daty.length - 1];
+    const dateend = daty[daty.length - 1];
     datedays = Math.max(1, Math.round((dateend - datestart) / dayms));
   }
 }
 
-// собрать "опорные" дни слайдера: каждая дата освобождения + следующий день
+// для каждой даты — она сама и следующий день; получаем "опорные" точки слайдера
 function sobratopori() {
+  if (!daty.length || !datestart) { opori = []; return; }
   const set = {};
   daty.forEach(d => {
     const off = Math.round((d - datestart) / dayms);
@@ -137,7 +141,6 @@ function colorfordate(datestr) {
   if (!d || daty.length < 2) return `rgb(${orange.join(',')})`;
 
   const t = d.getTime();
-
   let seqidx = 0;
   for (let i = 0; i < daty.length; i++) {
     if (daty[i].getTime() === t) { seqidx = i; break; }
@@ -156,7 +159,8 @@ function colorfordate(datestr) {
   return `rgb(${r},${g},${b})`;
 }
 
-// иконка маркера
+/* ---------- маркеры ---------- */
+
 function pinicon(datestr, title) {
   const isminsk = title === minsk;
   const isvob = !isminsk && voblast.indexOf(title) >= 0;
@@ -176,7 +180,6 @@ function pinicon(datestr, title) {
   });
 }
 
-// короткий popup с кнопкой "подробнее"
 function makepopup(p) {
   const cityimg = p.photo && p.photo !== '#'
     ? `<img class="popup-img" src="${esc(p.photo)}" alt="${esc(p.title)}" onerror="this.remove()">` : '';
@@ -204,7 +207,8 @@ function makepopup(p) {
   `;
 }
 
-// список городов в правой панели
+/* ---------- правый список ---------- */
+
 function risuemspisok(query) {
   const q = (query || '').trim();
   let items = pointdata.slice();
@@ -248,7 +252,8 @@ function risuemspisok(query) {
   }).join('');
 }
 
-// подробная карточка города
+/* ---------- детальная карточка ---------- */
+
 function risuemkartochku(id) {
   const p = pointdata.find(x => x.id === id);
   if (!p) return;
@@ -335,7 +340,6 @@ function risuemkartochku(id) {
   });
 }
 
-// открыть карточку (вызывается из popup)
 function otkrytgorod(id) {
   activecity = id;
   risuemkartochku(id);
@@ -345,49 +349,59 @@ function otkrytgorod(id) {
 }
 window.otkrytgorod = otkrytgorod;
 
-// пульс маркера при выборе города, кулдаун против спама
-function pulsmarker(marker) {
+/* ---------- пульс маркера ---------- */
+
+function pulsmaker(marker) {
   const now = Date.now();
   if (now - lastpulse < 900) return;
   lastpulse = now;
 
-  const el = marker.getElement();
+  const el = marker.getElement && marker.getElement();
   if (!el) return;
   const pin = el.querySelector('.pin');
   if (!pin) return;
 
   pin.classList.remove('pulse');
-  void pin.offsetWidth;   // перезапуск анимации
+  void pin.offsetWidth;
   pin.classList.add('pulse');
   setTimeout(() => pin.classList.remove('pulse'), 1000);
 }
 
-// ползунок периода по "опорным" дням
+/* ---------- слайдер ---------- */
+
 function zapuskslider() {
-  if (!opor.length) return;
+  if (!opor.length) {
+    console.warn('слайдер: пустой список опорных дней');
+    return;
+  }
   const last = opori.length - 1;
 
   rangelow.min = 0; rangelow.max = last; rangelow.value = 0;
   rangehigh.min = 0; rangehigh.max = last; rangehigh.value = last;
-
   lowidx = 0;
   highidx = last;
 
   rangelow.addEventListener('input', obnovitrange);
   rangehigh.addEventListener('input', obnovitrange);
-  obnovitfill();
+
+  primenitrange();
 }
 
 function obnovitrange() {
+  const last = opori.length - 1;
   let lo = +rangelow.value;
   let hi = +rangehigh.value;
 
-  // концы не толкают друг друга — упираются, между ними минимум 1 день
+  // минимальный зазор — 1 шаг; соседний конец не толкаем, а «упираемся»
   if (lo >= hi) {
     if (document.activeElement === rangelow) {
-      lo = hi - 1; rangelow.value = lo;
+      lo = hi - 1;
+      if (lo < 0) lo = 0;
+      rangelow.value = lo;
     } else {
-      hi = lo + 1; rangehigh.value = hi;
+      hi = lo + 1;
+      if (hi > last) hi = last;
+      rangehigh.value = hi;
     }
   }
 
@@ -396,24 +410,21 @@ function obnovitrange() {
   primenitrange();
 }
 
-function obnovitfill() {
+function primenitrange() {
+  if (!opor.length || !datestart) return;
+
+  // 1. полоска
   const total = opori.length - 1 || 1;
   const l = (lowidx / total) * 100;
   const r = (highidx / total) * 100;
   rangefill.style.left = l + '%';
   rangefill.style.width = (r - l) + '%';
 
-  // верхний z-index тому ползунку, что прижат к краю
-  rangelow.style.zIndex = (lowidx >= opori.length - 2) ? 5 : 3;
-  rangehigh.style.zIndex = (highidx <= 1) ? 5 : 4;
-
+  // 2. подписи дат
   datelow.textContent = formatdate(addsutki(datestart, opori[lowidx]));
   datehigh.textContent = formatdate(addsutki(datestart, opori[highidx]));
-}
 
-function primenitrange() {
-  obnovitfill();
-
+  // 3. прозрачность маркеров
   const lowday = opori[lowidx];
   const highday = opori[highidx];
 
@@ -429,7 +440,8 @@ function primenitrange() {
   if (clusterref) clusterref.refreshClusters();
 }
 
-// кластер со средним цветом и средней прозрачностью
+/* ---------- кластеры ---------- */
+
 function clustericon(cluster) {
   const children = cluster.getAllChildMarkers();
   const n = children.length;
@@ -457,7 +469,8 @@ function clustericon(cluster) {
   });
 }
 
-// карта
+/* ---------- карта ---------- */
+
 function initkarta() {
   mapref = L.map('map', { zoomControl: true }).setView(mapcenter, mapzoom);
 
@@ -474,7 +487,8 @@ function initkarta() {
   mapref.addLayer(clusterref);
 }
 
-// загрузка данных
+/* ---------- загрузка ---------- */
+
 Promise.all([
   fetch('points.json', { cache: 'no-store' }).then(r => {
     if (!r.ok) throw new Error('points.json: ' + r.status);
@@ -518,11 +532,10 @@ Promise.all([
 
   clusterref.addLayers(markers);
 
-  zapuskslider();
-  risuemspisok('');
+  // слайдер ставим после того, как известны опорные дни
+  try { zapuskslider(); } catch (e) { console.error('слайдер:', e); }
 
-  mapref.once('moveend zoomend', primenitrange);
-  setTimeout(primenitrange, 60);
+  risuemspisok('');
 }).catch(err => {
   console.error(err);
   mapref = L.map('map').setView(mapcenter, mapzoom);
@@ -531,7 +544,8 @@ Promise.all([
   }).addTo(mapref);
 });
 
-// обвязка интерфейса
+/* ---------- интерфейс ---------- */
+
 sinput.addEventListener('input', () => {
   const v = sinput.value;
   sclear.hidden = !v;
@@ -556,6 +570,6 @@ listview.addEventListener('click', e => {
 
   if (mapref) {
     mapref.flyTo([rec.point.lat, rec.point.lng], Math.max(mapref.getZoom(), 9), { duration: 0.6 });
-    setTimeout(() => pulsmarker(rec.marker), 650);
+    setTimeout(() => pulsmaker(rec.marker), 650);
   }
 });
