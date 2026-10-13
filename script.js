@@ -10,8 +10,8 @@ const voblast = ['Гомель', 'Могилев', 'Витебск', 'Брест
 const orange = [255, 155, 40];
 const redcolor = [170, 15, 15];
 
-const minproz = 0.15;
-const zatuhanie = 3;
+const minproz = 0.15;    // минимальная прозрачность вне диапазона
+const zatuhanie = 2;     // сколько "шагов" идёт затухание (в шагах шкалы дат)
 
 const mecjacy = {
   'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3,
@@ -23,13 +23,12 @@ const dayms = 86400000;
 let mapref, clusterref;
 let pointdata = [];
 let infodata = {};
-let daty = [];
-let opori = [];
-let datestart = null, datedays = 0;
+let daty = [];       // отсортированные уникальные даты (Date)
 let markerrecs = [];
 let activecity = null;
 let lowidx = 0, highidx = 0;
 let lastpulse = 0;
+let sliderready = false;
 
 const sinput = document.getElementById('search');
 const sclear = document.getElementById('search-clear');
@@ -43,7 +42,6 @@ const datehigh = document.getElementById('date-high');
 
 /* ---------- утилиты ---------- */
 
-// "23 сентября 1943" -> Date
 function parsedate(str) {
   const parts = String(str || '').trim().split(/\s+/);
   if (parts.length < 3) return null;
@@ -54,24 +52,18 @@ function parsedate(str) {
   return new Date(y, m, d);
 }
 
-// Date -> "23 сентября 1943"
 function formatdate(date) {
   const names = ['января','февраля','марта','апреля','мая','июня',
                  'июля','августа','сентября','октября','ноября','декабря'];
   return `${date.getDate()} ${names[date.getMonth()]} ${date.getFullYear()}`;
 }
 
-// экранирование html
 function esc(s) {
   return String(s == null ? '' : s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;')
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-// прибавить n суток
-function addsutki(d, n) { return new Date(d.getTime() + n * dayms); }
-
-// расстояние левенштейна
 function levenstein(a, b) {
   a = a.toLowerCase(); b = b.toLowerCase();
   const m = a.length, n = b.length;
@@ -91,7 +83,6 @@ function levenstein(a, b) {
   return prev[n];
 }
 
-// нечёткое сравнение, 0..1
 function nechotko(query, target) {
   const q = query.toLowerCase().trim();
   const t = target.toLowerCase();
@@ -105,8 +96,6 @@ function nechotko(query, target) {
   return Math.max(0, 1 - dist / maxlen) * 0.7;
 }
 
-/* ---------- данные ---------- */
-
 function sobratdaty(points) {
   const uniq = {};
   points.forEach(p => {
@@ -116,26 +105,19 @@ function sobratdaty(points) {
     if (!(t in uniq)) uniq[t] = d;
   });
   daty = Object.keys(uniq).map(k => uniq[k]).sort((a, b) => a - b);
-  if (daty.length) {
-    datestart = daty[0];
-    const dateend = daty[daty.length - 1];
-    datedays = Math.max(1, Math.round((dateend - datestart) / dayms));
+  console.log('[карта] уникальных дат:', daty.length,
+    daty.length ? 'с ' + formatdate(daty[0]) + ' по ' + formatdate(daty[daty.length - 1]) : '');
+}
+
+function dateindex(date) {
+  if (!date) return -1;
+  const t = date.getTime();
+  for (let i = 0; i < daty.length; i++) {
+    if (daty[i].getTime() === t) return i;
   }
+  return -1;
 }
 
-// для каждой даты — она сама и следующий день; получаем "опорные" точки слайдера
-function sobratopori() {
-  if (!daty.length || !datestart) { opori = []; return; }
-  const set = {};
-  daty.forEach(d => {
-    const off = Math.round((d - datestart) / dayms);
-    set[off] = 1;
-    if (off + 1 <= datedays) set[off + 1] = 1;
-  });
-  opori = Object.keys(set).map(Number).sort((a, b) => a - b);
-}
-
-// цвет маркера: 75% порядок городов + 25% интервал по календарю
 function colorfordate(datestr) {
   const d = parsedate(datestr);
   if (!d || daty.length < 2) return `rgb(${orange.join(',')})`;
@@ -158,8 +140,6 @@ function colorfordate(datestr) {
   const b = Math.round(orange[2] + (redcolor[2] - orange[2]) * mix);
   return `rgb(${r},${g},${b})`;
 }
-
-/* ---------- маркеры ---------- */
 
 function pinicon(datestr, title) {
   const isminsk = title === minsk;
@@ -207,8 +187,6 @@ function makepopup(p) {
   `;
 }
 
-/* ---------- правый список ---------- */
-
 function risuemspisok(query) {
   const q = (query || '').trim();
   let items = pointdata.slice();
@@ -251,8 +229,6 @@ function risuemspisok(query) {
     `;
   }).join('');
 }
-
-/* ---------- детальная карточка ---------- */
 
 function risuemkartochku(id) {
   const p = pointdata.find(x => x.id === id);
@@ -349,8 +325,6 @@ function otkrytgorod(id) {
 }
 window.otkrytgorod = otkrytgorod;
 
-/* ---------- пульс маркера ---------- */
-
 function pulsmaker(marker) {
   const now = Date.now();
   if (now - lastpulse < 900) return;
@@ -367,40 +341,88 @@ function pulsmaker(marker) {
   setTimeout(() => pin.classList.remove('pulse'), 1000);
 }
 
-/* ---------- слайдер ---------- */
-
 function zapuskslider() {
-  if (!opor.length) {
-    console.warn('слайдер: пустой список опорных дней');
+  if (!daty.length) {
+    console.warn('[слайдер] нет дат — шкала пуста');
     return;
   }
-  const last = opori.length - 1;
+  const last = daty.length - 1;
 
-  rangelow.min = 0; rangelow.max = last; rangelow.value = 0;
-  rangehigh.min = 0; rangehigh.max = last; rangehigh.value = last;
+  rangelow.min = 0;
+  rangelow.max = last;
+  rangelow.value = 0;
+
+  rangehigh.min = 0;
+  rangehigh.max = last;
+  rangehigh.value = last;
+
   lowidx = 0;
   highidx = last;
-
-  rangelow.addEventListener('input', obnovitrange);
-  rangehigh.addEventListener('input', obnovitrange);
+  sliderready = true;
 
   primenitrange();
+
+  console.log('[слайдер] запущен, шагов:', daty.length,
+    '->', formatdate(daty[0]), '..', formatdate(daty[last]));
 }
 
-function obnovitrange() {
-  const last = opori.length - 1;
+function primenitrange() {
+  if (!sliderready) return;
+
+  const last = daty.length - 1;
+
+  if (lowidx > highidx) {
+    const tmp = lowidx; lowidx = highidx; highidx = tmp;
+  }
+  if (lowidx < 0) lowidx = 0;
+  if (highidx > last) highidx = last;
+  if (highidx - lowidx < 1) {
+    if (lowidx === 0) highidx = 1;
+    else lowidx = highidx - 1;
+  }
+
+  const total = last || 1;
+  const l = (lowidx / total) * 100;
+  const r = (highidx / total) * 100;
+  rangefill.style.left = l + '%';
+  rangefill.style.width = (r - l) + '%';
+
+  datelow.textContent = formatdate(daty[lowidx]);
+  datehigh.textContent = formatdate(daty[highidx]);
+
+  rangelow.style.zIndex = 3;
+  rangehigh.style.zIndex = 4;
+
+  markerrecs.forEach(rec => {
+    const idx = rec.dateidx;
+    if (idx < 0) return;
+    let op = 1;
+    if (idx < lowidx) op = Math.max(minproz, 1 - (lowidx - idx) / zatuhanie);
+    else if (idx > highidx) op = Math.max(minproz, 1 - (idx - highidx) / zatuhanie);
+    rec.marker.setOpacity(op);
+    rec.marker.options.opac = op;
+  });
+
+  if (clusterref) clusterref.refreshClusters();
+}
+
+function onRangeInput(which) {
+  if (!sliderready) return;
+  const last = daty.length - 1;
+
   let lo = +rangelow.value;
   let hi = +rangehigh.value;
 
-  // минимальный зазор — 1 шаг; соседний конец не толкаем, а «упираемся»
-  if (lo >= hi) {
-    if (document.activeElement === rangelow) {
+  if (which === 'lo') {
+    if (lo >= hi) {
       lo = hi - 1;
-      if (lo < 0) lo = 0;
+      if (lo < 0) { lo = 0; hi = 1; }
       rangelow.value = lo;
-    } else {
+    }
+  } else {
+    if (hi <= lo) {
       hi = lo + 1;
-      if (hi > last) hi = last;
+      if (hi > last) { hi = last; lo = last - 1; }
       rangehigh.value = hi;
     }
   }
@@ -409,38 +431,7 @@ function obnovitrange() {
   highidx = hi;
   primenitrange();
 }
-
-function primenitrange() {
-  if (!opor.length || !datestart) return;
-
-  // 1. полоска
-  const total = opori.length - 1 || 1;
-  const l = (lowidx / total) * 100;
-  const r = (highidx / total) * 100;
-  rangefill.style.left = l + '%';
-  rangefill.style.width = (r - l) + '%';
-
-  // 2. подписи дат
-  datelow.textContent = formatdate(addsutki(datestart, opori[lowidx]));
-  datehigh.textContent = formatdate(addsutki(datestart, opori[highidx]));
-
-  // 3. прозрачность маркеров
-  const lowday = opori[lowidx];
-  const highday = opori[highidx];
-
-  markerrecs.forEach(rec => {
-    const off = rec.dayoff;
-    let op = 1;
-    if (off < lowday) op = Math.max(minproz, 1 - (lowday - off) / zatuhanie);
-    else if (off > highday) op = Math.max(minproz, 1 - (off - highday) / zatuhanie);
-    rec.marker.setOpacity(op);
-    rec.marker.options.opac = op;
-  });
-
-  if (clusterref) clusterref.refreshClusters();
-}
-
-/* ---------- кластеры ---------- */
+window.onRangeInput = onRangeInput;
 
 function clustericon(cluster) {
   const children = cluster.getAllChildMarkers();
@@ -469,8 +460,6 @@ function clustericon(cluster) {
   });
 }
 
-/* ---------- карта ---------- */
-
 function initkarta() {
   mapref = L.map('map', { zoomControl: true }).setView(mapcenter, mapzoom);
 
@@ -487,8 +476,6 @@ function initkarta() {
   mapref.addLayer(clusterref);
 }
 
-/* ---------- загрузка ---------- */
-
 Promise.all([
   fetch('points.json', { cache: 'no-store' }).then(r => {
     if (!r.ok) throw new Error('points.json: ' + r.status);
@@ -502,14 +489,13 @@ Promise.all([
   infodata = info || {};
 
   sobratdaty(points);
-  sobratopori();
   initkarta();
 
   const markers = [];
   points.forEach(p => {
     if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
     const d = parsedate(p.date);
-    const dayoff = d && datestart ? Math.round((d - datestart) / dayms) : 0;
+    const dateidx = dateindex(d);
 
     const mk = L.marker([p.lat, p.lng], {
       icon: pinicon(p.date, p.title),
@@ -526,14 +512,18 @@ Promise.all([
       autoPanPadding: [40, 40]
     });
 
-    markerrecs.push({ marker: mk, point: p, dayoff });
+    markerrecs.push({ marker: mk, point: p, dateidx });
     markers.push(mk);
   });
 
   clusterref.addLayers(markers);
 
-  // слайдер ставим после того, как известны опорные дни
-  try { zapuskslider(); } catch (e) { console.error('слайдер:', e); }
+  // запускаем слайдер только после того, как известны daty и markerrecs
+  zapuskslider();
+
+  // на всякий случай продублируем обработчики через addEventListener
+  rangelow.addEventListener('input', () => onRangeInput('lo'));
+  rangehigh.addEventListener('input', () => onRangeInput('hi'));
 
   risuemspisok('');
 }).catch(err => {
@@ -543,8 +533,6 @@ Promise.all([
     attribution: '&copy; OpenStreetMap'
   }).addTo(mapref);
 });
-
-/* ---------- интерфейс ---------- */
 
 sinput.addEventListener('input', () => {
   const v = sinput.value;
