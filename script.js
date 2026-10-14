@@ -95,16 +95,13 @@ function fotkiblok(v, cls, cap) {
   const arr = fotki(v);
   if (!arr.length) return '';
   const list = [];
-  for (let i = 0; i < arr.length; i++) {
-    list.push(esc(arr[i]));
-  }
+  for (let i = 0; i < arr.length; i++) list.push(esc(arr[i]));
   const listattr = esc(JSON.stringify(list));
-
   let html = '<div class="' + cls + '" data-list="' + listattr + '" data-cap="' + esc(cap || '') + '">';
   for (let i = 0; i < arr.length; i++) {
     const src = arr[i];
     let c = '';
-    if (cap) c = arr.length > 1 ? cap + ' · ' + (i + 1) + '/' + arr.length : cap;
+    if (cap) c = arr.length > 1 ? cap + ' · ' + (i + 1) + ' / ' + arr.length : cap;
     html += '<img class="lightbox-img" src="' + esc(src) + '" alt="' + esc(c) +
       '" data-idx="' + i + '" loading="lazy" onerror="this.remove()">';
   }
@@ -202,37 +199,56 @@ function pinicon(datestr, title) {
   });
 }
 
-const lightboxref = document.getElementById('lightbox');
-const lightboximg = document.getElementById('lightbox-img');
-const lightboxcap = document.getElementById('lightbox-caption');
-const lightboxnum = document.getElementById('lightbox-num');
-const lightboxprev = document.getElementById('lightbox-prev');
-const lightboxnext = document.getElementById('lightbox-next');
+function lb() { return document.getElementById('lightbox'); }
+function lbimg() { return document.getElementById('lightbox-img'); }
+function lbcap() { return document.getElementById('lightbox-caption'); }
+function lbnum() { return document.getElementById('lightbox-num'); }
+function lbprev() { return document.getElementById('lightbox-prev'); }
+function lbnext() { return document.getElementById('lightbox-next'); }
+
+function sborkalightbox() {
+  const box = lb();
+  if (!box) return;
+  box.innerHTML =
+    '<button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Предыдущая" hidden>‹</button>' +
+    '<button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Следующая" hidden>›</button>' +
+    '<div class="lightbox-num" id="lightbox-num" hidden></div>' +
+    '<button type="button" class="lightbox-close" aria-label="Закрыть">×</button>' +
+    '<div class="lightbox-inner">' +
+      '<img id="lightbox-img" src="" alt="">' +
+      '<div id="lightbox-caption" class="lightbox-caption"></div>' +
+    '</div>';
+}
 
 function obnovgal() {
-  if (!lightboxref) return;
+  const box = lb();
+  if (!box) return;
+  const img = lbimg();
+  const cap = lbcap();
+  const num = lbnum();
+  const pv = lbprev();
+  const nx = lbnext();
   const n = gal.length;
   if (!n) {
-    lightboximg.removeAttribute('src');
-    lightboxcap.textContent = '';
-    if (lightboxnum) lightboxnum.textContent = '';
-    if (lightboxprev) lightboxprev.hidden = true;
-    if (lightboxnext) lightboxnext.hidden = true;
+    if (img) img.removeAttribute('src');
+    if (cap) cap.textContent = '';
+    if (num) { num.textContent = ''; num.hidden = true; }
+    if (pv) pv.hidden = true;
+    if (nx) nx.hidden = true;
     return;
   }
   const src = gal[galidx];
-  const cap = lightboxref.dataset.cap || '';
-  let text = cap;
-  if (n > 1) text = cap ? cap + ' · ' + (galidx + 1) + ' / ' + n : (galidx + 1) + ' / ' + n;
-  lightboximg.src = src;
-  lightboximg.alt = text;
-  lightboxcap.textContent = text;
-  if (lightboxnum) {
-    lightboxnum.textContent = n > 1 ? (galidx + 1) + ' / ' + n : '';
-    lightboxnum.hidden = n < 2;
+  const gc = box.dataset.cap || '';
+  let text = gc;
+  if (n > 1) text = gc ? gc + ' · ' + (galidx + 1) + ' / ' + n : (galidx + 1) + ' / ' + n;
+  if (img) { img.src = src; img.alt = text; }
+  if (cap) cap.textContent = text;
+  if (num) {
+    num.textContent = n > 1 ? (galidx + 1) + ' / ' + n : '';
+    num.hidden = n < 2;
   }
-  if (lightboxprev) lightboxprev.hidden = n < 2;
-  if (lightboxnext) lightboxnext.hidden = n < 2;
+  if (pv) pv.hidden = n < 2;
+  if (nx) nx.hidden = n < 2;
 }
 
 function galshift(step) {
@@ -242,60 +258,66 @@ function galshift(step) {
 }
 
 function otkrytfoto(list, idx, cap) {
-  if (!list || !list.length || !lightboxref) return;
+  const box = lb();
+  if (!box || !list || !list.length) return;
   gal = list.slice();
   galidx = Math.max(0, Math.min(idx | 0, gal.length - 1));
-  lightboxref.dataset.cap = cap || '';
+  box.dataset.cap = cap || '';
   obnovgal();
-  lightboxref.hidden = false;
+  box.hidden = false;
   document.body.style.overflow = 'hidden';
 }
 
 function zakrytfoto() {
-  if (!lightboxref) return;
-  lightboxref.hidden = true;
-  lightboximg.removeAttribute('src');
-  lightboxcap.textContent = '';
-  if (lightboxnum) lightboxnum.textContent = '';
+  const box = lb();
+  if (!box) return;
+  box.hidden = true;
+  const img = lbimg();
+  const cap = lbcap();
+  const num = lbnum();
+  if (img) img.removeAttribute('src');
+  if (cap) cap.textContent = '';
+  if (num) num.textContent = '';
   gal = [];
   galidx = 0;
-  delete lightboxref.dataset.cap;
+  delete box.dataset.cap;
   document.body.style.overflow = '';
 }
 
 function initprosmotr() {
-  if (!lightboxref) return;
+  sborkalightbox();
+  const box = lb();
+  if (!box) return;
 
-  lightboxref.addEventListener('click', function (e) {
+  box.addEventListener('click', function (e) {
     if (e.target.closest('.lightbox-close')) { zakrytfoto(); return; }
-    if (e.target.closest('.lightbox-nav')) {
-      galshift(e.target.closest('.lightbox-prev') ? -1 : 1);
-      return;
-    }
+    if (e.target.closest('.lightbox-prev')) { galshift(-1); return; }
+    if (e.target.closest('.lightbox-next')) { galshift(1); return; }
+    if (e.target.closest('.lightbox-nav')) return;
     if (!e.target.closest('.lightbox-inner')) zakrytfoto();
   });
 
   document.addEventListener('keydown', function (e) {
-    if (lightboxref.hidden) return;
+    if (box.hidden) return;
     if (e.key === 'Escape') { zakrytfoto(); return; }
     if (e.key === 'ArrowLeft') { e.preventDefault(); galshift(-1); }
     if (e.key === 'ArrowRight') { e.preventDefault(); galshift(1); }
   });
 
   let tx = 0, ty = 0, moved = false;
-  lightboxref.addEventListener('touchstart', function (e) {
+  box.addEventListener('touchstart', function (e) {
     if (e.touches.length !== 1) return;
     tx = e.touches[0].clientX;
     ty = e.touches[0].clientY;
     moved = false;
   }, { passive: true });
-  lightboxref.addEventListener('touchmove', function (e) {
-    if (e.touches.length !== 1 || gal.length < 2) return;
+  box.addEventListener('touchmove', function (e) {
+    if (e.touches.length !== 1) return;
     const dx = e.touches[0].clientX - tx;
     const dy = e.touches[0].clientY - ty;
     if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) moved = true;
   }, { passive: true });
-  lightboxref.addEventListener('touchend', function (e) {
+  box.addEventListener('touchend', function (e) {
     if (!moved) return;
     const t = e.changedTouches && e.changedTouches[0];
     if (!t) return;
@@ -606,7 +628,7 @@ function clustericon(cluster) {
 function initkarta() {
   mapref = L.map('map', { zoomControl: true }).setView(mapcenter, mapzoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OSM', maxZoom: 19
+    attribution: '&copy; OpenStreetMap', maxZoom: 19
   }).addTo(mapref);
   clusterref = L.markerClusterGroup({
     showCoverageOnHover: false,
@@ -624,7 +646,7 @@ function initgranica() {
       granicref.addTo(mapref);
       if (granicref.bringToBack) granicref.bringToBack();
     })
-    .catch(function (err) { console.warn('граница не загрузилась', err); });
+    .catch(function (err) { console.warn('граница не загрузилась:', err); });
 }
 
 rangelow.addEventListener('input', function () { onRangeInput('lo'); });
@@ -644,7 +666,7 @@ Promise.all([
       } catch (e) {
         const msg = String(e.message || '');
         const m = msg.match(/position\s+(\d+)/i);
-        let pos = m ? parseInt(m[1], 10) : -1;
+        const pos = m ? parseInt(m[1], 10) : -1;
         let line = 1, col = 1;
         for (let i = 0; i < text.length; i++) {
           if (i === pos) break;
@@ -695,7 +717,7 @@ Promise.all([
   zapuskslider();
   risuemspisok('');
 }).catch(function (err) {
-  console.error('инициализация упала', err);
+  console.error('инициализация упала:', err);
   if (!mapref) {
     mapref = L.map('map').setView(mapcenter, mapzoom);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
