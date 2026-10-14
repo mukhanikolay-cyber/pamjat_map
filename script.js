@@ -11,7 +11,7 @@ const zatuhanie = 2;
 
 const mecjacy = {
   'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3,
-  'мая': 4, 'июня': 5, 'июля': 6, 'августа': 7,
+  'мая': 4, 'июня': 5, 'июля': 6, 'августа': 7,f
   'сентября': 8, 'октября': 9, 'ноября': 10, 'декабря': 11
 };
 
@@ -562,7 +562,7 @@ function pulsmaker(marker) {
   pin.classList.remove('pulse');
   void pin.offsetWidth;
   pin.classList.add('pulse');
-  setTimeout(function () { pin.classList.remove('pulse'); }, 1000);
+  setTimeout(function () { pin.classList.remove('pulse'); }, 2000);
 }
 
 function zapuskslider() {
