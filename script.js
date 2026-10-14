@@ -553,7 +553,7 @@ window.otkrytgorod = otkrytgorod;
 
 function pulsmaker(marker) {
   const now = Date.now();
-  if (now - lastpulse < 900) return;
+  if (now - lastpulse < 400) return;
   lastpulse = now;
   const el = marker.getElement && marker.getElement();
   if (!el) return;
