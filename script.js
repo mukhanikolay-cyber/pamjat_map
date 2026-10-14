@@ -103,7 +103,10 @@ function fotkiblok(v, cls, cap) {
     let c = '';
     if (cap) c = arr.length > 1 ? cap + ' · ' + (i + 1) + ' / ' + arr.length : cap;
     html += '<img class="lightbox-img" src="' + esc(src) + '" alt="' + esc(c) +
-      '" data-idx="' + i + '" loading="lazy" onerror="this.remove()">';
+      '" data-idx="' + i + '" loading="lazy"' +
+      ' onclick="event.stopPropagation();otkrytimg(this);"' +
+      ' ondblclick="event.stopPropagation();event.preventDefault();return false;"' +
+      ' onerror="this.remove()">';
   }
   html += '</div>';
   return html;
@@ -257,6 +260,32 @@ function galshift(step) {
   obnovgal();
 }
 
+function mapfreeze() {
+  if (!mapref) return;
+  try {
+    if (mapref.dragging) mapref.dragging.disable();
+    if (mapref.doubleClickZoom) mapref.doubleClickZoom.disable();
+    if (mapref.scrollWheelZoom) mapref.scrollWheelZoom.disable();
+    if (mapref.boxZoom) mapref.boxZoom.disable();
+    if (mapref.touchZoom) mapref.touchZoom.disable();
+    if (mapref.tap) mapref.tap.disable();
+    if (mapref.keyboard) mapref.keyboard.disable();
+  } catch (e) {}
+}
+
+function mapthaw() {
+  if (!mapref) return;
+  try {
+    if (mapref.dragging) mapref.dragging.enable();
+    if (mapref.doubleClickZoom) mapref.doubleClickZoom.enable();
+    if (mapref.scrollWheelZoom) mapref.scrollWheelZoom.enable();
+    if (mapref.boxZoom) mapref.boxZoom.enable();
+    if (mapref.touchZoom) mapref.touchZoom.enable();
+    if (mapref.tap) mapref.tap.enable();
+    if (mapref.keyboard) mapref.keyboard.enable();
+  } catch (e) {}
+}
+
 function otkrytfoto(list, idx, cap) {
   const box = lb();
   if (!box || !list || !list.length) return;
@@ -266,6 +295,7 @@ function otkrytfoto(list, idx, cap) {
   obnovgal();
   box.hidden = false;
   document.body.style.overflow = 'hidden';
+  mapfreeze();
 }
 
 function zakrytfoto() {
@@ -282,7 +312,25 @@ function zakrytfoto() {
   galidx = 0;
   delete box.dataset.cap;
   document.body.style.overflow = '';
+  mapthaw();
 }
+
+window.otkrytimg = function (el) {
+  if (!el) return;
+  const holder = el.parentElement;
+  let list = [el.getAttribute('src')];
+  let cap = el.dataset.caption || el.alt || '';
+  if (holder && holder.dataset && holder.dataset.list) {
+    try {
+      const parsed = JSON.parse(holder.dataset.list);
+      if (Array.isArray(parsed) && parsed.length) list = parsed;
+    } catch (err) {}
+    if (holder.dataset.cap) cap = holder.dataset.cap;
+  }
+  const idx = +el.dataset.idx || 0;
+  if (!list[0]) return;
+  otkrytfoto(list, idx, cap);
+};
 
 function initprosmotr() {
   sborkalightbox();
@@ -325,25 +373,6 @@ function initprosmotr() {
     if (dx <= -40) galshift(1);
     else if (dx >= 40) galshift(-1);
     moved = false;
-  });
-
-  document.addEventListener('click', function (e) {
-    const img = e.target.closest('.lightbox-img');
-    if (!img) return;
-    const holder = img.parentElement;
-    let list = [img.getAttribute('src')];
-    let cap = img.dataset.caption || img.alt || '';
-    if (holder && holder.dataset && holder.dataset.list) {
-      try {
-        const parsed = JSON.parse(holder.dataset.list);
-        if (Array.isArray(parsed) && parsed.length) list = parsed;
-      } catch (err) {}
-      if (holder.dataset.cap) cap = holder.dataset.cap;
-    }
-    const idx = +img.dataset.idx || 0;
-    if (!list[0]) return;
-    e.preventDefault();
-    otkrytfoto(list, idx, cap);
   });
 }
 
