@@ -37,6 +37,9 @@ let highidx = 0;
 let lastpulse = 0;
 let sliderready = false;
 
+let gal = [];
+let galidx = 0;
+
 const sinput = document.getElementById('search');
 const sclear = document.getElementById('search-clear');
 const listview = document.getElementById('list-view');
@@ -91,14 +94,19 @@ function fotki(v) {
 function fotkiblok(v, cls, cap) {
   const arr = fotki(v);
   if (!arr.length) return '';
-  let html = '<div class="' + cls + '">';
+  const list = [];
+  for (let i = 0; i < arr.length; i++) {
+    list.push(esc(arr[i]));
+  }
+  const listattr = esc(JSON.stringify(list));
+
+  let html = '<div class="' + cls + '" data-list="' + listattr + '" data-cap="' + esc(cap || '') + '">';
   for (let i = 0; i < arr.length; i++) {
     const src = arr[i];
     let c = '';
     if (cap) c = arr.length > 1 ? cap + ' · ' + (i + 1) + '/' + arr.length : cap;
     html += '<img class="lightbox-img" src="' + esc(src) + '" alt="' + esc(c) +
-      '" data-lightbox="' + esc(src) + '" data-caption="' + esc(c) +
-      '" loading="lazy" onerror="this.remove()">';
+      '" data-idx="' + i + '" loading="lazy" onerror="this.remove()">';
   }
   html += '</div>';
   return html;
@@ -147,7 +155,6 @@ function sobratdaty(points) {
   }
   daty = Object.keys(uniq).map(function (k) { return uniq[k]; });
   daty.sort(function (a, b) { return a - b; });
-  console.log('[карта] уникальных дат:', daty.length);
 }
 
 function dateindex(date) {
@@ -198,12 +205,48 @@ function pinicon(datestr, title) {
 const lightboxref = document.getElementById('lightbox');
 const lightboximg = document.getElementById('lightbox-img');
 const lightboxcap = document.getElementById('lightbox-caption');
+const lightboxnum = document.getElementById('lightbox-num');
+const lightboxprev = document.getElementById('lightbox-prev');
+const lightboxnext = document.getElementById('lightbox-next');
 
-function otkrytfoto(src, caption) {
-  if (!src || !lightboxref) return;
+function obnovgal() {
+  if (!lightboxref) return;
+  const n = gal.length;
+  if (!n) {
+    lightboximg.removeAttribute('src');
+    lightboxcap.textContent = '';
+    if (lightboxnum) lightboxnum.textContent = '';
+    if (lightboxprev) lightboxprev.hidden = true;
+    if (lightboxnext) lightboxnext.hidden = true;
+    return;
+  }
+  const src = gal[galidx];
+  const cap = lightboxref.dataset.cap || '';
+  let text = cap;
+  if (n > 1) text = cap ? cap + ' · ' + (galidx + 1) + ' / ' + n : (galidx + 1) + ' / ' + n;
   lightboximg.src = src;
-  lightboximg.alt = caption || '';
-  lightboxcap.textContent = caption || '';
+  lightboximg.alt = text;
+  lightboxcap.textContent = text;
+  if (lightboxnum) {
+    lightboxnum.textContent = n > 1 ? (galidx + 1) + ' / ' + n : '';
+    lightboxnum.hidden = n < 2;
+  }
+  if (lightboxprev) lightboxprev.hidden = n < 2;
+  if (lightboxnext) lightboxnext.hidden = n < 2;
+}
+
+function galshift(step) {
+  if (gal.length < 2) return;
+  galidx = (galidx + step + gal.length) % gal.length;
+  obnovgal();
+}
+
+function otkrytfoto(list, idx, cap) {
+  if (!list || !list.length || !lightboxref) return;
+  gal = list.slice();
+  galidx = Math.max(0, Math.min(idx | 0, gal.length - 1));
+  lightboxref.dataset.cap = cap || '';
+  obnovgal();
   lightboxref.hidden = false;
   document.body.style.overflow = 'hidden';
 }
@@ -213,26 +256,72 @@ function zakrytfoto() {
   lightboxref.hidden = true;
   lightboximg.removeAttribute('src');
   lightboxcap.textContent = '';
+  if (lightboxnum) lightboxnum.textContent = '';
+  gal = [];
+  galidx = 0;
+  delete lightboxref.dataset.cap;
   document.body.style.overflow = '';
 }
 
 function initprosmotr() {
   if (!lightboxref) return;
+
   lightboxref.addEventListener('click', function (e) {
     if (e.target.closest('.lightbox-close')) { zakrytfoto(); return; }
+    if (e.target.closest('.lightbox-nav')) {
+      galshift(e.target.closest('.lightbox-prev') ? -1 : 1);
+      return;
+    }
     if (!e.target.closest('.lightbox-inner')) zakrytfoto();
   });
+
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !lightboxref.hidden) zakrytfoto();
+    if (lightboxref.hidden) return;
+    if (e.key === 'Escape') { zakrytfoto(); return; }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); galshift(-1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); galshift(1); }
   });
+
+  let tx = 0, ty = 0, moved = false;
+  lightboxref.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) return;
+    tx = e.touches[0].clientX;
+    ty = e.touches[0].clientY;
+    moved = false;
+  }, { passive: true });
+  lightboxref.addEventListener('touchmove', function (e) {
+    if (e.touches.length !== 1 || gal.length < 2) return;
+    const dx = e.touches[0].clientX - tx;
+    const dy = e.touches[0].clientY - ty;
+    if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) moved = true;
+  }, { passive: true });
+  lightboxref.addEventListener('touchend', function (e) {
+    if (!moved) return;
+    const t = e.changedTouches && e.changedTouches[0];
+    if (!t) return;
+    const dx = t.clientX - tx;
+    if (dx <= -40) galshift(1);
+    else if (dx >= 40) galshift(-1);
+    moved = false;
+  });
+
   document.addEventListener('click', function (e) {
     const img = e.target.closest('.lightbox-img');
     if (!img) return;
-    const src = img.dataset.lightbox || img.getAttribute('src');
-    const cap = img.dataset.caption || img.alt || '';
-    if (!src) return;
+    const holder = img.parentElement;
+    let list = [img.getAttribute('src')];
+    let cap = img.dataset.caption || img.alt || '';
+    if (holder && holder.dataset && holder.dataset.list) {
+      try {
+        const parsed = JSON.parse(holder.dataset.list);
+        if (Array.isArray(parsed) && parsed.length) list = parsed;
+      } catch (err) {}
+      if (holder.dataset.cap) cap = holder.dataset.cap;
+    }
+    const idx = +img.dataset.idx || 0;
+    if (!list[0]) return;
     e.preventDefault();
-    otkrytfoto(src, cap);
+    otkrytfoto(list, idx, cap);
   });
 }
 
@@ -433,7 +522,6 @@ function zapuskslider() {
   lowidx = 0; highidx = last;
   sliderready = true;
   primenitrange();
-  console.log('[слайдер] запущен, шагов:', daty.length);
 }
 
 function primenitrange() {
@@ -470,7 +558,7 @@ function primenitrange() {
   if (clusterref) clusterref.refreshClusters();
 }
 
-function onrangeinput(which) {
+function onRangeInput(which) {
   if (!sliderready) return;
   const last = daty.length - 1;
   let lo = +rangelow.value;
@@ -518,7 +606,7 @@ function clustericon(cluster) {
 function initkarta() {
   mapref = L.map('map', { zoomControl: true }).setView(mapcenter, mapzoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap', maxZoom: 19
+    attribution: '&copy; OSM', maxZoom: 19
   }).addTo(mapref);
   clusterref = L.markerClusterGroup({
     showCoverageOnHover: false,
@@ -536,19 +624,36 @@ function initgranica() {
       granicref.addTo(mapref);
       if (granicref.bringToBack) granicref.bringToBack();
     })
-    .catch(function (err) { console.warn('граница не загрузилась:', err); });
+    .catch(function (err) { console.warn('граница не загрузилась', err); });
 }
 
-rangelow.addEventListener('input', function () { onrangeinput('lo'); });
-rangehigh.addEventListener('input', function () { onrangeinput('hi'); });
+rangelow.addEventListener('input', function () { onRangeInput('lo'); });
+rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
 
 initprosmotr();
 
 Promise.all([
-  fetch('points.json', { cache: 'no-store' }).then(function (r) {
-    if (!r.ok) throw new Error('points.json: ' + r.status);
-    return r.json();
-  }),
+  fetch('points.json', { cache: 'no-store' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('points.json: ' + r.status);
+      return r.text();
+    })
+    .then(function (text) {
+      try {
+        return JSON.parse(text);
+      } catch (e) {
+        const msg = String(e.message || '');
+        const m = msg.match(/position\s+(\d+)/i);
+        let pos = m ? parseInt(m[1], 10) : -1;
+        let line = 1, col = 1;
+        for (let i = 0; i < text.length; i++) {
+          if (i === pos) break;
+          if (text.charCodeAt(i) === 10) { line++; col = 1; }
+          else col++;
+        }
+        throw new Error('points.json: ' + msg + ' (строка ' + line + ', колонка ' + col + ')');
+      }
+    }),
   fetch('info.json', { cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : {}; })
     .catch(function () { return {}; })
@@ -581,7 +686,6 @@ Promise.all([
         maxWidth: 360, minWidth: 320, closeButton: true, autoPanPadding: [40, 40]
       });
     } catch (e) {
-      console.error('точка не построилась:', p && p.id, e);
       continue;
     }
     markerrecs.push({ marker: mk, point: p, dateidx: dateidx });
@@ -591,7 +695,7 @@ Promise.all([
   zapuskslider();
   risuemspisok('');
 }).catch(function (err) {
-  console.error('инициализация упала:', err);
+  console.error('инициализация упала', err);
   if (!mapref) {
     mapref = L.map('map').setView(mapcenter, mapzoom);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
