@@ -12,8 +12,14 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://bragin.gov.by/", "label": "bragin.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://bragin.gov.by/",
+        "label": "bragin.gov.by"
+      }
     ]
   },
   {
@@ -29,9 +35,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://gomel.gov.by/", "label": "gomel.gov.by" },
-      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://gomel.gov.by/",
+        "label": "gomel.gov.by"
+      },
+      {
+        "url": "https://archives.gov.by/",
+        "label": "archives.gov.by"
+      }
     ]
   },
   {
@@ -47,8 +62,14 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://minsk.gov.by/", "label": "minsk.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://minsk.gov.by/",
+        "label": "minsk.gov.by"
+      }
     ]
   },
   {
@@ -64,15 +85,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://brest.gov.by/", "label": "brest.gov.by" },
-      { "url": "https://www.mil.by/", "label": "mil.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://brest.gov.by/",
+        "label": "brest.gov.by"
+      },
+      {
+        "url": "https://www.mil.by/",
+        "label": "mil.by"
+      }
     ]
   },
   {
     "id": 5,
-    "lat": 53.6667,
-    "lng": 23.8167,
+    "lat": 53.674748,
+    "lng": 23.838959,
     "title": "Гродно",
     "date": "16 июля 1944",
     "operation": "Белостокская и Вильнюсская операции (операция «Багратион»)",
@@ -82,9 +112,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://grodno.gov.by/", "label": "grodno.gov.by" },
-      { "url": "https://grodno-region.gov.by/", "label": "grodno-region.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://grodno.gov.by/",
+        "label": "grodno.gov.by"
+      },
+      {
+        "url": "https://grodno-region.gov.by/",
+        "label": "grodno-region.gov.by"
+      }
     ]
   },
   {
@@ -100,9 +139,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://vitebsk.gov.by/", "label": "vitebsk.gov.by" },
-      { "url": "https://vitebsk-region.gov.by/", "label": "vitebsk-region.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://vitebsk.gov.by/",
+        "label": "vitebsk.gov.by"
+      },
+      {
+        "url": "https://vitebsk-region.gov.by/",
+        "label": "vitebsk-region.gov.by"
+      }
     ]
   },
   {
@@ -118,14 +166,23 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://orsha.vitebsk-region.gov.by/", "label": "orsha.vitebsk-region.gov.by" },
-      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://orsha.vitebsk-region.gov.by/",
+        "label": "orsha.vitebsk-region.gov.by"
+      },
+      {
+        "url": "https://archives.gov.by/",
+        "label": "archives.gov.by"
+      }
     ]
   },
   {
     "id": 8,
-    "lat": 53.9000,
+    "lat": 53.9,
     "lng": 30.3333,
     "title": "Могилев",
     "date": "28 июня 1944",
@@ -136,9 +193,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://mogilev.gov.by/", "label": "mogilev.gov.by" },
-      { "url": "https://mogilev-region.gov.by/", "label": "mogilev-region.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://mogilev.gov.by/",
+        "label": "mogilev.gov.by"
+      },
+      {
+        "url": "https://mogilev-region.gov.by/",
+        "label": "mogilev-region.gov.by"
+      }
     ]
   },
   {
@@ -154,15 +220,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://bobruisk.gov.by/", "label": "bobruisk.gov.by" },
-      { "url": "https://www.mil.by/", "label": "mil.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://bobruisk.gov.by/",
+        "label": "bobruisk.gov.by"
+      },
+      {
+        "url": "https://www.mil.by/",
+        "label": "mil.by"
+      }
     ]
   },
   {
     "id": 10,
-    "lat": 55.4856,
-    "lng": 28.8042,
+    "lat": 55.491693,
+    "lng": 28.769073,
     "title": "Полоцк",
     "date": "4 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -172,15 +247,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://polotsk.vitebsk-region.gov.by/", "label": "polotsk.vitebsk-region.gov.by" },
-      { "url": "https://www.sb.by/", "label": "sb.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://polotsk.vitebsk-region.gov.by/",
+        "label": "polotsk.vitebsk-region.gov.by"
+      },
+      {
+        "url": "https://www.sb.by/",
+        "label": "sb.by"
+      }
     ]
   },
   {
     "id": 11,
     "lat": 52.1167,
-    "lng": 26.1000,
+    "lng": 26.1,
     "title": "Пинск",
     "date": "14 июля 1944",
     "operation": "Люблин-Брестская операция (операция «Багратион»)",
@@ -190,14 +274,23 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://pinsk.gov.by/", "label": "pinsk.gov.by" },
-      { "url": "https://belta.by/", "label": "belta.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://pinsk.gov.by/",
+        "label": "pinsk.gov.by"
+      },
+      {
+        "url": "https://belta.by/",
+        "label": "belta.by"
+      }
     ]
   },
   {
     "id": 12,
-    "lat": 53.1500,
+    "lat": 53.15,
     "lng": 26.0167,
     "title": "Барановичи",
     "date": "8 июля 1944",
@@ -208,15 +301,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://baranovichi.brest-region.gov.by/", "label": "baranovichi.brest-region.gov.by" },
-      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://baranovichi.brest-region.gov.by/",
+        "label": "baranovichi.brest-region.gov.by"
+      },
+      {
+        "url": "https://archives.gov.by/",
+        "label": "archives.gov.by"
+      }
     ]
   },
   {
     "id": 13,
-    "lat": 53.8833,
-    "lng": 25.3000,
+    "lat": 53.888963,
+    "lng": 25.3022,
     "title": "Лида",
     "date": "9 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -226,15 +328,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://lida.gov.by/", "label": "lida.gov.by" },
-      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://lida.gov.by/",
+        "label": "lida.gov.by"
+      },
+      {
+        "url": "https://archives.gov.by/",
+        "label": "archives.gov.by"
+      }
     ]
   },
   {
     "id": 14,
-    "lat": 53.0833,
-    "lng": 25.3167,
+    "lat": 53.094643,
+    "lng": 25.320053,
     "title": "Слоним",
     "date": "10 июля 1944",
     "operation": "Барановичско-Слонимская операция (операция «Багратион»)",
@@ -244,14 +355,23 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://slonim.gov.by/", "label": "slonim.gov.by" },
-      { "url": "https://belta.by/", "label": "belta.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://slonim.gov.by/",
+        "label": "slonim.gov.by"
+      },
+      {
+        "url": "https://belta.by/",
+        "label": "belta.by"
+      }
     ]
   },
   {
     "id": 15,
-    "lat": 53.1500,
+    "lat": 53.15,
     "lng": 24.4667,
     "title": "Волковыск",
     "date": "14 июля 1944",
@@ -262,14 +382,23 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://volkovysk.gov.by/", "label": "volkovysk.gov.by" },
-      { "url": "https://sp.sb.by/", "label": "sp.sb.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://volkovysk.gov.by/",
+        "label": "volkovysk.gov.by"
+      },
+      {
+        "url": "https://sp.sb.by/",
+        "label": "sp.sb.by"
+      }
     ]
   },
   {
     "id": 16,
-    "lat": 52.0500,
+    "lat": 52.05,
     "lng": 29.2667,
     "title": "Мозырь",
     "date": "14 января 1944",
@@ -280,9 +409,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://mozyrisp.gov.by/", "label": "mozyrisp.gov.by" },
-      { "url": "https://www.sb.by/", "label": "sb.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://mozyrisp.gov.by/",
+        "label": "mozyrisp.gov.by"
+      },
+      {
+        "url": "https://www.sb.by/",
+        "label": "sb.by"
+      }
     ]
   },
   {
@@ -298,9 +436,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://kalinkovichi.gov.by/", "label": "kalinkovichi.gov.by" },
-      { "url": "https://www.sb.by/", "label": "sb.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://kalinkovichi.gov.by/",
+        "label": "kalinkovichi.gov.by"
+      },
+      {
+        "url": "https://www.sb.by/",
+        "label": "sb.by"
+      }
     ]
   },
   {
@@ -316,15 +463,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://rechitsa.gov.by/", "label": "rechitsa.gov.by" },
-      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://rechitsa.gov.by/",
+        "label": "rechitsa.gov.by"
+      },
+      {
+        "url": "https://archives.gov.by/",
+        "label": "archives.gov.by"
+      }
     ]
   },
   {
     "id": 19,
     "lat": 53.0833,
-    "lng": 30.0500,
+    "lng": 30.05,
     "title": "Рогачев",
     "date": "24 февраля 1944",
     "operation": "Рогачевско-Жлобинская операция",
@@ -334,14 +490,23 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://rogachev.gov.by/", "label": "rogachev.gov.by" },
-      { "url": "https://www.vayar.mil.by/", "label": "vayar.mil.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://rogachev.gov.by/",
+        "label": "rogachev.gov.by"
+      },
+      {
+        "url": "https://www.vayar.mil.by/",
+        "label": "vayar.mil.by"
+      }
     ]
   },
   {
     "id": 20,
-    "lat": 52.9000,
+    "lat": 52.9,
     "lng": 30.0333,
     "title": "Жлобин",
     "date": "26 июня 1944",
@@ -352,9 +517,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://zhlobin.gov.by/", "label": "zhlobin.gov.by" },
-      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://zhlobin.gov.by/",
+        "label": "zhlobin.gov.by"
+      },
+      {
+        "url": "https://archives.gov.by/",
+        "label": "archives.gov.by"
+      }
     ]
   },
   {
@@ -370,15 +544,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://borisov.gov.by/", "label": "borisov.gov.by" },
-      { "url": "https://preslib.org.by/", "label": "preslib.org.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://borisov.gov.by/",
+        "label": "borisov.gov.by"
+      },
+      {
+        "url": "https://preslib.org.by/",
+        "label": "preslib.org.by"
+      }
     ]
   },
   {
     "id": 22,
     "lat": 54.3167,
-    "lng": 26.8500,
+    "lng": 26.85,
     "title": "Молодечно",
     "date": "5 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -388,15 +571,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://molodechno.gov.by/", "label": "molodechno.gov.by" },
-      { "url": "https://archives.gov.by/", "label": "archives.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://molodechno.gov.by/",
+        "label": "molodechno.gov.by"
+      },
+      {
+        "url": "https://archives.gov.by/",
+        "label": "archives.gov.by"
+      }
     ]
   },
   {
     "id": 23,
     "lat": 53.0333,
-    "lng": 27.5500,
+    "lng": 27.55,
     "title": "Слуцк",
     "date": "30 июня 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -406,9 +598,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://slutsk.gov.by/", "label": "slutsk.gov.by" },
-      { "url": "https://belta.by/", "label": "belta.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://slutsk.gov.by/",
+        "label": "slutsk.gov.by"
+      },
+      {
+        "url": "https://belta.by/",
+        "label": "belta.by"
+      }
     ]
   },
   {
@@ -424,14 +625,23 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://vileyka.gov.by/", "label": "vileyka.gov.by" },
-      { "url": "https://archmol.by/", "label": "archmol.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://vileyka.gov.by/",
+        "label": "vileyka.gov.by"
+      },
+      {
+        "url": "https://archmol.by/",
+        "label": "archmol.by"
+      }
     ]
   },
   {
     "id": 25,
-    "lat": 53.3000,
+    "lat": 53.3,
     "lng": 28.6333,
     "title": "Осиповичи",
     "date": "28 июня 1944",
@@ -442,9 +652,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://osipovichi.gov.by/", "label": "osipovichi.gov.by" },
-      { "url": "https://mogilev-region.gov.by/", "label": "mogilev-region.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://osipovichi.gov.by/",
+        "label": "osipovichi.gov.by"
+      },
+      {
+        "url": "https://mogilev-region.gov.by/",
+        "label": "mogilev-region.gov.by"
+      }
     ]
   },
   {
@@ -460,9 +679,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://gorki.gov.by/", "label": "gorki.gov.by" },
-      { "url": "https://mogilev-region.gov.by/", "label": "mogilev-region.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://gorki.gov.by/",
+        "label": "gorki.gov.by"
+      },
+      {
+        "url": "https://mogilev-region.gov.by/",
+        "label": "mogilev-region.gov.by"
+      }
     ]
   },
   {
@@ -478,15 +706,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://dubrovno.by/", "label": "dubrovno.by" },
-      { "url": "https://pridvinie.vlib.by/", "label": "pridvinie.vlib.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://dubrovno.by/",
+        "label": "dubrovno.by"
+      },
+      {
+        "url": "https://pridvinie.vlib.by/",
+        "label": "pridvinie.vlib.by"
+      }
     ]
   },
   {
     "id": 28,
     "lat": 54.4167,
-    "lng": 29.7000,
+    "lng": 29.7,
     "title": "Толочин",
     "date": "26 июня 1944",
     "operation": "Витебско-Оршанская операция (операция «Багратион»)",
@@ -496,15 +733,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://tolochin.vitebsk-region.gov.by/", "label": "tolochin.vitebsk-region.gov.by" },
-      { "url": "https://eng.belta.by/", "label": "eng.belta.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://tolochin.vitebsk-region.gov.by/",
+        "label": "tolochin.vitebsk-region.gov.by"
+      },
+      {
+        "url": "https://eng.belta.by/",
+        "label": "eng.belta.by"
+      }
     ]
   },
   {
     "id": 29,
-    "lat": 53.0500,
-    "lng": 26.6333,
+    "lat": 53.063501,
+    "lng": 26.634979,
     "title": "Клецк",
     "date": "4 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -514,9 +760,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://kletsk.gov.by/", "label": "kletsk.gov.by" },
-      { "url": "https://minoblturism.gov.by/", "label": "minoblturism.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://kletsk.gov.by/",
+        "label": "kletsk.gov.by"
+      },
+      {
+        "url": "https://minoblturism.gov.by/",
+        "label": "minoblturism.gov.by"
+      }
     ]
   },
   {
@@ -532,15 +787,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://nesvizh.gov.by/", "label": "nesvizh.gov.by" },
-      { "url": "https://www.gamn.by/", "label": "gamn.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://nesvizh.gov.by/",
+        "label": "nesvizh.gov.by"
+      },
+      {
+        "url": "https://www.gamn.by/",
+        "label": "gamn.by"
+      }
     ]
   },
   {
     "id": 31,
     "lat": 54.4833,
-    "lng": 26.4000,
+    "lng": 26.4,
     "title": "Сморгонь",
     "date": "4 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -550,15 +814,24 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://smorgon.gov.by/", "label": "smorgon.gov.by" },
-      { "url": "https://tops.gpk.gov.by/", "label": "tops.gpk.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://smorgon.gov.by/",
+        "label": "smorgon.gov.by"
+      },
+      {
+        "url": "https://tops.gpk.gov.by/",
+        "label": "tops.gpk.gov.by"
+      }
     ]
   },
   {
     "id": 32,
-    "lat": 54.8833,
-    "lng": 26.9333,
+    "lat": 54.878977,
+    "lng": 26.937103,
     "title": "Мядель",
     "date": "4 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -568,9 +841,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://myadel.gov.by/", "label": "myadel.gov.by" },
-      { "url": "https://minoblturism.gov.by/", "label": "minoblturism.gov.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://myadel.gov.by/",
+        "label": "myadel.gov.by"
+      },
+      {
+        "url": "https://minoblturism.gov.by/",
+        "label": "minoblturism.gov.by"
+      }
     ]
   },
   {
@@ -586,9 +868,18 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" },
-      { "url": "https://pridvinie.vlib.by/", "label": "pridvinie.vlib.by" },
-      { "url": "https://nlb.by/", "label": "nlb.by" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      },
+      {
+        "url": "https://pridvinie.vlib.by/",
+        "label": "pridvinie.vlib.by"
+      },
+      {
+        "url": "https://nlb.by/",
+        "label": "nlb.by"
+      }
     ]
   },
   {
@@ -604,7 +895,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -620,7 +914,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -636,7 +933,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -652,13 +952,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 38,
-    "lat": 54.0235,
-    "lng": 31.7336,
+    "lat": 54.017452,
+    "lng": 31.724396,
     "title": "Мстиславль",
     "date": "28 сентября 1943",
     "operation": "Брянская операция",
@@ -668,7 +971,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -684,13 +990,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 40,
-    "lat": 53.7300,
-    "lng": 31.7200,
+    "lat": 53.708088,
+    "lng": 31.717529,
     "title": "Кричев",
     "date": "29 сентября 1943",
     "operation": "Брянская операция",
@@ -700,7 +1009,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -716,7 +1028,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -732,7 +1047,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -748,7 +1066,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -764,7 +1085,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -780,12 +1104,15 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 46,
-    "lat": 55.0280,
+    "lat": 55.028,
     "lng": 30.7956,
     "title": "Лиозно",
     "date": "10 октября 1943",
@@ -796,7 +1123,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -812,7 +1142,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -828,7 +1161,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -844,7 +1180,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -860,7 +1199,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -876,13 +1218,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 52,
     "lat": 51.8876,
-    "lng": 29.9650,
+    "lng": 29.965,
     "title": "Хойники",
     "date": "24 ноября 1943",
     "operation": "Гомельско-Речицкая операция",
@@ -892,7 +1237,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -908,7 +1256,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -924,7 +1275,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -940,7 +1294,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -956,7 +1313,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -972,7 +1332,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -988,7 +1351,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1004,12 +1370,15 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 60,
-    "lat": 55.8370,
+    "lat": 55.837,
     "lng": 29.9833,
     "title": "Езерище",
     "date": "19 декабря 1943",
@@ -1020,7 +1389,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1036,13 +1408,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 62,
     "lat": 51.8063,
-    "lng": 29.1520,
+    "lng": 29.152,
     "title": "Ельск",
     "date": "11 января 1944",
     "operation": "Мозырско-Калинковичская операция",
@@ -1052,7 +1427,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1068,7 +1446,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1084,13 +1465,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 65,
     "lat": 51.7862,
-    "lng": 28.3290,
+    "lng": 28.329,
     "title": "Лельчицы",
     "date": "23 января 1944",
     "operation": "Мозырско-Калинковичская операция",
@@ -1100,7 +1484,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1116,13 +1503,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 67,
-    "lat": 55.3719,
-    "lng": 29.6257,
+    "lat": 55.3739,
+    "lng": 29.62517,
     "title": "Сиротино",
     "date": "23 июня 1944",
     "operation": "Витебско-Оршанская операция (операция «Багратион»)",
@@ -1132,7 +1522,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1148,7 +1541,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1164,7 +1560,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1180,7 +1579,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1196,13 +1598,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 72,
-    "lat": 55.3579,
-    "lng": 29.2833,
+    "lat": 55.354526,
+    "lng": 29.304657,
     "title": "Оболь",
     "date": "26 июня 1944",
     "operation": "Витебско-Оршанская операция (операция «Багратион»)",
@@ -1212,7 +1617,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1228,7 +1636,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1244,13 +1655,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 75,
     "lat": 54.3215,
-    "lng": 30.2870,
+    "lng": 30.287,
     "title": "Копысь",
     "date": "27 июня 1944",
     "operation": "Витебско-Оршанская операция (операция «Багратион»)",
@@ -1260,12 +1674,15 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 76,
-    "lat": 54.8570,
+    "lat": 54.857,
     "lng": 29.1599,
     "title": "Чашники",
     "date": "27 июня 1944",
@@ -1276,7 +1693,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1292,7 +1712,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1308,7 +1731,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1324,7 +1750,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1340,7 +1769,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1356,7 +1788,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1372,7 +1807,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1388,7 +1826,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1404,7 +1845,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1420,13 +1864,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 86,
-    "lat": 54.4340,
-    "lng": 27.7902,
+    "lat": 54.422226,
+    "lng": 27.834206,
     "title": "Плещеницы",
     "date": "30 июня 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -1436,7 +1883,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1452,7 +1902,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1468,13 +1921,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 89,
-    "lat": 52.8000,
-    "lng": 28.0000,
+    "lat": 52.8,
+    "lng": 28,
     "title": "Любань",
     "date": "30 июня 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -1484,13 +1940,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 90,
     "lat": 53.8364,
-    "lng": 28.9910,
+    "lng": 28.991,
     "title": "Березино",
     "date": "1 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -1500,7 +1959,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1516,13 +1978,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 92,
-    "lat": 53.5965,
-    "lng": 25.8506,
+    "lat": 53.59495,
+    "lng": 25.824051,
     "title": "Новогрудок",
     "date": "8 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -1532,7 +1997,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1548,7 +2016,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1564,7 +2035,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1580,7 +2054,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1596,7 +2073,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1612,13 +2092,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 98,
     "lat": 52.6439,
-    "lng": 28.8800,
+    "lng": 28.88,
     "title": "Октябрьский",
     "date": "27 июня 1944",
     "operation": "Бобруйская наступательная операция (операция «Багратион»)",
@@ -1628,13 +2111,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 99,
-    "lat": 53.0300,
-    "lng": 24.1000,
+    "lat": 53.03,
+    "lng": 24.1,
     "title": "Свислочь",
     "date": "17 июля 1944",
     "operation": "Белостокская операция (операция «Багратион»)",
@@ -1644,7 +2130,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1660,7 +2149,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1676,7 +2168,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1692,7 +2187,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1708,7 +2206,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1724,13 +2225,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 105,
-    "lat": 54.4289,
-    "lng": 25.9356,
+    "lat": 54.423724,
+    "lng": 25.936661,
     "title": "Ошмяны",
     "date": "7 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -1740,7 +2244,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1756,13 +2263,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 107,
-    "lat": 53.9289,
-    "lng": 25.7652,
+    "lat": 53.930624,
+    "lng": 25.770493,
     "title": "Ивье",
     "date": "7 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -1772,13 +2282,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 108,
-    "lat": 53.5758,
-    "lng": 26.1333,
+    "lat": 53.568453,
+    "lng": 26.139908,
     "title": "Кореличи",
     "date": "8 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -1788,7 +2301,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1804,7 +2320,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1820,13 +2339,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 111,
-    "lat": 53.7309,
-    "lng": 24.5314,
+    "lat": 53.730435,
+    "lng": 24.529037,
     "title": "Острино",
     "date": "11 июля 1944",
     "operation": "Белостокская операция (операция «Багратион»)",
@@ -1836,7 +2358,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1852,7 +2377,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1868,7 +2396,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1884,13 +2415,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 115,
-    "lat": 53.6845,
-    "lng": 27.1364,
+    "lat": 53.686745,
+    "lng": 27.131767,
     "title": "Дзержинск",
     "date": "7 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -1900,7 +2434,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1916,13 +2453,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 117,
-    "lat": 53.5679,
-    "lng": 26.4413,
+    "lat": 53.45494,
+    "lng": 26.464691,
     "title": "Мир",
     "date": "2 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -1932,13 +2472,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 118,
-    "lat": 53.7512,
-    "lng": 26.0608,
+    "lat": 53.752365,
+    "lng": 26.05751,
     "title": "Любча",
     "date": "8 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -1948,7 +2491,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1964,7 +2510,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1980,7 +2529,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -1996,7 +2548,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2012,7 +2567,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2028,7 +2586,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2044,7 +2605,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2060,7 +2624,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2076,7 +2643,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2092,7 +2662,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2108,7 +2681,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2124,7 +2700,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2140,13 +2719,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 131,
-    "lat": 53.2000,
-    "lng": 26.4167,
+    "lat": 53.313647,
+    "lng": 26.544342,
     "title": "Городея",
     "date": "2 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2156,13 +2738,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 132,
-    "lat": 53.6667,
-    "lng": 27.1500,
+    "lat": 54.249381,
+    "lng": 27.077522,
     "title": "Красное",
     "date": "2 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2172,13 +2757,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 133,
-    "lat": 54.9500,
-    "lng": 27.6667,
+    "lat": 54.554943,
+    "lng": 26.958046,
     "title": "Куренец",
     "date": "2 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2188,13 +2776,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 134,
-    "lat": 54.9000,
-    "lng": 27.1000,
+    "lat": 54.851315,
+    "lng": 26.391907,
     "title": "Свирь",
     "date": "6 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -2204,13 +2795,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 135,
-    "lat": 54.6667,
-    "lng": 27.2333,
+    "lat": 54.643247,
+    "lng": 27.476807,
     "title": "Долгиново",
     "date": "3 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2220,13 +2814,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 136,
-    "lat": 54.8333,
-    "lng": 27.4167,
+    "lat": 54.786038,
+    "lng": 27.453117,
     "title": "Будслав",
     "date": "3 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2236,13 +2833,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 137,
-    "lat": 54.2167,
-    "lng": 27.4667,
+    "lat": 54.422126,
+    "lng": 27.839355,
     "title": "Плещеницы",
     "date": "30 июня 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2252,13 +2852,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 138,
-    "lat": 54.0167,
-    "lng": 27.3000,
+    "lat": 53.967801,
+    "lng": 27.052116,
     "title": "Раков",
     "date": "4 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2268,13 +2871,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 139,
-    "lat": 54.0000,
-    "lng": 27.2833,
+    "lat": 54.00444,
+    "lng": 27.291584,
     "title": "Заславль",
     "date": "4 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2284,13 +2890,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 140,
-    "lat": 54.7333,
-    "lng": 27.2333,
+    "lat": 54.713119,
+    "lng": 27.292099,
     "title": "Кривичи",
     "date": "4 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2300,13 +2909,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 141,
-    "lat": 55.1167,
-    "lng": 27.2333,
+    "lat": 55.621018,
+    "lng": 27.618256,
     "title": "Миоры",
     "date": "4 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2316,13 +2928,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 142,
-    "lat": 55.1167,
-    "lng": 27.2833,
+    "lat": 55.075812,
+    "lng": 27.234077,
     "title": "Дуниловичи",
     "date": "4 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2332,13 +2947,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 143,
-    "lat": 55.0833,
-    "lng": 27.2000,
+    "lat": 55.140425,
+    "lng": 27.209015,
     "title": "Воропаево",
     "date": "5 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2348,13 +2966,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 144,
-    "lat": 55.0167,
-    "lng": 26.7833,
+    "lat": 55.10823,
+    "lng": 26.8396,
     "title": "Поставы",
     "date": "5 июля 1944",
     "operation": "Шяуляйская операция (операция «Багратион»)",
@@ -2364,13 +2985,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 145,
     "lat": 55.6333,
-    "lng": 27.0500,
+    "lng": 27.05,
     "title": "Браслав",
     "date": "6 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2380,13 +3004,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 146,
-    "lat": 55.7500,
-    "lng": 27.0167,
+    "lat": 55.787192,
+    "lng": 27.456207,
     "title": "Друя",
     "date": "6 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2396,7 +3023,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2412,13 +3042,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 148,
-    "lat": 55.5667,
-    "lng": 26.6167,
+    "lat": 56.017575,
+    "lng": 28.108521,
     "title": "Освея",
     "date": "12 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2428,13 +3061,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 149,
-    "lat": 55.8833,
-    "lng": 28.2167,
+    "lat": 55.895336,
+    "lng": 28.825378,
     "title": "Россоны",
     "date": "12 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2444,13 +3080,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 150,
-    "lat": 55.4000,
-    "lng": 27.0333,
+    "lat": 55.363503,
+    "lng": 27.468567,
     "title": "Шарковщина",
     "date": "1 июля 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2460,7 +3099,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
@@ -2476,13 +3118,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 152,
-    "lat": 55.1167,
-    "lng": 27.8833,
+    "lat": 55.176515,
+    "lng": 28.613892,
     "title": "Ушачи",
     "date": "29 июня 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2492,13 +3137,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 153,
-    "lat": 55.2167,
-    "lng": 27.6167,
+    "lat": 54.734136,
+    "lng": 28.064575,
     "title": "Бегомль",
     "date": "1 июля 1944",
     "operation": "Минская наступательная операция (операция «Багратион»)",
@@ -2508,13 +3156,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 154,
-    "lat": 55.4167,
-    "lng": 27.3167,
+    "lat": 55.405629,
+    "lng": 28.468323,
     "title": "Ветрино",
     "date": "29 июня 1944",
     "operation": "Полоцкая наступательная операция (операция «Багратион»)",
@@ -2524,13 +3175,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 155,
-    "lat": 54.7333,
-    "lng": 26.2333,
+    "lat": 54.032578,
+    "lng": 25.927734,
     "title": "Юратишки",
     "date": "7 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -2540,13 +3194,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 156,
-    "lat": 53.9667,
-    "lng": 25.7833,
+    "lat": 54.257604,
+    "lng": 26.011848,
     "title": "Гольшаны",
     "date": "6 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
@@ -2556,13 +3213,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 157,
-    "lat": 53.5000,
-    "lng": 24.1833,
+    "lat": 53.730842,
+    "lng": 24.529724,
     "title": "Острино",
     "date": "11 июля 1944",
     "operation": "Белостокская операция (операция «Багратион»)",
@@ -2572,13 +3232,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 158,
-    "lat": 53.3667,
-    "lng": 24.3667,
+    "lat": 53.286153,
+    "lng": 24.408188,
     "title": "Россь",
     "date": "14 июля 1944",
     "operation": "Белостокская операция (операция «Багратион»)",
@@ -2588,13 +3251,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 159,
-    "lat": 53.4500,
-    "lng": 24.7333,
+    "lat": 53.463526,
+    "lng": 25.581665,
     "title": "Новоельня",
     "date": "14 июля 1944",
     "operation": "Белостокская операция (операция «Багратион»)",
@@ -2604,13 +3270,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 160,
-    "lat": 53.3000,
-    "lng": 24.9667,
+    "lat": 53.150888,
+    "lng": 24.809189,
     "title": "Зельва",
     "date": "12 июля 1944",
     "operation": "Барановичско-Слонимская операция (операция «Багратион»)",
@@ -2620,13 +3289,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 161,
-    "lat": 53.1667,
-    "lng": 24.7833,
+    "lat": 52.863327,
+    "lng": 24.885406,
     "title": "Ружаны",
     "date": "13 июля 1944",
     "operation": "Барановичско-Слонимская операция (операция «Багратион»)",
@@ -2636,13 +3308,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 162,
-    "lat": 53.1667,
-    "lng": 24.7167,
+    "lat": 53.32021,
+    "lng": 25.285034,
     "title": "Козловщина",
     "date": "13 июля 1944",
     "operation": "Барановичско-Слонимская операция (операция «Багратион»)",
@@ -2652,13 +3327,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 163,
-    "lat": 53.0500,
-    "lng": 25.9667,
+    "lat": 52.880734,
+    "lng": 25.500298,
     "title": "Бытень",
     "date": "10 июля 1944",
     "operation": "Барановичско-Слонимская операция (операция «Багратион»)",
@@ -2668,13 +3346,16 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   },
   {
     "id": 164,
-    "lat": 52.9500,
-    "lng": 25.9833,
+    "lat": 52.514549,
+    "lng": 25.83847,
     "title": "Телеханы",
     "date": "10 июля 1944",
     "operation": "Барановичско-Слонимская операция (операция «Багратион»)",
@@ -2684,7 +3365,10 @@
     "photo": "",
     "memoryPhoto": "",
     "sources": [
-      { "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf", "label": "Хронология освобождения Беларуси" }
+      {
+        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
+        "label": "Хронология освобождения Беларуси"
+      }
     ]
   }
 ]
