@@ -214,30 +214,40 @@ html, body {
 
 @keyframes pinring {
   0% {
-    transform: scale(0.5);
+    transform: scale(0.4);
     opacity: 1;
-    border-width: 3px;
+    border-width: 6px;
+  }
+  60% {
+    opacity: 0.95;
+    border-width: 5px;
   }
   100% {
-    transform: scale(2.2);
+    transform: scale(3);
     opacity: 0;
-    border-width: 1px;
+    border-width: 2px;
   }
 }
 
 .pin.pulse {
   z-index: 1000;
+  filter:
+    drop-shadow(0 0 8px #ffffff)
+    drop-shadow(0 0 18px rgba(255, 255, 255, 0.9));
 }
 
 .pin.pulse::before {
   content: "";
   position: absolute;
   inset: -6px;
-  border: 3px solid #ffffff;
+  border: 6px solid #ffffff;
   border-radius: 50%;
   pointer-events: none;
-  animation: pinring 700ms ease-out 1 forwards;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  animation: pinring 800ms ease-out 1 forwards;
+  box-shadow:
+    0 0 14px rgba(255, 255, 255, 0.95),
+    0 0 28px rgba(255, 255, 255, 0.7),
+    inset 0 0 10px rgba(255, 255, 255, 0.8);
   will-change: transform, opacity, border-width;
 }
 
