@@ -534,7 +534,7 @@ function initkarta() {
   mapref = L.map('map', { zoomControl: true }).setView(mapcenter, mapzoom);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy',
+    attribution: '&copy; OpenStreetMap',
     maxZoom: 19
   }).addTo(mapref);
 
