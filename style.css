@@ -114,14 +114,11 @@ html, body {
   width: 60px; height: 60px; flex: 0 0 auto;
   border-radius: 6px;
   background: #eee center/cover no-repeat;
-  display: block;
   object-fit: cover;
+  display: block;
 }
-img.monument-photo {
-  cursor: zoom-in;
-  transition: opacity .15s, transform .15s;
-}
-img.monument-photo:hover { opacity: 0.85; transform: scale(1.03); }
+img.monument-photo { cursor: zoom-in; transition: opacity .15s, transform .15s; }
+img.monument-photo:hover { opacity: 0.85; transform: scale(1.04); }
 .monument-text { flex: 1; font-size: 13.5px; line-height: 1.45; }
 .monument-text b { display: block; font-weight: 600; }
 .monument-text .note { color: #777; font-size: 12.5px; }
@@ -362,10 +359,7 @@ img.monument-photo:hover { opacity: 0.85; transform: scale(1.03); }
 }
 .popup-more:hover { background: #8f0000; }
 
-.lightbox-img {
-  cursor: zoom-in;
-  transition: opacity .15s;
-}
+.lightbox-img { cursor: zoom-in; transition: opacity .15s; }
 .lightbox-img:hover { opacity: 0.9; }
 
 .lightbox {
@@ -377,13 +371,8 @@ img.monument-photo:hover { opacity: 0.85; transform: scale(1.03); }
   align-items: center;
   justify-content: center;
   padding: calc(58px + env(safe-area-inset-top, 0px)) 16px 20px;
-  animation: lbfade .18s ease-out;
 }
 .lightbox[hidden] { display: none; }
-@keyframes lbfade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
 
 .lightbox-inner {
   max-width: min(1100px, 100%);
