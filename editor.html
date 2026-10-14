@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>редактор координат</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  html, body { margin:0; height:100%; font-family: system-ui, Arial, sans-serif; }
+  #app { display:flex; height:100vh; }
+  #map { flex:1; }
+  #side {
+    width: 380px; overflow:auto; border-left:1px solid #ccc;
+    background:#fafafa; padding:10px; box-sizing:border-box;
+  }
+  #side h3 { margin: 6px 0; }
+  .row {
+    display:flex; gap:6px; align-items:center;
+    padding:4px 6px; border-bottom:1px solid #eee; font-size:13px;
+  }
+  .row input {
+    width:90px; font-size:12px; padding:2px 4px;
+    border:1px solid #ccc; border-radius:3px;
+  }
+  .row .nm { flex:1; }
+  .row.hl { background:#fff7cc; }
+  .row.changed .nm::after { content:" ✱"; color:#c60; }
+  .btns { display:flex; gap:6px; flex-wrap:wrap; margin:8px 0; }
+  button {
+    padding:6px 10px; cursor:pointer; border:1px solid #888;
+    background:#fff; border-radius:4px; font-size:13px;
+  }
+  button.primary { background:#2a7; color:#fff; border-color:#186; }
+  textarea {
+    width:100%; height:200px; font-family: monospace; font-size:12px;
+    box-sizing:border-box; margin-top:6px;
+  }
+  .hint { color:#555; font-size:12px; margin:6px 0; }
+  .leaflet-marker-icon { cursor: grab; }
+  .leaflet-drag-target { cursor: grabbing; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="map"></div>
+  <div id="side">
+    <h3>Загрузить</h3>
+    <div class="btns">
+      <input type="file" id="file" accept=".json,application/json" />
+      <button id="loadDefault">Загрузить пример</button>
+    </div>
+    <div class="hint">
+      зименение ))) ✱.
+    </div>
+
+    <div class="btns">
+      <button class="primary" id="copy">Скопировать</button>
+      <button id="download">Скачать</button>
+      <button id="reset">Сбросить правки</button>
+    </div>
+
+    <h3>Список (<span id="count">0</span>)</h3>
+    <div id="list"></div>
+
+    <h3>Предпросмотр</h3>
+    <textarea id="out" spellcheck="false"></textarea>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const DEFAULT_POINTS = [
+  {"id": 1, "name": "Минск", "lat": 53.9022, "lng": 27.5618, "region": "Минская"},
+  {"id": 2, "name": "Гомель", "lat": 52.4417, "lng": 30.9833, "region": "Гомельская"},
+  {"id": 3, "name": "Витебск", "lat": 55.1833, "lng": 30.1667, "region": "Витебская"},
+  {"id": 4, "name": "Гродно", "lat": 53.6667, "lng": 23.8167, "region": "Гродненская"},
+  {"id": 5, "name": "Могилёв", "lat": 53.9089, "lng": 30.3430, "region": "Могилёвская"},
+  {"id": 6, "name": "Брест", "lat": 52.0847, "lng": 23.6569, "region": "Брестская"}
+];
+
+let original = [];
+let points   = [];
+let markers  = new Map()
+
+const map = L.map('map', { zoomControl: true }).setView([53.7, 27.9], 7);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+const layerGroup = L.layerGroup().addTo(map);
+
+function loadPoints(arr) {
+  // очищаем
+  layerGroup.clearLayers();
+  markers.clear();
+  original = JSON.parse(JSON.stringify(arr));
+  points   = JSON.parse(JSON.stringify(arr));
+
+  for (const p of points) {
+    addMarker(p);
+  }
+  
+  if (points.length) {
+    const bounds = L.latLngBounds(points.map(p => [p.lat, p.lng]));
+    map.fitBounds(bounds.pad(0.1));
+  }
+  renderList();
+  renderOut();
+}
+
+function addMarker(p) {
+  const m = L.marker([p.lat, p.lng], {
+    draggable: true,
+    title: p.name
+  }).addTo(layerGroup);
+
+  m.bindTooltip(`${p.name} (#${p.id})`, { direction: 'top', offset: [0, -6] });
+
+  m.on('drag', (e) => {
+    const ll = e.target.getLatLng();
+    p.lat = +ll.lat.toFixed(6);
+    p.lng = +ll.lng.toFixed(6);
+    updateRow(p);
+    renderOut();
+  });
+  m.on('dragend', () => renderList());
+
+  m.on('click', () => {
+    highlightRow(p.id);
+    document.querySelector(`.row[data-id="${p.id}"]`)?.scrollIntoView({block:'center', behavior:'smooth'});
+  });
+
+  markers.set(p.id, m);
+}
+
+function renderList() {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  for (const p of points) {
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.dataset.id = p.id;
+
+    const changed = isChanged(p);
+    if (changed) row.classList.add('changed');
+
+    const nm = document.createElement('span');
+    nm.className = 'nm';
+    nm.textContent = `${p.id}. ${p.name}`;
+
+    const lat = document.createElement('input');
+    lat.type = 'number'; lat.step = '0.000001'; lat.value = p.lat;
+    lat.addEventListener('change', () => {
+      p.lat = parseFloat(lat.value);
+      markers.get(p.id)?.setLatLng([p.lat, p.lng]);
+      renderOut(); updateRow(p);
+    });
+
+    const lng = document.createElement('input');
+    lng.type = 'number'; lng.step = '0.000001'; lng.value = p.lng;
+    lng.addEventListener('change', () => {
+      p.lng = parseFloat(lng.value);
+      markers.get(p.id)?.setLatLng([p.lat, p.lng]);
+      renderOut(); updateRow(p);
+    });
+
+    const go = document.createElement('button');
+    go.textContent = '→';
+    go.title = 'центрировать';
+    go.addEventListener('click', () => {
+      map.setView([p.lat, p.lng], Math.max(map.getZoom(), 12));
+      markers.get(p.id)?.openTooltip();
+      highlightRow(p.id);
+    });
+
+    row.appendChild(nm);
+    row.appendChild(lat);
+    row.appendChild(lng);
+    row.appendChild(go);
+    list.appendChild(row);
+  }
+  document.getElementById('count').textContent = points.length;
+}
+
+function updateRow(p) {
+  const row = document.querySelector(`.row[data-id="${p.id}"]`);
+  if (!row) return;
+  const inputs = row.querySelectorAll('input');
+  inputs[0].value = p.lat;
+  inputs[1].value = p.lng;
+  row.classList.toggle('changed', isChanged(p));
+}
+
+function highlightRow(id) {
+  document.querySelectorAll('.row.hl').forEach(el => el.classList.remove('hl'));
+  const row = document.querySelector(`.row[data-id="${id}"]`);
+  row?.classList.add('hl');
+  setTimeout(() => row?.classList.remove('hl'), 1500);
+}
+
+function isChanged(p) {
+  const o = original.find(x => x.id === p.id);
+  if (!o) return true;
+  return Math.abs(o.lat - p.lat) > 1e-6 || Math.abs(o.lng - p.lng) > 1e-6;
+}
+
+function renderOut() {
+  document.getElementById('out').value = JSON.stringify(points, null, 2);
+}
+
+document.getElementById('file').addEventListener('change', (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try {
+      const data = JSON.parse(r.result);
+      if (!Array.isArray(data)) throw new Error('Ожидался массив');
+      loadPoints(data);
+    } catch (err) {
+      alert('Не удалось прочитать JSON: ' + err.message);
+    }
+  };
+  r.readAsText(f, 'utf-8');
+});
+
+document.getElementById('loadDefault').addEventListener('click', () => {
+  loadPoints(DEFAULT_POINTS);
+});
+
+document.getElementById('copy').addEventListener('click', async () => {
+  const txt = JSON.stringify(points, null, 2);
+  try {
+    await navigator.clipboard.writeText(txt);
+    alert('points.json скопирован в буфер обмена (' + points.length + ' точек).');
+  } catch {
+    // fallback
+    const ta = document.getElementById('out');
+    ta.select(); document.execCommand('copy');
+    alert('Скопировано (fallback).');
+  }
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(points, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'points.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  if (!confirm('Вернуть все координаты к исходным (как было при загрузке)?')) return;
+  points = JSON.parse(JSON.stringify(original));
+  layerGroup.clearLayers();
+  markers.clear();
+  for (const p of points) addMarker(p);
+  renderList();
+  renderOut();
+});
+
+loadPoints(DEFAULT_POINTS);
+</script>
+</body>
+</html>
