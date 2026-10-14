@@ -1,4 +1,3 @@
-[
   {
     "id": 1,
     "lat": 51.4333,
@@ -9,7 +8,10 @@
     "units": "13-я армия, 8-я и 74-я стрелковые дивизии",
     "description": "Первый освобождённый районный центр БССР.",
     "memory": "Стела в честь воинов-освободителей 15-го стрелкового корпуса 13-й армии (1976), братская могила, ежегодный митинг.",
-    "photo": ["https://upload.wikimedia.org/wikipedia/commons/6/6f/%D0%9A%D0%BE%D0%BC%D0%B0%D1%80%D0%B8%D0%BD%2C_%D0%91%D1%80%D0%B0%D0%B3%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%2C_%D0%93%D0%BE%D0%BC%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D1%8C_41.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=original", "https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BC%D0%B0%D1%80%D0%B8%D0%BD_(%D0%93%D0%BE%D0%BC%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C)?ysclid=mv7z0eeojl243463052#/media/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%9A%D0%B0%D0%BC%D0%B0%D1%80%D1%8B%D0%BD7.jpg"]
+    "photo": [
+      "https://upload.wikimedia.org/wikipedia/commons/6/6f/%D0%9A%D0%BE%D0%BC%D0%B0%D1%80%D0%B8%D0%BD%2C_%D0%91%D1%80%D0%B0%D0%B3%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%2C_%D0%93%D0%BE%D0%BC%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D1%8C_41.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+      "https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BC%D0%B0%D1%80%D0%B8%D0%BD_(%D0%93%D0%BE%D0%BC%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C)?ysclid=mv7z0eeojl243463052#/media/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%9A%D0%B0%D0%BC%D0%B0%D1%80%D1%8B%D0%BD7.jpg"
+    ],
     "memoryPhoto": "https://planetabelarus.by/upload/resize_cache/iblock/bfc/1330_887_18e21fe612b4afb807a26ecc22279a1d9/bfc16368a4de4761acefae7c5ee7c90b.jpg",
     "sources": [
       {
