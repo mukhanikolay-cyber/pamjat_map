@@ -204,7 +204,6 @@ function initlightbox() {
     if (e.key === 'Escape' && !lightboxref.hidden) zakrytfoto();
   });
 
-  // делегирование: любой .lightbox-img открывает просмотр
   document.addEventListener('click', e => {
     const img = e.target.closest('.lightbox-img');
     if (!img) return;
@@ -535,7 +534,7 @@ function initkarta() {
   mapref = L.map('map', { zoomControl: true }).setView(mapcenter, mapzoom);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap',
+    attribution: '&copy',
     maxZoom: 19
   }).addTo(mapref);
 
