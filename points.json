@@ -2840,25 +2840,6 @@
     ]
   },
   {
-    "id": 137,
-    "lat": 54.422126,
-    "lng": 27.839355,
-    "title": "Плещеницы",
-    "date": "30 июня 1944",
-    "operation": "Минская наступательная операция (операция «Багратион»)",
-    "units": "35-я гвардейская танковая бригада",
-    "description": "",
-    "memory": "",
-    "photo": "",
-    "memoryPhoto": "",
-    "sources": [
-      {
-        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
-        "label": "Хронология освобождения Беларуси"
-      }
-    ]
-  },
-  {
     "id": 138,
     "lat": 53.967801,
     "lng": 27.052116,
@@ -3208,25 +3189,6 @@
     "date": "6 июля 1944",
     "operation": "Вильнюсская операция (операция «Багратион»)",
     "units": "Войска 3-го Белорусского фронта",
-    "description": "",
-    "memory": "",
-    "photo": "",
-    "memoryPhoto": "",
-    "sources": [
-      {
-        "url": "https://www.baranovichi-gik.gov.by/uploads/files/banner-right/80-let-osvobogdenia/Xronologija-osvobozhdenija-Belarusi.pdf",
-        "label": "Хронология освобождения Беларуси"
-      }
-    ]
-  },
-  {
-    "id": 157,
-    "lat": 53.730842,
-    "lng": 24.529724,
-    "title": "Острино",
-    "date": "11 июля 1944",
-    "operation": "Белостокская операция (операция «Багратион»)",
-    "units": "Войска 2-го Белорусского фронта",
     "description": "",
     "memory": "",
     "photo": "",
