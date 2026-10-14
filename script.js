@@ -218,9 +218,6 @@ function initlightbox() {
 
 function makepopup(p) {
   const info = infodata[p.id] || {};
-
-  // фото города: приоритет у info.json, иначе — photo из points.json.
-  // memoryPhoto из points.json намеренно НЕ используется, чтобы попап не раздувался.
   const citysrc = info.photo || p.photo || '';
   const cityimg = citysrc
     ? `<img class="popup-img lightbox-img" src="${esc(citysrc)}" alt="${esc(p.title)}"
