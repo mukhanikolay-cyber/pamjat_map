@@ -71,6 +71,30 @@ function esc(s) {
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+// photo может быть: строкой с разделителем | или \n, массивом, или пустой
+function fotki(v) {
+  if (!v) return [];
+  if (Array.isArray(v)) {
+    return v.map(function (s) { return String(s == null ? '' : s).trim(); })
+            .filter(Boolean);
+  }
+  return String(v).split(/[|\r\n]+/)
+    .map(function (s) { return s.trim(); })
+    .filter(Boolean);
+}
+
+// собирает блок картинок одной строкой (в ряд)
+function fotkiblok(v, cls, cap) {
+  const arr = fotki(v);
+  if (!arr.length) return '';
+  return '<div class="' + cls + '">' + arr.map(function (src, i) {
+    const c = cap ? (arr.length > 1 ? cap + ' · ' + (i + 1) + '/' + arr.length : cap) : '';
+    return '<img class="lightbox-img" src="' + esc(src) + '" alt="' + esc(c) +
+      '" data-lightbox="' + esc(src) + '" data-caption="' + esc(c) +
+      '" loading="lazy" onerror="this.remove()">';
+  }).join('') + '</div>';
+}
+
 function levenstein(a, b) {
   a = a.toLowerCase(); b = b.toLowerCase();
   const m = a.length, n = b.length;
@@ -216,11 +240,7 @@ window.otkrytgorod = otkrytgorod;
 
 function makepopup(p) {
   const info = infodata[p.id] || {};
-  const citysrc = info.photo || p.photo || '';
-  const cityimg = citysrc
-    ? '<img class="popup-img lightbox-img" src="' + esc(citysrc) + '" alt="' + esc(p.title) +
-      '" data-lightbox="' + esc(citysrc) + '" data-caption="' + esc(p.title) + '" onerror="this.remove()">'
-    : '';
+  const fotos = fotkiblok(info.photo || p.photo, 'popup-photos', p.title);
   const mem = p.memory ? '<div class="popup-memory">' + esc(p.memory) + '</div>' : '';
 
   const srcs = Array.isArray(p.sources) ? p.sources.filter(function (s) { return s && s.url; }) : [];
@@ -233,7 +253,7 @@ function makepopup(p) {
 
   return '<div class="popup-title">' + esc(p.title) + '</div>' +
     '<div class="popup-date">' + esc(p.date) + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
-    cityimg +
+    fotos +
     '<div class="popup-desc">' + esc(p.description || '') + '</div>' +
     mem +
     srchtml +
@@ -265,7 +285,8 @@ function risuemspisok(query) {
 
   listview.innerHTML = items.map(function (p) {
     const info = infodata[p.id] || {};
-    const thsrc = info.thumb || info.photo || p.photo || '';
+    const arr = fotki(info.thumb || info.photo || p.photo);
+    const thsrc = arr[0] || '';
     const thumb = thsrc
       ? '<img src="' + esc(thsrc) + '" alt="" onerror="this.remove()">'
       : '<span>' + esc((p.title || '?').charAt(0)) + '</span>';
@@ -286,11 +307,7 @@ function risuemkartochku(id) {
   if (!p) return;
   const info = infodata[id] || {};
 
-  const citysrc = info.photo || p.photo || '';
-  const cityimg = citysrc
-    ? '<img class="detail-photo lightbox-img" src="' + esc(citysrc) + '" alt="' + esc(p.title) +
-      '" data-lightbox="' + esc(citysrc) + '" data-caption="' + esc(p.title) + '" onerror="this.remove()">'
-    : '';
+  const cityfotos = fotkiblok(info.photo || p.photo, 'detail-photos', p.title);
 
   const intro = info.intro
     ? '<div class="detail-section"><h4>О городе</h4><p>' + esc(info.intro) + '</p></div>'
@@ -320,10 +337,9 @@ function risuemkartochku(id) {
     ? '<div class="detail-section"><h4>Памятные места</h4>' +
         monuments.map(function (m) {
           const name = esc(m.name || '');
-          const photoBlock = m.photo
-            ? '<img class="monument-photo lightbox-img" src="' + esc(m.photo) + '" alt="' + name +
-              '" data-lightbox="' + esc(m.photo) + '" data-caption="' + name +
-              '" loading="lazy" onerror="this.remove()">'
+          const photos = fotki(m.photo);
+          const photoBlock = photos.length
+            ? fotkiblok(m.photo, 'monument-photos', name)
             : '<div class="monument-photo"></div>';
           return '<div class="monument">' +
             photoBlock +
@@ -363,7 +379,7 @@ function risuemkartochku(id) {
     '<div class="detail-body">' +
       '<div class="detail-title">' + esc(p.title) + '</div>' +
       '<div class="detail-date">' + esc(p.date) + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
-      cityimg +
+      cityfotos +
       intro +
       opsec +
       geroi +
@@ -470,7 +486,7 @@ function primenitrange() {
   if (clusterref) clusterref.refreshClusters();
 }
 
-function onRangeInput(which) {
+function onrangeinput(which) {
   if (!sliderready) return;
   const last = daty.length - 1;
 
@@ -558,8 +574,8 @@ function initgranica() {
     });
 }
 
-rangelow.addEventListener('input', function () { onRangeInput('lo'); });
-rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
+rangelow.addEventListener('input', function () { onrangeinput('lo'); });
+rangehigh.addEventListener('input', function () { onrangeinput('hi'); });
 
 initprosmotr();
 
