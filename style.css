@@ -16,10 +16,64 @@ html, body {
   box-shadow: -2px 0 18px rgba(0, 0, 0, 0.15);
   z-index: 500;
   display: flex; flex-direction: column;
+  transition: transform .28s ease;
 }
-@media (max-width: 720px) { .panel { width: 82vw; } }
+@media (max-width: 720px) {
+  .panel { width: 88vw; }
+  .panel.closed { transform: translateX(100%); }
+  body.panel-open .panel { box-shadow: -8px 0 28px rgba(0, 0, 0, 0.35); }
+}
 
-.panel-head { padding: 14px 14px 10px; border-bottom: 1px solid #eee; }
+.panel-head {
+  position: relative;
+  padding: 14px 14px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.panel-close {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #eee;
+  color: #555;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 0 0 2px 0;
+}
+.panel-close:hover { background: #ddd; }
+@media (max-width: 720px) { .panel-close { display: flex; } }
+
+.lang-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  padding-right: 36px;
+}
+.lang-btn {
+  flex: 1;
+  padding: 6px 8px;
+  font: 600 12px/1 system-ui, Arial, sans-serif;
+  color: #555;
+  background: #eef0f2;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.lang-btn:hover { background: #e2e5e8; }
+.lang-btn.on {
+  background: #b30000;
+  color: #fff;
+  border-color: #8f0000;
+}
 
 .search-box {
   display: flex; align-items: center; gap: 8px;
@@ -278,7 +332,7 @@ html, body {
   z-index: 500;
 }
 @media (max-width: 960px) {
-  .slider-bar { left: 16px; right: calc(82vw + 16px); transform: none; width: auto; }
+  .slider-bar { left: 16px; right: calc(88vw + 16px); transform: none; width: auto; }
 }
 @media (max-width: 720px) {
   .slider-bar { right: 16px; left: 16px; bottom: 10px; }
@@ -352,7 +406,8 @@ html, body {
   border-radius: 6px; font-size: 14px;
 }
 .popup-memory::before {
-  content: "Память"; display: block; font-size: 11px;
+  content: attr(data-label);
+  display: block; font-size: 11px;
   letter-spacing: .08em; text-transform: uppercase;
   color: #b30000; font-weight: 700; margin-bottom: 4px;
 }
@@ -487,6 +542,33 @@ html, body {
   letter-spacing: .04em;
 }
 .lightbox-num[hidden] { display: none; }
+
+#fab {
+  display: none;
+  position: fixed;
+  top: calc(12px + env(safe-area-inset-top, 0px));
+  right: calc(12px + env(safe-area-inset-right, 0px));
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.96);
+  color: #b30000;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
+  z-index: 900;
+  padding: 0;
+  transition: background .15s, color .15s, transform .15s;
+}
+#fab:hover { transform: scale(1.05); }
+#fab.on { background: #b30000; color: #fff; }
+@media (max-width: 720px) { #fab { display: flex; } }
+body.panel-open #fab { display: none; }
 
 @media (max-width: 720px) {
   .lightbox { padding: calc(56px + env(safe-area-inset-top, 0px)) 10px 14px; }
