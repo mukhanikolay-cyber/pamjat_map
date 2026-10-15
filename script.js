@@ -1,7 +1,8 @@
 const mapcenter = [53.7, 27.8];
 const mapzoom = 6;
-const minsk = 'Минск';
-const voblast = ['Гомель', 'Могилев', 'Витебск', 'Брест', 'Гродно'];
+
+const majids = [2, 4, 5, 6, 8];
+const capid = 3;
 
 const orange = [255, 155, 40];
 const redcolor = [170, 15, 15];
@@ -12,7 +13,68 @@ const zatuhanie = 2;
 const mecjacy = {
   'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3,
   'мая': 4, 'июня': 5, 'июля': 6, 'августа': 7,
-  'сентября': 8, 'октября': 9, 'ноября': 10, 'декабря': 11
+  'сентября': 8, 'октября': 9, 'ноября': 10, 'декабря': 11,
+  'студзеня': 0, 'лютага': 1, 'сакавіка': 2, 'красавіка': 3,
+  'чэрвеня': 5, 'ліпеня': 6, 'жніўня': 7,
+  'верасня': 8, 'кастрычніка': 9, 'лістапада': 10, 'снежня': 11
+};
+
+const monthnames = {
+  ru: ['января','февраля','марта','апреля','мая','июня',
+       'июля','августа','сентября','октября','ноября','декабря'],
+  by: ['студзеня','лютага','сакавіка','красавіка','мая','чэрвеня',
+       'ліпеня','жніўня','верасня','кастрычніка','лістапада','снежня']
+};
+
+const langs = {
+  ru: {
+    label: 'Рус',
+    over: null,
+    ui: {
+      search: 'Поиск города…',
+      slider: 'Период освобождения',
+      back: '<- Назад к списку',
+      notFound: 'Город не найден.<br>Попробуйте другое название.',
+      about: 'О городе',
+      liberation: 'Освобождение',
+      operation: 'Операция:',
+      troops: 'Войска:',
+      heroes: 'Герои',
+      places: 'Памятные места',
+      museums: 'Музеи',
+      sources: 'Источники',
+      memory: 'Память',
+      more: 'Подробнее',
+      prev: 'Предыдущая',
+      next: 'Следующая',
+      close: 'Закрыть',
+      panel: 'Панель'
+    }
+  },
+  by: {
+    label: 'Бел',
+    over: 'by',
+    ui: {
+      search: 'Пошук горада…',
+      slider: 'Перыяд вызвалення',
+      back: '<- Назад да спісу',
+      notFound: 'Горад не знойдзены.<br>Паспрабуйце іншую назву.',
+      about: 'Пра горад',
+      liberation: 'Вызваленне',
+      operation: 'Аперацыя:',
+      troops: 'Войскі:',
+      heroes: 'Героі',
+      places: 'Памятныя мясціны',
+      museums: 'Музеі',
+      sources: 'Крыніцы',
+      memory: 'Памяць',
+      more: 'Падрабязней',
+      prev: 'Папярэдняя',
+      next: 'Наступная',
+      close: 'Зачыніць',
+      panel: 'Панэль'
+    }
+  }
 };
 
 const granica = {
@@ -40,6 +102,11 @@ let sliderready = false;
 let gal = [];
 let galidx = 0;
 
+let curlang = 'ru';
+let ui = langs.ru.ui;
+let pointsBase = [];
+let infoBase = {};
+
 const sinput = document.getElementById('search');
 const sclear = document.getElementById('search-clear');
 const listview = document.getElementById('list-view');
@@ -49,6 +116,10 @@ const rangehigh = document.getElementById('range-hi');
 const rangefill = document.getElementById('range-fill');
 const datelow = document.getElementById('date-low');
 const datehigh = document.getElementById('date-high');
+
+function ismobile() {
+  return window.matchMedia('(max-width: 720px)').matches;
+}
 
 function parsedate(str) {
   const parts = String(str || '').trim().split(/\s+/);
@@ -61,8 +132,7 @@ function parsedate(str) {
 }
 
 function formatdate(date) {
-  const names = ['января','февраля','марта','апреля','мая','июня',
-                 'июля','августа','сентября','октября','ноября','декабря'];
+  const names = (monthnames[curlang] || monthnames.ru);
   return date.getDate() + ' ' + names[date.getMonth()] + ' ' + date.getFullYear();
 }
 
@@ -103,10 +173,7 @@ function fotkiblok(v, cls, cap) {
     let c = '';
     if (cap) c = arr.length > 1 ? cap + ' · ' + (i + 1) + ' / ' + arr.length : cap;
     html += '<img class="lightbox-img" src="' + esc(src) + '" alt="' + esc(c) +
-      '" data-idx="' + i + '" loading="lazy"' +
-      ' onclick="event.stopPropagation();otkrytimg(this);"' +
-      ' ondblclick="event.stopPropagation();event.preventDefault();return false;"' +
-      ' onerror="this.remove()">';
+      '" data-idx="' + i + '" loading="lazy" onerror="this.remove()">';
   }
   html += '</div>';
   return html;
@@ -143,6 +210,108 @@ function nechotko(query, target) {
   const dist = levenstein(q, t);
   const maxlen = Math.max(q.length, t.length);
   return Math.max(0, 1 - dist / maxlen) * 0.7;
+}
+
+async function fetchText(url) {
+  try {
+    const r = await fetch(url, { cache: 'no-store' });
+    if (!r.ok) return null;
+    return await r.text();
+  } catch (e) {
+    return null;
+  }
+}
+
+async function fetchJson(url, def) {
+  const t = await fetchText(url);
+  if (t == null) return def;
+  try { return JSON.parse(t); } catch (e) { return def; }
+}
+
+async function loadBase() {
+  let pTxt = await fetchText('langs/points.json');
+  if (pTxt == null) pTxt = await fetchText('points.json');
+  if (pTxt == null) throw new Error('не найден langs/points.json');
+  try {
+    pointsBase = JSON.parse(pTxt);
+  } catch (e) {
+    throw new Error('langs/points.json: ' + e.message);
+  }
+  if (!Array.isArray(pointsBase)) throw new Error('langs/points.json не массив');
+
+  let iTxt = await fetchText('langs/info.json');
+  if (iTxt == null) iTxt = await fetchText('info.json');
+  infoBase = {};
+  if (iTxt != null) {
+    try { infoBase = JSON.parse(iTxt) || {}; } catch (e) { infoBase = {}; }
+  }
+}
+
+function mergePoints(base, over) {
+  if (!over || !over.length) return base.slice();
+  const byId = {};
+  for (let i = 0; i < over.length; i++) {
+    const o = over[i];
+    if (o && o.id != null) byId[o.id] = o;
+  }
+  const out = [];
+  for (let i = 0; i < base.length; i++) {
+    const p = base[i];
+    const o = byId[p.id];
+    if (!o) { out.push(p); continue; }
+    const m = {};
+    for (const k in p) m[k] = p[k];
+    for (const k in o) {
+      if (k === 'id') continue;
+      m[k] = o[k];
+    }
+    out.push(m);
+  }
+  return out;
+}
+
+function mergeInfo(base, over) {
+  if (!over) return base;
+  const out = {};
+  for (const k in base) out[k] = base[k];
+  for (const k in over) {
+    const b = base[k] || {};
+    const o = over[k] || {};
+    const m = {};
+    for (const f in b) m[f] = b[f];
+    for (const f in o) m[f] = o[f];
+    out[k] = m;
+  }
+  return out;
+}
+
+async function loadLang(code) {
+  const cfg = langs[code];
+  if (!cfg || !cfg.over) return { points: pointsBase, info: infoBase };
+  const over = cfg.over;
+  const pOver = await fetchJson('langs/points_' + over + '.json', []);
+  const iOver = await fetchJson('langs/info_' + over + '.json', {});
+  return {
+    points: mergePoints(pointsBase, Array.isArray(pOver) ? pOver : []),
+    info: mergeInfo(infoBase, iOver || {})
+  };
+}
+
+function pinicon(datestr, id) {
+  const iscap = id === capid;
+  const ismaj = !iscap && majids.indexOf(id) >= 0;
+  const size = iscap ? 30 : (ismaj ? 26 : 22);
+  const color = colorfordate(datestr);
+  let cls = 'pin';
+  if (ismaj) cls += ' pin-major';
+  if (iscap) cls += ' pin-capital';
+  return L.divIcon({
+    className: 'pin-holder',
+    html: '<div class="' + cls + '" style="--pin:' + color + '"></div>',
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size],
+    popupAnchor: [0, -size]
+  });
 }
 
 function sobratdaty(points) {
@@ -185,23 +354,6 @@ function colorfordate(datestr) {
   return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 
-function pinicon(datestr, title) {
-  const isminsk = title === minsk;
-  const isvob = !isminsk && voblast.indexOf(title) >= 0;
-  const size = isminsk ? 30 : (isvob ? 26 : 22);
-  const color = colorfordate(datestr);
-  let cls = 'pin';
-  if (isvob) cls += ' pin-major';
-  if (isminsk) cls += ' pin-capital';
-  return L.divIcon({
-    className: 'pin-holder',
-    html: '<div class="' + cls + '" style="--pin:' + color + '"></div>',
-    iconSize: [size, size],
-    iconAnchor: [size / 2, size],
-    popupAnchor: [0, -size]
-  });
-}
-
 function lb() { return document.getElementById('lightbox'); }
 function lbimg() { return document.getElementById('lightbox-img'); }
 function lbcap() { return document.getElementById('lightbox-caption'); }
@@ -213,10 +365,10 @@ function sborkalightbox() {
   const box = lb();
   if (!box) return;
   box.innerHTML =
-    '<button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Предыдущая" hidden>‹</button>' +
-    '<button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Следующая" hidden>›</button>' +
+    '<button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="prev" hidden>‹</button>' +
+    '<button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="next" hidden>›</button>' +
     '<div class="lightbox-num" id="lightbox-num" hidden></div>' +
-    '<button type="button" class="lightbox-close" aria-label="Закрыть">×</button>' +
+    '<button type="button" class="lightbox-close" aria-label="close">×</button>' +
     '<div class="lightbox-inner">' +
       '<img id="lightbox-img" src="" alt="">' +
       '<div id="lightbox-caption" class="lightbox-caption"></div>' +
@@ -260,32 +412,6 @@ function galshift(step) {
   obnovgal();
 }
 
-function mapfreeze() {
-  if (!mapref) return;
-  try {
-    if (mapref.dragging) mapref.dragging.disable();
-    if (mapref.doubleClickZoom) mapref.doubleClickZoom.disable();
-    if (mapref.scrollWheelZoom) mapref.scrollWheelZoom.disable();
-    if (mapref.boxZoom) mapref.boxZoom.disable();
-    if (mapref.touchZoom) mapref.touchZoom.disable();
-    if (mapref.tap) mapref.tap.disable();
-    if (mapref.keyboard) mapref.keyboard.disable();
-  } catch (e) {}
-}
-
-function mapthaw() {
-  if (!mapref) return;
-  try {
-    if (mapref.dragging) mapref.dragging.enable();
-    if (mapref.doubleClickZoom) mapref.doubleClickZoom.enable();
-    if (mapref.scrollWheelZoom) mapref.scrollWheelZoom.enable();
-    if (mapref.boxZoom) mapref.boxZoom.enable();
-    if (mapref.touchZoom) mapref.touchZoom.enable();
-    if (mapref.tap) mapref.tap.enable();
-    if (mapref.keyboard) mapref.keyboard.enable();
-  } catch (e) {}
-}
-
 function otkrytfoto(list, idx, cap) {
   const box = lb();
   if (!box || !list || !list.length) return;
@@ -295,7 +421,6 @@ function otkrytfoto(list, idx, cap) {
   obnovgal();
   box.hidden = false;
   document.body.style.overflow = 'hidden';
-  mapfreeze();
 }
 
 function zakrytfoto() {
@@ -312,25 +437,7 @@ function zakrytfoto() {
   galidx = 0;
   delete box.dataset.cap;
   document.body.style.overflow = '';
-  mapthaw();
 }
-
-window.otkrytimg = function (el) {
-  if (!el) return;
-  const holder = el.parentElement;
-  let list = [el.getAttribute('src')];
-  let cap = el.dataset.caption || el.alt || '';
-  if (holder && holder.dataset && holder.dataset.list) {
-    try {
-      const parsed = JSON.parse(holder.dataset.list);
-      if (Array.isArray(parsed) && parsed.length) list = parsed;
-    } catch (err) {}
-    if (holder.dataset.cap) cap = holder.dataset.cap;
-  }
-  const idx = +el.dataset.idx || 0;
-  if (!list[0]) return;
-  otkrytfoto(list, idx, cap);
-};
 
 function initprosmotr() {
   sborkalightbox();
@@ -374,12 +481,104 @@ function initprosmotr() {
     else if (dx >= 40) galshift(-1);
     moved = false;
   });
+
+  document.addEventListener('click', function (e) {
+    const img = e.target.closest('.lightbox-img');
+    if (!img) return;
+    const holder = img.parentElement;
+    let list = [img.getAttribute('src')];
+    let cap = img.dataset.caption || img.alt || '';
+    if (holder && holder.dataset && holder.dataset.list) {
+      try {
+        const parsed = JSON.parse(holder.dataset.list);
+        if (Array.isArray(parsed) && parsed.length) list = parsed;
+      } catch (err) {}
+      if (holder.dataset.cap) cap = holder.dataset.cap;
+    }
+    const idx = +img.dataset.idx || 0;
+    if (!list[0]) return;
+    e.preventDefault();
+    otkrytfoto(list, idx, cap);
+  });
+}
+
+function sborkalang() {
+  const head = document.querySelector('.panel-head');
+  if (!head || head.querySelector('.lang-row')) return;
+  const row = document.createElement('div');
+  row.className = 'lang-row';
+  for (const code in langs) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'lang-btn';
+    b.dataset.lang = code;
+    b.textContent = langs[code].label;
+    row.appendChild(b);
+  }
+  head.insertBefore(row, head.firstChild);
+}
+
+function sborkazakr() {
+  const head = document.querySelector('.panel-head');
+  if (!head || head.querySelector('.panel-close')) return;
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'panel-close';
+  b.setAttribute('aria-label', 'закрыть');
+  b.textContent = '×';
+  b.addEventListener('click', function () { togglepanel(false); });
+  head.appendChild(b);
+}
+
+function sborkafab() {
+  if (document.getElementById('fab')) return;
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.id = 'fab';
+  b.className = 'fab-btn';
+  b.setAttribute('aria-label', 'panel');
+  b.textContent = '☰';
+  b.addEventListener('click', function () { togglepanel(); });
+  document.body.appendChild(b);
+}
+
+function togglepanel(force) {
+  const panel = document.getElementById('panel');
+  if (!panel) return;
+  const closed = panel.classList.contains('closed');
+  const willopen = force === true ? true : (force === false ? false : closed);
+  panel.classList.toggle('closed', !willopen);
+  document.body.classList.toggle('panel-open', willopen && ismobile());
+  const fb = document.getElementById('fab');
+  if (fb) fb.classList.toggle('on', willopen && ismobile());
+}
+
+function obnovlangbtn() {
+  const btns = document.querySelectorAll('.lang-btn');
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].classList.toggle('on', btns[i].dataset.lang === curlang);
+  }
+}
+
+function obnovui() {
+  if (sinput) sinput.placeholder = ui.search;
+  const sl = document.querySelector('.slider-label');
+  if (sl) sl.textContent = ui.slider;
+  const pv = lbprev(); if (pv) pv.setAttribute('aria-label', ui.prev);
+  const nx = lbnext(); if (nx) nx.setAttribute('aria-label', ui.next);
+  const cl = document.querySelector('.lightbox-close');
+  if (cl) cl.setAttribute('aria-label', ui.close);
+  const fb = document.getElementById('fab');
+  if (fb) fb.setAttribute('aria-label', ui.panel);
+  obnovlangbtn();
 }
 
 function makepopup(p) {
   const info = infodata[p.id] || {};
   const fotos = fotkiblok(info.photo || p.photo, 'popup-photos', p.title);
-  const mem = p.memory ? '<div class="popup-memory">' + esc(p.memory) + '</div>' : '';
+  const mem = p.memory
+    ? '<div class="popup-memory" data-label="' + esc(ui.memory) + '">' + esc(p.memory) + '</div>'
+    : '';
   const srcs = Array.isArray(p.sources) ? p.sources.filter(function (s) { return s && s.url; }) : [];
   let srchtml = '';
   if (srcs.length) {
@@ -391,13 +590,15 @@ function makepopup(p) {
     }
     srchtml += '</div>';
   }
+  const d = parsedate(p.date);
+  const dtext = d ? formatdate(d) : p.date;
   return '<div class="popup-title">' + esc(p.title) + '</div>' +
-    '<div class="popup-date">' + esc(p.date) + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
+    '<div class="popup-date">' + esc(dtext || '') + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
     fotos +
     '<div class="popup-desc">' + esc(p.description || '') + '</div>' +
     mem +
     srchtml +
-    '<button class="popup-more" onclick="otkrytgorod(' + p.id + ')">Подробнее</button>';
+    '<button class="popup-more" onclick="otkrytgorod(' + p.id + ')">' + esc(ui.more) + '</button>';
 }
 
 function risuemspisok(query) {
@@ -417,7 +618,7 @@ function risuemspisok(query) {
     });
   }
   if (!items.length) {
-    listview.innerHTML = '<div class="empty-state">Город не найден.<br>Попробуйте другое название.</div>';
+    listview.innerHTML = '<div class="empty-state">' + ui.notFound + '</div>';
     return;
   }
   let html = '';
@@ -429,12 +630,14 @@ function risuemspisok(query) {
     const thumb = thsrc
       ? '<img src="' + esc(thsrc) + '" alt="" onerror="this.remove()">'
       : '<span>' + esc((p.title || '?').charAt(0)) + '</span>';
+    const d = parsedate(p.date);
+    const dtext = d ? formatdate(d) : p.date;
     html += '<div class="city-item" data-id="' + p.id + '">' +
       '<div class="city-thumb">' + thumb + '</div>' +
       '<div class="city-info">' +
         '<div class="city-name">' + esc(p.title) + '</div>' +
         '<div class="city-meta">' + esc(p.operation || '') + '</div>' +
-        '<div class="city-date">' + esc(p.date) + '</div>' +
+        '<div class="city-date">' + esc(dtext || '') + '</div>' +
       '</div>' +
     '</div>';
   }
@@ -450,23 +653,26 @@ function risuemkartochku(id) {
 
   let intro = '';
   if (info.intro) {
-    intro = '<div class="detail-section"><h4>О городе</h4><p>' + esc(info.intro) + '</p></div>';
+    intro = '<div class="detail-section"><h4>' + esc(ui.about) + '</h4><p>' + esc(info.intro) + '</p></div>';
   } else if (p.description) {
-    intro = '<div class="detail-section"><h4>О городе</h4><p>' + esc(p.description) + '</p></div>';
+    intro = '<div class="detail-section"><h4>' + esc(ui.about) + '</h4><p>' + esc(p.description) + '</p></div>';
   }
+
+  const d0 = parsedate(p.date);
+  const dtext0 = d0 ? formatdate(d0) : p.date;
 
   let opsec = '';
   if (p.operation || p.units) {
-    opsec = '<div class="detail-section"><h4>Освобождение</h4>' +
-      (p.date ? '<p><b>' + esc(p.date) + '</b></p>' : '') +
-      (p.operation ? '<p><b>Операция:</b> ' + esc(p.operation) + '</p>' : '') +
-      (p.units ? '<p><b>Войска:</b> ' + esc(p.units) + '</p>' : '') +
+    opsec = '<div class="detail-section"><h4>' + esc(ui.liberation) + '</h4>' +
+      (dtext0 ? '<p><b>' + esc(dtext0) + '</b></p>' : '') +
+      (p.operation ? '<p><b>' + esc(ui.operation) + '</b> ' + esc(p.operation) + '</p>' : '') +
+      (p.units ? '<p><b>' + esc(ui.troops) + '</b> ' + esc(p.units) + '</p>' : '') +
     '</div>';
   }
 
   let geroi = '';
   if (info.heroes && info.heroes.length) {
-    geroi = '<div class="detail-section"><h4>Герои</h4><ul>';
+    geroi = '<div class="detail-section"><h4>' + esc(ui.heroes) + '</h4><ul>';
     for (let i = 0; i < info.heroes.length; i++) {
       geroi += '<li>' + esc(info.heroes[i]) + '</li>';
     }
@@ -479,7 +685,7 @@ function risuemkartochku(id) {
 
   let memsec = '';
   if (monuments.length) {
-    memsec = '<div class="detail-section"><h4>Памятные места</h4>';
+    memsec = '<div class="detail-section"><h4>' + esc(ui.places) + '</h4>';
     for (let i = 0; i < monuments.length; i++) {
       const m = monuments[i];
       const name = esc(m.name || '');
@@ -499,7 +705,7 @@ function risuemkartochku(id) {
 
   let muzei = '';
   if (info.museums && info.museums.length) {
-    muzei = '<div class="detail-section"><h4>Музеи</h4><ul>';
+    muzei = '<div class="detail-section"><h4>' + esc(ui.museums) + '</h4><ul>';
     for (let i = 0; i < info.museums.length; i++) {
       const m = info.museums[i];
       if (typeof m === 'string') {
@@ -517,7 +723,7 @@ function risuemkartochku(id) {
   const srcs = Array.isArray(p.sources) ? p.sources.filter(function (s) { return s && s.url; }) : [];
   let srcsec = '';
   if (srcs.length) {
-    srcsec = '<div class="detail-section detail-src"><h4>Источники</h4>';
+    srcsec = '<div class="detail-section detail-src"><h4>' + esc(ui.sources) + '</h4>';
     for (let i = 0; i < srcs.length; i++) {
       const s = srcs[i];
       const label = s.label || String(s.url).replace(/^https?:\/\//, '').split('/')[0];
@@ -527,10 +733,10 @@ function risuemkartochku(id) {
   }
 
   detailview.innerHTML =
-    '<button class="detail-back" id="back-btn">← Назад к списку</button>' +
+    '<button class="detail-back" id="back-btn">' + esc(ui.back) + '</button>' +
     '<div class="detail-body">' +
       '<div class="detail-title">' + esc(p.title) + '</div>' +
-      '<div class="detail-date">' + esc(p.date) + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
+      '<div class="detail-date">' + esc(dtext0 || '') + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
       cityfotos + intro + opsec + geroi + memsec + muzei + srcsec +
     '</div>';
 
@@ -538,6 +744,7 @@ function risuemkartochku(id) {
     detailview.hidden = true;
     listview.hidden = false;
     activecity = null;
+    if (ismobile()) togglepanel(false);
   });
 }
 
@@ -547,6 +754,7 @@ function otkrytgorod(id) {
   listview.hidden = true;
   detailview.hidden = false;
   detailview.scrollTop = 0;
+  if (ismobile()) togglepanel(true);
 }
 
 window.otkrytgorod = otkrytgorod;
@@ -562,15 +770,30 @@ function pulsmaker(marker) {
   pin.classList.remove('pulse');
   void pin.offsetWidth;
   pin.classList.add('pulse');
-  setTimeout(function () { pin.classList.remove('pulse'); }, 2000);
+  clearTimeout(pin._pulsetimer);
+  pin._pulsetimer = setTimeout(function () {
+    pin.classList.remove('pulse');
+  }, 2400);
 }
 
 function zapuskslider() {
   if (!daty.length) return;
   const last = daty.length - 1;
-  rangelow.min = 0; rangelow.max = last; rangelow.value = 0;
-  rangehigh.min = 0; rangehigh.max = last; rangehigh.value = last;
-  lowidx = 0; highidx = last;
+  const keepLo = sliderready ? Math.min(lowidx, last) : 0;
+  const keepHi = sliderready ? Math.min(highidx, last) : last;
+  rangelow.min = 0; rangelow.max = last;
+  rangehigh.min = 0; rangehigh.max = last;
+  if (sliderready && keepHi > keepLo) {
+    rangelow.value = keepLo;
+    rangehigh.value = keepHi;
+    lowidx = keepLo;
+    highidx = keepHi;
+  } else {
+    rangelow.value = 0;
+    rangehigh.value = last;
+    lowidx = 0;
+    highidx = last;
+  }
   sliderready = true;
   primenitrange();
 }
@@ -678,56 +901,19 @@ function initgranica() {
     .catch(function (err) { console.warn('граница не загрузилась:', err); });
 }
 
-rangelow.addEventListener('input', function () { onRangeInput('lo'); });
-rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
-
-initprosmotr();
-
-Promise.all([
-  fetch('points.json', { cache: 'no-store' })
-    .then(function (r) {
-      if (!r.ok) throw new Error('points.json: ' + r.status);
-      return r.text();
-    })
-    .then(function (text) {
-      try {
-        return JSON.parse(text);
-      } catch (e) {
-        const msg = String(e.message || '');
-        const m = msg.match(/position\s+(\d+)/i);
-        const pos = m ? parseInt(m[1], 10) : -1;
-        let line = 1, col = 1;
-        for (let i = 0; i < text.length; i++) {
-          if (i === pos) break;
-          if (text.charCodeAt(i) === 10) { line++; col = 1; }
-          else col++;
-        }
-        throw new Error('points.json: ' + msg + ' (строка ' + line + ', колонка ' + col + ')');
-      }
-    }),
-  fetch('info.json', { cache: 'no-store' })
-    .then(function (r) { return r.ok ? r.json() : {}; })
-    .catch(function () { return {}; })
-]).then(function (res) {
-  const points = res[0];
-  const info = res[1];
-  if (!Array.isArray(points)) throw new Error('points.json не массив');
-  pointdata = points;
-  infodata = info || {};
-  sobratdaty(points);
-  initkarta();
-  initgranica();
-
+function sobratmarkers() {
+  if (clusterref) clusterref.clearLayers();
+  markerrecs = [];
   const markers = [];
-  for (let i = 0; i < points.length; i++) {
-    const p = points[i];
+  for (let i = 0; i < pointdata.length; i++) {
+    const p = pointdata[i];
     if (typeof p.lat !== 'number' || typeof p.lng !== 'number') continue;
     const d = parsedate(p.date);
     const dateidx = dateindex(d);
     let mk;
     try {
       mk = L.marker([p.lat, p.lng], {
-        icon: pinicon(p.date, p.title),
+        icon: pinicon(p.date, p.id),
         title: p.title,
         riseOnHover: true,
         pinclr: colorfordate(p.date),
@@ -743,17 +929,46 @@ Promise.all([
     markers.push(mk);
   }
   clusterref.addLayers(markers);
-  zapuskslider();
-  risuemspisok('');
-}).catch(function (err) {
-  console.error('инициализация упала:', err);
-  if (!mapref) {
-    mapref = L.map('map').setView(mapcenter, mapzoom);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap'
-    }).addTo(mapref);
+}
+
+async function perekluchit(code, initial) {
+  if (!langs[code]) return;
+  curlang = code;
+  ui = langs[code].ui;
+  try { localStorage.setItem('lang', code); } catch (e) {}
+  document.documentElement.lang = code === 'by' ? 'be' : 'ru';
+  obnovui();
+
+  let data;
+  try {
+    data = await loadLang(code);
+  } catch (e) {
+    console.error('перевод не загрузился:', e);
+    data = { points: pointsBase, info: infoBase };
   }
-});
+
+  pointdata = data.points;
+  infodata = data.info;
+  sobratdaty(pointdata);
+
+  if (!mapref) {
+    initkarta();
+    initgranica();
+  }
+  sobratmarkers();
+  zapuskslider();
+
+  if (activecity) {
+    risuemkartochku(activecity);
+  } else {
+    risuemspisok(sinput.value || '');
+    listview.hidden = false;
+    detailview.hidden = true;
+  }
+}
+
+rangelow.addEventListener('input', function () { onRangeInput('lo'); });
+rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
 
 sinput.addEventListener('input', function () {
   const v = sinput.value;
@@ -778,5 +993,50 @@ listview.addEventListener('click', function (e) {
   if (mapref) {
     mapref.flyTo([rec.point.lat, rec.point.lng], Math.max(mapref.getZoom(), 9), { duration: 0.6 });
     setTimeout(function () { pulsmaker(rec.marker); }, 650);
+  }
+});
+
+document.addEventListener('click', function (e) {
+  const b = e.target.closest('.lang-btn');
+  if (!b) return;
+  const code = b.dataset.lang;
+  if (code && code !== curlang) perekluchit(code, false);
+});
+
+let lastmobile = ismobile();
+window.addEventListener('resize', function () {
+  const m = ismobile();
+  if (m !== lastmobile) {
+    lastmobile = m;
+    togglepanel(!m);
+  }
+});
+
+async function start() {
+  initprosmotr();
+  sborkalang();
+  sborkazakr();
+  sborkafab();
+  togglepanel(!ismobile());
+  obnovui();
+  try {
+    await loadBase();
+  } catch (e) {
+    console.error(e);
+    return;
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  const code = (saved && langs[saved]) ? saved : 'ru';
+  await perekluchit(code, true);
+}
+
+start().catch(function (err) {
+  console.error('инициализация упала:', err);
+  if (!mapref) {
+    mapref = L.map('map').setView(mapcenter, mapzoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(mapref);
   }
 });
