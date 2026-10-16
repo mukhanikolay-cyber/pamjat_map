@@ -161,6 +161,49 @@ function fotki(v) {
   return out;
 }
 
+function ubratpovtory(arr) {
+  const seen = {};
+  const out = [];
+  for (let i = 0; i < arr.length; i++) {
+    const v = arr[i];
+    if (!v) continue;
+    const k = String(v);
+    if (seen[k]) continue;
+    seen[k] = 1;
+    out.push(v);
+  }
+  return out;
+}
+
+function sobratistochniki() {
+  const seen = {};
+  const out = [];
+  for (let a = 0; a < arguments.length; a++) {
+    const list = arguments[a];
+    if (!list) continue;
+    const arr = Array.isArray(list) ? list : [list];
+    for (let i = 0; i < arr.length; i++) {
+      const s = arr[i];
+      if (!s) continue;
+      const url = typeof s === 'string' ? s : (s.url || '');
+      if (!url || seen[url]) continue;
+      seen[url] = 1;
+      out.push(typeof s === 'string' ? { url: s, label: '' } : s);
+    }
+  }
+  return out;
+}
+
+function sobratfoto() {
+  const all = [];
+  for (let a = 0; a < arguments.length; a++) {
+    const f = fotki(arguments[a]);
+    for (let i = 0; i < f.length; i++) all.push(f[i]);
+  }
+  const un = ubratpovtory(all);
+  return un.length ? un : '';
+}
+
 function fotkiblok(v, cls, cap) {
   const arr = fotki(v);
   if (!arr.length) return '';
@@ -263,6 +306,8 @@ function mergePoints(base, over) {
     for (const k in p) m[k] = p[k];
     for (const k in o) {
       if (k === 'id') continue;
+      if (k === 'sources') { m[k] = sobratistochniki(p[k], o[k]); continue; }
+      if (k === 'photo') { m[k] = sobratfoto(p[k], o[k]); continue; }
       m[k] = o[k];
     }
     out.push(m);
@@ -279,7 +324,11 @@ function mergeInfo(base, over) {
     const o = over[k] || {};
     const m = {};
     for (const f in b) m[f] = b[f];
-    for (const f in o) m[f] = o[f];
+    for (const f in o) {
+      if (f === 'sources') { m[f] = sobratistochniki(b[f], o[f]); continue; }
+      if (f === 'photo') { m[f] = sobratfoto(b[f], o[f]); continue; }
+      m[f] = o[f];
+    }
     out[k] = m;
   }
   return out;
@@ -548,9 +597,7 @@ function togglepanel(force) {
   const closed = panel.classList.contains('closed');
   const willopen = force === true ? true : (force === false ? false : closed);
   panel.classList.toggle('closed', !willopen);
-  document.body.classList.toggle('panel-open', willopen && ismobile());
-  const fb = document.getElementById('fab');
-  if (fb) fb.classList.toggle('on', willopen && ismobile());
+  document.body.classList.toggle('panel-open', willopen);
 }
 
 function obnovlangbtn() {
@@ -575,11 +622,11 @@ function obnovui() {
 
 function makepopup(p) {
   const info = infodata[p.id] || {};
-  const fotos = fotkiblok(info.photo || p.photo, 'popup-photos', p.title);
+  const fotos = fotkiblok(sobratfoto(info.photo, p.photo), 'popup-photos', p.title);
   const mem = p.memory
     ? '<div class="popup-memory" data-label="' + esc(ui.memory) + '">' + esc(p.memory) + '</div>'
     : '';
-  const srcs = Array.isArray(p.sources) ? p.sources.filter(function (s) { return s && s.url; }) : [];
+  const srcs = sobratistochniki(p.sources, info.sources);
   let srchtml = '';
   if (srcs.length) {
     srchtml = '<div class="popup-src">';
@@ -625,7 +672,7 @@ function risuemspisok(query) {
   for (let i = 0; i < items.length; i++) {
     const p = items[i];
     const info = infodata[p.id] || {};
-    const arr = fotki(info.thumb || info.photo || p.photo);
+    const arr = fotki(sobratfoto(info.thumb, info.photo, p.photo));
     const thsrc = arr[0] || '';
     const thumb = thsrc
       ? '<img src="' + esc(thsrc) + '" alt="" onerror="this.remove()">'
@@ -649,7 +696,7 @@ function risuemkartochku(id) {
   if (!p) return;
   const info = infodata[id] || {};
 
-  const cityfotos = fotkiblok(info.photo || p.photo, 'detail-photos', p.title);
+  const cityfotos = fotkiblok(sobratfoto(info.photo, p.photo), 'detail-photos', p.title);
 
   let intro = '';
   if (info.intro) {
@@ -720,7 +767,7 @@ function risuemkartochku(id) {
     muzei += '</ul></div>';
   }
 
-  const srcs = Array.isArray(p.sources) ? p.sources.filter(function (s) { return s && s.url; }) : [];
+  const srcs = sobratistochniki(p.sources, info.sources);
   let srcsec = '';
   if (srcs.length) {
     srcsec = '<div class="detail-section detail-src"><h4>' + esc(ui.sources) + '</h4>';
@@ -748,13 +795,13 @@ function risuemkartochku(id) {
   });
 }
 
-function otkrytgorod(id) {
+function otkrytgorod(id, ostavitpanel) {
   activecity = id;
   risuemkartochku(id);
   listview.hidden = true;
   detailview.hidden = false;
   detailview.scrollTop = 0;
-  if (ismobile()) togglepanel(true);
+  if (ismobile() && ostavitpanel !== false) togglepanel(true);
 }
 
 window.otkrytgorod = otkrytgorod;
@@ -888,6 +935,11 @@ function initkarta() {
     iconCreateFunction: clustericon
   });
   mapref.addLayer(clusterref);
+  mapref.on('click', function () {
+    if (ismobile() && !document.getElementById('panel').classList.contains('closed')) {
+      togglepanel(false);
+    }
+  });
 }
 
 function initgranica() {
@@ -989,10 +1041,12 @@ listview.addEventListener('click', function (e) {
   const id = +item.dataset.id;
   const rec = markerrecs.find(function (r) { return r.point.id === id; });
   if (!rec) return;
-  otkrytgorod(id);
+  otkrytgorod(id, false);
   if (mapref) {
-    mapref.flyTo([rec.point.lat, rec.point.lng], Math.max(mapref.getZoom(), 9), { duration: 0.6 });
-    setTimeout(function () { pulsmaker(rec.marker); }, 650);
+    if (ismobile()) togglepanel(false);
+    const z = ismobile() ? 10 : Math.max(mapref.getZoom(), 9);
+    mapref.flyTo([rec.point.lat, rec.point.lng], z, { duration: 0.6 });
+    setTimeout(function () { pulsmaker(rec.marker); }, 700);
   }
 });
 
