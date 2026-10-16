@@ -18,9 +18,11 @@ html, body {
   display: flex; flex-direction: column;
   transition: transform .28s ease;
 }
+
+.panel.closed { transform: translateX(100%); }
+
 @media (max-width: 720px) {
   .panel { width: 88vw; }
-  .panel.closed { transform: translateX(100%); }
   body.panel-open .panel { box-shadow: -8px 0 28px rgba(0, 0, 0, 0.35); }
 }
 
@@ -31,11 +33,11 @@ html, body {
 }
 
 .panel-close {
-  display: none;
+  display: flex;
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30px; height: 30px;
+  width: 32px; height: 32px;
   border-radius: 50%;
   border: none;
   background: #eee;
@@ -49,7 +51,6 @@ html, body {
   padding: 0 0 2px 0;
 }
 .panel-close:hover { background: #ddd; }
-@media (max-width: 720px) { .panel-close { display: flex; } }
 
 .lang-row {
   display: flex;
@@ -268,16 +269,16 @@ html, body {
 
 @keyframes pinring {
   0% {
-    transform: scale(0.4);
+    transform: scale(0.5);
     opacity: 1;
-    border-width: 6px;
-  }
-  60% {
-    opacity: 0.95;
     border-width: 5px;
   }
+  60% {
+    opacity: 0.8;
+    border-width: 4px;
+  }
   100% {
-    transform: scale(3);
+    transform: scale(2.2);
     opacity: 0;
     border-width: 2px;
   }
@@ -285,23 +286,18 @@ html, body {
 
 .pin.pulse {
   z-index: 1000;
-  filter:
-    drop-shadow(0 0 8px #ffffff)
-    drop-shadow(0 0 18px rgba(255, 255, 255, 0.9));
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.95));
 }
 
 .pin.pulse::before {
   content: "";
   position: absolute;
   inset: -6px;
-  border: 6px solid #ffffff;
+  border: 5px solid #ffffff;
   border-radius: 50%;
   pointer-events: none;
-  animation: pinring 800ms ease-out 1 forwards;
-  box-shadow:
-    0 0 14px rgba(255, 255, 255, 0.95),
-    0 0 28px rgba(255, 255, 255, 0.7),
-    inset 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: pinring 900ms ease-out 1 forwards;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
   will-change: transform, opacity, border-width;
 }
 
@@ -544,7 +540,7 @@ html, body {
 .lightbox-num[hidden] { display: none; }
 
 #fab {
-  display: none;
+  display: flex;
   position: fixed;
   top: calc(12px + env(safe-area-inset-top, 0px));
   right: calc(12px + env(safe-area-inset-right, 0px));
@@ -566,8 +562,6 @@ html, body {
   transition: background .15s, color .15s, transform .15s;
 }
 #fab:hover { transform: scale(1.05); }
-#fab.on { background: #b30000; color: #fff; }
-@media (max-width: 720px) { #fab { display: flex; } }
 body.panel-open #fab { display: none; }
 
 @media (max-width: 720px) {
