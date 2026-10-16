@@ -16,9 +16,9 @@
       { "name": "Гомельскі палацава-паркавы ансамбль", "url": "https://palacegomel.by/" }
     ],
     "monuments": [
-      { "name": "Алея Герояў", "note": "Вул. Савецкая", "photo": "" },
-      { "name": "Помнік-танк Т-34", "note": "Плошча Паўстання", "photo": "" },
-      { "name": "Мемарыял на плошчы Паўстання", "note": "Плошча Паўстання", "photo": "" }
+      { "name": "Алея Герояў", "note": "Вул. Савецкая", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Memorial_to_fallen_soldiers_in_Student_garden_square_%284%29.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=original" },
+      { "name": "Помнік-танк Т-34", "note": "Плошча Паўстання", "photo": "https://street.gomelhistory.by/wp-content/uploads/2014/12/tank00.jpg" },
+      { "name": "Мемарыял на плошчы Паўстання", "note": "Плошча Паўстання", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pl._Paustannya_in_Gomel_7_May_2014.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" }
     ]
   },
   "3": {
@@ -29,9 +29,9 @@
       { "name": "Музей гісторыі горада Мінска", "url": "https://minskmuseum.by/" }
     ],
     "monuments": [
-      { "name": "Манумент «Танк-вызваліцель»", "note": "Каля Дома афіцэраў, пр. Незалежнасці", "photo": "" },
-      { "name": "Мемарыял «Курган Славы»", "note": "21-ы км шашы Мінск — Масква", "photo": "" },
-      { "name": "Помнік героям-танкістам ва Уруччы", "note": "Урочышча Уручча", "photo": "" }
+      { "name": "Манумент «Танк-вызваліцель»", "note": "Каля Дома афіцэраў, пр. Незалежнасці", "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Belarus-Minsk-Tank_Monument.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" },
+      { "name": "Мемарыял «Курган Славы»", "note": "21-ы км шашы Мінск — Масква", "photo": "https://upload.wikimedia.org/wikipedia/ru/2/2d/%D0%9A%D1%83%D1%80%D0%B3%D0%B0%D0%BD_%D0%A1%D0%BB%D0%B0%D0%B2%D1%8B.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" },
+      { "name": "Помнік героям-танкістам ва Уруччы", "note": "Урочышча Уручча", "photo": "https://minsknews.by/wp-content/uploads/2024/07/img_0574-kopiya.jpg" }
     ]
   },
   "4": {
@@ -42,8 +42,8 @@
       { "name": "Брэсцкі абласны краязнаўчы музей", "url": "https://brokm.by/" }
     ],
     "monuments": [
-      { "name": "Помнік «Вызваленне»", "note": "Плошча Свабоды", "photo": "" },
-      { "name": "Вечны агонь", "note": "Плошча Свабоды", "photo": "" }
+      { "name": "Помнік «Вызваленне»", "note": "Плошча Свабоды", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg/3840px-%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
+      { "name": "Вечны агонь", "note": "Мемарыяльны комплекс «Брэсцкая крэпасць-герой»", "photo": "https://avatars.mds.yandex.net/i?id=abb20ec77208677c0776660612702516_l-7820818-images-thumbs&n=13" }
     ]
   },
   "5": {
@@ -53,8 +53,8 @@
       { "name": "Гродзенскі дзяржаўны гісторыка-археалагічны музей", "url": "https://museum-grodno.by/" }
     ],
     "monuments": [
-      { "name": "Помнік воінам-вызваліцелям — танк Т-34-85", "note": "Савецкая плошча", "photo": "" },
-      { "name": "Брацкая магіла савецкіх воінаў і партызан", "note": "Парк Жылібера", "photo": "" }
+      { "name": "Помнік воінам-вызваліцелям — танк Т-34-85", "note": "Савецкая плошча", "photo": "https://be.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%B2%D0%BE%D1%96%D0%BD%D0%B0%D0%BC-%D0%B2%D1%8B%D0%B7%D0%B2%D0%B0%D0%BB%D1%96%D1%86%D0%B5%D0%BB%D1%8F%D0%BC_(%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0)#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Leninsky,_Grodno,_Belarus_-_panoramio_(121).jpg" },
+      { "name": "Брацкая магіла савецкіх воінаў і партызан", "note": "Парк Жылібера", "photo": "https://avatars.mds.yandex.net/i?id=0500427dc7186a49cba4f0049bb65834_l-9683181-images-thumbs&n=13" }
     ]
   },
   "6": {
@@ -64,7 +64,7 @@
       { "name": "Віцебскі абласны краязнаўчы музей", "url": "https://www.ratusha-vit.by/" }
     ],
     "monuments": [
-      { "name": "Мемарыяльны комплекс «Тры штыкі»", "note": "Плошча Перамогі", "photo": "" },
+      { "name": "Мемарыяльны комплекс «Тры штыкі»", "note": "Плошча Перамогі", "photo": "https://avatars.mds.yandex.net/i?id=c4ef02b392835c8906f20a6a4012d29d_l-10809483-images-thumbs&n=13" },
       { "name": "Мемарыял савецкім воінам, партызанам і падпольшчыкам Віцебшчыны", "note": "Плошча Перамогі", "photo": "" }
     ]
   },
