@@ -666,45 +666,39 @@ input, select { font-family: inherit; }
 .lightbox-num[hidden] { display: none; }
 
 #fab {
-  position: fixed;
-  top: calc(16px + env(safe-area-inset-top, 0px));
-  right: 16px;
-  left: auto;
-  bottom: auto;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: none;
-  background: var(--fab-bg);
-  color: var(--fab-col);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 3px 14px var(--shadow);
-  z-index: 1300;
-  padding: 0;
-  touch-action: manipulation;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: background-color 0.3s, box-shadow 0.3s;
-  will-change: transform;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  background: var(--fab-bg) !important;
+  color: var(--fab-col) !important;
+  cursor: pointer !important;
+  box-shadow: 0 3px 14px var(--shadow) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  touch-action: manipulation !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transition: background-color 0.3s, box-shadow 0.3s, filter .15s !important;
 }
 #fab svg {
   width: 22px;
   height: 22px;
+  display: block;
   transition: transform .28s ease;
+  pointer-events: none;
 }
 #fab:hover { filter: brightness(0.95); }
 body.panel-open #fab svg { transform: rotate(180deg); }
 
 @media (max-width: 720px) {
   #fab {
-    top: calc(14px + env(safe-area-inset-top, 0px));
-    right: 14px;
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    width: 52px !important;
+    height: 52px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
   }
 }
 
