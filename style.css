@@ -24,8 +24,8 @@
   --src: #0b5ed7;
   --mem-bg: #fff5f5;
   --sv-bg: rgba(255, 255, 255, 0.96);
-  --fab-bg: #b30000;
-  --fab-col: #ffffff;
+  --fab-bg: #ffffff;
+  --fab-col: #b30000;
 }
 [data-theme="dark"] {
   --bg: #121212;
@@ -53,8 +53,8 @@
   --src: #5c9eff;
   --mem-bg: #2a1414;
   --sv-bg: rgba(24, 24, 24, 0.96);
-  --fab-bg: #e03a3a;
-  --fab-col: #ffffff;
+  --fab-bg: #1e1e1e;
+  --fab-col: #ff6b6b;
 }
 
 * { box-sizing: border-box; }
@@ -701,6 +701,7 @@ input, select { font-family: inherit; }
   touch-action: manipulation !important;
   visibility: visible !important;
   opacity: 1 !important;
+  transition: background-color .3s, color .3s, filter .15s;
 }
 #fab svg {
   width: 22px;
@@ -709,7 +710,8 @@ input, select { font-family: inherit; }
   pointer-events: none;
   transition: transform .28s ease;
 }
-#fab:hover { filter: brightness(1.08); }
+#fab:hover { filter: brightness(0.95); }
+[data-theme="dark"] #fab:hover { filter: brightness(1.15); }
 body.panel-open #fab svg { transform: rotate(180deg); }
 
 @media (max-width: 720px) {
