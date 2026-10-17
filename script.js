@@ -666,26 +666,14 @@ function initprosmotr() {
   });
 }
 
-function sborkafab() {
-  let b = document.getElementById('fab');
-  if (b) return;
-  b = document.createElement('button');
-  b.type = 'button';
-  b.id = 'fab';
-  b.className = 'fab-btn';
-  b.setAttribute('aria-label', 'panel');
-  b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>';
-  b.addEventListener('click', function (e) {
+function initfab() {
+  const fb = document.getElementById('fab');
+  if (!fb) return;
+  fb.addEventListener('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
     togglepanel();
   });
-  b.addEventListener('touchend', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    togglepanel();
-  }, { passive: false });
-  document.body.appendChild(b);
 }
 
 function togglepanel(force) {
@@ -695,13 +683,6 @@ function togglepanel(force) {
   const willopen = force === true ? true : (force === false ? false : closed);
   panel.classList.toggle('closed', !willopen);
   document.body.classList.toggle('panel-open', willopen);
-  const fab = document.getElementById('fab');
-  if (fab) {
-    fab.style.display = 'flex';
-    fab.style.visibility = 'visible';
-    fab.style.opacity = '1';
-    fab.style.pointerEvents = 'auto';
-  }
 }
 
 function obnovlangbtn() {
@@ -1355,7 +1336,7 @@ async function start() {
   inittheme();
   initleft();
   initzoomblock();
-  sborkafab();
+  initfab();
   try { sortmode = localStorage.getItem('sortmode') || 'date-asc'; } catch (e) {}
   togglepanel(!ismobile());
   obnovui();
