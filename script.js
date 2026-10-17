@@ -973,7 +973,7 @@ function otkrytgorod(id, ostavitpanel) {
   listview.hidden = true;
   detailview.hidden = false;
   detailview.scrollTop = 0;
-  if (ismobile() && ostavitpanel !== false) togglepanel(true);
+  if (ostavitpanel !== false) togglepanel(true);
 }
 
 window.otkrytgorod = otkrytgorod;
