@@ -117,6 +117,7 @@ let infoBase = {};
 
 let themecur = 'light';
 let sortmode = 'date-asc';
+let panelclosetimer = null;
 
 const sinput = document.getElementById('search');
 const sclear = document.getElementById('search-clear');
@@ -679,9 +680,34 @@ function initfab() {
 function togglepanel(force) {
   const panel = document.getElementById('panel');
   if (!panel) return;
+  if (panelclosetimer) {
+    clearTimeout(panelclosetimer);
+    panelclosetimer = null;
+  }
   const closed = panel.classList.contains('closed');
   const willopen = force === true ? true : (force === false ? false : closed);
-  panel.classList.toggle('closed', !willopen);
+
+  if (willopen) {
+    const wasfully = panel.classList.contains('fully-closed');
+    panel.classList.remove('fully-closed');
+    if (wasfully) {
+      void panel.offsetWidth;
+    }
+    panel.classList.remove('closed');
+  } else {
+    if (!panel.classList.contains('closed')) {
+      panel.classList.add('closed');
+      panelclosetimer = setTimeout(function () {
+        if (panel.classList.contains('closed')) {
+          panel.classList.add('fully-closed');
+        }
+        panelclosetimer = null;
+      }, 320);
+    } else {
+      panel.classList.add('fully-closed');
+    }
+  }
+
   document.body.classList.toggle('panel-open', willopen);
 }
 
@@ -1092,7 +1118,7 @@ function initkarta() {
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(mapref);
-  L.control.attribution({ prefix: false, position: 'bottomright' }).addTo(mapref);
+  L.control.attribution({ prefix: false, position: 'bottomleft' }).addTo(mapref);
   L.control.zoom({ position: 'bottomright' }).addTo(mapref);
   clusterref = L.markerClusterGroup({
     showCoverageOnHover: false,
@@ -1338,7 +1364,6 @@ async function start() {
   initzoomblock();
   initfab();
   try { sortmode = localStorage.getItem('sortmode') || 'date-asc'; } catch (e) {}
-  togglepanel(!ismobile());
   obnovui();
   try {
     await loadBase();
@@ -1350,6 +1375,7 @@ async function start() {
   try { saved = localStorage.getItem('lang'); } catch (e) {}
   const code = (saved && langs[saved]) ? saved : 'ru';
   await perekluchit(code, true);
+  togglepanel(!ismobile());
 }
 
 start().catch(function (err) {
@@ -1357,6 +1383,6 @@ start().catch(function (err) {
   if (!mapref) {
     mapref = L.map('map', { zoomControl: false, attributionControl: false }).setView(mapcenter, mapzoom);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapref);
-    L.control.attribution({ prefix: false, position: 'bottomright' }).addTo(mapref);
+    L.control.attribution({ prefix: false, position: 'bottomleft' }).addTo(mapref);
   }
 });
