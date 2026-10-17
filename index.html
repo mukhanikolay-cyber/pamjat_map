@@ -2,7 +2,7 @@
 <html lang="ru" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
   <title>Карта освобождения Беларуси 1943–1944</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -33,8 +33,13 @@
           <circle cx="11" cy="11" r="7"></circle>
           <path d="M21 21l-4.3-4.3"></path>
         </svg>
-        <input id="search" type="text" placeholder="Поиск города…" autocomplete="off" spellcheck="false">
-        <button id="search-clear" class="search-clear" type="button" hidden>×</button>
+        <input id="search" type="text" placeholder="Поиск города..." autocomplete="off" spellcheck="false">
+        <button id="search-clear" class="search-clear" type="button" hidden aria-label="Очистить">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="sort-row">
+        <select id="sort-select" class="sort-select" aria-label="Сортировка"></select>
       </div>
     </div>
     <div id="list-view" class="panel-view"></div>
@@ -45,7 +50,7 @@
     <div class="slider-head">
       <span class="slider-label">Период освобождения</span>
       <span class="slider-values">
-        <b id="date-low">…</b><span class="sep">—</span><b id="date-high">…</b>
+        <b id="date-low">...</b><span class="sep">-</span><b id="date-high">...</b>
       </span>
     </div>
     <div class="range-wrap">
@@ -56,10 +61,16 @@
   </div>
 
   <div id="lightbox" class="lightbox" hidden>
-    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="Предыдущая" hidden>‹</button>
-    <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="Следующая" hidden>›</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="Предыдущая" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="Следующая" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+    </button>
     <div class="lightbox-num" id="lightbox-num" hidden></div>
-    <button class="lightbox-close" type="button" aria-label="Закрыть">×</button>
+    <button class="lightbox-close" type="button" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+    </button>
     <div class="lightbox-inner">
       <img id="lightbox-img" src="" alt="">
       <div id="lightbox-caption" class="lightbox-caption"></div>
