@@ -1099,3 +1099,245 @@ function initkarta() {
     iconCreateFunction: clustericon
   });
   mapref.addLayer(clusterref);
+  mapref.on('click', function () {
+    if (ismobile() && !document.getElementById('panel').classList.contains('closed')) {
+      togglepanel(false);
+    }
+  });
+}
+
+function initgranica() {
+  fetch('belarus.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('belarus.json'); return r.json(); })
+    .then(function (geo) {
+      granicref = L.geoJSON(geo, { style: function () { return granicaStyle(); }, interactive: false });
+      granicref.addTo(mapref);
+      if (granicref.bringToBack) granicref.bringToBack();
+    })
+    .catch(function (err) { console.warn('граница не загрузилась:', err); });
+}
+
+function updGranicaStyle() {
+  if (!granicref) return;
+  try { granicref.setStyle(granicaStyle()); } catch (e) {}
+}
+
+function sobratmarkers() {
+  if (clusterref) clusterref.clearLayers();
+  markerrecs = [];
+  const markers = [];
+  for (let i = 0; i < pointdata.length; i++) {
+    const p = pointdata[i];
+    if (typeof p.lat !== 'number' || typeof p.lng !== 'number') continue;
+    const d = parsedate(p.date);
+    const dateidx = dateindex(d);
+    let mk;
+    try {
+      mk = L.marker([p.lat, p.lng], {
+        icon: pinicon(p.date, p.id),
+        title: p.title,
+        riseOnHover: true,
+        pinclr: colorfordate(p.date),
+        opac: 1
+      });
+      mk.bindPopup(makepopup(p), {
+        maxWidth: 360, minWidth: 320, closeButton: true, autoPanPadding: [40, 40]
+      });
+    } catch (e) {
+      continue;
+    }
+    markerrecs.push({ marker: mk, point: p, dateidx: dateidx });
+    markers.push(mk);
+  }
+  clusterref.addLayers(markers);
+}
+
+async function perekluchit(code, initial) {
+  if (!langs[code]) return;
+  curlang = code;
+  ui = langs[code].ui;
+  try { localStorage.setItem('lang', code); } catch (e) {}
+  document.documentElement.lang = code === 'by' ? 'be' : 'ru';
+  obnovui();
+
+  let data;
+  try {
+    data = await loadLang(code);
+  } catch (e) {
+    console.error('перевод не загрузился:', e);
+    data = { points: pointsBase, info: infoBase };
+  }
+
+  pointdata = data.points;
+  infodata = data.info;
+  sobratdaty(pointdata);
+
+  if (!mapref) {
+    initkarta();
+    initgranica();
+  }
+  sobratmarkers();
+  zapuskslider();
+
+  if (activecity) {
+    risuemkartochku(activecity);
+  } else {
+    risuemspisok(sinput.value || '');
+    listview.hidden = false;
+    detailview.hidden = true;
+  }
+}
+
+function applyTheme(t) {
+  themecur = t;
+  document.documentElement.setAttribute('data-theme', t);
+  setTimeout(function () {
+    updGranicaStyle();
+    primenitrange();
+    if (mapref) mapref.invalidateSize();
+  }, 40);
+}
+
+function inittheme() {
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  let t;
+  if (saved === 'dark' || saved === 'light') t = saved;
+  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+  else t = 'light';
+  applyTheme(t);
+}
+
+function initleft() {
+  const lp = document.getElementById('left-panel');
+  const lt = document.getElementById('left-toggle');
+  const tb = document.getElementById('theme-btn');
+  if (lt && lp) {
+    lt.addEventListener('click', function (e) {
+      e.preventDefault();
+      lp.classList.toggle('open');
+    });
+  }
+  if (tb) {
+    tb.addEventListener('click', function (e) {
+      e.preventDefault();
+      const next = themecur === 'dark' ? 'light' : 'dark';
+      if (document.startViewTransition) {
+        document.startViewTransition(function () { applyTheme(next); });
+      } else {
+        applyTheme(next);
+      }
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  }
+}
+
+rangelow.addEventListener('input', function () { onRangeInput('lo'); });
+rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
+
+sinput.addEventListener('input', function () {
+  const v = sinput.value;
+  sclear.hidden = !v;
+  if (!detailview.hidden) {
+    detailview.hidden = true;
+    listview.hidden = false;
+    activecity = null;
+  }
+  risuemspisok(v);
+});
+
+sinput.addEventListener('focus', function () {
+  if (!detailview.hidden) {
+    detailview.hidden = true;
+    listview.hidden = false;
+    activecity = null;
+    risuemspisok(sinput.value || '');
+  }
+});
+
+sclear.addEventListener('click', function () {
+  sinput.value = '';
+  sclear.hidden = true;
+  if (!detailview.hidden) {
+    detailview.hidden = true;
+    listview.hidden = false;
+    activecity = null;
+  }
+  risuemspisok('');
+  sinput.focus();
+});
+
+if (sortsel) {
+  sortsel.addEventListener('change', function () {
+    sortmode = sortsel.value;
+    try { localStorage.setItem('sortmode', sortmode); } catch (e) {}
+    if (detailview.hidden) risuemspisok(sinput.value || '');
+  });
+}
+
+listview.addEventListener('click', function (e) {
+  const item = e.target.closest('.city-item');
+  if (!item) return;
+  const id = +item.dataset.id;
+  const rec = markerrecs.find(function (r) { return r.point.id === id; });
+  if (!rec) return;
+  otkrytgorod(id, false);
+  if (mapref) {
+    if (ismobile()) togglepanel(false);
+    const z = ismobile() ? 10 : Math.max(mapref.getZoom(), 9);
+    mapref.flyTo([rec.point.lat, rec.point.lng], z, { duration: 0.6 });
+    setTimeout(function () { pulsmaker(rec.marker); }, 700);
+  }
+});
+
+document.addEventListener('click', function (e) {
+  const b = e.target.closest('.lang-switch');
+  if (!b) return;
+  const code = b.dataset.lang;
+  if (code && code !== curlang) perekluchit(code, false);
+});
+
+let lastmobile = ismobile();
+window.addEventListener('resize', function () {
+  const m = ismobile();
+  if (m !== lastmobile) {
+    lastmobile = m;
+    togglepanel(!m);
+  }
+  if (mapref) setTimeout(function () { mapref.invalidateSize(); }, 120);
+});
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', function () {
+    if (mapref) setTimeout(function () { mapref.invalidateSize(); }, 120);
+  });
+}
+
+async function start() {
+  initprosmotr();
+  inittheme();
+  initleft();
+  sborkafab();
+  try { sortmode = localStorage.getItem('sortmode') || 'date-asc'; } catch (e) {}
+  togglepanel(!ismobile());
+  obnovui();
+  try {
+    await loadBase();
+  } catch (e) {
+    console.error(e);
+    return;
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  const code = (saved && langs[saved]) ? saved : 'ru';
+  await perekluchit(code, true);
+}
+
+start().catch(function (err) {
+  console.error('инициализация упала:', err);
+  if (!mapref) {
+    mapref = L.map('map', { zoomControl: false, attributionControl: false }).setView(mapcenter, mapzoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapref);
+    L.control.attribution({ prefix: false, position: 'bottomright' }).addTo(mapref);
+  }
+});
