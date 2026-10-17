@@ -29,12 +29,12 @@ const monthnames = {
 const langs = {
   ru: {
     label: 'Рус',
+    shortLabel: 'RU',
     over: null,
-    switchLabel: 'BY',
     ui: {
-      search: 'Поиск города…',
+      search: 'Поиск города...',
       slider: 'Период освобождения',
-      back: '← Назад к списку',
+      back: 'Назад к списку',
       notFound: 'Город не найден.<br>Попробуйте другое название.',
       about: 'О городе',
       liberation: 'Освобождение',
@@ -49,17 +49,23 @@ const langs = {
       prev: 'Предыдущая',
       next: 'Следующая',
       close: 'Закрыть',
-      panel: 'Панель'
+      panel: 'Панель',
+      sortLabels: {
+        'date-asc': 'По периоду: раньше - позже',
+        'date-desc': 'По периоду: позже - раньше',
+        'title-asc': 'По алфавиту (А - Я)',
+        'title-desc': 'По алфавиту (Я - А)'
+      }
     }
   },
   by: {
     label: 'Бел',
+    shortLabel: 'BY',
     over: 'by',
-    switchLabel: 'RU',
     ui: {
-      search: 'Пошук горада…',
+      search: 'Пошук горада...',
       slider: 'Перыяд вызвалення',
-      back: '← Назад да спісу',
+      back: 'Назад да спісу',
       notFound: 'Горад не знойдзены.<br>Паспрабуйце іншую назву.',
       about: 'Пра горад',
       liberation: 'Вызваленне',
@@ -74,18 +80,15 @@ const langs = {
       prev: 'Папярэдняя',
       next: 'Наступная',
       close: 'Зачыніць',
-      panel: 'Панэль'
+      panel: 'Панэль',
+      sortLabels: {
+        'date-asc': 'Па перыяду: раней - пазней',
+        'date-desc': 'Па перыяду: пазней - раней',
+        'title-asc': 'Па алфавіце (А - Я)',
+        'title-desc': 'Па алфавіце (Я - А)'
+      }
     }
   }
-};
-
-const granica = {
-  color: '#000000',
-  weight: 2,
-  opacity: 0.75,
-  fillColor: '#b30000',
-  fillOpacity: 0.04,
-  dashArray: '4 4'
 };
 
 let mapref = null;
@@ -110,9 +113,11 @@ let pointsBase = [];
 let infoBase = {};
 
 let themecur = 'light';
+let sortmode = 'date-asc';
 
 const sinput = document.getElementById('search');
 const sclear = document.getElementById('search-clear');
+const sortsel = document.getElementById('sort-select');
 const listview = document.getElementById('list-view');
 const detailview = document.getElementById('detail-view');
 const rangelow = document.getElementById('range-lo');
@@ -482,6 +487,42 @@ function colorfordate(datestr) {
   return colorcompute(d.getTime());
 }
 
+function parsergb(s) {
+  const m = String(s).match(/\d+/g);
+  if (!m || m.length < 3) return [170, 15, 15];
+  return [+m[0], +m[1], +m[2]];
+}
+
+function outlineFor(rgb, isDark) {
+  const lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
+  const bgLum = isDark ? 0.07 : 1.0;
+  const contrast = Math.abs(lum - bgLum);
+  if (contrast > 0.5) return null;
+  const needed = Math.max(0.15, (0.5 - contrast) / 0.5);
+  if (isDark) {
+    const v = Math.round(180 + 75 * needed);
+    return 'rgba(' + v + ',' + v + ',' + v + ',' + (0.5 + 0.4 * needed) + ')';
+  } else {
+    const v = Math.round(100 - 100 * needed);
+    return 'rgba(' + v + ',' + v + ',' + v + ',' + (0.35 + 0.35 * needed) + ')';
+  }
+}
+
+function applyDateStyle(el, color, outline) {
+  if (!el) return;
+  el.style.color = color;
+  if (outline) {
+    el.style.textShadow =
+      '-1px -1px 0 ' + outline + ',' +
+      '1px -1px 0 ' + outline + ',' +
+      '-1px 1px 0 ' + outline + ',' +
+      '1px 1px 0 ' + outline + ',' +
+      '0 0 2px ' + outline;
+  } else {
+    el.style.textShadow = 'none';
+  }
+}
+
 function lb() { return document.getElementById('lightbox'); }
 function lbimg() { return document.getElementById('lightbox-img'); }
 function lbcap() { return document.getElementById('lightbox-caption'); }
@@ -493,10 +534,16 @@ function sborkalightbox() {
   const box = lb();
   if (!box) return;
   box.innerHTML =
-    '<button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="prev" hidden>‹</button>' +
-    '<button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="next" hidden>›</button>' +
+    '<button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="prev" hidden>' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>' +
+    '</button>' +
+    '<button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="next" hidden>' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>' +
+    '</button>' +
     '<div class="lightbox-num" id="lightbox-num" hidden></div>' +
-    '<button type="button" class="lightbox-close" aria-label="close">×</button>' +
+    '<button type="button" class="lightbox-close" aria-label="close">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>' +
+    '</button>' +
     '<div class="lightbox-inner">' +
       '<img id="lightbox-img" src="" alt="">' +
       '<div id="lightbox-caption" class="lightbox-caption"></div>' +
@@ -655,9 +702,22 @@ function obnovlangbtn() {
   const other = curlang === 'ru' ? 'by' : 'ru';
   const btns = document.querySelectorAll('.lang-switch');
   for (let i = 0; i < btns.length; i++) {
-    btns[i].textContent = langs[other].switchLabel;
+    btns[i].textContent = langs[other].shortLabel;
     btns[i].dataset.lang = other;
   }
+}
+
+function obnovsortui() {
+  if (!sortsel) return;
+  const modes = ['date-asc', 'date-desc', 'title-asc', 'title-desc'];
+  sortsel.innerHTML = '';
+  for (let i = 0; i < modes.length; i++) {
+    const opt = document.createElement('option');
+    opt.value = modes[i];
+    opt.textContent = (ui.sortLabels && ui.sortLabels[modes[i]]) || modes[i];
+    sortsel.appendChild(opt);
+  }
+  sortsel.value = sortmode;
 }
 
 function obnovui() {
@@ -671,6 +731,7 @@ function obnovui() {
   const fb = document.getElementById('fab');
   if (fb) fb.setAttribute('aria-label', ui.panel);
   obnovlangbtn();
+  obnovsortui();
 }
 
 function makepopup(p) {
@@ -693,7 +754,7 @@ function makepopup(p) {
   }
   const d = parsedate(p.date);
   const dtext = d ? formatdate(d) : p.date;
-  return '<div class="popup-title">' + esc(p.title) + '</div>' +
+  return '<div class="popup-title" style="color:' + pcol + '">' + esc(p.title) + '</div>' +
     '<div class="popup-date">' + esc(dtext || '') + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
     fotos +
     '<div class="popup-desc">' + esc(p.description || '') + '</div>' +
@@ -706,6 +767,22 @@ function noimgsvg() {
   return '<svg class="noimg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"></circle><polyline points="21 15 16 10 5 21"></polyline><line x1="3" y1="3" x2="21" y2="21" stroke-width="1.8"></line></svg>';
 }
 
+function sortitems(items) {
+  const cmpDate = function (a, b) {
+    const da = parsedate(a.date), db = parsedate(b.date);
+    if (da && db) return da - db;
+    return 0;
+  };
+  const cmpTitle = function (a, b) {
+    return String(a.title || '').localeCompare(String(b.title || ''), curlang === 'by' ? 'be' : 'ru');
+  };
+  if (sortmode === 'date-asc') items.sort(cmpDate);
+  else if (sortmode === 'date-desc') items.sort(function (a, b) { return cmpDate(b, a); });
+  else if (sortmode === 'title-asc') items.sort(cmpTitle);
+  else if (sortmode === 'title-desc') items.sort(function (a, b) { return cmpTitle(b, a); });
+  return items;
+}
+
 function risuemspisok(query) {
   const q = String(query || '').trim();
   let items = pointdata.slice();
@@ -716,11 +793,7 @@ function risuemspisok(query) {
       .sort(function (a, b) { return b.score - a.score; })
       .map(function (o) { return o.p; });
   } else {
-    items.sort(function (a, b) {
-      const da = parsedate(a.date), db = parsedate(b.date);
-      if (da && db) return da - db;
-      return 0;
-    });
+    items = sortitems(items);
   }
   if (!items.length) {
     listview.innerHTML = '<div class="empty-state">' + ui.notFound + '</div>';
@@ -842,11 +915,14 @@ function risuemkartochku(id) {
 
   detailview.innerHTML =
     '<div class="detail-head">' +
-      '<button class="detail-back" id="back-btn" type="button">' + esc(ui.back) + '</button>' +
-      '<button class="detail-lang lang-switch" type="button" data-lang="' + otherLang + '">' + esc(langs[otherLang].switchLabel) + '</button>' +
+      '<button class="detail-back" id="back-btn" type="button">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="back-arrow"><polyline points="15 6 9 12 15 18"></polyline></svg>' +
+        esc(ui.back) +
+      '</button>' +
+      '<button class="detail-lang lang-switch" type="button" data-lang="' + otherLang + '">' + esc(langs[otherLang].shortLabel) + '</button>' +
     '</div>' +
     '<div class="detail-body">' +
-      '<div class="detail-title">' + esc(p.title) + '</div>' +
+      '<div class="detail-title" style="color:' + pcol + '">' + esc(p.title) + '</div>' +
       '<div class="detail-date">' + esc(dtext0 || '') + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
       cityfotos + intro + opsec + geroi + memsec + muzei + srcsec +
     '</div>';
@@ -910,7 +986,7 @@ function zapuskslider() {
 }
 
 function primenitrange() {
-  if (!sliderready) return;
+  if (!sliderready || !daty.length) return;
   const last = daty.length - 1;
   if (lowidx > highidx) { const tmp = lowidx; lowidx = highidx; highidx = tmp; }
   if (lowidx < 0) lowidx = 0;
@@ -933,10 +1009,13 @@ function primenitrange() {
   rangelow.style.setProperty('--thumb-color', colLow);
   rangehigh.style.setProperty('--thumb-color', colHigh);
 
+  const isDark = themecur === 'dark';
+  const outLow = outlineFor(parsergb(colLow), isDark);
+  const outHigh = outlineFor(parsergb(colHigh), isDark);
   datelow.textContent = formatdate(daty[lowidx]);
   datehigh.textContent = formatdate(daty[highidx]);
-  datelow.style.color = colLow;
-  datehigh.style.color = colHigh;
+  applyDateStyle(datelow, colLow, outLow);
+  applyDateStyle(datehigh, colHigh, outHigh);
 
   rangelow.style.zIndex = 3;
   rangehigh.style.zIndex = 4;
@@ -998,11 +1077,25 @@ function clustericon(cluster) {
   });
 }
 
+function granicaStyle() {
+  return {
+    color: themecur === 'dark' ? '#ffffff' : '#000000',
+    weight: 2,
+    opacity: 0.75,
+    fillColor: themecur === 'dark' ? '#ff5555' : '#b30000',
+    fillOpacity: 0.05,
+    dashArray: '4 4'
+  };
+}
+
 function initkarta() {
-  mapref = L.map('map', { zoomControl: true }).setView(mapcenter, mapzoom);
+  mapref = L.map('map', { zoomControl: false, attributionControl: false }).setView(mapcenter, mapzoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap', maxZoom: 19
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap'
   }).addTo(mapref);
+  L.control.attribution({ prefix: false, position: 'bottomright' }).addTo(mapref);
+  L.control.zoom({ position: 'bottomleft' }).addTo(mapref);
   clusterref = L.markerClusterGroup({
     showCoverageOnHover: false,
     maxClusterRadius: 42,
@@ -1020,11 +1113,16 @@ function initgranica() {
   fetch('belarus.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error('belarus.json'); return r.json(); })
     .then(function (geo) {
-      granicref = L.geoJSON(geo, { style: function () { return granica; }, interactive: false });
+      granicref = L.geoJSON(geo, { style: function () { return granicaStyle(); }, interactive: false });
       granicref.addTo(mapref);
       if (granicref.bringToBack) granicref.bringToBack();
     })
     .catch(function (err) { console.warn('граница не загрузилась:', err); });
+}
+
+function updGranicaStyle() {
+  if (!granicref) return;
+  try { granicref.setStyle(granicaStyle()); } catch (e) {}
 }
 
 function sobratmarkers() {
@@ -1093,12 +1191,24 @@ async function perekluchit(code, initial) {
   }
 }
 
+function applyTheme(t) {
+  themecur = t;
+  document.documentElement.setAttribute('data-theme', t);
+  setTimeout(function () {
+    updGranicaStyle();
+    primenitrange();
+    if (mapref) mapref.invalidateSize();
+  }, 40);
+}
+
 function inittheme() {
   let saved = null;
   try { saved = localStorage.getItem('theme'); } catch (e) {}
-  if (saved === 'dark' || saved === 'light') themecur = saved;
-  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) themecur = 'dark';
-  document.documentElement.setAttribute('data-theme', themecur);
+  let t;
+  if (saved === 'dark' || saved === 'light') t = saved;
+  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+  else t = 'light';
+  applyTheme(t);
 }
 
 function initleft() {
@@ -1112,15 +1222,13 @@ function initleft() {
   }
   if (tb) {
     tb.addEventListener('click', function () {
-      themecur = themecur === 'dark' ? 'light' : 'dark';
+      const next = themecur === 'dark' ? 'light' : 'dark';
       if (document.startViewTransition) {
-        document.startViewTransition(function () {
-          document.documentElement.setAttribute('data-theme', themecur);
-        });
+        document.startViewTransition(function () { applyTheme(next); });
       } else {
-        document.documentElement.setAttribute('data-theme', themecur);
+        applyTheme(next);
       }
-      try { localStorage.setItem('theme', themecur); } catch (e) {}
+      try { localStorage.setItem('theme', next); } catch (e) {}
     });
   }
 }
@@ -1160,6 +1268,14 @@ sclear.addEventListener('click', function () {
   sinput.focus();
 });
 
+if (sortsel) {
+  sortsel.addEventListener('change', function () {
+    sortmode = sortsel.value;
+    try { localStorage.setItem('sortmode', sortmode); } catch (e) {}
+    if (detailview.hidden) risuemspisok(sinput.value || '');
+  });
+}
+
 listview.addEventListener('click', function (e) {
   const item = e.target.closest('.city-item');
   if (!item) return;
@@ -1189,7 +1305,14 @@ window.addEventListener('resize', function () {
     lastmobile = m;
     togglepanel(!m);
   }
+  if (mapref) setTimeout(function () { mapref.invalidateSize(); }, 120);
 });
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', function () {
+    if (mapref) setTimeout(function () { mapref.invalidateSize(); }, 120);
+  });
+}
 
 async function start() {
   initprosmotr();
@@ -1197,6 +1320,7 @@ async function start() {
   initleft();
   sborkafab();
   togglepanel(!ismobile());
+  try { sortmode = localStorage.getItem('sortmode') || 'date-asc'; } catch (e) {}
   obnovui();
   try {
     await loadBase();
@@ -1213,9 +1337,8 @@ async function start() {
 start().catch(function (err) {
   console.error('инициализация упала:', err);
   if (!mapref) {
-    mapref = L.map('map').setView(mapcenter, mapzoom);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap'
-    }).addTo(mapref);
+    mapref = L.map('map', { zoomControl: false, attributionControl: false }).setView(mapcenter, mapzoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapref);
+    L.control.attribution({ prefix: false }).addTo(mapref);
   }
 });
