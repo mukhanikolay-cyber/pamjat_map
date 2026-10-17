@@ -45,7 +45,6 @@ const langs = {
   ru: {
     label: 'Рус',
     shortLabel: 'RU',
-    otherLabel: 'BY',
     over: null,
     ui: {
       search: 'Поиск города...',
@@ -71,7 +70,6 @@ const langs = {
   by: {
     label: 'Бел',
     shortLabel: 'BY',
-    otherLabel: 'RU',
     over: 'by',
     ui: {
       search: 'Пошук горада...',
@@ -676,11 +674,17 @@ function sborkafab() {
   b.id = 'fab';
   b.className = 'fab-btn';
   b.setAttribute('aria-label', 'panel');
-  b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>';
+  b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>';
   b.addEventListener('click', function (e) {
     e.preventDefault();
+    e.stopPropagation();
     togglepanel();
   });
+  b.addEventListener('touchend', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    togglepanel();
+  }, { passive: false });
   document.body.appendChild(b);
 }
 
@@ -691,6 +695,13 @@ function togglepanel(force) {
   const willopen = force === true ? true : (force === false ? false : closed);
   panel.classList.toggle('closed', !willopen);
   document.body.classList.toggle('panel-open', willopen);
+  const fab = document.getElementById('fab');
+  if (fab) {
+    fab.style.display = 'flex';
+    fab.style.visibility = 'visible';
+    fab.style.opacity = '1';
+    fab.style.pointerEvents = 'auto';
+  }
 }
 
 function obnovlangbtn() {
@@ -848,9 +859,18 @@ function risuemkartochku(id) {
 
   let geroi = '';
   if (info.heroes && info.heroes.length) {
-    geroi = '<div class="detail-section"><h4>' + esc(ui.heroes) + '</h4><ul>';
+    geroi = '<div class="detail-section"><h4>' + esc(ui.heroes) + '</h4><ul class="heroes-list">';
     for (let i = 0; i < info.heroes.length; i++) {
-      geroi += '<li>' + esc(info.heroes[i]) + '</li>';
+      const h = info.heroes[i];
+      if (h && typeof h === 'object') {
+        const hname = esc(h.name || h.title || h.url || '');
+        const hurl = h.url || h.href || h.link || '';
+        geroi += hurl
+          ? '<li><a href="' + esc(hurl) + '" target="_blank" rel="noopener noreferrer">' + hname + '</a></li>'
+          : '<li>' + hname + '</li>';
+      } else if (h != null) {
+        geroi += '<li>' + esc(String(h)) + '</li>';
+      }
     }
     geroi += '</ul></div>';
   }
@@ -1232,6 +1252,23 @@ function initleft() {
   }
 }
 
+function initzoomblock() {
+  document.addEventListener('gesturestart', function (e) { e.preventDefault(); }, { passive: false });
+  document.addEventListener('gesturechange', function (e) { e.preventDefault(); }, { passive: false });
+  document.addEventListener('gestureend', function (e) { e.preventDefault(); }, { passive: false });
+  let lasttouch = 0;
+  document.addEventListener('touchend', function (e) {
+    if (e.target.closest('input, textarea, select, .leaflet-container')) return;
+    const now = Date.now();
+    if (now - lasttouch < 320) {
+      if (e.cancelable) e.preventDefault();
+      lasttouch = 0;
+    } else {
+      lasttouch = now;
+    }
+  }, { passive: false });
+}
+
 rangelow.addEventListener('input', function () { onRangeInput('lo'); });
 rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
 
@@ -1317,6 +1354,7 @@ async function start() {
   initprosmotr();
   inittheme();
   initleft();
+  initzoomblock();
   sborkafab();
   try { sortmode = localStorage.getItem('sortmode') || 'date-asc'; } catch (e) {}
   togglepanel(!ismobile());
