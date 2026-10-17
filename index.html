@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <aside id="panel" class="panel">
+  <aside id="panel" class="panel closed">
     <div class="panel-head">
       <div class="search-box">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -39,7 +39,12 @@
         </button>
       </div>
       <div class="sort-row">
-        <select id="sort-select" class="sort-select" aria-label="Сортировка"></select>
+        <select id="sort-select" class="sort-select" aria-label="Сортировка">
+          <option value="date-asc">По периоду: раньше - позже</option>
+          <option value="date-desc">По периоду: позже - раньше</option>
+          <option value="title-asc">По алфавиту (А - Я)</option>
+          <option value="title-desc">По алфавиту (Я - А)</option>
+        </select>
       </div>
     </div>
     <div id="list-view" class="panel-view"></div>
