@@ -26,10 +26,26 @@ const monthnames = {
        'ліпеня','жніўня','верасня','кастрычніка','лістапада','снежня']
 };
 
+const sortlabels = {
+  ru: {
+    'date-asc': 'По периоду: раньше - позже',
+    'date-desc': 'По периоду: позже - раньше',
+    'title-asc': 'По алфавиту (А - Я)',
+    'title-desc': 'По алфавиту (Я - А)'
+  },
+  by: {
+    'date-asc': 'Па перыяду: раней - пазней',
+    'date-desc': 'Па перыяду: пазней - раней',
+    'title-asc': 'Па алфавіце (А - Я)',
+    'title-desc': 'Па алфавіце (Я - А)'
+  }
+};
+
 const langs = {
   ru: {
     label: 'Рус',
     shortLabel: 'RU',
+    otherLabel: 'BY',
     over: null,
     ui: {
       search: 'Поиск города...',
@@ -49,18 +65,13 @@ const langs = {
       prev: 'Предыдущая',
       next: 'Следующая',
       close: 'Закрыть',
-      panel: 'Панель',
-      sortLabels: {
-        'date-asc': 'По периоду: раньше - позже',
-        'date-desc': 'По периоду: позже - раньше',
-        'title-asc': 'По алфавиту (А - Я)',
-        'title-desc': 'По алфавиту (Я - А)'
-      }
+      panel: 'Панель'
     }
   },
   by: {
     label: 'Бел',
     shortLabel: 'BY',
+    otherLabel: 'RU',
     over: 'by',
     ui: {
       search: 'Пошук горада...',
@@ -80,13 +91,7 @@ const langs = {
       prev: 'Папярэдняя',
       next: 'Наступная',
       close: 'Зачыніць',
-      panel: 'Панэль',
-      sortLabels: {
-        'date-asc': 'Па перыяду: раней - пазней',
-        'date-desc': 'Па перыяду: пазней - раней',
-        'title-asc': 'Па алфавіце (А - Я)',
-        'title-desc': 'Па алфавіце (Я - А)'
-      }
+      panel: 'Панэль'
     }
   }
 };
@@ -283,13 +288,9 @@ async function fetchJson(url, def) {
 async function loadBase() {
   let pTxt = await fetchText('langs/points.json');
   if (pTxt == null) pTxt = await fetchText('points.json');
-  if (pTxt == null) throw new Error('не найден langs/points.json');
-  try {
-    pointsBase = JSON.parse(pTxt);
-  } catch (e) {
-    throw new Error('langs/points.json: ' + e.message);
-  }
-  if (!Array.isArray(pointsBase)) throw new Error('langs/points.json не массив');
+  if (pTxt == null) throw new Error('не найден points.json');
+  try { pointsBase = JSON.parse(pTxt); } catch (e) { throw new Error('points.json: ' + e.message); }
+  if (!Array.isArray(pointsBase)) throw new Error('points.json не массив');
 
   let iTxt = await fetchText('langs/info.json');
   if (iTxt == null) iTxt = await fetchText('info.json');
@@ -495,29 +496,19 @@ function parsergb(s) {
 
 function outlineFor(rgb, isDark) {
   const lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
-  const bgLum = isDark ? 0.07 : 1.0;
+  const bgLum = isDark ? 0.06 : 0.98;
   const contrast = Math.abs(lum - bgLum);
-  if (contrast > 0.5) return null;
-  const needed = Math.max(0.15, (0.5 - contrast) / 0.5);
-  if (isDark) {
-    const v = Math.round(180 + 75 * needed);
-    return 'rgba(' + v + ',' + v + ',' + v + ',' + (0.5 + 0.4 * needed) + ')';
-  } else {
-    const v = Math.round(100 - 100 * needed);
-    return 'rgba(' + v + ',' + v + ',' + v + ',' + (0.35 + 0.35 * needed) + ')';
-  }
+  const needed = Math.max(0, Math.min(1, (0.65 - contrast) / 0.65));
+  const alpha = 0.10 + 0.50 * needed;
+  const v = isDark ? 235 : 45;
+  return 'rgba(' + v + ',' + v + ',' + v + ',' + alpha.toFixed(2) + ')';
 }
 
 function applyDateStyle(el, color, outline) {
   if (!el) return;
   el.style.color = color;
   if (outline) {
-    el.style.textShadow =
-      '-1px -1px 0 ' + outline + ',' +
-      '1px -1px 0 ' + outline + ',' +
-      '-1px 1px 0 ' + outline + ',' +
-      '1px 1px 0 ' + outline + ',' +
-      '0 0 2px ' + outline;
+    el.style.textShadow = '0 0 3px ' + outline + ', 0 0 5px ' + outline;
   } else {
     el.style.textShadow = 'none';
   }
@@ -678,14 +669,18 @@ function initprosmotr() {
 }
 
 function sborkafab() {
-  if (document.getElementById('fab')) return;
-  const b = document.createElement('button');
+  let b = document.getElementById('fab');
+  if (b) return;
+  b = document.createElement('button');
   b.type = 'button';
   b.id = 'fab';
   b.className = 'fab-btn';
   b.setAttribute('aria-label', 'panel');
   b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>';
-  b.addEventListener('click', function () { togglepanel(); });
+  b.addEventListener('click', function (e) {
+    e.preventDefault();
+    togglepanel();
+  });
   document.body.appendChild(b);
 }
 
@@ -699,22 +694,24 @@ function togglepanel(force) {
 }
 
 function obnovlangbtn() {
-  const other = curlang === 'ru' ? 'by' : 'ru';
+  const target = curlang === 'ru' ? 'by' : 'ru';
+  const label = target === 'by' ? 'BY' : 'RU';
   const btns = document.querySelectorAll('.lang-switch');
   for (let i = 0; i < btns.length; i++) {
-    btns[i].textContent = langs[other].shortLabel;
-    btns[i].dataset.lang = other;
+    btns[i].textContent = label;
+    btns[i].dataset.lang = target;
   }
 }
 
 function obnovsortui() {
   if (!sortsel) return;
   const modes = ['date-asc', 'date-desc', 'title-asc', 'title-desc'];
+  const labels = sortlabels[curlang] || sortlabels.ru;
   sortsel.innerHTML = '';
   for (let i = 0; i < modes.length; i++) {
     const opt = document.createElement('option');
     opt.value = modes[i];
-    opt.textContent = (ui.sortLabels && ui.sortLabels[modes[i]]) || modes[i];
+    opt.textContent = labels[modes[i]];
     sortsel.appendChild(opt);
   }
   sortsel.value = sortmode;
@@ -864,7 +861,7 @@ function risuemkartochku(id) {
 
   let memsec = '';
   if (monuments.length) {
-    memsec = '<div class="detail-section detail-memory" style="--sec-color:' + pcol + '"><h4>' + esc(ui.places) + '</h4>';
+    memsec = '<div class="detail-section"><h4>' + esc(ui.places) + '</h4>';
     for (let i = 0; i < monuments.length; i++) {
       const m = monuments[i];
       const name = esc(m.name || '');
@@ -912,16 +909,17 @@ function risuemkartochku(id) {
   }
 
   const otherLang = curlang === 'ru' ? 'by' : 'ru';
+  const otherLabel = otherLang === 'by' ? 'BY' : 'RU';
 
   detailview.innerHTML =
     '<div class="detail-head">' +
-      '<button class="detail-back" id="back-btn" type="button">' +
+      '<button class="detail-back" id="back-btn" type="button" style="background:' + pcol + '">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="back-arrow"><polyline points="15 6 9 12 15 18"></polyline></svg>' +
         esc(ui.back) +
       '</button>' +
-      '<button class="detail-lang lang-switch" type="button" data-lang="' + otherLang + '">' + esc(langs[otherLang].shortLabel) + '</button>' +
+      '<button class="detail-lang lang-switch" type="button" data-lang="' + otherLang + '">' + otherLabel + '</button>' +
     '</div>' +
-    '<div class="detail-body">' +
+    '<div class="detail-body" style="--sec-color:' + pcol + '">' +
       '<div class="detail-title" style="color:' + pcol + '">' + esc(p.title) + '</div>' +
       '<div class="detail-date">' + esc(dtext0 || '') + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
       cityfotos + intro + opsec + geroi + memsec + muzei + srcsec +
@@ -1081,7 +1079,7 @@ function granicaStyle() {
   return {
     color: themecur === 'dark' ? '#ffffff' : '#000000',
     weight: 2,
-    opacity: 0.75,
+    opacity: 0.85,
     fillColor: themecur === 'dark' ? '#ff5555' : '#b30000',
     fillOpacity: 0.05,
     dashArray: '4 4'
@@ -1091,254 +1089,13 @@ function granicaStyle() {
 function initkarta() {
   mapref = L.map('map', { zoomControl: false, attributionControl: false }).setView(mapcenter, mapzoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; OpenStreetMap'
+    maxZoom: 19
   }).addTo(mapref);
   L.control.attribution({ prefix: false, position: 'bottomright' }).addTo(mapref);
-  L.control.zoom({ position: 'bottomleft' }).addTo(mapref);
+  L.control.zoom({ position: 'bottomright' }).addTo(mapref);
   clusterref = L.markerClusterGroup({
     showCoverageOnHover: false,
     maxClusterRadius: 42,
     iconCreateFunction: clustericon
   });
   mapref.addLayer(clusterref);
-  mapref.on('click', function () {
-    if (ismobile() && !document.getElementById('panel').classList.contains('closed')) {
-      togglepanel(false);
-    }
-  });
-}
-
-function initgranica() {
-  fetch('belarus.json', { cache: 'no-store' })
-    .then(function (r) { if (!r.ok) throw new Error('belarus.json'); return r.json(); })
-    .then(function (geo) {
-      granicref = L.geoJSON(geo, { style: function () { return granicaStyle(); }, interactive: false });
-      granicref.addTo(mapref);
-      if (granicref.bringToBack) granicref.bringToBack();
-    })
-    .catch(function (err) { console.warn('граница не загрузилась:', err); });
-}
-
-function updGranicaStyle() {
-  if (!granicref) return;
-  try { granicref.setStyle(granicaStyle()); } catch (e) {}
-}
-
-function sobratmarkers() {
-  if (clusterref) clusterref.clearLayers();
-  markerrecs = [];
-  const markers = [];
-  for (let i = 0; i < pointdata.length; i++) {
-    const p = pointdata[i];
-    if (typeof p.lat !== 'number' || typeof p.lng !== 'number') continue;
-    const d = parsedate(p.date);
-    const dateidx = dateindex(d);
-    let mk;
-    try {
-      mk = L.marker([p.lat, p.lng], {
-        icon: pinicon(p.date, p.id),
-        title: p.title,
-        riseOnHover: true,
-        pinclr: colorfordate(p.date),
-        opac: 1
-      });
-      mk.bindPopup(makepopup(p), {
-        maxWidth: 360, minWidth: 320, closeButton: true, autoPanPadding: [40, 40]
-      });
-    } catch (e) {
-      continue;
-    }
-    markerrecs.push({ marker: mk, point: p, dateidx: dateidx });
-    markers.push(mk);
-  }
-  clusterref.addLayers(markers);
-}
-
-async function perekluchit(code, initial) {
-  if (!langs[code]) return;
-  curlang = code;
-  ui = langs[code].ui;
-  try { localStorage.setItem('lang', code); } catch (e) {}
-  document.documentElement.lang = code === 'by' ? 'be' : 'ru';
-  obnovui();
-
-  let data;
-  try {
-    data = await loadLang(code);
-  } catch (e) {
-    console.error('перевод не загрузился:', e);
-    data = { points: pointsBase, info: infoBase };
-  }
-
-  pointdata = data.points;
-  infodata = data.info;
-  sobratdaty(pointdata);
-
-  if (!mapref) {
-    initkarta();
-    initgranica();
-  }
-  sobratmarkers();
-  zapuskslider();
-
-  if (activecity) {
-    risuemkartochku(activecity);
-  } else {
-    risuemspisok(sinput.value || '');
-    listview.hidden = false;
-    detailview.hidden = true;
-  }
-}
-
-function applyTheme(t) {
-  themecur = t;
-  document.documentElement.setAttribute('data-theme', t);
-  setTimeout(function () {
-    updGranicaStyle();
-    primenitrange();
-    if (mapref) mapref.invalidateSize();
-  }, 40);
-}
-
-function inittheme() {
-  let saved = null;
-  try { saved = localStorage.getItem('theme'); } catch (e) {}
-  let t;
-  if (saved === 'dark' || saved === 'light') t = saved;
-  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
-  else t = 'light';
-  applyTheme(t);
-}
-
-function initleft() {
-  const lp = document.getElementById('left-panel');
-  const lt = document.getElementById('left-toggle');
-  const tb = document.getElementById('theme-btn');
-  if (lt && lp) {
-    lt.addEventListener('click', function () {
-      lp.classList.toggle('open');
-    });
-  }
-  if (tb) {
-    tb.addEventListener('click', function () {
-      const next = themecur === 'dark' ? 'light' : 'dark';
-      if (document.startViewTransition) {
-        document.startViewTransition(function () { applyTheme(next); });
-      } else {
-        applyTheme(next);
-      }
-      try { localStorage.setItem('theme', next); } catch (e) {}
-    });
-  }
-}
-
-rangelow.addEventListener('input', function () { onRangeInput('lo'); });
-rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
-
-sinput.addEventListener('input', function () {
-  const v = sinput.value;
-  sclear.hidden = !v;
-  if (!detailview.hidden) {
-    detailview.hidden = true;
-    listview.hidden = false;
-    activecity = null;
-  }
-  risuemspisok(v);
-});
-
-sinput.addEventListener('focus', function () {
-  if (!detailview.hidden) {
-    detailview.hidden = true;
-    listview.hidden = false;
-    activecity = null;
-    risuemspisok(sinput.value || '');
-  }
-});
-
-sclear.addEventListener('click', function () {
-  sinput.value = '';
-  sclear.hidden = true;
-  if (!detailview.hidden) {
-    detailview.hidden = true;
-    listview.hidden = false;
-    activecity = null;
-  }
-  risuemspisok('');
-  sinput.focus();
-});
-
-if (sortsel) {
-  sortsel.addEventListener('change', function () {
-    sortmode = sortsel.value;
-    try { localStorage.setItem('sortmode', sortmode); } catch (e) {}
-    if (detailview.hidden) risuemspisok(sinput.value || '');
-  });
-}
-
-listview.addEventListener('click', function (e) {
-  const item = e.target.closest('.city-item');
-  if (!item) return;
-  const id = +item.dataset.id;
-  const rec = markerrecs.find(function (r) { return r.point.id === id; });
-  if (!rec) return;
-  otkrytgorod(id, false);
-  if (mapref) {
-    if (ismobile()) togglepanel(false);
-    const z = ismobile() ? 10 : Math.max(mapref.getZoom(), 9);
-    mapref.flyTo([rec.point.lat, rec.point.lng], z, { duration: 0.6 });
-    setTimeout(function () { pulsmaker(rec.marker); }, 700);
-  }
-});
-
-document.addEventListener('click', function (e) {
-  const b = e.target.closest('.lang-switch');
-  if (!b) return;
-  const code = b.dataset.lang;
-  if (code && code !== curlang) perekluchit(code, false);
-});
-
-let lastmobile = ismobile();
-window.addEventListener('resize', function () {
-  const m = ismobile();
-  if (m !== lastmobile) {
-    lastmobile = m;
-    togglepanel(!m);
-  }
-  if (mapref) setTimeout(function () { mapref.invalidateSize(); }, 120);
-});
-
-if (window.visualViewport) {
-  window.visualViewport.addEventListener('resize', function () {
-    if (mapref) setTimeout(function () { mapref.invalidateSize(); }, 120);
-  });
-}
-
-async function start() {
-  initprosmotr();
-  inittheme();
-  initleft();
-  sborkafab();
-  togglepanel(!ismobile());
-  try { sortmode = localStorage.getItem('sortmode') || 'date-asc'; } catch (e) {}
-  obnovui();
-  try {
-    await loadBase();
-  } catch (e) {
-    console.error(e);
-    return;
-  }
-  let saved = null;
-  try { saved = localStorage.getItem('lang'); } catch (e) {}
-  const code = (saved && langs[saved]) ? saved : 'ru';
-  await perekluchit(code, true);
-}
-
-start().catch(function (err) {
-  console.error('инициализация упала:', err);
-  if (!mapref) {
-    mapref = L.map('map', { zoomControl: false, attributionControl: false }).setView(mapcenter, mapzoom);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(mapref);
-    L.control.attribution({ prefix: false }).addTo(mapref);
-  }
-});
