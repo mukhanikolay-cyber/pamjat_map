@@ -668,8 +668,15 @@ function initprosmotr() {
 }
 
 function initfab() {
-  const fb = document.getElementById('fab');
-  if (!fb) return;
+  let fb = document.getElementById('fab');
+  if (!fb) {
+    fb = document.createElement('button');
+    fb.id = 'fab';
+    fb.type = 'button';
+    fb.setAttribute('aria-label', 'Меню');
+    fb.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>';
+    document.body.appendChild(fb);
+  }
   fb.addEventListener('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
