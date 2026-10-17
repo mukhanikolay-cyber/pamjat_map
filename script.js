@@ -30,10 +30,11 @@ const langs = {
   ru: {
     label: 'Рус',
     over: null,
+    switchLabel: 'BY',
     ui: {
       search: 'Поиск города…',
       slider: 'Период освобождения',
-      back: '<- Назад к списку',
+      back: '← Назад к списку',
       notFound: 'Город не найден.<br>Попробуйте другое название.',
       about: 'О городе',
       liberation: 'Освобождение',
@@ -54,10 +55,11 @@ const langs = {
   by: {
     label: 'Бел',
     over: 'by',
+    switchLabel: 'RU',
     ui: {
       search: 'Пошук горада…',
       slider: 'Перыяд вызвалення',
-      back: '<- Назад да спісу',
+      back: '← Назад да спісу',
       notFound: 'Горад не знойдзены.<br>Паспрабуйце іншую назву.',
       about: 'Пра горад',
       liberation: 'Вызваленне',
@@ -106,6 +108,8 @@ let curlang = 'ru';
 let ui = langs.ru.ui;
 let pointsBase = [];
 let infoBase = {};
+
+let themecur = 'light';
 
 const sinput = document.getElementById('search');
 const sclear = document.getElementById('search-clear');
@@ -334,16 +338,87 @@ function mergeInfo(base, over) {
   return out;
 }
 
+function fillEmpty(arr, other, fields) {
+  if (!Array.isArray(other) || !other.length) return arr.slice();
+  const byId = {};
+  for (let i = 0; i < other.length; i++) {
+    const o = other[i];
+    if (o && o.id != null) byId[o.id] = o;
+  }
+  const out = [];
+  for (let i = 0; i < arr.length; i++) {
+    const p = arr[i];
+    const o = byId[p.id];
+    if (!o) { out.push(p); continue; }
+    const m = {};
+    for (const k in p) m[k] = p[k];
+    for (let f = 0; f < fields.length; f++) {
+      const fld = fields[f];
+      const v = p[fld];
+      let empty = !v;
+      if (Array.isArray(v) && !v.length) empty = true;
+      if (typeof v === 'string' && !v.trim()) empty = true;
+      if (empty && o[fld]) m[fld] = o[fld];
+    }
+    out.push(m);
+  }
+  return out;
+}
+
+function fillEmptyInfo(base, other, fields) {
+  if (!other) return base;
+  const out = {};
+  for (const k in base) out[k] = base[k];
+  for (const k in other) {
+    if (!base[k]) { out[k] = other[k]; continue; }
+    const b = base[k];
+    const o = other[k];
+    const m = {};
+    for (const f in b) m[f] = b[f];
+    for (let i = 0; i < fields.length; i++) {
+      const fld = fields[i];
+      if (fld === 'monuments') {
+        if (b.monuments && o.monuments) {
+          const mm = [];
+          const len = Math.max(b.monuments.length, o.monuments.length);
+          for (let j = 0; j < len; j++) {
+            const bm = b.monuments[j] || {};
+            const om = o.monuments[j] || {};
+            const nm = {};
+            for (const kk in bm) nm[kk] = bm[kk];
+            if (!bm.photo && om.photo) nm.photo = om.photo;
+            mm.push(nm);
+          }
+          m.monuments = mm;
+        }
+        continue;
+      }
+      const v = b[fld];
+      let empty = !v;
+      if (Array.isArray(v) && !v.length) empty = true;
+      if (typeof v === 'string' && !v.trim()) empty = true;
+      if (empty && o[fld]) m[fld] = o[fld];
+    }
+    out[k] = m;
+  }
+  return out;
+}
+
 async function loadLang(code) {
   const cfg = langs[code];
-  if (!cfg || !cfg.over) return { points: pointsBase, info: infoBase };
-  const over = cfg.over;
-  const pOver = await fetchJson('langs/points_' + over + '.json', []);
-  const iOver = await fetchJson('langs/info_' + over + '.json', {});
-  return {
-    points: mergePoints(pointsBase, Array.isArray(pOver) ? pOver : []),
-    info: mergeInfo(infoBase, iOver || {})
-  };
+  if (!cfg) return { points: pointsBase, info: infoBase };
+  if (cfg.over) {
+    const pOver = await fetchJson('langs/points_' + cfg.over + '.json', []);
+    const iOver = await fetchJson('langs/info_' + cfg.over + '.json', {});
+    const points = mergePoints(pointsBase, Array.isArray(pOver) ? pOver : []);
+    const info = mergeInfo(infoBase, iOver || {});
+    return { points, info };
+  }
+  const pBy = await fetchJson('langs/points_by.json', []);
+  const iBy = await fetchJson('langs/info_by.json', {});
+  const points = fillEmpty(pointsBase, Array.isArray(pBy) ? pBy : [], ['photo', 'memoryPhoto', 'sources']);
+  const info = fillEmptyInfo(infoBase, iBy || {}, ['photo', 'sources', 'monuments']);
+  return { points, info };
 }
 
 function pinicon(datestr, id) {
@@ -384,10 +459,8 @@ function dateindex(date) {
   return -1;
 }
 
-function colorfordate(datestr) {
-  const d = parsedate(datestr);
-  if (!d || daty.length < 2) return 'rgb(' + orange.join(',') + ')';
-  const t = d.getTime();
+function colorcompute(t) {
+  if (daty.length < 2) return 'rgb(' + orange.join(',') + ')';
   let seqidx = 0;
   for (let i = 0; i < daty.length; i++) {
     if (daty[i].getTime() === t) { seqidx = i; break; }
@@ -401,6 +474,12 @@ function colorfordate(datestr) {
   const g = Math.round(orange[1] + (redcolor[1] - orange[1]) * mix);
   const b = Math.round(orange[2] + (redcolor[2] - orange[2]) * mix);
   return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
+
+function colorfordate(datestr) {
+  const d = parsedate(datestr);
+  if (!d) return 'rgb(' + orange.join(',') + ')';
+  return colorcompute(d.getTime());
 }
 
 function lb() { return document.getElementById('lightbox'); }
@@ -551,34 +630,6 @@ function initprosmotr() {
   });
 }
 
-function sborkalang() {
-  const head = document.querySelector('.panel-head');
-  if (!head || head.querySelector('.lang-row')) return;
-  const row = document.createElement('div');
-  row.className = 'lang-row';
-  for (const code in langs) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'lang-btn';
-    b.dataset.lang = code;
-    b.textContent = langs[code].label;
-    row.appendChild(b);
-  }
-  head.insertBefore(row, head.firstChild);
-}
-
-function sborkazakr() {
-  const head = document.querySelector('.panel-head');
-  if (!head || head.querySelector('.panel-close')) return;
-  const b = document.createElement('button');
-  b.type = 'button';
-  b.className = 'panel-close';
-  b.setAttribute('aria-label', 'закрыть');
-  b.textContent = '×';
-  b.addEventListener('click', function () { togglepanel(false); });
-  head.appendChild(b);
-}
-
 function sborkafab() {
   if (document.getElementById('fab')) return;
   const b = document.createElement('button');
@@ -586,7 +637,7 @@ function sborkafab() {
   b.id = 'fab';
   b.className = 'fab-btn';
   b.setAttribute('aria-label', 'panel');
-  b.textContent = '☰';
+  b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>';
   b.addEventListener('click', function () { togglepanel(); });
   document.body.appendChild(b);
 }
@@ -601,9 +652,11 @@ function togglepanel(force) {
 }
 
 function obnovlangbtn() {
-  const btns = document.querySelectorAll('.lang-btn');
+  const other = curlang === 'ru' ? 'by' : 'ru';
+  const btns = document.querySelectorAll('.lang-switch');
   for (let i = 0; i < btns.length; i++) {
-    btns[i].classList.toggle('on', btns[i].dataset.lang === curlang);
+    btns[i].textContent = langs[other].switchLabel;
+    btns[i].dataset.lang = other;
   }
 }
 
@@ -622,9 +675,10 @@ function obnovui() {
 
 function makepopup(p) {
   const info = infodata[p.id] || {};
+  const pcol = colorfordate(p.date);
   const fotos = fotkiblok(sobratfoto(info.photo, p.photo), 'popup-photos', p.title);
   const mem = p.memory
-    ? '<div class="popup-memory" data-label="' + esc(ui.memory) + '">' + esc(p.memory) + '</div>'
+    ? '<div class="popup-memory" style="border-left-color:' + pcol + ';--mem-color:' + pcol + '" data-label="' + esc(ui.memory) + '">' + esc(p.memory) + '</div>'
     : '';
   const srcs = sobratistochniki(p.sources, info.sources);
   let srchtml = '';
@@ -645,7 +699,11 @@ function makepopup(p) {
     '<div class="popup-desc">' + esc(p.description || '') + '</div>' +
     mem +
     srchtml +
-    '<button class="popup-more" onclick="otkrytgorod(' + p.id + ')">' + esc(ui.more) + '</button>';
+    '<button class="popup-more" style="--more-color:' + pcol + '" onclick="otkrytgorod(' + p.id + ')">' + esc(ui.more) + '</button>';
+}
+
+function noimgsvg() {
+  return '<svg class="noimg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"></circle><polyline points="21 15 16 10 5 21"></polyline><line x1="3" y1="3" x2="21" y2="21" stroke-width="1.8"></line></svg>';
 }
 
 function risuemspisok(query) {
@@ -676,7 +734,7 @@ function risuemspisok(query) {
     const thsrc = arr[0] || '';
     const thumb = thsrc
       ? '<img src="' + esc(thsrc) + '" alt="" onerror="this.remove()">'
-      : '<span>' + esc((p.title || '?').charAt(0)) + '</span>';
+      : noimgsvg();
     const d = parsedate(p.date);
     const dtext = d ? formatdate(d) : p.date;
     html += '<div class="city-item" data-id="' + p.id + '">' +
@@ -695,6 +753,7 @@ function risuemkartochku(id) {
   const p = pointdata.find(function (x) { return x.id === id; });
   if (!p) return;
   const info = infodata[id] || {};
+  const pcol = colorfordate(p.date);
 
   const cityfotos = fotkiblok(sobratfoto(info.photo, p.photo), 'detail-photos', p.title);
 
@@ -732,14 +791,14 @@ function risuemkartochku(id) {
 
   let memsec = '';
   if (monuments.length) {
-    memsec = '<div class="detail-section"><h4>' + esc(ui.places) + '</h4>';
+    memsec = '<div class="detail-section detail-memory" style="--sec-color:' + pcol + '"><h4>' + esc(ui.places) + '</h4>';
     for (let i = 0; i < monuments.length; i++) {
       const m = monuments[i];
       const name = esc(m.name || '');
       const photos = fotki(m.photo);
       const photoBlock = photos.length
         ? fotkiblok(m.photo, 'monument-photos', m.name || '')
-        : '<div class="monument-photo"></div>';
+        : '<div class="monument-photo">' + noimgsvg() + '</div>';
       memsec += '<div class="monument">' + photoBlock +
         '<div class="monument-text">' +
           '<b>' + name + '</b>' +
@@ -760,7 +819,7 @@ function risuemkartochku(id) {
       } else {
         const name = esc(m.name || '');
         muzei += m.url
-          ? '<li><a href="' + esc(m.url) + '" target="_blank" rel="noopener noreferrer" style="color:#0b5ed7;text-decoration:none">' + name + '</a></li>'
+          ? '<li><a href="' + esc(m.url) + '" target="_blank" rel="noopener noreferrer" style="color:var(--src);text-decoration:none">' + name + '</a></li>'
           : '<li>' + name + '</li>';
       }
     }
@@ -779,8 +838,13 @@ function risuemkartochku(id) {
     srcsec += '</div>';
   }
 
+  const otherLang = curlang === 'ru' ? 'by' : 'ru';
+
   detailview.innerHTML =
-    '<button class="detail-back" id="back-btn">' + esc(ui.back) + '</button>' +
+    '<div class="detail-head">' +
+      '<button class="detail-back" id="back-btn" type="button">' + esc(ui.back) + '</button>' +
+      '<button class="detail-lang lang-switch" type="button" data-lang="' + otherLang + '">' + esc(langs[otherLang].switchLabel) + '</button>' +
+    '</div>' +
     '<div class="detail-body">' +
       '<div class="detail-title">' + esc(p.title) + '</div>' +
       '<div class="detail-date">' + esc(dtext0 || '') + (p.operation ? ' · ' + esc(p.operation) : '') + '</div>' +
@@ -862,8 +926,18 @@ function primenitrange() {
   const r = (highidx / total) * 100;
   rangefill.style.left = l + '%';
   rangefill.style.width = (r - l) + '%';
+
+  const colLow = colorcompute(daty[lowidx].getTime());
+  const colHigh = colorcompute(daty[highidx].getTime());
+  rangefill.style.background = 'linear-gradient(90deg, ' + colLow + ', ' + colHigh + ')';
+  rangelow.style.setProperty('--thumb-color', colLow);
+  rangehigh.style.setProperty('--thumb-color', colHigh);
+
   datelow.textContent = formatdate(daty[lowidx]);
   datehigh.textContent = formatdate(daty[highidx]);
+  datelow.style.color = colLow;
+  datehigh.style.color = colHigh;
+
   rangelow.style.zIndex = 3;
   rangehigh.style.zIndex = 4;
   for (let i = 0; i < markerrecs.length; i++) {
@@ -1019,18 +1093,69 @@ async function perekluchit(code, initial) {
   }
 }
 
+function inittheme() {
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') themecur = saved;
+  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) themecur = 'dark';
+  document.documentElement.setAttribute('data-theme', themecur);
+}
+
+function initleft() {
+  const lp = document.getElementById('left-panel');
+  const lt = document.getElementById('left-toggle');
+  const tb = document.getElementById('theme-btn');
+  if (lt && lp) {
+    lt.addEventListener('click', function () {
+      lp.classList.toggle('open');
+    });
+  }
+  if (tb) {
+    tb.addEventListener('click', function () {
+      themecur = themecur === 'dark' ? 'light' : 'dark';
+      if (document.startViewTransition) {
+        document.startViewTransition(function () {
+          document.documentElement.setAttribute('data-theme', themecur);
+        });
+      } else {
+        document.documentElement.setAttribute('data-theme', themecur);
+      }
+      try { localStorage.setItem('theme', themecur); } catch (e) {}
+    });
+  }
+}
+
 rangelow.addEventListener('input', function () { onRangeInput('lo'); });
 rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
 
 sinput.addEventListener('input', function () {
   const v = sinput.value;
   sclear.hidden = !v;
+  if (!detailview.hidden) {
+    detailview.hidden = true;
+    listview.hidden = false;
+    activecity = null;
+  }
   risuemspisok(v);
+});
+
+sinput.addEventListener('focus', function () {
+  if (!detailview.hidden) {
+    detailview.hidden = true;
+    listview.hidden = false;
+    activecity = null;
+    risuemspisok(sinput.value || '');
+  }
 });
 
 sclear.addEventListener('click', function () {
   sinput.value = '';
   sclear.hidden = true;
+  if (!detailview.hidden) {
+    detailview.hidden = true;
+    listview.hidden = false;
+    activecity = null;
+  }
   risuemspisok('');
   sinput.focus();
 });
@@ -1051,7 +1176,7 @@ listview.addEventListener('click', function (e) {
 });
 
 document.addEventListener('click', function (e) {
-  const b = e.target.closest('.lang-btn');
+  const b = e.target.closest('.lang-switch');
   if (!b) return;
   const code = b.dataset.lang;
   if (code && code !== curlang) perekluchit(code, false);
@@ -1068,8 +1193,8 @@ window.addEventListener('resize', function () {
 
 async function start() {
   initprosmotr();
-  sborkalang();
-  sborkazakr();
+  inittheme();
+  initleft();
   sborkafab();
   togglepanel(!ismobile());
   obnovui();
