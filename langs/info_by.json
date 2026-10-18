@@ -62,10 +62,11 @@
     "heroes": [],
     "museums": [
       { "name": "Віцебскі абласны краязнаўчы музей", "url": "https://www.ratusha-vit.by/" }
+      { "name": "Информационный ресурс о Площади Победы", "url": "https://mem.cbsvit.by/%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B" }
     ],
     "monuments": [
-      { "name": "Мемарыяльны комплекс «Тры штыкі»", "note": "Плошча Перамогі", "photo": "https://avatars.mds.yandex.net/i?id=c4ef02b392835c8906f20a6a4012d29d_l-10809483-images-thumbs&n=13" },
-      { "name": "Мемарыял савецкім воінам, партызанам і падпольшчыкам Віцебшчыны", "note": "Плошча Перамогі", "photo": "" }
+      { "name": "Мемарыяльны комплекс «Тры штыкі»", "note": "Плошча Перамогі", "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/Tri_shtyka.jpg" },
+      { "name": "Мемарыял савецкім воінам, партызанам і падпольшчыкам Віцебшчыны", "note": "Плошча Перамогі", "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/vitebsk_6.jpg" }
     ]
   },
   "7": {
@@ -73,8 +74,8 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Помнік воінам-вызваліцелям, партызанам і падпольшчыкам (1984)", "note": "Гарадскі парк", "photo": "" },
-      { "name": "Курган Бессмяротнасці", "note": "Каля аўтамагістралі Масква — Мінск", "photo": "" }
+      { "name": "Помнік воінам-вызваліцелям, партызанам і падпольшчыкам (1984)", "note": "Гарадскі парк", "photo": "https://towntravel.ru/wp-content/uploads/2018/01/35-%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA-%D0%B2%D0%BE%D0%B8%D0%BD%D0%B0%D0%BC-%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B9-%D0%B0%D1%80%D0%BC%D0%B8%D0%B8-%D0%BF%D0%B0%D1%80%D1%82%D0%B8%D0%B7%D0%B0%D0%BD%D0%B0%D0%BC-%D0%B8-%D0%BF%D0%BE%D0%B4%D0%BF%D0%BE%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0%D0%BC-%D0%B3%D0%B5%D1%80%D0%BE%D1%8F%D0%BC-%D0%B1%D0%B8%D1%82%D0%B2%D1%8B-%D0%B7%D0%B0-%D0%BE%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0-%D0%9E%D1%80%D1%88%D0%B8.jpg" },
+      { "name": "Курган Бессмяротнасці", "note": "У цэнтры парка Герояў", "photo": "https://towntravel.ru/wp-content/uploads/2018/01/11-%D0%9E%D1%80%D1%88%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D0%BA%D1%83%D1%80%D0%B3%D0%B0%D0%BD.jpg" }
     ]
   },
   "8": {
