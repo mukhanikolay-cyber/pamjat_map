@@ -5,7 +5,7 @@
     "museums": [],
     "monuments": [
       { "name": "Стэла воінам-вызваліцелям 15-га стралковага корпуса 13-й арміі", "note": "Усталявана ў 1976 годзе", "photo": "https://planetabelarus.by/upload/resize_cache/iblock/bfc/1330_887_18e21fe612b4afb807a26ecc22279a1d9/bfc16368a4de4761acefae7c5ee7c90b.jpg" },
-      { "name": "Брацкая магіла савецкіх воінаў", "note": "Цэнтральная плошча", "photo": "https://i0.wp.com/braginskiecennosty.wordpress.com/wp-content/uploads/2023/05/d091d09c-d0b3.d0bf.d09ad0b0d0bcd0b0d180d18bd0bd-2.jpg?fit=1200%2C900&amp;ssl=1&amp;w=640" }
+      { "name": "Брацкая магіла савецкіх воінаў", "note": "Цэнтральная плошча", "photo": "https://i0.wp.com/braginskiecennosty.wordpress.com/wp-content/uploads/2023/05/d091d09c-d0b3.d0bf.d09ad0b0d0bcd0b0d180d18bd0bd-2.jpg?fit=1200%2C900&ssl=1&w=640" }
     ]
   },
   "2": {
@@ -16,9 +16,9 @@
       { "name": "Гомельскі палацава-паркавы ансамбль", "url": "https://palacegomel.by/" }
     ],
     "monuments": [
-      { "name": "Алея Герояў", "note": "Вул. Савецкая", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Memorial_to_fallen_soldiers_in_Student_garden_square_%284%29.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=original" },
+      { "name": "Алея Герояў", "note": "Вул. Савецкая", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Memorial_to_fallen_soldiers_in_Student_garden_square_%284%29.jpg" },
       { "name": "Помнік-танк Т-34", "note": "Плошча Паўстання", "photo": "https://street.gomelhistory.by/wp-content/uploads/2014/12/tank00.jpg" },
-      { "name": "Мемарыял на плошчы Паўстання", "note": "Плошча Паўстання", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pl._Paustannya_in_Gomel_7_May_2014.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" }
+      { "name": "Мемарыял на плошчы Паўстання", "note": "Плошча Паўстання", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pl._Paustannya_in_Gomel_7_May_2014.jpg" }
     ]
   },
   "3": {
@@ -29,8 +29,8 @@
       { "name": "Музей гісторыі горада Мінска", "url": "https://minskmuseum.by/" }
     ],
     "monuments": [
-      { "name": "Манумент «Танк-вызваліцель»", "note": "Каля Дома афіцэраў, пр. Незалежнасці", "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Belarus-Minsk-Tank_Monument.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" },
-      { "name": "Мемарыял «Курган Славы»", "note": "21-ы км шашы Мінск — Масква", "photo": "https://upload.wikimedia.org/wikipedia/ru/2/2d/%D0%9A%D1%83%D1%80%D0%B3%D0%B0%D0%BD_%D0%A1%D0%BB%D0%B0%D0%B2%D1%8B.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" },
+      { "name": "Манумент «Танк-вызваліцель»", "note": "Каля Дома афіцэраў, пр. Незалежнасці", "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Belarus-Minsk-Tank_Monument.jpg" },
+      { "name": "Мемарыял «Курган Славы»", "note": "21-ы км шашы Мінск — Масква", "photo": "https://upload.wikimedia.org/wikipedia/ru/2/2d/%D0%9A%D1%83%D1%80%D0%B3%D0%B0%D0%BD_%D0%A1%D0%BB%D0%B0%D0%B2%D1%8B.jpg" },
       { "name": "Помнік героям-танкістам ва Уруччы", "note": "Урочышча Уручча", "photo": "https://minsknews.by/wp-content/uploads/2024/07/img_0574-kopiya.jpg" }
     ]
   },
@@ -42,18 +42,18 @@
       { "name": "Брэсцкі абласны краязнаўчы музей", "url": "https://brokm.by/" }
     ],
     "monuments": [
-      { "name": "Помнік «Вызваленне»", "note": "Плошча Свабоды", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg/3840px-%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
+      { "name": "Помнік «Вызваленне»", "note": "Плошча Свабоды", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg/3840px-%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg" },
       { "name": "Вечны агонь", "note": "Мемарыяльны комплекс «Брэсцкая крэпасць-герой»", "photo": "https://static.tildacdn.com/tild6261-6339-4234-b138-373566393831/---34-21-06-2022.jpg" }
     ]
   },
   "5": {
-    "intro": "Гродна — абласны цэнтр на захадзе Беларусі, горад на рацэ Нёман. Вызвалены 16 ліпеня 1944 года ў ходзе Беластоцкай і Вільнюскай аперацый. Правабярэжная часць вызвалена 16 ліпеня, занёманская — 24 ліпеня.",
+    "intro": "Гродна — абласны цэнтр на захадзе Беларусі, горад на рацэ Нёман. Вызвалены 16 ліпеня 1944 года ў ходзе Беластоцкай і Вільнюскай аперацый. Правабярэжная частка вызвалена 16 ліпеня, занёманская — 24 ліпеня.",
     "heroes": ["І. Д. Чарняхоўскі"],
     "museums": [
       { "name": "Гродзенскі дзяржаўны гісторыка-археалагічны музей", "url": "https://museum-grodno.by/" }
     ],
     "monuments": [
-      { "name": "Помнік воінам-вызваліцелям — танк Т-34-85", "note": "Савецкая плошча", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg/960px-Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
+      { "name": "Помнік воінам-вызваліцелям — танк Т-34-85", "note": "Савецкая плошча", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg/960px-Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg" },
       { "name": "Брацкая магіла савецкіх воінаў і партызан", "note": "Парк Жылібера", "photo": "https://img.newgrodno.by/wp-content/uploads/1746015369a8b5cfc9-1fee-4c13-9daa-c2bd8dcb72d0-600x800.jpg" }
     ]
   },
@@ -61,8 +61,8 @@
     "intro": "Віцебск — абласны цэнтр на паўночным усходзе Беларусі. Вызвалены 26 чэрвеня 1944 года ў ходзе Віцебска-Аршанскай аперацыі. У «Віцебскім катле» былі акружаны буйныя сілы праціўніка. 62 злучэнні і часці атрымалі найменне «Віцебскіх».",
     "heroes": [],
     "museums": [
-      { "name": "Віцебскі абласны краязнаўчы музей", "url": "https://www.ratusha-vit.by/" }
-      { "name": "Информационный ресурс о Площади Победы", "url": "https://mem.cbsvit.by/%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B" }
+      { "name": "Віцебскі абласны краязнаўчы музей", "url": "https://www.ratusha-vit.by/" },
+      { "name": "Інфармацыйны рэсурс пра Плошчу Перамогі", "url": "https://mem.cbsvit.by/%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B" }
     ],
     "monuments": [
       { "name": "Мемарыяльны комплекс «Тры штыкі»", "note": "Плошча Перамогі", "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/Tri_shtyka.jpg" },
@@ -85,8 +85,8 @@
       { "name": "Магілёўскі абласны краязнаўчы музей", "url": "https://mogilevmuseum.by/" }
     ],
     "monuments": [
-      { "name": "Помнік воінам-героям абароны і вызвалення Магілёва", "note": "Танк Т-34 на пастаменце", "photo": "https://mogilevnews.by/wp-content/uploads/2026/07/dsc07440.jpg?x44320" },
-      { "name": "Мемарыяльныя дошкі і вуліцы ў гонар вызваліцеляў (рис. Доска в честь С. Ф. Шутова)", "note": "Цэнтр горада", "photo": "https://csgpb.by/geroi/wp-content/uploads/2020/04/%D0%A1.-%D0%A4.-%D0%A8%D1%83%D1%82%D0%BE%D0%B2.jpg" }
+      { "name": "Помнік воінам-героям абароны і вызвалення Магілёва", "note": "Танк Т-34 на пастаменце", "photo": "https://mogilevnews.by/wp-content/uploads/2026/07/dsc07440.jpg" },
+      { "name": "Мемарыяльныя дошкі і вуліцы ў гонар вызваліцеляў (дошка ў гонар С. Ф. Шутава)", "note": "Цэнтр горада", "photo": "https://csgpb.by/geroi/wp-content/uploads/2020/04/%D0%A1.-%D0%A4.-%D0%A8%D1%83%D1%82%D0%BE%D0%B2.jpg" }
     ]
   },
   "9": {
@@ -104,7 +104,7 @@
       { "name": "Нацыянальны Полацкі гісторыка-культурны музей-запаведнік", "url": "https://polotsk.museum.by/" }
     ],
     "monuments": [
-      { "name": "Помнік Брацкая магіла № 4250 «Вызваліцелям Полацка»", "note": "Плошча Свабоды, праспект Францыска Скарыны", "photo": "https://savehistory.by/upload/iblock/cf2/zkerpwme3puvje3vwk0oya2mvjq0lj2q.jpg" },
+      { "name": "Помнік Брацкая магіла № 4250 «Вызваліцелям Полацка»", "note": "Плошча Свабоды, праспект Францыска Скарыны", "photo": "https://savehistory.by/upload/iblock/cf2/zkerpwme3puvje3vwk0oya2mvjq0lj2q.jpg" }
     ]
   },
   "11": {
