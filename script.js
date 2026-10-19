@@ -229,7 +229,7 @@ function fotkiblok(v, cls, cap) {
     let c = '';
     if (cap) c = arr.length > 1 ? cap + ' · ' + (i + 1) + ' / ' + arr.length : cap;
     html += '<img class="lightbox-img" src="' + esc(src) + '" alt="' + esc(c) +
-      '" data-idx="' + i + '" loading="lazy" onerror="this.remove()">';
+      '" data-idx="' + i + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">';
   }
   html += '</div>';
   return html;
@@ -284,7 +284,7 @@ async function fetchJson(url, def) {
   try {
     return JSON.parse(t);
   } catch (e) {
-    console.warn('ошибка json', url, e.message);
+    console.warn('JSON parse error:', url, '-', e.message);
     return def;
   }
 }
@@ -322,6 +322,7 @@ function mergePoints(base, over) {
       if (k === 'id') continue;
       if (k === 'sources') { m[k] = sobratistochniki(p[k], o[k]); continue; }
       if (k === 'photo') { m[k] = sobratfoto(p[k], o[k]); continue; }
+      if (k === 'memoryPhoto') { m[k] = o[k] || p[k]; continue; }
       m[k] = o[k];
     }
     out.push(m);
@@ -341,6 +342,21 @@ function mergeInfo(base, over) {
     for (const f in o) {
       if (f === 'sources') { m[f] = sobratistochniki(b[f], o[f]); continue; }
       if (f === 'photo') { m[f] = sobratfoto(b[f], o[f]); continue; }
+      if (f === 'monuments') {
+        const om = o.monuments || [];
+        const bm = b.monuments || [];
+        const mm = [];
+        for (let j = 0; j < om.length; j++) {
+          const omm = om[j] || {};
+          const bmm = bm[j] || {};
+          const nm = {};
+          for (const kk in omm) nm[kk] = omm[kk];
+          if (!nm.photo && bmm.photo) nm.photo = bmm.photo;
+          mm.push(nm);
+        }
+        m.monuments = mm;
+        continue;
+      }
       m[f] = o[f];
     }
     out[k] = m;
@@ -380,7 +396,7 @@ function fillEmptyInfo(base, other, fields) {
   const out = {};
   for (const k in base) out[k] = base[k];
   for (const k in other) {
-    if (!base[k]) { out[k] = other[k]; continue; }
+    if (!base[k]) continue;
     const b = base[k];
     const o = other[k];
     const m = {};
@@ -540,7 +556,7 @@ function sborkalightbox() {
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>' +
     '</button>' +
     '<div class="lightbox-inner">' +
-      '<img id="lightbox-img" src="" alt="">' +
+      '<img id="lightbox-img" src="" alt="" referrerpolicy="no-referrer">' +
       '<div id="lightbox-caption" class="lightbox-caption"></div>' +
     '</div>';
 }
@@ -833,7 +849,7 @@ function risuemspisok(query) {
     const arr = fotki(sobratfoto(info.thumb, info.photo, p.photo));
     const thsrc = arr[0] || '';
     const thumb = thsrc
-      ? '<img src="' + esc(thsrc) + '" alt="" onerror="this.remove()">'
+      ? '<img src="' + esc(thsrc) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">'
       : noimgsvg();
     const d = parsedate(p.date);
     const dtext = d ? formatdate(d) : p.date;
