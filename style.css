@@ -763,19 +763,23 @@ body.panel-open #fab svg { transform: rotate(180deg); }
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
-
 .left-panel .left-toggle:hover {
   background: var(--hover-bg);
 }
-
 .left-panel .left-toggle svg {
   width: 16px;
   height: 16px;
-  transition: transform .28s;
+  display: block;
+  transition: transform .18s ease;
 }
-
+.left-panel .left-toggle:hover svg {
+  transform: translateX(3px);
+}
 .left-panel.open .left-toggle svg {
   transform: rotate(180deg);
+}
+.left-panel.open .left-toggle:hover svg {
+  transform: rotate(180deg) translateX(3px);
 }
 
 .left-panel .left-body {
@@ -795,7 +799,6 @@ body.panel-open #fab svg { transform: rotate(180deg); }
   opacity: 0;
   transition: max-height .28s ease, opacity .2s, padding .2s;
 }
-
 .left-panel.open .left-body {
   max-height: 200px;
   padding: 6px;
@@ -818,7 +821,6 @@ body.panel-open #fab svg { transform: rotate(180deg); }
   transition: background-color .15s, transform .12s;
   touch-action: manipulation;
 }
-
 .left-btn:hover { background: var(--lang-bg-hover); }
 .left-btn:active { transform: scale(0.94); }
 .left-btn svg { width: 18px; height: 18px; }
