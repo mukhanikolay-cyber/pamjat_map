@@ -281,7 +281,12 @@ async function fetchText(url) {
 async function fetchJson(url, def) {
   const t = await fetchText(url);
   if (t == null) return def;
-  try { return JSON.parse(t); } catch (e) { return def; }
+  try {
+    return JSON.parse(t);
+  } catch (e) {
+    console.warn('ошибка json', url, e.message);
+    return def;
+  }
 }
 
 async function loadBase() {
