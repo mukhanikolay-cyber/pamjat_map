@@ -728,70 +728,83 @@ body.panel-open #fab svg { transform: rotate(180deg); }
   left: 0;
   top: calc(80px + env(safe-area-inset-top, 0px));
   z-index: 850;
+  width: 48px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+  background: var(--panel-bg);
+  border-radius: 0 24px 24px 0;
+  box-shadow: 2px 2px 8px var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
+
 .left-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
+  width: 100%;
   height: 48px;
-  border-radius: 0 24px 24px 0;
+  flex: 0 0 auto;
   border: none;
-  background: var(--panel-bg);
+  border-radius: 0;
+  background: transparent;
   color: var(--red);
   cursor: pointer;
-  box-shadow: 2px 2px 8px var(--shadow);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: background-color 0.3s, transform .15s;
+  box-shadow: none;
+  padding: 0;
+  transition: background-color 0.15s;
   touch-action: manipulation;
 }
-.left-toggle:hover { transform: translateX(2px); }
+.left-toggle:hover { background: var(--hover-bg); }
 .left-toggle svg {
   width: 16px;
   height: 16px;
   transition: transform .28s;
 }
 .left-panel.open .left-toggle svg { transform: rotate(180deg); }
+
 .left-body {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4px;
   padding: 0 6px;
-  background: var(--panel-bg);
-  border-radius: 0 18px 18px 0;
-  box-shadow: 2px 2px 12px var(--shadow);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height .28s ease, opacity .2s, padding .2s, background-color 0.3s;
+  transition: max-height .28s ease, opacity .2s, padding .2s;
 }
 .left-panel.open .left-body {
   max-height: 200px;
   padding: 6px;
   opacity: 1;
 }
+
 .left-btn {
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
   border-radius: 50%;
   border: none;
   background: var(--lang-bg);
   color: var(--text);
   font: 700 12px/1 system-ui, Arial, sans-serif;
   cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color .15s, transform .12s;
   touch-action: manipulation;
 }
 .left-btn:hover { background: var(--lang-bg-hover); }
 .left-btn:active { transform: scale(0.94); }
 .left-btn svg { width: 18px; height: 18px; }
+
 #theme-btn .icon-moon { display: none; }
 [data-theme="dark"] #theme-btn .icon-sun { display: none; }
 [data-theme="dark"] #theme-btn .icon-moon { display: block; }
