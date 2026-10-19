@@ -737,10 +737,13 @@ body.panel-open #fab svg { transform: rotate(180deg); }
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+  gap: 0;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.left-toggle {
+.left-panel .left-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -754,31 +757,45 @@ body.panel-open #fab svg { transform: rotate(180deg); }
   cursor: pointer;
   box-shadow: none;
   padding: 0;
+  margin: 0;
   transition: background-color 0.15s;
   touch-action: manipulation;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
-.left-toggle:hover { background: var(--hover-bg); }
-.left-toggle svg {
+
+.left-panel .left-toggle:hover {
+  background: var(--hover-bg);
+}
+
+.left-panel .left-toggle svg {
   width: 16px;
   height: 16px;
   transition: transform .28s;
 }
-.left-panel.open .left-toggle svg { transform: rotate(180deg); }
 
-.left-body {
+.left-panel.open .left-toggle svg {
+  transform: rotate(180deg);
+}
+
+.left-panel .left-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
   padding: 0 6px;
+  margin: 0;
   background: transparent;
   border-radius: 0;
   box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: max-height .28s ease, opacity .2s, padding .2s;
 }
+
 .left-panel.open .left-body {
   max-height: 200px;
   padding: 6px;
@@ -801,6 +818,7 @@ body.panel-open #fab svg { transform: rotate(180deg); }
   transition: background-color .15s, transform .12s;
   touch-action: manipulation;
 }
+
 .left-btn:hover { background: var(--lang-bg-hover); }
 .left-btn:active { transform: scale(0.94); }
 .left-btn svg { width: 18px; height: 18px; }
