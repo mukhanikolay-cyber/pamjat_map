@@ -301,7 +301,7 @@ async function vzjatbazu() {
   if (iTxt == null) iTxt = await vzjattext('info.json');
   infobase = {};
   if (iTxt != null) {
-    try { infobase = JSON.parse(iTxt) || {}; } catch (e) { infobase = {}; }
+    try { infobase = JSON.parse(iTxt) || {}; } catch (e) { console.warn('JSON ошибка: langs/info.json -', e.message); infobase = {}; }
   }
 }
 
