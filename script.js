@@ -112,8 +112,8 @@ let galidx = 0;
 
 let curlang = 'ru';
 let ui = langs.ru.ui;
-let pointsBase = [];
-let infoBase = {};
+let pointsbase = [];
+let infobase = {};
 
 let themecur = 'light';
 let sortmode = 'date-asc';
@@ -217,19 +217,20 @@ function sobratfoto() {
   return un.length ? un : '';
 }
 
-function fotkiblok(v, cls, cap) {
+function fotkiblok(v, cls, cap, eager) {
   const arr = fotki(v);
   if (!arr.length) return '';
   const list = [];
   for (let i = 0; i < arr.length; i++) list.push(esc(arr[i]));
   const listattr = esc(JSON.stringify(list));
+  const load = eager ? 'eager' : 'lazy';
   let html = '<div class="' + cls + '" data-list="' + listattr + '" data-cap="' + esc(cap || '') + '">';
   for (let i = 0; i < arr.length; i++) {
     const src = arr[i];
     let c = '';
     if (cap) c = arr.length > 1 ? cap + ' · ' + (i + 1) + ' / ' + arr.length : cap;
     html += '<img class="lightbox-img" src="' + esc(src) + '" alt="' + esc(c) +
-      '" data-idx="' + i + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">';
+      '" data-idx="' + i + '" loading="' + load + '" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">';
   }
   html += '</div>';
   return html;
@@ -268,7 +269,7 @@ function nechotko(query, target) {
   return Math.max(0, 1 - dist / maxlen) * 0.7;
 }
 
-async function fetchText(url) {
+async function vzjattext(url) {
   try {
     const r = await fetch(url, { cache: 'no-store' });
     if (!r.ok) return null;
@@ -278,8 +279,8 @@ async function fetchText(url) {
   }
 }
 
-async function fetchJson(url, def) {
-  const t = await fetchText(url);
+async function vzjatjson(url, def) {
+  const t = await vzjattext(url);
   if (t == null) return def;
   try {
     return JSON.parse(t);
@@ -289,22 +290,22 @@ async function fetchJson(url, def) {
   }
 }
 
-async function loadBase() {
-  let pTxt = await fetchText('langs/points.json');
-  if (pTxt == null) pTxt = await fetchText('points.json');
+async function vzjatbazu() {
+  let pTxt = await vzjattext('langs/points.json');
+  if (pTxt == null) pTxt = await vzjattext('points.json');
   if (pTxt == null) throw new Error('не найден points.json');
-  try { pointsBase = JSON.parse(pTxt); } catch (e) { throw new Error('points.json: ' + e.message); }
-  if (!Array.isArray(pointsBase)) throw new Error('points.json не массив');
+  try { pointsbase = JSON.parse(pTxt); } catch (e) { throw new Error('points.json: ' + e.message); }
+  if (!Array.isArray(pointsbase)) throw new Error('points.json не массив');
 
-  let iTxt = await fetchText('langs/info.json');
-  if (iTxt == null) iTxt = await fetchText('info.json');
-  infoBase = {};
+  let iTxt = await vzjattext('langs/info.json');
+  if (iTxt == null) iTxt = await vzjattext('info.json');
+  infobase = {};
   if (iTxt != null) {
-    try { infoBase = JSON.parse(iTxt) || {}; } catch (e) { infoBase = {}; }
+    try { infobase = JSON.parse(iTxt) || {}; } catch (e) { infobase = {}; }
   }
 }
 
-function mergePoints(base, over) {
+function slitpoints(base, over) {
   if (!over || !over.length) return base.slice();
   const byId = {};
   for (let i = 0; i < over.length; i++) {
@@ -330,7 +331,7 @@ function mergePoints(base, over) {
   return out;
 }
 
-function mergeInfo(base, over) {
+function slitinfo(base, over) {
   if (!over) return base;
   const out = {};
   for (const k in base) out[k] = base[k];
@@ -345,13 +346,16 @@ function mergeInfo(base, over) {
       if (f === 'monuments') {
         const om = o.monuments || [];
         const bm = b.monuments || [];
+        const len = Math.max(om.length, bm.length);
         const mm = [];
-        for (let j = 0; j < om.length; j++) {
+        for (let j = 0; j < len; j++) {
           const omm = om[j] || {};
           const bmm = bm[j] || {};
           const nm = {};
+          for (const kk in bmm) nm[kk] = bmm[kk];
           for (const kk in omm) nm[kk] = omm[kk];
           if (!nm.photo && bmm.photo) nm.photo = bmm.photo;
+          if (!nm.photo && omm.photo) nm.photo = omm.photo;
           mm.push(nm);
         }
         m.monuments = mm;
@@ -364,7 +368,7 @@ function mergeInfo(base, over) {
   return out;
 }
 
-function fillEmpty(arr, other, fields) {
+function zapolnit(arr, other, fields) {
   if (!Array.isArray(other) || !other.length) return arr.slice();
   const byId = {};
   for (let i = 0; i < other.length; i++) {
@@ -391,14 +395,27 @@ function fillEmpty(arr, other, fields) {
   return out;
 }
 
-function fillEmptyInfo(base, other, fields) {
+function zapolnitinfo(base, other, fields) {
   if (!other) return base;
   const out = {};
   for (const k in base) out[k] = base[k];
   for (const k in other) {
-    if (!base[k]) continue;
-    const b = base[k];
     const o = other[k];
+    if (!base[k]) {
+      const photos = [];
+      const oms = (o && o.monuments) ? o.monuments : [];
+      for (let j = 0; j < oms.length; j++) {
+        const fp = fotki(oms[j] && oms[j].photo);
+        for (let x = 0; x < fp.length; x++) photos.push(fp[x]);
+      }
+      const entry = {};
+      if (o && o.photo) entry.photo = o.photo;
+      if (o && o.sources) entry.sources = o.sources;
+      if (photos.length) entry.monumentPhotos = photos;
+      out[k] = entry;
+      continue;
+    }
+    const b = base[k];
     const m = {};
     for (const f in b) m[f] = b[f];
     for (let i = 0; i < fields.length; i++) {
@@ -416,6 +433,15 @@ function fillEmptyInfo(base, other, fields) {
             mm.push(nm);
           }
           m.monuments = mm;
+        } else if (!b.monuments && o.monuments) {
+          const mm = [];
+          for (let j = 0; j < o.monuments.length; j++) {
+            const om = o.monuments[j] || {};
+            const nm = {};
+            for (const kk in om) nm[kk] = om[kk];
+            mm.push(nm);
+          }
+          m.monuments = mm;
         }
         continue;
       }
@@ -430,20 +456,23 @@ function fillEmptyInfo(base, other, fields) {
   return out;
 }
 
-async function loadLang(code) {
+async function vzjatlang(code) {
   const cfg = langs[code];
-  if (!cfg) return { points: pointsBase, info: infoBase };
+  if (!cfg) return { points: pointsbase, info: infobase };
   if (cfg.over) {
-    const pOver = await fetchJson('langs/points_' + cfg.over + '.json', []);
-    const iOver = await fetchJson('langs/info_' + cfg.over + '.json', {});
-    const points = mergePoints(pointsBase, Array.isArray(pOver) ? pOver : []);
-    const info = mergeInfo(infoBase, iOver || {});
+    const pOver = await vzjatjson('langs/points_' + cfg.over + '.json', []);
+    const iOver = await vzjatjson('langs/info_' + cfg.over + '.json', {});
+    const points = slitpoints(pointsbase, Array.isArray(pOver) ? pOver : []);
+    const info = slitinfo(infobase, iOver || {});
+    console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length);
     return { points, info };
   }
-  const pBy = await fetchJson('langs/points_by.json', []);
-  const iBy = await fetchJson('langs/info_by.json', {});
-  const points = fillEmpty(pointsBase, Array.isArray(pBy) ? pBy : [], ['photo', 'memoryPhoto', 'sources']);
-  const info = fillEmptyInfo(infoBase, iBy || {}, ['photo', 'sources', 'monuments']);
+  const pBy = await vzjatjson('langs/points_by.json', []);
+  const iBy = await vzjatjson('langs/info_by.json', {});
+  const points = zapolnit(pointsbase, Array.isArray(pBy) ? pBy : [], ['photo', 'memoryPhoto', 'sources']);
+  const info = zapolnitinfo(infobase, iBy || {}, ['photo', 'sources', 'monuments']);
+  console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length,
+    'baseInfo:', Object.keys(infobase).length, 'byInfo:', Object.keys(iBy || {}).length);
   return { points, info };
 }
 
@@ -514,7 +543,7 @@ function parsergb(s) {
   return [+m[0], +m[1], +m[2]];
 }
 
-function outlineFor(rgb, isDark) {
+function obvodka(rgb, isDark) {
   const lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
   const bgLum = isDark ? 0.06 : 0.98;
   const contrast = Math.abs(lum - bgLum);
@@ -524,7 +553,7 @@ function outlineFor(rgb, isDark) {
   return 'rgba(' + v + ',' + v + ',' + v + ',' + alpha.toFixed(2) + ')';
 }
 
-function applyDateStyle(el, color, outline) {
+function stildaty(el, color, outline) {
   if (!el) return;
   el.style.color = color;
   if (outline) {
@@ -780,7 +809,7 @@ function obnovui() {
 function makepopup(p) {
   const info = infodata[p.id] || {};
   const pcol = colorfordate(p.date);
-  const fotos = fotkiblok(sobratfoto(info.photo, p.photo), 'popup-photos', p.title);
+  const fotos = fotkiblok(sobratfoto(info.photo, p.photo), 'popup-photos', p.title, true);
   const mem = p.memory
     ? '<div class="popup-memory" style="border-left-color:' + pcol + ';--mem-color:' + pcol + '" data-label="' + esc(ui.memory) + '">' + esc(p.memory) + '</div>'
     : '';
@@ -912,7 +941,7 @@ function risuemkartochku(id) {
 
   let monuments = [];
   if (info.monuments && info.monuments.length) monuments = info.monuments;
-  else if (p.memory) monuments = [{ name: p.memory, note: '', photo: '' }];
+  else if (p.memory) monuments = [{ name: p.memory, note: '', photo: info.monumentPhotos || p.memoryPhoto || '' }];
 
   let memsec = '';
   if (monuments.length) {
@@ -926,7 +955,7 @@ function risuemkartochku(id) {
         : '<div class="monument-photo">' + noimgsvg() + '</div>';
       memsec += '<div class="monument">' + photoBlock +
         '<div class="monument-text">' +
-          '<b>' + name + '</b>' +
+          (name ? '<b>' + name + '</b>' : '') +
           (m.note ? '<span class="note">' + esc(m.note) + '</span>' : '') +
         '</div>' +
       '</div>';
@@ -1063,12 +1092,12 @@ function primenitrange() {
   rangehigh.style.setProperty('--thumb-color', colHigh);
 
   const isDark = themecur === 'dark';
-  const outLow = outlineFor(parsergb(colLow), isDark);
-  const outHigh = outlineFor(parsergb(colHigh), isDark);
+  const outLow = obvodka(parsergb(colLow), isDark);
+  const outHigh = obvodka(parsergb(colHigh), isDark);
   datelow.textContent = formatdate(daty[lowidx]);
   datehigh.textContent = formatdate(daty[highidx]);
-  applyDateStyle(datelow, colLow, outLow);
-  applyDateStyle(datehigh, colHigh, outHigh);
+  stildaty(datelow, colLow, outLow);
+  stildaty(datehigh, colHigh, outHigh);
 
   rangelow.style.zIndex = 3;
   rangehigh.style.zIndex = 4;
@@ -1085,7 +1114,7 @@ function primenitrange() {
   if (clusterref) clusterref.refreshClusters();
 }
 
-function onRangeInput(which) {
+function dvizhenie(which) {
   if (!sliderready) return;
   const last = daty.length - 1;
   let lo = +rangelow.value;
@@ -1130,7 +1159,7 @@ function clustericon(cluster) {
   });
 }
 
-function granicaStyle() {
+function stilgranicy() {
   return {
     color: themecur === 'dark' ? '#ffffff' : '#000000',
     weight: 2,
@@ -1165,16 +1194,16 @@ function initgranica() {
   fetch('belarus.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error('belarus.json'); return r.json(); })
     .then(function (geo) {
-      granicref = L.geoJSON(geo, { style: function () { return granicaStyle(); }, interactive: false });
+      granicref = L.geoJSON(geo, { style: function () { return stilgranicy(); }, interactive: false });
       granicref.addTo(mapref);
       if (granicref.bringToBack) granicref.bringToBack();
     })
     .catch(function (err) { console.warn('граница не загрузилась:', err); });
 }
 
-function updGranicaStyle() {
+function obnovgranicu() {
   if (!granicref) return;
-  try { granicref.setStyle(granicaStyle()); } catch (e) {}
+  try { granicref.setStyle(stilgranicy()); } catch (e) {}
 }
 
 function sobratmarkers() {
@@ -1217,10 +1246,10 @@ async function perekluchit(code, initial) {
 
   let data;
   try {
-    data = await loadLang(code);
+    data = await vzjatlang(code);
   } catch (e) {
     console.error('перевод не загрузился:', e);
-    data = { points: pointsBase, info: infoBase };
+    data = { points: pointsbase, info: infobase };
   }
 
   pointdata = data.points;
@@ -1243,11 +1272,11 @@ async function perekluchit(code, initial) {
   }
 }
 
-function applyTheme(t) {
+function primenittemu(t) {
   themecur = t;
   document.documentElement.setAttribute('data-theme', t);
   setTimeout(function () {
-    updGranicaStyle();
+    obnovgranicu();
     primenitrange();
     if (mapref) mapref.invalidateSize();
   }, 40);
@@ -1260,7 +1289,7 @@ function inittheme() {
   if (saved === 'dark' || saved === 'light') t = saved;
   else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
   else t = 'light';
-  applyTheme(t);
+  primenittemu(t);
 }
 
 function initleft() {
@@ -1278,9 +1307,9 @@ function initleft() {
       e.preventDefault();
       const next = themecur === 'dark' ? 'light' : 'dark';
       if (document.startViewTransition) {
-        document.startViewTransition(function () { applyTheme(next); });
+        document.startViewTransition(function () { primenittemu(next); });
       } else {
-        applyTheme(next);
+        primenittemu(next);
       }
       try { localStorage.setItem('theme', next); } catch (e) {}
     });
@@ -1304,8 +1333,8 @@ function initzoomblock() {
   }, { passive: false });
 }
 
-rangelow.addEventListener('input', function () { onRangeInput('lo'); });
-rangehigh.addEventListener('input', function () { onRangeInput('hi'); });
+rangelow.addEventListener('input', function () { dvizhenie('lo'); });
+rangehigh.addEventListener('input', function () { dvizhenie('hi'); });
 
 sinput.addEventListener('input', function () {
   const v = sinput.value;
@@ -1394,7 +1423,7 @@ async function start() {
   try { sortmode = localStorage.getItem('sortmode') || 'date-asc'; } catch (e) {}
   obnovui();
   try {
-    await loadBase();
+    await vzjatbazu();
   } catch (e) {
     console.error(e);
     return;
