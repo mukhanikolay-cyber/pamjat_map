@@ -41,6 +41,12 @@ const sortlabels = {
   }
 };
 
+function dechtml(s) {
+  const ta = document.createElement('textarea');
+  ta.innerHTML = s;
+  return ta.value;
+}
+
 const langs = {
   ru: {
     label: 'Рус',
@@ -221,7 +227,7 @@ function fotkiblok(v, cls, cap, eager) {
   const arr = fotki(v);
   if (!arr.length) return '';
   const list = [];
-  for (let i = 0; i < arr.length; i++) list.push(esc(arr[i]));
+  for (let i = 0; i < arr.length; i++) list.push(arr[i]);   // ← было esc(arr[i]), стало arr[i]
   const listattr = esc(JSON.stringify(list));
   const load = eager ? 'eager' : 'lazy';
   let html = '<div class="' + cls + '" data-list="' + listattr + '" data-cap="' + esc(cap || '') + '">';
