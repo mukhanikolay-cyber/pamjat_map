@@ -1646,13 +1646,16 @@
     "id": 71,
     "lat": 53.8047,
     "lng": 30.9746,
-    "title": "Чаўсы",
+    "title": "Чавусы (Чаусы)",
     "date": "25 чэрвеня 1944",
     "operation": "Магілёўская наступальная аперацыя (аперацыя «Баграціён»)",
     "units": "",
     "description": "",
     "memory": "",
-    "photo": "https://planetabelarus.by/upload/iblock/2be/653syn63188o4zzwj9vv7mpms9zx3i1d.webp",
+    "photo": [
+      "https://planetabelarus.by/upload/iblock/2be/653syn63188o4zzwj9vv7mpms9zx3i1d.webp",
+      "https://upload.wikimedia.org/wikipedia/commons/a/a1/Chausy_s_visoty.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -1903,13 +1906,16 @@
     "id": 84,
     "lat": 53.7106,
     "lng": 28.4247,
-    "title": "Чэрвень",
+    "title": "Чэрвень (Ігумен)",
     "date": "2 ліпеня 1944",
     "operation": "Мінская наступальная аперацыя (аперацыя «Баграціён»)",
     "units": "348-я стралковая дывізія 35-га стралковага корпуса 3-й арміі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/medialibrary/99a/zfaqfc5kazvayb4iueuxbx684diuabww.jpg",
+      "https://planetabelarus.by/upload/medialibrary/5ef/5ef56d367f194cbe86c274ba85c94987.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -1928,7 +1934,10 @@
     "units": "Войскі 3-га Беларускага фронту, партызанская брыгада «Бальшавік»",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/medialibrary/22f/wd5bctgqlewblrurl3b02fu775r2fysy.jpg",
+      "https://welcome-belarus.ru/wp-content/uploads/2019/10/%D0%9B%D0%BE%D0%B3%D0%BE%D0%B9%D1%81%D0%BA-%D1%81-%D0%B2%D1%8B%D1%81%D0%BE%D1%82%D1%8B-%D0%BF%D1%82%D0%B8%D1%87%D1%8C%D0%B5%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D1%82%D0%B0.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -1947,7 +1956,11 @@
     "units": "35-я гвардзейская танкавая брыгада",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://museums.by/upload/medialibrary/e10/udijonzpklns6ie6ohb6erebw94lx1v5/IMG_20200921_111834_10.jpg",
+      "https://museums.by/upload/medialibrary/e4c/okkg4ody0ez5vhvefzvtjiln03asvxcm/IMG_20200921_115300_43.jpg",
+      "https://museums.by/upload/medialibrary/834/nmndxq223q21gj547ctcvq5he12sk5ss/IMG_20200921_112443_12.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -1966,7 +1979,10 @@
     "units": "Партызанская брыгада імя К. Я. Варашылава, атрад імя Хмяльніцкага",
     "description": "Вызвалена партызанамі ў ноч з 28 на 29 чэрвеня і ўтрымлівалася да падыходу часцей Чырвонай Арміі.",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://mlyn.by/app/uploads/2023/10/dji_0013-kopiya.jpg",
+      "https://planetabelarus.by/upload/iblock/d3d/1uw8mcmcj7r7ml6km4jyhvz4p02myq5q.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -1985,7 +2001,10 @@
     "units": "Партызанская брыгада",
     "description": "Вызвалены партызанамі да падыходу савецкіх войск.",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://mlyn.by/app/uploads/2023/03/img_4987-1024x683.jpg",
+      "https://mlyn.by/app/uploads/2023/03/5424-scaled-e1679917031263-1024x576.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2004,7 +2023,11 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/medialibrary/2e5/2e565fcc230eb5ced6a2ac96d6aa4042.jpg",
+      "https://planetabelarus.by/upload/iblock/033/033f9a17921f2715703a23d7d12a8d92.jpg",
+      "https://planetabelarus.by/upload/medialibrary/261/26117ce3ba01845278e24094fc5cb32e.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2023,7 +2046,11 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://io.sb.by/storage01/iblock/fa4/fa4b11385b9e470f6209bec60f6fa997.jpg",
+      "https://planetabelarus.by/upload/medialibrary/6a9/871rk2n6u9lat4kwmw0w5mri0ju1ut0q.jpg",
+      "https://planetabelarus.by/upload/iblock/3ed/pojwvix9vrb7yrfrph7vkw4ono6mlnog.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2042,7 +2069,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/749/ql5u3vh09lq1q1d0kfqvauysv5vc7q68.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2061,7 +2088,7 @@
     "units": "283-я стралковая дывізія",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/ee4/cnu2bd0bhj1nkq21aeqnbs2x8sq9wbkd.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2080,7 +2107,7 @@
     "units": "",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://blisch.by/wp-content/uploads/2020/10/IMG_20200703_114141-05.jpg",
     "memoryPhoto": "",
     "sources": [
       {
