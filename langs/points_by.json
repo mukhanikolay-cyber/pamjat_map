@@ -2107,7 +2107,11 @@
     "units": "",
     "description": "",
     "memory": "",
-    "photo": "https://blisch.by/wp-content/uploads/2020/10/IMG_20200703_114141-05.jpg",
+    "photo": [
+      "https://blisch.by/wp-content/uploads/2020/10/IMG_20200703_114141-05.jpg",
+      "https://travel.by/wp-content/uploads/2024/05/kossovo-12-2048x1365.webp",
+      "https://planetabelarus.by/upload/iblock/923/bltj8lvelbrujzz6hyuow1dyjzglgjbv.webp"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
