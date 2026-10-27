@@ -2239,7 +2239,10 @@
     "units": "Войскі 2-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://www.fotobel.by/images/svisloch/svisloch_1.jpg",
+      "https://cdn.ruwiki.ru/commonswiki/files/2/22/%D0%A1%D0%B2%D0%B8%D1%81%D0%BB%D0%BE%D1%87%D1%8C._%D0%9F%D0%B0%D0%BD%D0%BE%D1%80%D0%B0%D0%BC%D0%B0_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0.jpg"
+    ]
     "memoryPhoto": "",
     "sources": [
       {
@@ -2258,7 +2261,10 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/medialibrary/638/638f9ee9dcb096db15fe2eb027b73e71.jpg",
+      "https://planetabelarus.by/upload/medialibrary/638/638f9ee9dcb096db15fe2eb027b73e71.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2277,7 +2283,10 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9n8sljCXAc7lpzPX2HGXJ9Ci9z9cYw90IqBIw8R-7OAsh9p162yxXuEWy&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3VHH67du30Nz7mnZqUg0lnKuNJmch6x2xGxLFy3WMgQ&s=10"
+    ]
     "memoryPhoto": "",
     "sources": [
       {
@@ -2296,7 +2305,10 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://io.sb.by/storage01/iblock/1c6/1c64adad1f2fef1b336e69a99e3cc753.jpg",
+      "https://planetabelarus.by/upload/uf/7c2/7c2ba6fcc527032df6a2bbad2778388e.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2315,7 +2327,10 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://s09.stc.yc.kpcdn.net/share/i/12/11663005/de-1200.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU53vEaDqy2RE9qSc4HErYfMKZEorQzgJ-lLuMWT-KFTxfrhi7KEsDTkg-&s=10"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2334,7 +2349,10 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://vetliva.ru/upload/resize_cache/iblock/491/823_428_2ad00f77cb8d50abfaeeae09efd4a5122/4919b23ce827662533589e7fac251fce.jpg",
+      "https://planetabelarus.by/upload/iblock/9d4/znhfdlhh5qne2ee1ust6bjnwnj590yak.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2353,7 +2371,7 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/iblock/51b/8k6weq2kitthwzqiaixkj0bb7xrg298q.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2372,7 +2390,7 @@
     "units": "Партызанская брыгада імя ЦК КП(б)Б",
     "description": "Першы вызвалены раённы цэнтр Гродзенскай вобласці ў 1944 годзе.",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/iblock/fac/7nf9iw4bo1uox1gq8wm2nv49rmpry1pt.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2391,7 +2409,10 @@
     "units": "32-я кавалерыйская дывізія, 65-ы кавалерыйскі полк",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/medialibrary/064/nqqbmfb799c2gt2d3fh6fpk3p73va7hx.jpg",
+      "https://planetabelarus.by/upload/iblock/557/55713dd5837d1b0b1cd7c4e07c84c17d.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2410,7 +2431,7 @@
     "units": "283-я стралковая дывізія",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://vedaj.by/images/cities/gro/kareliczy/Koreliczy/Koreliczy5.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2429,7 +2450,7 @@
     "units": "283-я стралковая дывізія",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB78glxO_diLKuyw0Qvp2v1Wkh_ZE5b-Lyjl3XfILiRA&s=10",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2448,7 +2469,11 @@
     "units": "Войскі 2-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/4629_Hrodna_Region_Belarus_May_2019.JPG/1920px-4629_Hrodna_Region_Belarus_May_2019.JPG?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://www.sb.by/upload/iblock/6b1/6b19226e5eac0bfdec4e0b00a294563d.jpg",
+      "https://avatars.mds.yandex.net/get-altay/879259/2a000001642aacee553793b875820d51bcd2/XXXL"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2467,7 +2492,10 @@
     "units": "Войскі 2-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/resize_cache/iblock/93d/1330_887_18e21fe612b4afb807a26ecc22279a1d9/93d2a7767c4771016ccac4dced66718c.jpg",
+      "https://grodnonews.by/upload/medialibrary/6e8/6e8ce16af6ad69227b1054a8828342a0.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2486,7 +2514,10 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVOfBKqQSUMNTl783GNY5HrT_jsX4nOzuTPO6KWacbqKczW4_7gPBZOz0T&s=10",
+      "https://vedaj.by/images/cities/gro/woranawa/Radun/Radun2.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2505,7 +2536,10 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/medialibrary/d5c/k64upao6bk5uc73ynzivqvscrvmv68t2.jpg",
+      "https://planetabelarus.by/upload/medialibrary/c84/yc5pk1wlz7okd3gynukc2uyzu22biit2.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2524,7 +2558,11 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://imgs.search.brave.com/UcVmbomQEsISLLX8HNWYSU9JdbcW3lCElvCIEDyIhJo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wb3No/eWsuaW5mby93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNi8wMi9r/b3N0ZWwtc3ZpYXRv/Z28tbWloYWlsYS1h/cmhhbmdlbGEtdi1w/b3NlbGtlLWl2ZW5l/Yy5qcGc",
+      "https://vedaj.by/images/cities/min/walorzyn/Iwianec/Iwianec14.jpg",
+      ""
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2543,7 +2581,7 @@
     "units": "49-я армія 2-га Беларускага фронту, партызанская брыгада імя Ракасоўскага",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/resize_cache/iblock/2c5/1330_886_18e21fe612b4afb807a26ecc22279a1d9/4qw1by8d6aivauy5pxzlvrj2l1rxjlby.webp",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2562,7 +2600,7 @@
     "units": "27-я партызанская брыгада імя Чапаева, часці 1-га Беларускага фронту",
     "description": "29 чэрвеня 1944 года партызаны 27-й брыгады імя Чапаева разграмілі гарнізон праціўніка і ўтрымлівалі Капыль да прыходу Чырвонай Арміі.",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/6ea/6i2wjb65cgfyuyx1y23oyzzclxmr8gxx.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2581,7 +2619,7 @@
     "units": "128-ы асобны танкавы полк",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://i.ytimg.com/vi/ZC0pIBQPMRg/maxresdefault.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2600,7 +2638,7 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/resize_cache/iblock/23a/1330_886_18e21fe612b4afb807a26ecc22279a1d9/g0jzxokmtoik9yi6q3x3aua8wjj1708d.webp",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2619,7 +2657,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/iblock/164/d3b272enfpf2bwedppo33svmu6jq0rak.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2638,7 +2676,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/3ce/3ced06b3ac9694cbee6547a0c6305665.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2657,7 +2695,7 @@
     "units": "Войскі 1-га Беларускага фронту, Дняпроўская ваенная флатылія",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://vetliva.ru/upload/adwex.minified/webp/927/90/927935c77967af1f34c15bd174e586b7.webp",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2676,7 +2714,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/fad/fad48649b05f91231cd5c89afc5745cf.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2695,7 +2733,7 @@
     "units": "20-ы стралковы корпус 28-й арміі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/8fb/8fb319ebf39fe4d7e352a96df8f07117.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2714,7 +2752,7 @@
     "units": "23-я і 55-я стралковыя дывізіі 89-га стралковага корпуса 61-й арміі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/a62/7vcu7gnno2dzptkteitp3360eh3jcw89.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2733,7 +2771,7 @@
     "units": "28-я армія 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://vetliva.ru/upload/resize_cache/iblock/fca/1170_640_2ad00f77cb8d50abfaeeae09efd4a5122/fca7004db6c7a85fca3789adf45490de.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2752,7 +2790,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/uf/7f2/7f25875da2914a80d8d6a7adf4ce100c.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2771,7 +2809,10 @@
     "units": "9-ы гвардзейскі стралковы корпус 61-й арміі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/medialibrary/715/715cab0c3f11d71809ceb799da8dee40.jpg",
+      "https://planetabelarus.by/upload/medialibrary/326/3260c935239afcd0bbd6216726e4b47c.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
