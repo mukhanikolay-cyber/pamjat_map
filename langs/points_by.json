@@ -2831,7 +2831,11 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "Адзін з апошніх населеных пунктаў, вызваленых у ходзе аперацыі «Баграціён».",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%BE%D0%B5%2C_%D0%9A%D0%B0%D0%BC%D0%B5%D0%BD%D0%B5%D1%86%D0%BA%D0%B8%D0%B9_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%2C_%D0%91%D1%80%D0%B5%D1%81%D1%82%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D1%8C_27.jpg/1280px-%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%BE%D0%B5%2C_%D0%9A%D0%B0%D0%BC%D0%B5%D0%BD%D0%B5%D1%86%D0%BA%D0%B8%D0%B9_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%2C_%D0%91%D1%80%D0%B5%D1%81%D1%82%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D1%8C_27.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "https://upload.wikimedia.org/wikipedia/commons/0/06/Vysokaje._%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%B0%D0%B5_%284.08.2008%29.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "https://upload.wikimedia.org/wikipedia/commons/1/19/%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%B0%D0%B5_Vysokaje_%282021%29_01.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaledё"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2850,12 +2854,20 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://beloozerskhram.by/files/2018/09/lChKHzrzEC8-e1535890216797.jpg",
+      "https://tripguide.guru/img/94/TripGuide.ru_45176.webp",
+      "https://tripguide.guru/img/94/TripGuide.ru_45128.webp"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
         "url": "https://drive.google.com/file/d/18RkC02blrzYS-M9q6i8SzwN25jNbk0sT/view?usp=sharing",
         "label": "Храналогія вызвалення Беларусі"
+      },
+      {
+        "url": "https://tripguide.guru/belozersk-foto.htm",
+        "label": "Крыніца фотаздымкаў"
       }
     ]
   },
@@ -2869,7 +2881,12 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://imgs.search.brave.com/9HeB-LMsPJzQXflGkrigCSGsBFBUrjIddP84402NbsE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/dGVycmEucnUvcGhv/dG8vQmVsb3J1c3Np/amEvWmhhYmlua2Ev/bWVkaXVtLTY0MTg1/LmpwZw",
+      "https://fototerra.ru/photo/Belorussija/Zhabinka/medium-64180.jpg",
+      "https://fototerra.ru/photo/Belorussija/Zhabinka/large-64187.jpg",
+      "https://fototerra.ru/photo/Belorussija/Zhabinka/medium-64188.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -2888,7 +2905,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/resize_cache/iblock/664/1330_747_18e21fe612b4afb807a26ecc22279a1d9/x31qgoz058paz0ms5rolbxz7tigvg5hd.webp",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2907,7 +2924,7 @@
     "units": "35-я гвардзейская танкавая брыгада",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWeIGHJsshZSXwXez9WB_l45vTZOsX8as84EOomuS-LZBuXRZwXoy8AS8&s=10",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2926,7 +2943,7 @@
     "units": "Партызанская брыгада",
     "description": "Вызвалены партызанамі да падыходу савецкіх войск.",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/iblock/8e8/8e8c612f1d1cbe6cf368c54ff4d2da34.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2945,7 +2962,7 @@
     "units": "Партызанская брыгада",
     "description": "Вызвалены партызанамі да падыходу савецкіх войск.",
     "memory": "",
-    "photo": "",
+    "photo": "https://avatars.mds.yandex.net/get-altay/1020917/2a000001642aaa070aa2a73593b4bae23e41/XXXL",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2964,7 +2981,7 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/7b7/d3q1jl9k5bzg7vcu771crdh02g9f0mzr.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -2983,7 +3000,7 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://avatars.mds.yandex.net/get-altay/1018126/2a000001642aba40cb02119effcd6fd23ae1/XXXL",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3002,7 +3019,7 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREledK3X_BYppr4_5VW5ZCczOZPnIPHfG1m8aw6nX9D6MjTsB1kNxvteUo&s=10",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3021,7 +3038,7 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/iblock/d40/e9i8h1m33zdioyz9xpprnr9tfsv6umec.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3040,7 +3057,7 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/iblock/44f/j97u48981znhbu6dpk3wfn5hf2ptk44a.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3059,7 +3076,7 @@
     "units": "Войскі 1-га Прыбалтыйскага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://vetliva.ru/upload/adwex.minified/webp/ffa/90/ffaa94b34fd2cb6aec959150597ee9c2.webp",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3078,7 +3095,7 @@
     "units": "Войскі 1-га Прыбалтыйскага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/resize_cache/iblock/2a5/1330_887_18e21fe612b4afb807a26ecc22279a1d9/2a53675e3d6185a5bdc74b3de4c25140.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3097,7 +3114,7 @@
     "units": "Войскі 1-га Прыбалтыйскага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://i.ytimg.com/vi/G2hfmSomMts/maxresdefault.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3116,7 +3133,7 @@
     "units": "145-я стралковая дывізія",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/877/87769c53477f3ecf0d7e017c76744c4e.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3135,7 +3152,7 @@
     "units": "Войскі 1-га Прыбалтыйскага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/resize_cache/iblock/8ca/1330_887_18e21fe612b4afb807a26ecc22279a1d9/8ca76f65785116b146e448be09815b92.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3154,7 +3171,7 @@
     "units": "44-я мотастралковая брыгада",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/uf/e3f/g6xo40pmhev3sroegwbatl3xvawjb8w6.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3173,7 +3190,7 @@
     "units": "1124-ы стралковы полк",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/resize_cache/iblock/0a6/1330_747_18e21fe612b4afb807a26ecc22279a1d9/0a64b2838f23be25b7141193aced4473.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3192,7 +3209,7 @@
     "units": "115-я стралковая дывізія 22-й арміі",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/0fe/h3nsq11koqzs7l2dua3mtisowrrgpeie.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3211,7 +3228,7 @@
     "units": "Войскі 1-га Прыбалтыйскага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://irecommend.ru/sites/default/files/product-images/290849/SSogusZUeDrkBxZTl2j2Og.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3230,7 +3247,7 @@
     "units": "44-я мотастралковая брыгада 1-га Прыбалтыйскага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/f12/f125189b8eb6e85827ad30f257d8d934.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3249,7 +3266,7 @@
     "units": "Войскі 1-га Прыбалтыйскага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/uf/88a/88aac09e21754601088ba57fb2d94cbc.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3268,7 +3285,7 @@
     "units": "46-я гвардзейская дывізія",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/uf/509/50937a09de4aeff83c643fd49241d38f.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3287,7 +3304,7 @@
     "units": "277-я стралковая дывізія, 7-я механізаваная брыгада, партызанская брыгада «жалезняк»",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/b5f/b5f53c4670a26cf2f3e8c4d8982c61e6.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3306,7 +3323,7 @@
     "units": "Войскі 1-га Прыбалтыйскага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/medialibrary/cb0/etm58am5mu6wabn453mr84u6suzyiy6j.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3325,7 +3342,7 @@
     "units": "65-ы кавалерыйскі полк",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/resize_cache/iblock/f69/1330_886_18e21fe612b4afb807a26ecc22279a1d9/f695dd02c3e6b9c97690333e15ee93c3.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3344,7 +3361,7 @@
     "units": "Войскі 3-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://travel.by/wp-content/uploads/2023/09/holm-golshany-6-1024x683.webp",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3363,7 +3380,11 @@
     "units": "Войскі 2-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://planetabelarus.by/upload/iblock/015/w41ent5n39p0azes3adqdb2lna4k2zyw.jpg",
+      "https://planetabelarus.by/upload/resize_cache/iblock/9a1/1330_886_18e21fe612b4afb807a26ecc22279a1d9/xm0bnlu6fgi70vhp5bcmq5d6151phyb7.jpg",
+      "https://live.staticflickr.com/65535/50324041491_82cc43eb32_o.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -3382,7 +3403,7 @@
     "units": "Войскі 2-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/resize_cache/iblock/08d/1330_747_18e21fe612b4afb807a26ecc22279a1d9/08d9b1babc1332a56e2eda3027d704c1.jpg",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3401,7 +3422,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://avatars.mds.yandex.net/get-altay/6529816/2a00000181bf420e8a83af4b4918870a24ff/XXXL",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3420,7 +3441,11 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/23/%D0%A0%D1%83%D0%B6%D0%B0%D0%BD%D1%8B_Ru%C5%BEany_%282021%29_03.jpg?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=original",
+      "https://planetabelarus.by/upload/resize_cache/iblock/ec2/1330_747_18e21fe612b4afb807a26ecc22279a1d9/ec2126427b918b0489d4a570209f5655.jpg",
+      "https://planetabelarus.by/upload/resize_cache/iblock/cd1/1330_886_18e21fe612b4afb807a26ecc22279a1d9/hibx87cf2eafvy1eu2ckdtcjcs5lkjat.webp"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -3439,7 +3464,10 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": [
+      "https://www.fotobel.by/images/dyatlovo/kozlovshhina-hram_3-300x200.jpg",
+      "https://www.fotobel.by/images/dyatlovo/kozlovshhina_1.jpg"
+    ],
     "memoryPhoto": "",
     "sources": [
       {
@@ -3458,7 +3486,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjtcWbBwRETP4y6-1bXhpP0Kash5_Rjven6IUl2lf2KfvlSeLbrQJpPeI&s=10",
     "memoryPhoto": "",
     "sources": [
       {
@@ -3477,7 +3505,7 @@
     "units": "Войскі 1-га Беларускага фронту",
     "description": "",
     "memory": "",
-    "photo": "",
+    "photo": "https://planetabelarus.by/upload/iblock/a68/xeb01j4xv015x5oogygq9bwexhkvz1js.jpg",
     "memoryPhoto": "",
     "sources": [
       {
