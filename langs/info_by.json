@@ -4,69 +4,202 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Стэла воінам-вызваліцелям 15-га стралковага корпуса 13-й арміі", "note": "Усталявана ў 1976 годзе", "photo": "https://planetabelarus.by/upload/resize_cache/iblock/bfc/1330_887_18e21fe612b4afb807a26ecc22279a1d9/bfc16368a4de4761acefae7c5ee7c90b.jpg" },
-      { "name": "Брацкая магіла савецкіх воінаў", "note": "Цэнтральная плошча", "photo": "https://i0.wp.com/braginskiecennosty.wordpress.com/wp-content/uploads/2023/05/d091d09c-d0b3.d0bf.d09ad0b0d0bcd0b0d180d18bd0bd-2.jpg?fit=1200%2C900&ssl=1&w=640" }
+      {
+        "name": "Стэла воінам-вызваліцелям 15-га стралковага корпуса 13-й арміі",
+        "note": "Усталявана ў 1976 годзе",
+        "photo": "https://planetabelarus.by/upload/resize_cache/iblock/bfc/1330_887_18e21fe612b4afb807a26ecc22279a1d9/bfc16368a4de4761acefae7c5ee7c90b.jpg",
+        "source": "https://planetabelarus.by/sights/komarin/"
+      },
+      {
+        "name": "Брацкая магіла савецкіх воінаў",
+        "note": "Цэнтральная плошча",
+        "photo": "https://i0.wp.com/braginskiecennosty.wordpress.com/wp-content/uploads/2023/05/d091d09c-d0b3.d0bf.d09ad0b0d0bcd0b0d180d18bd0bd-2.jpg?fit=1200%2C900&ssl=1&w=640",
+        "source": "https://braginskiecennosty.wordpress.com/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "15-ы стралковы корпус 13-й арміі",
+        "source": "https://planetabelarus.by/sights/komarin/"
+      }
     ]
   },
   "2": {
     "intro": "Гомель — другі па велічыні горад Беларусі, адміністрацыйны цэнтр Гомельскай вобласці. Першы абласны цэнтр БССР, вызвалены ў 1943 годзе. 23 часці і злучэнні атрымалі ганаровае найменне «Гомельскіх».",
     "heroes": ["П. Я. Галавачоў", "Т. С. Барадулін"],
     "museums": [
-      { "name": "Гомельскі абласны музей воінскай славы", "url": "https://voenmuz.by/" },
-      { "name": "Гомельскі палацава-паркавы ансамбль", "url": "https://palacegomel.by/" }
+      {
+        "name": "Гомельскі абласны музей воінскай славы",
+        "url": "https://voenmuz.by/"
+      },
+      {
+        "name": "Гомельскі палацава-паркавы ансамбль",
+        "url": "https://palacegomel.by/"
+      }
     ],
     "monuments": [
-      { "name": "Алея Герояў", "note": "Вул. Савецкая", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Memorial_to_fallen_soldiers_in_Student_garden_square_%284%29.jpg" },
-      { "name": "Помнік-танк Т-34", "note": "Плошча Паўстання", "photo": "https://street.gomelhistory.by/wp-content/uploads/2014/12/tank00.jpg" },
-      { "name": "Мемарыял на плошчы Паўстання", "note": "Плошча Паўстання", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pl._Paustannya_in_Gomel_7_May_2014.jpg" }
+      {
+        "name": "Алея Герояў",
+        "note": "Вул. Савецкая",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Memorial_to_fallen_soldiers_in_Student_garden_square_%284%29.jpg",
+        "source": "https://cenadm.gov.by/"
+      },
+      {
+        "name": "Помнік-танк Т-34",
+        "note": "Плошча Паўстання",
+        "photo": "https://street.gomelhistory.by/wp-content/uploads/2014/12/tank00.jpg",
+        "source": "https://street.gomelhistory.by/"
+      },
+      {
+        "name": "Мемарыял на плошчы Паўстання",
+        "note": "Плошча Паўстання",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pl._Paustannya_in_Gomel_7_May_2014.jpg",
+        "source": "https://voenmuz.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "23 воінскія злучэнні і часці, якія атрымалі найменне «Гомельскіх»",
+        "source": "https://belarusenc.by/"
+      }
     ]
   },
   "3": {
     "intro": "Мінск — сталіца Беларускай ССР, найбуйнейшы адміністрацыйны, эканамічны і культурны цэнтр рэспублікі. Вызвалены 3 ліпеня 1944 года ў ходзе аперацыі «Баграціён». У Мінскім «катле» была акружана буйная групоўка праціўніка.",
     "heroes": ["Д. Г. Фролікаў", "С. Ф. Шутаў"],
     "museums": [
-      { "name": "Беларускі дзяржаўны музей гісторыі Вялікай Айчыннай вайны", "url": "https://www.warmuseum.by/" },
-      { "name": "Музей гісторыі горада Мінска", "url": "https://minskmuseum.by/" }
+      {
+        "name": "Беларускі дзяржаўны музей гісторыі Вялікай Айчыннай вайны",
+        "url": "https://www.warmuseum.by/"
+      },
+      {
+        "name": "Музей гісторыі горада Мінска",
+        "url": "https://minskmuseum.by/"
+      }
     ],
     "monuments": [
-      { "name": "Манумент «Танк-вызваліцель»", "note": "Каля Дома афіцэраў, пр. Незалежнасці", "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Belarus-Minsk-Tank_Monument.jpg" },
-      { "name": "Мемарыял «Курган Славы»", "note": "21-ы км шашы Мінск — Масква", "photo": "https://upload.wikimedia.org/wikipedia/ru/2/2d/%D0%9A%D1%83%D1%80%D0%B3%D0%B0%D0%BD_%D0%A1%D0%BB%D0%B0%D0%B2%D1%8B.jpg" },
-      { "name": "Помнік героям-танкістам ва Уруччы", "note": "Урочышча Уручча", "photo": "https://minsknews.by/wp-content/uploads/2024/07/img_0574-kopiya.jpg" }
+      {
+        "name": "Манумент «Танк-вызваліцель»",
+        "note": "Каля Дома афіцэраў, пр. Незалежнасці",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Belarus-Minsk-Tank_Monument.jpg",
+        "source": "https://www.warmuseum.by/"
+      },
+      {
+        "name": "Мемарыял «Курган Славы»",
+        "note": "21-ы км шашы Мінск — Масква",
+        "photo": "https://upload.wikimedia.org/wikipedia/ru/2/2d/%D0%9A%D1%83%D1%80%D0%B3%D0%B0%D0%BD_%D0%A1%D0%BB%D0%B0%D0%B2%D1%8B.jpg",
+        "source": "https://www.warmuseum.by/"
+      },
+      {
+        "name": "Помнік героям-танкістам ва Уруччы",
+        "note": "Урочышча Уручча",
+        "photo": "https://minsknews.by/wp-content/uploads/2024/07/img_0574-kopiya.jpg",
+        "source": "https://minsknews.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "52 злучэнні і часці, удастоеныя ганаровага наймення «Мінскія»",
+        "source": "https://archives.gov.by/"
+      }
     ]
   },
   "4": {
     "intro": "Брэст — абласны цэнтр, горад на мяжы з Польшчай. Вызвалены 28 ліпеня 1944 года ў ходзе Люблін-Брэсцкай аперацыі, якая завяршыла вызваленне Беларусі. 47 часцям і злучэнням прысвоена ганаровае найменне «Брэсцкіх».",
     "heroes": ["П. М. Гаўрылаў", "Я. М. Фамін"],
     "museums": [
-      { "name": "Мемарыяльны комплекс «Брэсцкая крэпасць-герой»", "url": "https://brest-fortress.by/" },
-      { "name": "Брэсцкі абласны краязнаўчы музей", "url": "https://brokm.by/" }
+      {
+        "name": "Мемарыяльны комплекс «Брэсцкая крэпасць-герой»",
+        "url": "https://brest-fortress.by/"
+      },
+      {
+        "name": "Брэсцкі абласны краязнаўчы музей",
+        "url": "https://brokm.by/"
+      }
     ],
     "monuments": [
-      { "name": "Помнік «Вызваленне»", "note": "Плошча Свабоды", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg/3840px-%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg" },
-      { "name": "Вечны агонь", "note": "Мемарыяльны комплекс «Брэсцкая крэпасць-герой»", "photo": "https://static.tildacdn.com/tild6261-6339-4234-b138-373566393831/---34-21-06-2022.jpg" }
+      {
+        "name": "Помнік «Вызваленне»",
+        "note": "Плошча Свабоды",
+        "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg/3840px-%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg",
+        "source": "https://brest-fortress.by/"
+      },
+      {
+        "name": "Вечны агонь",
+        "note": "Мемарыяльны комплекс «Брэсцкая крэпасць-герой»",
+        "photo": "https://static.tildacdn.com/tild6261-6339-4234-b138-373566393831/---34-21-06-2022.jpg",
+        "source": "https://brest-fortress.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "47 злучэнняў і часцей, якія атрымалі найменне «Брэсцкіх»",
+        "source": "https://belarusenc.by/"
+      }
     ]
   },
   "5": {
     "intro": "Гродна — абласны цэнтр на захадзе Беларусі, горад на рацэ Нёман. Вызвалены 16 ліпеня 1944 года ў ходзе Беластоцкай і Вільнюскай аперацый. Правабярэжная частка вызвалена 16 ліпеня, занёманская — 24 ліпеня.",
     "heroes": ["І. Д. Чарняхоўскі"],
     "museums": [
-      { "name": "Гродзенскі дзяржаўны гісторыка-археалагічны музей", "url": "https://museum-grodno.by/" }
+      {
+        "name": "Гродзенскі дзяржаўны гісторыка-археалагічны музей",
+        "url": "https://museum-grodno.by/"
+      }
     ],
     "monuments": [
-      { "name": "Помнік воінам-вызваліцелям — танк Т-34-85", "note": "Савецкая плошча", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg/960px-Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg" },
-      { "name": "Брацкая магіла савецкіх воінаў і партызан", "note": "Парк Жылібера", "photo": "https://img.newgrodno.by/wp-content/uploads/1746015369a8b5cfc9-1fee-4c13-9daa-c2bd8dcb72d0-600x800.jpg" }
+      {
+        "name": "Помнік воінам-вызваліцелям — танк Т-34-85",
+        "note": "Савецкая плошча",
+        "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg/960px-Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg",
+        "source": "https://museum-grodno.by/"
+      },
+      {
+        "name": "Брацкая магіла савецкіх воінаў і партызан",
+        "note": "Парк Жылібера",
+        "photo": "https://img.newgrodno.by/wp-content/uploads/1746015369a8b5cfc9-1fee-4c13-9daa-c2bd8dcb72d0-600x800.jpg",
+        "source": "https://museum-grodno.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў Беластоцкай і Вільнюскай аперацыях",
+        "source": "https://museum-grodno.by/"
+      }
     ]
   },
   "6": {
     "intro": "Віцебск — абласны цэнтр на паўночным усходзе Беларусі. Вызвалены 26 чэрвеня 1944 года ў ходзе Віцебска-Аршанскай аперацыі. У «Віцебскім катле» былі акружаны буйныя сілы праціўніка. 62 злучэнні і часці атрымалі найменне «Віцебскіх».",
     "heroes": [],
     "museums": [
-      { "name": "Віцебскі абласны краязнаўчы музей", "url": "https://www.ratusha-vit.by/" },
-      { "name": "Информационный ресурс о Площади Победы", "url": "https://mem.cbsvit.by/%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B" }
+      {
+        "name": "Віцебскі абласны краязнаўчы музей",
+        "url": "https://www.ratusha-vit.by/"
+      },
+      {
+        "name": "Інфармацыйны рэсурс пра Плошчу Перамогі",
+        "url": "https://mem.cbsvit.by/%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B"
+      }
     ],
     "monuments": [
-      { "name": "Мемарыяльны комплекс «Тры штыкі»", "note": "Плошча Перамогі", "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/Tri_shtyka.jpg" },
-      { "name": "Мемарыял савецкім воінам, партызанам і падпольшчыкам Віцебшчыны", "note": "Плошча Перамогі", "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/vitebsk_6.jpg" }
+      {
+        "name": "Мемарыяльны комплекс «Тры штыкі»",
+        "note": "Плошча Перамогі",
+        "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/Tri_shtyka.jpg",
+        "source": "https://mem.cbsvit.by/"
+      },
+      {
+        "name": "Мемарыял савецкім воінам, партызанам і падпольшчыкам Віцебшчыны",
+        "note": "Плошча Перамогі",
+        "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/vitebsk_6.jpg",
+        "source": "https://mem.cbsvit.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "62 воінскія злучэнні і часці, якія атрымалі найменне «Віцебскіх»",
+        "source": "https://rep.vsu.by/"
+      }
     ]
   },
   "7": {
@@ -74,19 +207,54 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Помнік воінам-вызваліцелям, партызанам і падпольшчыкам (1984)", "note": "Гарадскі парк", "photo": "https://towntravel.ru/wp-content/uploads/2018/01/35-%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA-%D0%B2%D0%BE%D0%B8%D0%BD%D0%B0%D0%BC-%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B9-%D0%B0%D1%80%D0%BC%D0%B8%D0%B8-%D0%BF%D0%B0%D1%80%D1%82%D0%B8%D0%B7%D0%B0%D0%BD%D0%B0%D0%BC-%D0%B8-%D0%BF%D0%BE%D0%B4%D0%BF%D0%BE%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0%D0%BC-%D0%B3%D0%B5%D1%80%D0%BE%D1%8F%D0%BC-%D0%B1%D0%B8%D1%82%D0%B2%D1%8B-%D0%B7%D0%B0-%D0%BE%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0-%D0%9E%D1%80%D1%88%D0%B8.jpg" },
-      { "name": "Курган Бессмяротнасці", "note": "У цэнтры парка Герояў", "photo": "https://towntravel.ru/wp-content/uploads/2018/01/11-%D0%9E%D1%80%D1%88%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D0%BA%D1%83%D1%80%D0%B3%D0%B0%D0%BD.jpg" }
+      {
+        "name": "Помнік воінам-вызваліцелям, партызанам і падпольшчыкам (1984)",
+        "note": "Гарадскі парк",
+        "photo": "https://towntravel.ru/wp-content/uploads/2018/01/35-%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA-%D0%B2%D0%BE%D0%B8%D0%BD%D0%B0%D0%BC-%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B9-%D0%B0%D1%80%D0%BC%D0%B8%D0%B8-%D0%BF%D0%B0%D1%80%D1%82%D0%B8%D0%B7%D0%B0%D0%BD%D0%B0%D0%BC-%D0%B8-%D0%BF%D0%BE%D0%B4%D0%BF%D0%BE%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0%D0%BC-%D0%B3%D0%B5%D1%80%D0%BE%D1%8F%D0%BC-%D0%B1%D0%B8%D1%82%D0%B2%D1%8B-%D0%B7%D0%B0-%D0%BE%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0-%D0%9E%D1%80%D1%88%D0%B8.jpg",
+        "source": "https://towntravel.ru/"
+      },
+      {
+        "name": "Курган Бессмяротнасці",
+        "note": "У цэнтры парка Герояў",
+        "photo": "https://towntravel.ru/wp-content/uploads/2018/01/11-%D0%9E%D1%80%D1%88%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D0%BA%D1%83%D1%80%D0%B3%D0%B0%D0%BD.jpg",
+        "source": "https://towntravel.ru/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "41 злучэнне і часць, якія атрымалі найменне «Аршанскіх»",
+        "source": "https://belarusenc.by/"
+      }
     ]
   },
   "8": {
     "intro": "Магілёў — абласны цэнтр на ўсходзе Беларусі, горад на Дняпры. Вызвалены 28 чэрвеня 1944 года ў ходзе Магілёўскай аперацыі. 21 часць і злучэнне атрымалі найменне «Магілёўскіх», 28 воінаў удастоены звання Героя Савецкага Саюза.",
     "heroes": ["П. І. Іваноў", "М. І. Бірукоў"],
     "museums": [
-      { "name": "Магілёўскі абласны краязнаўчы музей", "url": "https://mogilevmuseum.by/" }
+      {
+        "name": "Магілёўскі абласны краязнаўчы музей",
+        "url": "https://mogilevmuseum.by/"
+      }
     ],
     "monuments": [
-      { "name": "Помнік воінам-героям абароны і вызвалення Магілёва", "note": "Танк Т-34 на пастаменце", "photo": "https://mogilevnews.by/wp-content/uploads/2026/07/dsc07440.jpg" },
-      { "name": "Мемарыяльныя дошкі і вуліцы ў гонар вызваліцеляў (дошка ў гонар С. Ф. Шутава)", "note": "Цэнтр горада", "photo": "https://csgpb.by/geroi/wp-content/uploads/2020/04/%D0%A1.-%D0%A4.-%D0%A8%D1%83%D1%82%D0%BE%D0%B2.jpg" }
+      {
+        "name": "Помнік воінам-героям абароны і вызвалення Магілёва",
+        "note": "Танк Т-34 на пастаменце",
+        "photo": "https://mogilevnews.by/wp-content/uploads/2026/07/dsc07440.jpg",
+        "source": "https://mogilevmuseum.by/"
+      },
+      {
+        "name": "Мемарыяльныя дошкі і вуліцы ў гонар вызваліцеляў (дошка ў гонар С. Ф. Шутава)",
+        "note": "Цэнтр горада",
+        "photo": "https://csgpb.by/geroi/wp-content/uploads/2020/04/%D0%A1.-%D0%A4.-%D0%A8%D1%83%D1%82%D0%BE%D0%B2.jpg",
+        "source": "https://mogilevmuseum.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "21 часць і злучэнне, якія атрымалі найменне «Магілёўскіх»",
+        "source": "https://politex.mogilev.by/"
+      }
     ]
   },
   "9": {
@@ -94,17 +262,42 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Помнік у гонар воінскіх часцей і злучэнняў, якія вызначыліся пры вызваленні Бабруйска", "note": "Плошча Перамогі", "photo": "https://wiki.bobr.by/images/thumb/f/fc/%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg/700px-%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg" }
+      {
+        "name": "Помнік у гонар воінскіх часцей і злучэнняў, якія вызначыліся пры вызваленні Бабруйска",
+        "note": "Плошча Перамогі",
+        "photo": "https://wiki.bobr.by/images/thumb/f/fc/%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg/700px-%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg",
+        "source": "https://wiki.bobr.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "356-я стралковая дывізія 65-й арміі",
+        "source": "https://bobruisk.gov.by/"
+      }
     ]
   },
   "10": {
     "intro": "Полацк — найстаражытнейшы горад Беларусі, раённы цэнтр Віцебскай вобласці. Вызвалены 4 ліпеня 1944 года ў ходзе Полацкай аперацыі. 4 дывізіям, 4 брыгадам і 23 асобным часцям прысвоена найменне «Полацкіх».",
     "heroes": [],
     "museums": [
-      { "name": "Нацыянальны Полацкі гісторыка-культурны музей-запаведнік", "url": "https://polotsk.museum.by/" }
+      {
+        "name": "Нацыянальны Полацкі гісторыка-культурны музей-запаведнік",
+        "url": "https://polotsk.museum.by/"
+      }
     ],
     "monuments": [
-      { "name": "Помнік Брацкая магіла № 4250 «Вызваліцелям Полацка»", "note": "Плошча Свабоды, праспект Францыска Скарыны", "photo": "https://savehistory.by/upload/iblock/cf2/zkerpwme3puvje3vwk0oya2mvjq0lj2q.jpg" }
+      {
+        "name": "Помнік Брацкая магіла № 4250 «Вызваліцелям Полацка»",
+        "note": "Плошча Свабоды, праспект Францыска Скарыны",
+        "photo": "https://savehistory.by/upload/iblock/cf2/zkerpwme3puvje3vwk0oya2mvjq0lj2q.jpg",
+        "source": "https://savehistory.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "31 злучэнне і часць, якія атрымалі найменне «Полацкіх»",
+        "source": "https://belarusenc.by/"
+      }
     ]
   },
   "11": {
@@ -112,8 +305,24 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Мемарыяльны комплекс вызваліцелям Пінска", "note": "1950–1967", "photo": "https://imgs.search.brave.com/S00vuKPQDFVTYUV0Vl2jdzdu-CkMlOzJINi0Vu5Vnbg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zYXZl/aGlzdG9yeS5ieS91/cGxvYWQvaWJsb2Nr/L2JhNy9oazR0NmM4/cjl0ajczMzh2ZDh0/a3ZlNmpqNnJkYmtv/ZS5qcGc" },
-      { "name": "Вечны агонь і брацкая магіла", "note": "Плошча Леніна", "photo": "https://avatars.mds.yandex.net/get-altay/13793720/2a00000191a21571f41fec1af0b082030e78/L_height" }
+      {
+        "name": "Мемарыяльны комплекс вызваліцелям Пінска",
+        "note": "1950–1967",
+        "photo": "https://imgs.search.brave.com/S00vuKPQDFVTYUV0Vl2jdzdu-CkMlOzJINi0Vu5Vnbg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zYXZl/aGlzdG9yeS5ieS91/cGxvYWQvaWJsb2Nr/L2JhNy9oazR0NmM4/cjl0ajczMzh2ZDh0/a3ZlNmpqNnJkYmtv/ZS5qcGc",
+        "source": "https://savehistory.by/"
+      },
+      {
+        "name": "Вечны агонь і брацкая магіла",
+        "note": "Плошча Леніна",
+        "photo": "https://avatars.mds.yandex.net/get-altay/13793720/2a00000191a21571f41fec1af0b082030e78/L_height",
+        "source": "https://savehistory.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "18 злучэнняў і часцей, якія атрымалі найменне «Пінскіх»",
+        "source": "https://savehistory.by/"
+      }
     ]
   },
   "12": {
@@ -121,16 +330,584 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Помнік Вызвалення (1964) з Вечным агнём", "note": "Сквер каля гарадскога Дома культуры", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg/960px-%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" }
+      {
+        "name": "Помнік Вызвалення (1964) з Вечным агнём",
+        "note": "Сквер каля гарадскога Дома культуры",
+        "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg/960px-%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg",
+        "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "28 часцей і злучэнняў, якія атрымалі найменне «Баранавіцкіх»",
+        "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg"
+      }
+    ]
+  },
+  "13": {
+    "intro": "Буда-Кашалёва — горад у Гомельскай вобласці. Вызвалены 27 лістапада 1943 года ў ходзе Гомельска-Рэчыцкай аперацыі. На паўночнай ускраіне горада знаходзіцца Курган Славы, насыпаны ў 1971 годзе.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Курган Славы",
+        "note": "Паўночная ўскраіна горада, насыпаны ў 1971 годзе, абноўлены ў 2019 годзе",
+        "photo": "https://www.budakosh.by/upload/medialibrary/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://www.budakosh.by/"
+      },
+      {
+        "name": "Брацкая магіла савецкіх воінаў і партызан",
+        "note": "Цэнтр горада, пахавана 253 чалавекі",
+        "photo": "https://planetabelarus.by/upload/resize_cache/iblock/1a1/1330_887_18e21fe612b4afb807a26ecc22279a1d9/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://planetabelarus.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "4-я стралковая дывізія (палкоўнік Д.Д. Вараб'ёў), 231-ы танкавы полк (падпалкоўнік Ф.М. Кавалёў) 48-й арміі Беларускага фронту",
+        "source": "https://belta.by/"
+      },
+      {
+        "unit": "323-я Бранская, 96-я Гомельская, 260-я Наўгарод-Валынская стралковыя дывізіі",
+        "source": "https://ucp.by/"
+      }
+    ]
+  },
+  "14": {
+    "intro": "Светлагорск — горад у Гомельскай вобласці. Вызвалены ў лістападзе 1943 года часцямі 65-й арміі пад камандаваннем генерала Батава.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Мемарыяльны комплекс на брацкай магіле савецкіх воінаў",
+        "note": "Брацкая магіла, пахавана больш за 50 воінаў",
+        "photo": "https://svetlogorsk-tourism.ru/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://svetlogorsk-tourism.ru/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "65-я армія пад камандаваннем генерала Батава",
+        "source": "https://gp.by/"
+      }
+    ]
+  },
+  "15": {
+    "intro": "Бялынічы — горад у Магілёўскай вобласці. Вызвалены 28 чэрвеня 1944 года часцямі 32-й, 42-й і 153-й дывізій 2-га Беларускага фронту.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Брацкая магіла савецкіх воінаў і партызан",
+        "note": "Гарадскі парк «Ліпавая рошча», Алея Герояў",
+        "photo": "https://belynichi.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://belynichi.gov.by/"
+      },
+      {
+        "name": "Помнік загінулым мірным жыхарам і партызанам",
+        "note": "Адкрыты 9 мая 1995 года",
+        "photo": "https://archives.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://archives.gov.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "32-я, 42-я і 153-я стралковыя дывізіі 2-га Беларускага фронту",
+        "source": "https://belynichi.gov.by/"
+      },
+      {
+        "unit": "32-я стралковая дывізія, 69-ы стралковы корпус 49-й арміі",
+        "source": "https://archives.gov.by/"
+      }
+    ]
+  },
+  "16": {
+    "intro": "Новалукомль — горад у Чашніцкім раёне Віцебскай вобласці. У гады вайны тут дзейнічалі партызанскія атрады.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Помнік Герою Савецкага Саюза Ф.Ф. Азміцелю",
+        "note": "Усталяваны ў 1977 годзе",
+        "photo": "https://www.savehistory.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://www.savehistory.by/"
+      },
+      {
+        "name": "Помнік Герою Савецкага Саюза Ф.Ф. Дуброўскаму",
+        "note": "Лукомльская шаша, 12",
+        "photo": "https://ru.belarus.travel/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://ru.belarus.travel/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Партызанскі атрад «Гром»",
+        "source": "https://www.savehistory.by/"
+      }
+    ]
+  },
+  "17": {
+    "intro": "Наваполацк — горад у Віцебскай вобласці, фактычна частка Полацка. У гады вайны на гэтай тэрыторыі дзейнічалі партызаны, тут жа знаходзіўся канцлагер Шталаг-354.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Абеліск на брацкай магіле воінаў 219-га гвардзейскага стралковага палка",
+        "note": "Вул. Паркавая, раён д. 32",
+        "photo": "https://www.novopolotsk.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://www.novopolotsk.gov.by/"
+      },
+      {
+        "name": "Мемарыяльны комплекс «Зорка»",
+        "note": "Мікрараён Баравуха",
+        "photo": "https://novopolotsk.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://novopolotsk.gov.by/"
+      },
+      {
+        "name": "Помнік Ліліі Касцецкай",
+        "note": "Вул. Блахіна, 43",
+        "photo": "https://pobeda.pskovlib.ru/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://pobeda.pskovlib.ru/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "219-ы гвардзейскі стралковы полк",
+        "source": "https://www.novopolotsk.gov.by/"
+      }
     ]
   },
   "18": {
+    "intro": "Нарач — пасёлак у Мядзельскім раёне Мінскай вобласці, на беразе возера Нарач. У гады вайны тут дзейнічалі партызанскія брыгады.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Мемарыяльны комплекс «Партызанам Вілейшчыны»",
+        "note": "Бераг возера Нарач, каля в. Нікольцы. 24-метровы абеліск, усталяваны ў 1968 годзе",
+        "photo": "https://news.sb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://news.sb.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "18 партызанскіх брыгад і атрадаў, якія дзейнічалі на Вілейшчыне",
+        "source": "https://news.sb.by/"
+      }
+    ]
+  },
+  "19": {
+    "intro": "Валожын — горад у Мінскай вобласці. Вызвалены ў ліпені 1944 года. У горадзе знаходзіцца брацкая магіла савецкіх воінаў.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Брацкая магіла савецкіх воінаў",
+        "note": "Плошча Свабоды, пахавана 160 воінаў",
+        "photo": "https://unicat.nlb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://unicat.nlb.by/"
+      },
+      {
+        "name": "Помнік «Смуткуючая маці»",
+        "note": "Усталяваны ў 1961 годзе на месцы масавага знішчэння мірных жыхароў",
+        "photo": "https://volozhin.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://volozhin.gov.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Валожына",
+        "source": "https://volozhin.gov.by/"
+      }
+    ]
+  },
+  "20": {
+    "intro": "Ліда — горад у Гродзенскай вобласці. Вызвалены ў ліпені 1944 года. У горадзе знаходзіцца Курган Бессмяротнасці і іншыя помнікі.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Курган Бессмяротнасці",
+        "note": "Насыпаны ў 1966 годзе, вышыня 7 м",
+        "photo": "https://turismlida.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://turismlida.by/"
+      },
+      {
+        "name": "Помнік у гонар воінаў-вызваліцеляў і партызан",
+        "note": "Цэнтр горада",
+        "photo": "https://turismlida.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://turismlida.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "3-і гвардзейскі кавалерыйскі корпус",
+        "source": "https://lida.gov.by/"
+      }
+    ]
+  },
+  "21": {
+    "intro": "Маладзечна — горад у Мінскай вобласці. Вызвалены ў ліпені 1944 года. У горадзе знаходзяцца мемарыяльны комплекс «Шталаг-342» і іншыя помнікі.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Мемарыяльны комплекс «Шталаг-342»",
+        "note": "Вул. Заслаўская, адкрыты ў 1995 годзе",
+        "photo": "https://minoblturism.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://minoblturism.gov.by/"
+      },
+      {
+        "name": "Помнік на брацкай магіле",
+        "note": "Вул. Драздовіча, сквер. Усталяваны ў 1964 годзе, пахавана 385 чалавек",
+        "photo": "https://molodechno.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://molodechno.gov.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Маладзечна",
+        "source": "https://molodechno.gov.by/"
+      }
+    ]
+  },
+  "22": {
+    "intro": "Слонім — горад у Гродзенскай вобласці. Вызвалены ў ліпені 1944 года. У горадзе знаходзіцца мемарыял воінам, якія вызвалялі горад.",
+    "heroes": ["Кузьма Гнедаш", "Клара Давідзюк"],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Мемарыял воінам, якія вызвалялі горад",
+        "note": "Гарадскі сквер па вул. Пушкіна. Усталяваны ў 1956 годзе, скульптар Акім Курачкін",
+        "photo": "https://slonim.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://slonim.gov.by/"
+      },
+      {
+        "name": "Магіла Героя Савецкага Саюза Кузьмы Гнедаша і радысткі Клары Давідзюк",
+        "note": "Вул. Пушкіна",
+        "photo": "https://slonimlibkolas.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://slonimlibkolas.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Слоніма",
+        "source": "https://slonim.gov.by/"
+      }
+    ]
+  },
+  "23": {
+    "intro": "Смаргонь — горад у Гродзенскай вобласці. Вызвалены ў ліпені 1944 года. У горадзе знаходзяцца мемарыяльны комплекс «Пераправа» і іншыя помнікі.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Мемарыяльны комплекс «Пераправа»",
+        "note": "Бераг ракі Віліі, месца пачатку вызвалення горада ў ліпені 1944 года",
+        "photo": "https://smorgon.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://smorgon.gov.by/"
+      },
+      {
+        "name": "Помнік землякам",
+        "note": "Савецкая вуліца, пахавана 250 воінаў і партызан. Усталяваны ў 1966 годзе",
+        "photo": "https://unicat.nlb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://unicat.nlb.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Смаргоні",
+        "source": "https://smorgon.gov.by/"
+      }
+    ]
+  },
+  "24": {
+    "intro": "Ашмяны — горад у Гродзенскай вобласці. У горадзе і раёне знаходзяцца помнікі героям Вялікай Айчыннай вайны.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Помнік Зоі Касмадзям'янскай",
+        "note": "Г. Ашмяны",
+        "photo": "https://oshmiany.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://oshmiany.gov.by/"
+      },
+      {
+        "name": "Помнік Алегу Кашавому",
+        "note": "Г. Ашмяны",
+        "photo": "https://oshmiany.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://oshmiany.gov.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў баях на тэрыторыі раёна",
+        "source": "https://oshmiany.gov.by/"
+      }
+    ]
+  },
+  "25": {
+    "intro": "Шчучын — горад у Гродзенскай вобласці. У горадзе знаходзіцца абеліск у памяць пра загінулых у гады Вялікай Айчыннай вайны.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Абеліск у памяць пра загінулых у гады Вялікай Айчыннай вайны",
+        "note": "Гарадскі парк, усталяваны ў 1967 годзе",
+        "photo": "https://schuchin-lib.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://schuchin-lib.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Шчучына",
+        "source": "https://schuchin-lib.by/"
+      }
+    ]
+  },
+  "26": {
+    "intro": "Масты — горад у Гродзенскай вобласці. У горадзе знаходзіцца брацкая магіла савецкіх воінаў і партызан.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Брацкая магіла савецкіх воінаў і партызан (манумент)",
+        "note": "Вул. Савецкая, сквер. Пахавана 855 воінаў і партызан, якія загінулі ў ліпені 1944 года",
+        "photo": "https://mostylib.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://mostylib.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Мастоў",
+        "source": "https://mostylib.by/"
+      }
+    ]
+  },
+  "27": {
+    "intro": "Ваўкавыск — горад у Гродзенскай вобласці. У горадзе знаходзяцца помнік воінам-артылерыстам і іншыя мемарыялы.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Помнік воінам-артылерыстам",
+        "note": "Гарадская плошча",
+        "photo": "https://volkovysk.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://volkovysk.gov.by/"
+      },
+      {
+        "name": "Помнік ахвярам фашызму (скульптура воіна і партызанкі)",
+        "note": "Урочышча «Порахаўня»",
+        "photo": "https://volkovysk.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://volkovysk.gov.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "129-я Арлоўская дывізія",
+        "source": "https://volkovysk.gov.by/"
+      }
+    ]
+  },
+  "28": {
+    "intro": "Пружаны — горад у Брэсцкай вобласці. У горадзе знаходзяцца помнік спаленым вёскам і іншыя мемарыялы.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Помнік спаленым вёскам",
+        "note": "Вул. Савецкая, усталяваны ў 2005 годзе",
+        "photo": "https://visitpruzhany.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://visitpruzhany.by/"
+      },
+      {
+        "name": "Помнік лётчыкам 33-га знішчальнага авіяцыйнага палка",
+        "note": "У райцэнтры",
+        "photo": "https://news.sb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://news.sb.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "33-і знішчальны авіяцыйны полк",
+        "source": "https://news.sb.by/"
+      }
+    ]
+  },
+  "29": {
+    "intro": "Кобрын — горад у Брэсцкай вобласці. У горадзе знаходзяцца брацкая магіла і мемарыяльны комплекс загінулым землякам.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Брацкая магіла савецкіх воінаў і партызан",
+        "note": "Паўночна-ўсходняя ўскраіна горада, каля шашы Брэст-Мінск. Пахавана 30 воінаў і партызан",
+        "photo": "https://ru.belarus.travel/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://ru.belarus.travel/"
+      },
+      {
+        "name": "Мемарыяльны комплекс загінулым у Вялікай Айчыннай вайне землякам",
+        "note": "Скульптура смуткуючай маці",
+        "photo": "https://rep.bstu.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://rep.bstu.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Кобрына",
+        "source": "https://rep.bstu.by/"
+      }
+    ]
+  },
+  "30": {
+    "intro": "Бяроза — горад у Брэсцкай вобласці. У горадзе знаходзяцца брацкая магіла і помнік савецкім лётчыкам.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Брацкая магіла ў Камсамольскім скверы",
+        "note": "Пахавана 403 салдаты, якія загінулі ў пачатку Вялікай Айчыннай вайны",
+        "photo": "https://bereza-cbs.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://bereza-cbs.by/"
+      },
+      {
+        "name": "Помнік савецкім лётчыкам",
+        "note": "Самалёт на ўездзе ў Бярозу",
+        "photo": "https://planetabelarus.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://planetabelarus.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "20-ы стралковы корпус 28-й арміі 1-га Беларускага фронту",
+        "source": "https://bereza-cbs.by/"
+      }
+    ]
+  },
+  "31": {
+    "intro": "Драгічын — горад у Брэсцкай вобласці. У горадзе і раёне знаходзяцца шматлікія воінскія пахаванні і помнікі.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Брацкая магіла № 5516 «Гармата»",
+        "note": "Каля чыгуначнага палатна, пахавана 248 загінулых",
+        "photo": "https://www.drogichin.brest-region.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://www.drogichin.brest-region.gov.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў баях за Драгічын",
+        "source": "https://www.drogichin.brest-region.gov.by/"
+      }
+    ]
+  },
+  "32": {
+    "intro": "Столін — горад у Брэсцкай вобласці. У раёне знаходзяцца мемарыялы ахвярам фашызму, уключаючы ўрочышча Стасіна.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Мемарыяльны комплекс «Стасіна»",
+        "note": "Урочышча Стасіна, за 5 км ад Століна. Першы абеліск усталяваны ў 1969 годзе, помнік — у 1992 годзе",
+        "photo": "https://unicat.nlb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://unicat.nlb.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Столінскага раёна",
+        "source": "https://unicat.nlb.by/"
+      }
+    ]
+  },
+  "33": {
+    "intro": "Тураў — горад у Жыткавіцкім раёне Гомельскай вобласці. У горадзе знаходзяцца помнік воінам-вызваліцелям і брацкая магіла.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Помнік воінам-вызваліцелям Турава",
+        "note": "Цэнтральная плошча, САУ ІСУ-152. Адкрыты 7 верасня 2017 года",
+        "photo": "https://planetabelarus.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://planetabelarus.by/"
+      },
+      {
+        "name": "Брацкая магіла савецкіх воінаў",
+        "note": "Бераг Струменя, цэнтр Турава. Пахавана 146 ваеннаслужачых",
+        "photo": "https://izvezda.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://izvezda.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Турава",
+        "source": "https://izvezda.by/"
+      }
+    ]
+  },
+  "34": {
+    "intro": "Мазыр — горад у Гомельскай вобласці. У горадзе знаходзіцца мемарыяльны комплекс «Курган Славы».",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Мемарыяльны комплекс «Курган Славы»",
+        "note": "45-метровая стэла, брацкая магіла воінаў Савецкай арміі і партызан Палескага партызанскага злучэння",
+        "photo": "https://archives.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://archives.gov.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "546-ы зенітна-артылерыйскі полк",
+        "source": "https://archives.gov.by/"
+      }
+    ]
+  },
+  "35": {
+    "intro": "Калінкавічы — горад у Гомельскай вобласці. У горадзе знаходзіцца мемарыял Герояў.",
+    "heroes": [],
+    "museums": [],
+    "monuments": [
+      {
+        "name": "Мемарыял Герояў",
+        "note": "Гранітныя пліты з імёнамі камандуючых Беларускім фронтам і 15 Герояў Савецкага Саюза",
+        "photo": "https://belta.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
+        "source": "https://belta.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "Часці і злучэнні, якія ўдзельнічалі ў вызваленні Калінкавічаў",
+        "source": "https://belta.by/"
+      }
+    ]
+  },
+  "36": {
     "intro": "Рэчыца — горад у Гомельскай вобласці на Дняпры. Першы горад Беларусі, у гонар вызвалення якога ў Маскве быў дадзены пераможны салют (18 лістапада 1943 года). 21 воінская часць атрымала найменне «Рэчыцкая».",
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Брацкая магіла", "note": "Вул. М. Фрунзэ д. 44-46", "photo": "https://izvezda.by/images/storage/simplecatalog/002614_487341.jpg" },
-      { "name": "Мемарыяльны комплекс Воінам землякам", "note": "Каля вул. Школьнай, 24", "photo": "https://savehistory.by/upload/iblock/756/7e37zo3vnxzp5f1j0mi5uxfqs7p2yqvp.jpg" }
+      {
+        "name": "Брацкая магіла",
+        "note": "Вул. М. Фрунзэ д. 44-46",
+        "photo": "https://izvezda.by/images/storage/simplecatalog/002614_487341.jpg",
+        "source": "https://izvezda.by/"
+      },
+      {
+        "name": "Мемарыяльны комплекс Воінам землякам",
+        "note": "Каля вул. Школьнай, 24",
+        "photo": "https://savehistory.by/upload/iblock/756/7e37zo3vnxzp5f1j0mi5uxfqs7p2yqvp.jpg",
+        "source": "https://savehistory.by/"
+      }
+    ],
+    "troops": [
+      {
+        "unit": "21 воінская часць, якая атрымала найменне «Рэчыцкая»",
+        "source": "https://savehistory.by/"
+      }
     ]
   }
 }
