@@ -129,6 +129,7 @@
     "museums": [],
     "monuments": [
       { "name": "Братская могила", "note": "Ул. Фрунзе д. 44-46", "photo": "" },
+      { "name": "Мемориальный комплекс Воинам землекам", "note": "Около ул. Школьной, 24", "photo": "https://savehistory.by/upload/iblock/756/7e37zo3vnxzp5f1j0mi5uxfqs7p2yqvp.jpg" }
     ]
   }
 }
