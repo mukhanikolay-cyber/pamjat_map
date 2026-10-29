@@ -94,7 +94,7 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Помнік у гонар воінскіх часцей і злучэнняў, якія вызначыліся пры вызваленні Бабруйска", "note": "Плошча Перамогі", "photo": "https://heritage.gov.by/Files/exhibits/113%D0%94000024_2025-03-05-10-31-04/media/40d9b5c7-4e9f-4f3f-bc78-b268ff58bf5c.jpg" }
+      { "name": "Помнік у гонар воінскіх часцей і злучэнняў, якія вызначыліся пры вызваленні Бабруйска", "note": "Плошча Перамогі", "photo": "https://wiki.bobr.by/images/thumb/f/fc/%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg/700px-%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg" }
     ]
   },
   "10": {
@@ -112,8 +112,8 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Мемарыяльны комплекс вызваліцелям Пінска", "note": "1950–1967", "photo": "" },
-      { "name": "Вечны агонь і брацкая магіла", "note": "Плошча Леніна", "photo": "" }
+      { "name": "Мемарыяльны комплекс вызваліцелям Пінска", "note": "1950–1967", "photo": "https://imgs.search.brave.com/S00vuKPQDFVTYUV0Vl2jdzdu-CkMlOzJINi0Vu5Vnbg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zYXZl/aGlzdG9yeS5ieS91/cGxvYWQvaWJsb2Nr/L2JhNy9oazR0NmM4/cjl0ajczMzh2ZDh0/a3ZlNmpqNnJkYmtv/ZS5qcGc" },
+      { "name": "Вечны агонь і брацкая магіла", "note": "Плошча Леніна", "photo": "https://avatars.mds.yandex.net/get-altay/13793720/2a00000191a21571f41fec1af0b082030e78/L_height" }
     ]
   },
   "12": {
@@ -121,8 +121,7 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Помнік Вызвалення (1964)", "note": "Сквер каля гарадскога Дома культуры", "photo": "" },
-      { "name": "Вечны агонь", "note": "Каля гарадскога Дома культуры", "photo": "" }
+      { "name": "Помнік Вызвалення (1964) з Вечным агнём", "note": "Сквер каля гарадскога Дома культуры", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg/960px-%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" }
     ]
   },
   "18": {
@@ -130,8 +129,8 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Брацкая магіла савецкіх воінаў", "note": "Гарадскія могілкі", "photo": "" },
-      { "name": "Танк Т-34-76", "note": "Парк Перамогі", "photo": "" }
+      { "name": "Брацкая магіла", "note": "Вул. М. Фрунзэ д. 44-46", "photo": "https://izvezda.by/images/storage/simplecatalog/002614_487341.jpg" },
+      { "name": "Мемарыяльны комплекс Воінам землякам", "note": "Каля вул. Школьнай, 24", "photo": "https://savehistory.by/upload/iblock/756/7e37zo3vnxzp5f1j0mi5uxfqs7p2yqvp.jpg" }
     ]
   }
 }
