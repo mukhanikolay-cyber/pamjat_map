@@ -4,202 +4,68 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      {
-        "name": "Стела воинам-освободителям 15-го стрелкового корпуса 13-й армии",
-        "note": "Установлена в 1976 году",
-        "photo": "https://planetabelarus.by/upload/resize_cache/iblock/bfc/1330_887_18e21fe612b4afb807a26ecc22279a1d9/bfc16368a4de4761acefae7c5ee7c90b.jpg",
-        "source": "https://planetabelarus.by/sights/komarin/"
-      },
-      {
-        "name": "Братская могила советских воинов",
-        "note": "Центральная площадь",
-        "photo": "https://i0.wp.com/braginskiecennosty.wordpress.com/wp-content/uploads/2023/05/d091d09c-d0b3.d0bf.d09ad0b0d0bcd0b0d180d18bd0bd-2.jpg?fit=1200%2C900&ssl=1&w=640",
-        "source": "https://braginskiecennosty.wordpress.com/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "15-й стрелковый корпус 13-й армии",
-        "source": "https://planetabelarus.by/sights/komarin/"
-      }
+      { "name": "Стела воинам-освободителям 15-го стрелкового корпуса 13-й армии", "note": "Установлена в 1976 году", "photo": "https://planetabelarus.by/upload/resize_cache/iblock/bfc/1330_887_18e21fe612b4afb807a26ecc22279a1d9/bfc16368a4de4761acefae7c5ee7c90b.jpg" },
+      { "name": "Братская могила советских воинов", "note": "Центральная площадь", "photo": "https://i0.wp.com/braginskiecennosty.wordpress.com/wp-content/uploads/2023/05/d091d09c-d0b3.d0bf.d09ad0b0d0bcd0b0d180d18bd0bd-2.jpg?fit=1200%2C900&amp;ssl=1&amp;w=640" }
     ]
   },
   "2": {
     "intro": "Гомель — второй по величине город Беларуси, административный центр Гомельской области. Первый областной центр БССР, освобождённый в 1943 году. 23 части и соединения получили почётное наименование «Гомельских».",
     "heroes": ["П. Я. Головачёв", "Т. С. Бородулин"],
     "museums": [
-      {
-        "name": "Гомельский областной музей воинской славы",
-        "url": "https://voenmuz.by/"
-      },
-      {
-        "name": "Гомельский дворцово-парковый ансамбль",
-        "url": "https://palacegomel.by/"
-      }
+      { "name": "Гомельский областной музей военной славы", "url": "https://museum.mil.by/" },
+      { "name": "Гомельский дворцово-парковый ансамбль", "url": "https://palacegomel.by/" }
     ],
     "monuments": [
-      {
-        "name": "Аллея Героев",
-        "note": "Ул. Советская",
-        "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Memorial_to_fallen_soldiers_in_Student_garden_square_%284%29.jpg",
-        "source": "https://voenmuz.by/"
-      },
-      {
-        "name": "Памятник-танк Т-34",
-        "note": "Площадь Восстания",
-        "photo": "https://street.gomelhistory.by/wp-content/uploads/2014/12/tank00.jpg",
-        "source": "https://street.gomelhistory.by/"
-      },
-      {
-        "name": "Мемориал на площади Восстания",
-        "note": "Площадь Восстания",
-        "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pl._Paustannya_in_Gomel_7_May_2014.jpg",
-        "source": "https://voenmuz.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "23 части и соединения, получившие наименование «Гомельских»",
-        "source": "https://voenmuz.by/"
-      }
+      { "name": "Аллея Героев", "note": "Ул. Советская", "photo": "" },
+      { "name": "Памятник-танк Т-34", "note": "Площадь Восстания", "photo": "" },
+      { "name": "Мемориал на площади Восстания", "note": "Площадь Восстания", "photo": "" }
     ]
   },
   "3": {
     "intro": "Минск — столица Белорусской ССР, крупнейший административный, экономический и культурный центр республики. Освобождён 3 июля 1944 года в ходе операции «Багратион». В Минском «котле» была окружена крупная группировка противника.",
     "heroes": ["Д. Г. Фроликов", "С. Ф. Шутов"],
     "museums": [
-      {
-        "name": "Белорусский государственный музей истории Великой Отечественной войны",
-        "url": "https://www.warmuseum.by/"
-      },
-      {
-        "name": "Музей истории города Минска",
-        "url": "https://minskmuseum.by/"
-      }
+      { "name": "Белорусский государственный музей истории Великой Отечественной войны", "url": "https://www.warmuseum.by/" },
+      { "name": "Музей истории города Минска", "url": "https://minsk-museum.by/" }
     ],
     "monuments": [
-      {
-        "name": "Монумент «Танк-освободитель»",
-        "note": "У Дома офицеров, пр. Независимости",
-        "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Belarus-Minsk-Tank_Monument.jpg",
-        "source": "https://www.warmuseum.by/"
-      },
-      {
-        "name": "Мемориал «Курган Славы»",
-        "note": "21-й км шоссе Минск — Москва",
-        "photo": "https://upload.wikimedia.org/wikipedia/ru/2/2d/%D0%9A%D1%83%D1%80%D0%B3%D0%B0%D0%BD_%D0%A1%D0%BB%D0%B0%D0%B2%D1%8B.jpg",
-        "source": "https://www.warmuseum.by/"
-      },
-      {
-        "name": "Памятник героям-танкистам в Уручье",
-        "note": "Урочище Уручье",
-        "photo": "https://minsknews.by/wp-content/uploads/2024/07/img_0574-kopiya.jpg",
-        "source": "https://minsknews.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в операции «Багратион»",
-        "source": "https://www.warmuseum.by/"
-      }
+      { "name": "Монумент «Танк-освободитель»", "note": "У Дома офицеров, пр. Независимости", "photo": "" },
+      { "name": "Мемориал «Курган Славы»", "note": "21-й км шоссе Минск — Москва", "photo": "" },
+      { "name": "Памятник героям-танкистам в Уручье", "note": "Урочище Уручье", "photo": "" }
     ]
   },
   "4": {
     "intro": "Брест — областной центр, город на границе с Польшей. Освобождён 28 июля 1944 года в ходе Люблин-Брестской операции, завершившей освобождение Беларуси. 47 частям и соединениям присвоено почётное наименование «Брестских».",
     "heroes": ["П. М. Гаврилов", "Е. М. Фомин"],
     "museums": [
-      {
-        "name": "Мемориальный комплекс «Брестская крепость-герой»",
-        "url": "https://brest-fortress.by/"
-      },
-      {
-        "name": "Брестский областной краеведческий музей",
-        "url": "https://brokm.by/"
-      }
+      { "name": "Мемориальный комплекс «Брестская крепость-герой»", "url": "https://brest-fortress.by/" },
+      { "name": "Брестский областной краеведческий музей", "url": "https://brokm.by/" }
     ],
     "monuments": [
-      {
-        "name": "Памятник «Освобождение»",
-        "note": "Площадь Свободы",
-        "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg/3840px-%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg",
-        "source": "https://brest-fortress.by/"
-      },
-      {
-        "name": "Вечный огонь",
-        "note": "Мемориальный комплекс «Брестская крепость-герой»",
-        "photo": "https://static.tildacdn.com/tild6261-6339-4234-b138-373566393831/---34-21-06-2022.jpg",
-        "source": "https://brest-fortress.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "47 частей и соединений, получивших наименование «Брестских»",
-        "source": "https://brest-fortress.by/"
-      }
+      { "name": "Памятник «Освобождение»", "note": "площадь Свободы", "photo": "" },
+      { "name": "Вечный огонь", "note": "Мемориальный комплекс «Брестская крепость-герой»", "photo": "https://static.tildacdn.com/tild6261-6339-4234-b138-373566393831/---34-21-06-2022.jpg" }
     ]
   },
   "5": {
     "intro": "Гродно — областной центр на западе Беларуси, город на реке Неман. Освобождён 16 июля 1944 года в ходе Белостокской и Вильнюсской операций. Правобережная часть освобождена 16 июля, занеманская — 24 июля.",
     "heroes": ["И. Д. Черняховский"],
     "museums": [
-      {
-        "name": "Гродненский государственный историко-археологический музей",
-        "url": "https://museum-grodno.by/"
-      }
+      { "name": "Гродненский государственный историко-археологический музей", "url": "https://museum-grodno.by/" }
     ],
     "monuments": [
-      {
-        "name": "Памятник воинам-освободителям — танк Т-34-85",
-        "note": "Советская площадь",
-        "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg/960px-Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg",
-        "source": "https://museum-grodno.by/"
-      },
-      {
-        "name": "Братская могила советских воинов и партизан",
-        "note": "Парк Жилибера",
-        "photo": "https://img.newgrodno.by/wp-content/uploads/1746015369a8b5cfc9-1fee-4c13-9daa-c2bd8dcb72d0-600x800.jpg",
-        "source": "https://museum-grodno.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в Белостокской и Вильнюсской операциях",
-        "source": "https://museum-grodno.by/"
-      }
+      { "name": "Памятник воинам-освободителям — танк Т-34-85", "note": "Советская площадь", "photo": "" },
+      { "name": "Братская могила советских воинов и партизан", "note": "Парк Жилибера", "photo": "" }
     ]
   },
   "6": {
     "intro": "Витебск — областной центр на северо-востоке Беларуси. Освобождён 26 июня 1944 года в ходе Витебско-Оршанской операции. В «Витебском котле» были окружены крупные силы противника. 62 соединения и части получили наименование «Витебских».",
     "heroes": [],
     "museums": [
-      {
-        "name": "Витебский областной краеведческий музей",
-        "url": "https://www.ratusha-vit.by/"
-      },
-      {
-        "name": "Информационный ресурс о Площади Победы",
-        "url": "https://mem.cbsvit.by/%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B"
-      }
+      { "name": "Витебский областной краеведческий музей", "url": "https://ratusha-vitebsk.by/" }
     ],
     "monuments": [
-      {
-        "name": "Мемориальный комплекс «Три штыка»",
-        "note": "Площадь Победы",
-        "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/Tri_shtyka.jpg",
-        "source": "https://mem.cbsvit.by/"
-      },
-      {
-        "name": "Мемориал советским воинам, партизанам и подпольщикам Витебщины",
-        "note": "Площадь Победы",
-        "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/vitebsk_6.jpg",
-        "source": "https://mem.cbsvit.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "62 соединения и части, получившие наименование «Витебских»",
-        "source": "https://mem.cbsvit.by/"
-      }
+      { "name": "Мемориальный комплекс «Три штыка»", "note": "площадь Победы", "photo": "" },
+      { "name": "Мемориал советским воинам, партизанам и подпольщикам Витебщины", "note": "Площадь Победы", "photo": "" }
     ]
   },
   "7": {
@@ -207,97 +73,37 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      {
-        "name": "Памятник воинам-освободителям, партизанам и подпольщикам (1984)",
-        "note": "Городской парк",
-        "photo": "https://towntravel.ru/wp-content/uploads/2018/01/35-%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA-%D0%B2%D0%BE%D0%B8%D0%BD%D0%B0%D0%BC-%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B9-%D0%B0%D1%80%D0%BC%D0%B8%D0%B8-%D0%BF%D0%B0%D1%80%D1%82%D0%B8%D0%B7%D0%B0%D0%BD%D0%B0%D0%BC-%D0%B8-%D0%BF%D0%BE%D0%B4%D0%BF%D0%BE%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0%D0%BC-%D0%B3%D0%B5%D1%80%D0%BE%D1%8F%D0%BC-%D0%B1%D0%B8%D1%82%D0%B2%D1%8B-%D0%B7%D0%B0-%D0%BE%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0-%D0%9E%D1%80%D1%88%D0%B8.jpg",
-        "source": "https://towntravel.ru/"
-      },
-      {
-        "name": "Курган Бессмертия",
-        "note": "В центре парка Героев",
-        "photo": "https://towntravel.ru/wp-content/uploads/2018/01/11-%D0%9E%D1%80%D1%88%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D0%BA%D1%83%D1%80%D0%B3%D0%B0%D0%BD.jpg",
-        "source": "https://towntravel.ru/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "41 часть и соединение, получившие наименование «Оршанских»",
-        "source": "https://towntravel.ru/"
-      }
+      { "name": "Памятник воинам-освободителям, партизанам и подпольщикам (1984)", "note": "Городской парк", "photo": "" },
+      { "name": "Курган Бессмертия", "note": "В центре парка Героев", "photo": "" }
     ]
   },
   "8": {
-    "intro": "Могилёв — областной центр на востоке Беларуси, город на Днепре. Освобождён 28 июня 1944 года в ходе Могилёвской операции. 21 часть и соединение получили наименование «Могилёвских», 28 воинов удостоены звания Героя Советского Союза.",
-    "heroes": ["П. И. Иванов", "М. И. Бирюков"],
+    "intro": "Могилев — областной центр на востоке Беларуси, город на Днепре. Освобождён 28 июня 1944 года в ходе Могилевской операции. 21 часть и соединение получили наименование «Могилевских», 28 воинов удостоены звания Героя Советского Союза.",
+    "heroes": ["П. И. Иванов", "Н. И. Бирюков"],
     "museums": [
-      {
-        "name": "Могилёвский областной краеведческий музей",
-        "url": "https://mogilevmuseum.by/"
-      }
+      { "name": "Могилевский областной краеведческий музей", "url": "https://mokm.mogilev.by/" }
     ],
     "monuments": [
-      {
-        "name": "Памятник воинам-героям обороны и освобождения Могилёва",
-        "note": "Танк Т-34 на постаменте",
-        "photo": "https://mogilevnews.by/wp-content/uploads/2026/07/dsc07440.jpg",
-        "source": "https://mogilevmuseum.by/"
-      },
-      {
-        "name": "Мемориальные доски и улицы в честь освободителей (доска в честь С. Ф. Шутова)",
-        "note": "Центр города",
-        "photo": "https://csgpb.by/geroi/wp-content/uploads/2020/04/%D0%A1.-%D0%A4.-%D0%A8%D1%83%D1%82%D0%BE%D0%B2.jpg",
-        "source": "https://mogilevmuseum.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "21 часть и соединение, получившие наименование «Могилёвских»",
-        "source": "https://mogilevmuseum.by/"
-      }
+      { "name": "Памятник воинам-героям обороны и освобождения Могилева", "note": "Танк Т-34 на пьедестале", "photo": "" },
+      { "name": "Мемориальные доски и улицы в честь освободителей", "note": "Центр города", "photo": "" }
     ]
   },
   "9": {
-    "intro": "Бобруйск — город в Могилёвской области, крупный узел обороны противника. Освобождён 29 июня 1944 года в ходе Бобруйской операции. 20 воинских частей и соединений получили наименование «Бобруйских».",
+    "intro": "Бобруйск — город в Могилевской области, крупный узел обороны противника. Освобождён 29 июня 1944 года в ходе Бобруйской операции. 20 войсковых частей и соединений получили наименование «Бобруйских».",
     "heroes": [],
     "museums": [],
     "monuments": [
-      {
-        "name": "Памятник в честь воинских частей и соединений, отличившихся при освобождении Бобруйска",
-        "note": "Площадь Победы (сквер по ул. Социалистической)",
-        "photo": "https://wiki.bobr.by/images/thumb/f/fc/%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg/700px-%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg",
-        "source": "https://wiki.bobr.by/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%B2%D0%BE%D0%B9%D1%81%D0%BA%D0%BE%D0%B2%D1%8B%D0%BC_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC_%D0%B8_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "20 воинских частей и соединений, получивших наименование «Бобруйских»",
-        "source": "https://wiki.bobr.by/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%B2%D0%BE%D0%B9%D1%81%D0%BA%D0%BE%D0%B2%D1%8B%D0%BC_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC_%D0%B8_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC"
-      }
+      { "name": "Памятник в честь войсковых частей и соединений, отличившихся при освобождении Бобруйска", "note": "площадь Победы", "photo": "" }
     ]
   },
   "10": {
     "intro": "Полоцк — древнейший город Беларуси, районный центр Витебской области. Освобождён 4 июля 1944 года в ходе Полоцкой операции. 4 дивизиям, 4 бригадам и 23 отдельным частям присвоено наименование «Полоцких».",
     "heroes": [],
     "museums": [
-      {
-        "name": "Национальный Полоцкий историко-культурный музей-заповедник",
-        "url": "https://polotsk.museum.by/"
-      }
+      { "name": "Национальный Полоцкий историко-культурный музей-заповедник", "url": "https://polotsk.museum.by/" }
     ],
     "monuments": [
-      {
-        "name": "Памятник Братская могила № 4250 «Освободителям Полоцка»",
-        "note": "Площадь Свободы, проспект Франциска Скорины",
-        "photo": "https://savehistory.by/upload/iblock/cf2/zkerpwme3puvje3vwk0oya2mvjq0lj2q.jpg",
-        "source": "https://savehistory.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "4 дивизии, 4 бригады и 23 отдельные части, получившие наименование «Полоцких»",
-        "source": "https://polotsk.museum.by/"
-      }
+      { "name": "Братская могила № 4250 «Освободителям Полоцка»", "note": "Площадь Свободы, проспект Франциска Скорины", "photo": "https://savehistory.by/upload/iblock/cf2/zkerpwme3puvje3vwk0oya2mvjq0lj2q.jpg" }
     ]
   },
   "11": {
@@ -305,24 +111,8 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      {
-        "name": "Мемориальный комплекс освободителям Пинска",
-        "note": "1950–1967",
-        "photo": "https://imgs.search.brave.com/S00vuKPQDFVTYUV0Vl2jdzdu-CkMlOzJINi0Vu5Vnbg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zYXZl/aGlzdG9yeS5ieS91/cGxvYWQvaWJsb2Nr/L2JhNy9oazR0NmM4/cjl0ajczMzh2ZDh0/a3ZlNmpqNnJkYmtv/ZS5qcGc",
-        "source": "https://savehistory.by/"
-      },
-      {
-        "name": "Вечный огонь и братская могила",
-        "note": "Площадь Ленина",
-        "photo": "https://avatars.mds.yandex.net/get-altay/13793720/2a00000191a21571f41fec1af0b082030e78/L_height",
-        "source": "https://savehistory.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "18 соединений и частей, получивших наименование «Пинских»",
-        "source": "https://savehistory.by/"
-      }
+      { "name": "Мемориальный комплекс освободителям Пинска", "note": "1950–1967", "photo": "" },
+      { "name": "Вечный огонь и братская могила", "note": "Площадь Ленина", "photo": "" }
     ]
   },
   "12": {
@@ -330,584 +120,16 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      {
-        "name": "Памятник Освобождения (1964) с Вечным огнём",
-        "note": "Сквер у городского Дома культуры",
-        "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg/960px-%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg",
-        "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "28 частей и соединений, получивших наименование «Барановичских»",
-        "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg"
-      }
-    ]
-  },
-  "13": {
-    "intro": "Буда-Кошелево — город в Гомельской области. Освобождён 27 ноября 1943 года в ходе Гомельско-Речицкой операции. На северной окраине города находится Курган Славы, насыпанный в 1971 году.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Курган Славы",
-        "note": "Северная окраина города, насыпан в 1971 году, обновлён в 2019 году",
-        "photo": "https://www.budakosh.by/upload/medialibrary/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://www.budakosh.by/"
-      },
-      {
-        "name": "Братская могила советских воинов и партизан",
-        "note": "Центр города, захоронено 253 человека",
-        "photo": "https://planetabelarus.by/upload/resize_cache/iblock/1a1/1330_887_18e21fe612b4afb807a26ecc22279a1d9/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://planetabelarus.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "4-я стрелковая дивизия (полковник Д.Д. Воробьёв), 231-й танковый полк (подполковник Ф.М. Ковалёв) 48-й армии Белорусского фронта",
-        "source": "https://belta.by/"
-      },
-      {
-        "unit": "323-я Брянская, 96-я Гомельская, 260-я Новгород-Волынская стрелковые дивизии",
-        "source": "https://ucp.by/"
-      }
-    ]
-  },
-  "14": {
-    "intro": "Светлогорск — город в Гомельской области. Освобождён в ноябре 1943 года частями 65-й армии под командованием генерала Батова.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Мемориальный комплекс на братской могиле советских воинов",
-        "note": "Братская могила, захоронено более 50 воинов",
-        "photo": "https://svetlogorsk-tourism.ru/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://svetlogorsk-tourism.ru/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "65-я армия под командованием генерала Батова",
-        "source": "https://gp.by/"
-      }
-    ]
-  },
-  "15": {
-    "intro": "Белыничи — город в Могилёвской области. Освобождён 28 июня 1944 года частями 32-й, 42-й и 153-й дивизий 2-го Белорусского фронта.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Братская могила советских воинов и партизан",
-        "note": "Городской парк «Липовая роща», Аллея Героев",
-        "photo": "https://belynichi.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://belynichi.gov.by/"
-      },
-      {
-        "name": "Памятник погибшим мирным жителям и партизанам",
-        "note": "Открыт 9 мая 1995 года",
-        "photo": "https://archives.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://archives.gov.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "32-я, 42-я и 153-я стрелковые дивизии 2-го Белорусского фронта",
-        "source": "https://belynichi.gov.by/"
-      },
-      {
-        "unit": "32-я стрелковая дивизия, 69-й стрелковый корпус 49-й армии",
-        "source": "https://archives.gov.by/"
-      }
-    ]
-  },
-  "16": {
-    "intro": "Новолукомль — город в Чашникском районе Витебской области. В годы войны здесь действовали партизанские отряды.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Памятник Герою Советского Союза Ф.Ф. Озмителю",
-        "note": "Установлен в 1977 году",
-        "photo": "https://www.savehistory.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://www.savehistory.by/"
-      },
-      {
-        "name": "Памятник Герою Советского Союза Ф.Ф. Дубровскому",
-        "note": "Лукомльское шоссе, 12",
-        "photo": "https://ru.belarus.travel/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://ru.belarus.travel/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Партизанский отряд «Гром»",
-        "source": "https://www.savehistory.by/"
-      }
-    ]
-  },
-  "17": {
-    "intro": "Новополоцк — город в Витебской области, фактически часть Полоцка. В годы войны на этой территории действовали партизаны, здесь же находился концлагерь Шталаг-354.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Обелиск на братской могиле воинов 219-го гвардейского стрелкового полка",
-        "note": "Ул. Парковая, район д. 32",
-        "photo": "https://www.novopolotsk.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://www.novopolotsk.gov.by/"
-      },
-      {
-        "name": "Мемориальный комплекс «Звезда»",
-        "note": "Микрорайон Боровуха",
-        "photo": "https://novopolotsk.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://novopolotsk.gov.by/"
-      },
-      {
-        "name": "Памятник Лилии Костецкой",
-        "note": "Ул. Блохина, 43",
-        "photo": "https://pobeda.pskovlib.ru/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://pobeda.pskovlib.ru/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "219-й гвардейский стрелковый полк",
-        "source": "https://www.novopolotsk.gov.by/"
-      }
+      { "name": "Памятник Освобождения (1964) с Вечным огнём", "note": "Сквер у городского Дома культуры", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg/960px-%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
     ]
   },
   "18": {
-    "intro": "Нарочь — посёлок в Мядельском районе Минской области, на берегу озера Нарочь. В годы войны здесь действовали партизанские бригады.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Мемориальный комплекс «Партизанам Вилейщины»",
-        "note": "Берег озера Нарочь, близ д. Никольцы. 24-метровый обелиск, установлен в 1968 году",
-        "photo": "https://news.sb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://news.sb.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "18 партизанских бригад и отрядов, действовавших на Вилейщине",
-        "source": "https://news.sb.by/"
-      }
-    ]
-  },
-  "19": {
-    "intro": "Воложин — город в Минской области. Освобождён в июле 1944 года. В городе находится братская могила советских воинов.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Братская могила советских воинов",
-        "note": "Площадь Свободы, захоронено 160 воинов",
-        "photo": "https://unicat.nlb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://unicat.nlb.by/"
-      },
-      {
-        "name": "Памятник «Скорбящая мать»",
-        "note": "Установлен в 1961 году на месте массового уничтожения мирных жителей",
-        "photo": "https://volozhin.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://volozhin.gov.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Воложина",
-        "source": "https://volozhin.gov.by/"
-      }
-    ]
-  },
-  "20": {
-    "intro": "Лида — город в Гродненской области. Освобождён в июле 1944 года. В городе находится Курган Бессмертия и другие памятники.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Курган Бессмертия",
-        "note": "Насыпан в 1966 году, высота 7 м",
-        "photo": "https://turismlida.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://turismlida.by/"
-      },
-      {
-        "name": "Памятник в честь воинов-освободителей и партизан",
-        "note": "Центр города",
-        "photo": "https://turismlida.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://turismlida.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "3-й гвардейский кавалерийский корпус",
-        "source": "https://lida.gov.by/"
-      }
-    ]
-  },
-  "21": {
-    "intro": "Молодечно — город в Минской области. Освобождён в июле 1944 года. В городе находятся мемориальный комплекс «Шталаг-342» и другие памятники.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Мемориальный комплекс «Шталаг-342»",
-        "note": "Ул. Заславская, открыт в 1995 году",
-        "photo": "https://minoblturism.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://minoblturism.gov.by/"
-      },
-      {
-        "name": "Памятник на братской могиле",
-        "note": "Ул. Дроздовича, сквер. Установлен в 1964 году, захоронено 385 человек",
-        "photo": "https://molodechno.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://molodechno.gov.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Молодечно",
-        "source": "https://molodechno.gov.by/"
-      }
-    ]
-  },
-  "22": {
-    "intro": "Слоним — город в Гродненской области. Освобождён в июле 1944 года. В городе находится мемориал воинам, освобождавшим город.",
-    "heroes": ["Кузьма Гнедаш", "Клара Давидюк"],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Мемориал воинам, освобождавшим город",
-        "note": "Городской сквер по ул. Пушкина. Установлен в 1956 году, скульптор Аким Курочкин",
-        "photo": "https://slonim.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://slonim.gov.by/"
-      },
-      {
-        "name": "Могила Героя Советского Союза Кузьмы Гнедаша и радистки Клары Давидюк",
-        "note": "Ул. Пушкина",
-        "photo": "https://slonimlibkolas.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://slonimlibkolas.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Слонима",
-        "source": "https://slonim.gov.by/"
-      }
-    ]
-  },
-  "23": {
-    "intro": "Сморгонь — город в Гродненской области. Освобождён в июле 1944 года. В городе находятся мемориальный комплекс «Переправа» и другие памятники.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Мемориальный комплекс «Переправа»",
-        "note": "Берег реки Вилии, место начала освобождения города в июле 1944 года",
-        "photo": "https://smorgon.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://smorgon.gov.by/"
-      },
-      {
-        "name": "Памятник землякам",
-        "note": "Советская улица, захоронено 250 воинов и партизан. Установлен в 1966 году",
-        "photo": "https://unicat.nlb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://unicat.nlb.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Сморгони",
-        "source": "https://smorgon.gov.by/"
-      }
-    ]
-  },
-  "24": {
-    "intro": "Ошмяны — город в Гродненской области. В городе и районе находятся памятники героям Великой Отечественной войны.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Памятник Зое Космодемьянской",
-        "note": "Г. Ошмяны",
-        "photo": "https://oshmiany.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://oshmiany.gov.by/"
-      },
-      {
-        "name": "Памятник Олегу Кошевому",
-        "note": "Г. Ошмяны",
-        "photo": "https://oshmiany.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://oshmiany.gov.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в боях на территории района",
-        "source": "https://oshmiany.gov.by/"
-      }
-    ]
-  },
-  "25": {
-    "intro": "Щучин — город в Гродненской области. В городе находится обелиск в память о погибших в годы Великой Отечественной войны.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Обелиск в память о погибших в годы Великой Отечественной войны",
-        "note": "Городской парк, установлен в 1967 году",
-        "photo": "https://schuchin-lib.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://schuchin-lib.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Щучина",
-        "source": "https://schuchin-lib.by/"
-      }
-    ]
-  },
-  "26": {
-    "intro": "Мосты — город в Гродненской области. В городе находится братская могила советских воинов и партизан.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Братская могила советских воинов и партизан (монумент)",
-        "note": "Ул. Советская, сквер. Захоронено 855 воинов и партизан, погибших в июле 1944 года",
-        "photo": "https://mostylib.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://mostylib.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Мостов",
-        "source": "https://mostylib.by/"
-      }
-    ]
-  },
-  "27": {
-    "intro": "Волковыск — город в Гродненской области. В городе находятся памятник воинам-артиллеристам и другие мемориалы.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Памятник воинам-артиллеристам",
-        "note": "Городская площадь",
-        "photo": "https://volkovysk.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://volkovysk.gov.by/"
-      },
-      {
-        "name": "Памятник жертвам фашизма (скульптура воина и партизанки)",
-        "note": "Урочище «Пороховня»",
-        "photo": "https://volkovysk.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://volkovysk.gov.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "129-я Орловская дивизия",
-        "source": "https://volkovysk.gov.by/"
-      }
-    ]
-  },
-  "28": {
-    "intro": "Пружаны — город в Брестской области. В городе находятся памятник сожжённым деревням и другие мемориалы.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Памятник сожжённым деревням",
-        "note": "Ул. Советская, установлен в 2005 году",
-        "photo": "https://visitpruzhany.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://visitpruzhany.by/"
-      },
-      {
-        "name": "Памятник лётчикам 33-го истребительного авиационного полка",
-        "note": "В райцентре",
-        "photo": "https://news.sb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://news.sb.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "33-й истребительный авиационный полк",
-        "source": "https://news.sb.by/"
-      }
-    ]
-  },
-  "29": {
-    "intro": "Кобрин — город в Брестской области. В городе находятся братская могила и мемориальный комплекс погибшим землякам.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Братская могила советских воинов и партизан",
-        "note": "Северо-восточная окраина города, у шоссе Брест-Минск. Захоронено 30 воинов и партизан",
-        "photo": "https://ru.belarus.travel/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://ru.belarus.travel/"
-      },
-      {
-        "name": "Мемориальный комплекс погибшим в Великой Отечественной войне землякам",
-        "note": "Скульптура скорбящей матери",
-        "photo": "https://rep.bstu.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://rep.bstu.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Кобрина",
-        "source": "https://rep.bstu.by/"
-      }
-    ]
-  },
-  "30": {
-    "intro": "Берёза — город в Брестской области. В городе находятся братская могила и памятник советским лётчикам.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Братская могила в Комсомольском сквере",
-        "note": "Захоронено 403 солдата, погибших в начале Великой Отечественной войны",
-        "photo": "https://bereza-cbs.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://bereza-cbs.by/"
-      },
-      {
-        "name": "Памятник советским лётчикам",
-        "note": "Самолёт на въезде в Берёзу",
-        "photo": "https://planetabelarus.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://planetabelarus.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "20-й стрелковый корпус 28-й армии 1-го Белорусского фронта",
-        "source": "https://bereza-cbs.by/"
-      }
-    ]
-  },
-  "31": {
-    "intro": "Дрогичин — город в Брестской области. В городе и районе находятся многочисленные воинские захоронения и памятники.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Братская могила № 5516 «Пушка»",
-        "note": "У ж/д полотна, захоронено 248 погибших",
-        "photo": "https://www.drogichin.brest-region.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://www.drogichin.brest-region.gov.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в боях за Дрогичин",
-        "source": "https://www.drogichin.brest-region.gov.by/"
-      }
-    ]
-  },
-  "32": {
-    "intro": "Столин — город в Брестской области. В районе находятся мемориалы жертвам фашизма, включая урочище Стасино.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Мемориальный комплекс «Стасино»",
-        "note": "Урочище Стасино, в 5 км от Столина. Первый обелиск установлен в 1969 году, памятник — в 1992 году",
-        "photo": "https://unicat.nlb.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://unicat.nlb.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Столинского района",
-        "source": "https://unicat.nlb.by/"
-      }
-    ]
-  },
-  "33": {
-    "intro": "Туров — город в Житковичском районе Гомельской области. В городе находятся памятник воинам-освободителям и братская могила.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Памятник воинам-освободителям Турова",
-        "note": "Центральная площадь, САУ ИСУ-152. Открыт 7 сентября 2017 года",
-        "photo": "https://planetabelarus.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://planetabelarus.by/"
-      },
-      {
-        "name": "Братская могила советских воинов",
-        "note": "Берег Струменя, центр Турова. Захоронено 146 военнослужащих",
-        "photo": "https://izvezda.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://izvezda.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Турова",
-        "source": "https://izvezda.by/"
-      }
-    ]
-  },
-  "34": {
-    "intro": "Мозырь — город в Гомельской области. В городе находится мемориальный комплекс «Курган Славы».",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Мемориальный комплекс «Курган Славы»",
-        "note": "45-метровая стела, братская могила воинов Советской армии и партизан Полесского партизанского соединения",
-        "photo": "https://archives.gov.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://archives.gov.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "546-й зенитно-артиллерийский полк",
-        "source": "https://archives.gov.by/"
-      }
-    ]
-  },
-  "35": {
-    "intro": "Калинковичи — город в Гомельской области. В городе находится мемориал Героев.",
-    "heroes": [],
-    "museums": [],
-    "monuments": [
-      {
-        "name": "Мемориал Героев",
-        "note": "Гранитные плиты с именами командующих Белорусским фронтом и 15 Героев Советского Союза",
-        "photo": "https://belta.by/upload/iblock/1a1/1a1b8c7e5f9d0e6a7b8c9d0e1f2a3b4c.jpg",
-        "source": "https://belta.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "Части и соединения, участвовавшие в освобождении Калинковичей",
-        "source": "https://belta.by/"
-      }
-    ]
-  },
-  "36": {
     "intro": "Речица — город в Гомельской области на Днепре. Первый город Беларуси, в честь освобождения которого в Москве был дан победный салют (18 ноября 1943 года). 21 воинская часть получила наименование «Речицкая».",
     "heroes": [],
     "museums": [],
     "monuments": [
-      {
-        "name": "Братская могила",
-        "note": "Ул. М. Фрунзе, д. 44-46",
-        "photo": "https://izvezda.by/images/storage/simplecatalog/002614_487341.jpg",
-        "source": "https://izvezda.by/"
-      },
-      {
-        "name": "Мемориальный комплекс Воинам-землякам",
-        "note": "Ул. Школьная, 24",
-        "photo": "https://savehistory.by/upload/iblock/756/7e37zo3vnxzp5f1j0mi5uxfqs7p2yqvp.jpg",
-        "source": "https://savehistory.by/"
-      }
-    ],
-    "troops": [
-      {
-        "unit": "21 воинская часть, получившая наименование «Речицкая»",
-        "source": "https://savehistory.by/"
-      }
+      { "name": "Братская могила", "note": "Ул. М. Фрунзе д. 44-46", "photo": "https://izvezda.by/images/storage/simplecatalog/002614_487341.jpg" },
+      { "name": "Мемориальный комплекс Воинам землякам", "note": "Возле ул. Школьной, 24", "photo": "https://savehistory.by/upload/iblock/756/7e37zo3vnxzp5f1j0mi5uxfqs7p2yqvp.jpg" }
     ]
   }
 }
