@@ -17,8 +17,7 @@
     ],
     "monuments": [
       { "name": "Алея Герояў", "note": "Вул. Савецкая", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Memorial_to_fallen_soldiers_in_Student_garden_square_%284%29.jpg" },
-      { "name": "Помнік-танк Т-34", "note": "Плошча Паўстання", "photo": "https://street.gomelhistory.by/wp-content/uploads/2014/12/tank00.jpg" },
-      { "name": "Мемарыял на плошчы Паўстання", "note": "Плошча Паўстання", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pl._Paustannya_in_Gomel_7_May_2014.jpg" }
+      { "name": "Помнік-танк Т-34", "note": "Плошча Паўстання", "photo": "https://street.gomelhistory.by/wp-content/uploads/2014/12/tank00.jpg" }
     ]
   },
   "3": {
