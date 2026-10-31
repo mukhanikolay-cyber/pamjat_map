@@ -41,6 +41,8 @@ const sortlabels = {
   }
 };
 
+const textfields = ['title', 'date', 'operation', 'units', 'description', 'memory'];
+
 function dechtml(s) {
   const ta = document.createElement('textarea');
   ta.innerHTML = s;
@@ -227,7 +229,7 @@ function fotkiblok(v, cls, cap, eager) {
   const arr = fotki(v);
   if (!arr.length) return '';
   const list = [];
-  for (let i = 0; i < arr.length; i++) list.push(arr[i]);   // ← было esc(arr[i]), стало arr[i]
+  for (let i = 0; i < arr.length; i++) list.push(arr[i]);
   const listattr = esc(JSON.stringify(list));
   const load = eager ? 'eager' : 'lazy';
   let html = '<div class="' + cls + '" data-list="' + listattr + '" data-cap="' + esc(cap || '') + '">';
@@ -297,11 +299,11 @@ async function vzjatjson(url, def) {
 }
 
 async function vzjatbazu() {
-  let pTxt = await vzjattext('langs/points.json');
-  if (pTxt == null) pTxt = await vzjattext('points.json');
-  if (pTxt == null) throw new Error('не найден points.json');
-  try { pointsbase = JSON.parse(pTxt); } catch (e) { throw new Error('points.json: ' + e.message); }
-  if (!Array.isArray(pointsbase)) throw new Error('points.json не массив');
+  let pTxt = await vzjattext('langs/points_ruby.json');
+  if (pTxt == null) pTxt = await vzjattext('points_ruby.json');
+  if (pTxt == null) throw new Error('не найден points_ruby.json');
+  try { pointsbase = JSON.parse(pTxt); } catch (e) { throw new Error('points_ruby.json: ' + e.message); }
+  if (!Array.isArray(pointsbase)) throw new Error('points_ruby.json не массив');
 
   let iTxt = await vzjattext('langs/info.json');
   if (iTxt == null) iTxt = await vzjattext('info.json');
@@ -311,28 +313,15 @@ async function vzjatbazu() {
   }
 }
 
-function slitpoints(base, over) {
-  if (!over || !over.length) return base.slice();
-  const byId = {};
-  for (let i = 0; i < over.length; i++) {
-    const o = over[i];
-    if (o && o.id != null) byId[o.id] = o;
-  }
-  const out = [];
-  for (let i = 0; i < base.length; i++) {
-    const p = base[i];
-    const o = byId[p.id];
-    if (!o) { out.push(p); continue; }
-    const m = {};
-    for (const k in p) m[k] = p[k];
-    for (const k in o) {
-      if (k === 'id') continue;
-      if (k === 'sources') { m[k] = sobratistochniki(p[k], o[k]); continue; }
-      if (k === 'photo') { m[k] = sobratfoto(p[k], o[k]); continue; }
-      if (k === 'memoryPhoto') { m[k] = o[k] || p[k]; continue; }
-      m[k] = o[k];
+function raskryt(point, idx) {
+  const out = {};
+  for (const k in point) {
+    const v = point[k];
+    if (textfields.indexOf(k) >= 0 && Array.isArray(v) && v.length === 2) {
+      out[k] = v[idx] || '';
+    } else {
+      out[k] = v;
     }
-    out.push(m);
   }
   return out;
 }
@@ -370,33 +359,6 @@ function slitinfo(base, over) {
       m[f] = o[f];
     }
     out[k] = m;
-  }
-  return out;
-}
-
-function zapolnit(arr, other, fields) {
-  if (!Array.isArray(other) || !other.length) return arr.slice();
-  const byId = {};
-  for (let i = 0; i < other.length; i++) {
-    const o = other[i];
-    if (o && o.id != null) byId[o.id] = o;
-  }
-  const out = [];
-  for (let i = 0; i < arr.length; i++) {
-    const p = arr[i];
-    const o = byId[p.id];
-    if (!o) { out.push(p); continue; }
-    const m = {};
-    for (const k in p) m[k] = p[k];
-    for (let f = 0; f < fields.length; f++) {
-      const fld = fields[f];
-      const v = p[fld];
-      let empty = !v;
-      if (Array.isArray(v) && !v.length) empty = true;
-      if (typeof v === 'string' && !v.trim()) empty = true;
-      if (empty && o[fld]) m[fld] = o[fld];
-    }
-    out.push(m);
   }
   return out;
 }
@@ -465,20 +427,17 @@ function zapolnitinfo(base, other, fields) {
 async function vzjatlang(code) {
   const cfg = langs[code];
   if (!cfg) return { points: pointsbase, info: infobase };
+  const idx = code === 'by' ? 1 : 0;
+  const points = pointsbase.map(function (p) { return raskryt(p, idx); });
+  let info;
   if (cfg.over) {
-    const pOver = await vzjatjson('langs/points_' + cfg.over + '.json', []);
     const iOver = await vzjatjson('langs/info_' + cfg.over + '.json', {});
-    const points = slitpoints(pointsbase, Array.isArray(pOver) ? pOver : []);
-    const info = slitinfo(infobase, iOver || {});
-    console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length);
-    return { points, info };
+    info = slitinfo(infobase, iOver || {});
+  } else {
+    const iBy = await vzjatjson('langs/info_by.json', {});
+    info = zapolnitinfo(infobase, iBy || {}, ['photo', 'sources', 'monuments']);
   }
-  const pBy = await vzjatjson('langs/points_by.json', []);
-  const iBy = await vzjatjson('langs/info_by.json', {});
-  const points = zapolnit(pointsbase, Array.isArray(pBy) ? pBy : [], ['photo', 'memoryPhoto', 'sources']);
-  const info = zapolnitinfo(infobase, iBy || {}, ['photo', 'sources', 'monuments']);
-  console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length,
-    'baseInfo:', Object.keys(infobase).length, 'byInfo:', Object.keys(iBy || {}).length);
+  console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length);
   return { points, info };
 }
 
@@ -1255,7 +1214,8 @@ async function perekluchit(code, initial) {
     data = await vzjatlang(code);
   } catch (e) {
     console.error('перевод не загрузился:', e);
-    data = { points: pointsbase, info: infobase };
+    const idx = code === 'by' ? 1 : 0;
+    data = { points: pointsbase.map(function (p) { return raskryt(p, idx); }), info: infobase };
   }
 
   pointdata = data.points;
