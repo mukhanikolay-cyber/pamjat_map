@@ -10,14 +10,18 @@
   },
   "2": {
     "intro": "Гомель — второй по величине город Беларуси, административный центр Гомельской области. Первый областной центр БССР, освобождённый в 1943 году. 23 части и соединения получили почётное наименование «Гомельских».",
-    "heroes": ["П. Я. Головачёв", "Т. С. Бородулин"],
+    "heroes": ["П. Я. Головачёв", "Т. С. Бородин"],
     "museums": [
-      { "name": "Гомельский областной музей военной славы", "url": "https://museum.mil.by/" },
+      { "name": "Гомельский областной музей военной славы", "url": "https://voenmuz.by/" },
       { "name": "Гомельский дворцово-парковый ансамбль", "url": "https://palacegomel.by/" }
     ],
     "monuments": [
-      { "name": "Аллея Героев", "note": "Ул. Советская", "photo": "" },
-      { "name": "Памятник-танк Т-34", "note": "Площадь Восстания", "photo": "" }
+      { "name": "Аллея Героев", "note": "Ул. Советская", "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Memorial_to_fallen_soldiers_in_Student_garden_square_%284%29.jpg" },
+      { "name": "Памятник-танк Т-34", "note": "Площадь Восстания", "photo": "https://street.gomelhistory.by/wp-content/uploads/2014/12/tank00.jpg" },
+      { "name": "Мемориал «Вечный огонь»", "note": "На площади Труда в сквере на стыке улиц Коммунаров, Кирова и Трудовой", "photo": "https://upload.wikimedia.org/wikipedia/commons/9/95/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C_2.JPG?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=original" },
+      { "name": "Курган Славы", "note": "В Фестивальном парке", "photo": "https://extraguide.ru/images/blog/2023/09-04-ne9zs2-memorialnyy-kompleks-kurgan-slavy.jpg" },
+      { "name": "Памятник героям-комсомольцам", "note": "Сквер на пересечении улиц Карповича и Жарковского", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/%D0%91%D1%80%D0%B0%D1%82%D1%8D%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%BC%D0%B0%D0%B3%D1%96%D0%BB%D0%B0..JPG/960px-%D0%91%D1%80%D0%B0%D1%82%D1%8D%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%BC%D0%B0%D0%B3%D1%96%D0%BB%D0%B0..JPG?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
+      { "name": "Памятник воинам-зенитчицам", "note": "Улица 8-я Иногородняя, 1", "photo": "https://street.gomelhistory.by/wp-content/uploads/2021/03/monument-zenitchicam03.jpg" }
     ]
   },
   "3": {
@@ -25,12 +29,16 @@
     "heroes": ["Д. Г. Фроликов", "С. Ф. Шутов"],
     "museums": [
       { "name": "Белорусский государственный музей истории Великой Отечественной войны", "url": "https://www.warmuseum.by/" },
-      { "name": "Музей истории города Минска", "url": "https://minsk-museum.by/" }
+      { "name": "Музей истории города Минска", "url": "https://minskmuseum.by/" }
     ],
     "monuments": [
-      { "name": "Монумент «Танк-освободитель»", "note": "У Дома офицеров, пр. Независимости", "photo": "" },
-      { "name": "Мемориал «Курган Славы»", "note": "21-й км шоссе Минск — Москва", "photo": "" },
-      { "name": "Памятник героям-танкистам в Уручье", "note": "Урочище Уручье", "photo": "" }
+      { "name": "Монумент «Танк-освободитель»", "note": "У Дома офицеров, пр. Независимости", "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Belarus-Minsk-Tank_Monument.jpg" },
+      { "name": "Мемориал «Курган Славы»", "note": "21-й км шоссе Минск — Москва", "photo": "https://upload.wikimedia.org/wikipedia/ru/2/2d/%D0%9A%D1%83%D1%80%D0%B3%D0%B0%D0%BD_%D0%A1%D0%BB%D0%B0%D0%B2%D1%8B.jpg" },
+      { "name": "Памятник героям-танкистам в Уручье", "note": "Урочище Уручье", "photo": "https://minsknews.by/wp-content/uploads/2024/07/img_0574-kopiya.jpg" },
+      { "name": "Мемориал «Яма»", "note": "улица Мельникайте", "photo": "https://imgs.search.brave.com/6csqRAPmW13sjj_RrjjLRwks_qhdYFemSaz9mL51_XM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hdWRp/b3dhbGtzLmNlbnRy/b3BhLm9yZy93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMi8wNC9E/U0NGODczMS5qcGc" },
+      { "name": "Монумент Победы", "note": "монумент-обелиск на площади Победы", "photo": "https://imgs.search.brave.com/yoaKUqh7LKc4aOUGWAlXa4-sdMPGEWenWO_xVKPJrKQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbGFu/ZXRhYmVsYXJ1cy5i/eS91cGxvYWQvcmVz/aXplX2NhY2hlL2li/bG9jay9iOGQvMTMz/MF84ODdfMThlMjFm/ZTYxMmI0YWZiODA3/YTI2ZWNjMjIyNzlh/MWQ5L2I4ZGJlMzBk/YTc3YzRiY2UyN2Ey/MTgyN2IwNzEyMjVk/LmpwZw" },
+      { "name": "Стела «Минск — город-герой»", "note": "Проспект Победителей (1985)", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Minsk_the_hero_city.jpg/960px-Minsk_the_hero_city.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
+      { "name": "Мемориал «Масюковщина»", "note": "На пересечении улиц Тимирязева и Радужной (место лагеря Шталаг-352)", "photo": "https://media.times.by/uploads/Memorial_684ded9133.jpg" }
     ]
   },
   "4": {
@@ -41,8 +49,11 @@
       { "name": "Брестский областной краеведческий музей", "url": "https://brokm.by/" }
     ],
     "monuments": [
-      { "name": "Памятник «Освобождение»", "note": "площадь Свободы", "photo": "" },
-      { "name": "Вечный огонь", "note": "Мемориальный комплекс «Брестская крепость-герой»", "photo": "https://static.tildacdn.com/tild6261-6339-4234-b138-373566393831/---34-21-06-2022.jpg" }
+      { "name": "Памятник «Освобождение»", "note": "Площадь Свободы", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg/3840px-%D0%91%D1%80%D1%8D%D1%81%D1%82._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D1%8B_%D0%A1%D0%B2%D0%B0%D0%B1%D0%BE%D0%B4%D1%8B.jpg" },
+      { "name": "Вечный огонь", "note": "Мемориальный комплекс «Брестская крепость-герой»", "photo": "https://static.tildacdn.com/tild6261-6339-4234-b138-373566393831/---34-21-06-2022.jpg" },
+      { "name": "Главный монумент «Мужество»", "note": "Центральный монумент мемориала «Брестская крепость-герой»", "photo": "https://imgs.search.brave.com/8DP7ri2iVKgljOYlOGmtnxzGQqdd_8ONRTnO5AvROGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91bmNo/YXJ0ZWQtYmVsYXJ1/cy5pbWF0dmV5Lnh5/ei93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8xMi85LTMtMTAz/LTA1NC0xODQweDEw/MzUud2VicA" },
+      { "name": "Штык-обелиск", "note": "100-метровый обелиск в составе мемориала «Брестская крепость-герой»", "photo": "https://imgs.search.brave.com/yj8uCO1THYQjpuHg2VFmwGYpVY-kDJnuwXIwo-kLkFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9rZXps/aW5nLnJ1L3dwLW1l/ZGlhL2JlbGFydXNf/NF8wMTEuanBn" },
+      { "name": "Памятник «Героям-пограничникам»", "note": "Сквер Пограничников", "photo": "https://ordenrf.ru/upload/novosty-info/brest-11.jpg" }
     ]
   },
   "5": {
@@ -52,19 +63,26 @@
       { "name": "Гродненский государственный историко-археологический музей", "url": "https://museum-grodno.by/" }
     ],
     "monuments": [
-      { "name": "Памятник воинам-освободителям — танк Т-34-85", "note": "Советская площадь", "photo": "" },
-      { "name": "Братская могила советских воинов и партизан", "note": "Парк Жилибера", "photo": "" }
+      { "name": "Памятник воинам-освободителям — танк Т-34-85", "note": "Советская площадь", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg/960px-Leninsky%2C_Grodno%2C_Belarus_-_panoramio_%28121%29.jpg" },
+      { "name": "Братская могила советских воинов и партизан", "note": "Парк Жилибера", "photo": "https://img.newgrodno.by/wp-content/uploads/1746015369a8b5cfc9-1fee-4c13-9daa-c2bd8dcb72d0-600x800.jpg" },
+      { "name": "Памятник антифашистам-подпольщикам Розанову и Голубовичу", "note": "Ул. Антонова, православное кладбище", "photo": "https://grodnonews.by/upload/medialibrary/9be/9beabb944569f434e24f86f2b385de3e.JPG" },
+      { "name": "Мемориальный ансамбль воинам-пограничникам", "note": "ул. Поповича", "photo": "https://optim.tildacdn.biz/tild3964-3432-4039-b436-326336656262/-/format/webp/-__-.jpg.webp" }
     ]
   },
   "6": {
     "intro": "Витебск — областной центр на северо-востоке Беларуси. Освобождён 26 июня 1944 года в ходе Витебско-Оршанской операции. В «Витебском котле» были окружены крупные силы противника. 62 соединения и части получили наименование «Витебских».",
     "heroes": [],
     "museums": [
-      { "name": "Витебский областной краеведческий музей", "url": "https://ratusha-vitebsk.by/" }
+      { "name": "Витебский областной краеведческий музей", "url": "https://www.ratusha-vit.by/" },
+      { "name": "Информационный ресурс о Площади Победы", "url": "https://mem.cbsvit.by/%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B" }
     ],
     "monuments": [
-      { "name": "Мемориальный комплекс «Три штыка»", "note": "площадь Победы", "photo": "" },
-      { "name": "Мемориал советским воинам, партизанам и подпольщикам Витебщины", "note": "Площадь Победы", "photo": "" }
+      { "name": "Мемориальный комплекс «Три штыка»", "note": "Площадь Победы", "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/Tri_shtyka.jpg" },
+      { "name": "Мемориал советским воинам, партизанам и подпольщикам Витебщины", "note": "Площадь Победы", "photo": "https://mem.cbsvit.by/wp-content/uploads/2024/05/vitebsk_6.jpg" },
+      { "name": "Памятник детям войны", "note": "В парке Партизанской славы имени Миная Шмырёва", "photo": "https://imgs.search.brave.com/cx-SoS-WbzE1k5seHEMJV_kjXk4L_1uNq0B_t5HbsbE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly92aXRl/YnNrLmJpei9zb3Vy/Y2UvcGhvdG9zLzIw/MTYvMDQvMDQvMjAx/NjAzMzEtMTY1NzMy/LmpwZw" },
+      { "name": "Памятник лётчику А.К. Горовцу", "note": "В сквере имени Горовца между улицами Горовца и Коммунистической", "photo": "https://vitebskcity.by/img/gorovets_big.jpg" },
+      { "name": "Обелиск на месте концлагеря «5-й полк»", "note": "Место лагеря «Шталаг 313»", "photo": "https://avatars.mds.yandex.net/get-altay/22302233/2a000001a10c94d81517efb160c1d164d728/XXXL" },
+      { "name": "Памятник П. М. Машерову", "note": "Ул. Замковая, у гостиницы «Витебск»", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%9C%D0%B0%D1%88%D0%B5%D1%80%D0%BE%D0%B2%D1%83_-_panoramio.jpg/960px-%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%9C%D0%B0%D1%88%D0%B5%D1%80%D0%BE%D0%B2%D1%83_-_panoramio.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" }
     ]
   },
   "7": {
@@ -72,27 +90,35 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Памятник воинам-освободителям, партизанам и подпольщикам (1984)", "note": "Городской парк", "photo": "" },
-      { "name": "Курган Бессмертия", "note": "В центре парка Героев", "photo": "" }
+      { "name": "Памятник воинам-освободителям, партизанам и подпольщикам (1984)", "note": "Городской парк", "photo": "https://towntravel.ru/wp-content/uploads/2018/01/35-%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA-%D0%B2%D0%BE%D0%B8%D0%BD%D0%B0%D0%BC-%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B9-%D0%B0%D1%80%D0%BC%D0%B8%D0%B8-%D0%BF%D0%B0%D1%80%D1%82%D0%B8%D0%B7%D0%B0%D0%BD%D0%B0%D0%BC-%D0%B8-%D0%BF%D0%BE%D0%B4%D0%BF%D0%BE%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0%D0%BC-%D0%B3%D0%B5%D1%80%D0%BE%D1%8F%D0%BC-%D0%B1%D0%B8%D1%82%D0%B2%D1%8B-%D0%B7%D0%B0-%D0%BE%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0-%D0%9E%D1%80%D1%88%D0%B8.jpg" },
+      { "name": "Курган Бессмертия", "note": "В центре парка Героев", "photo": "https://towntravel.ru/wp-content/uploads/2018/01/11-%D0%9E%D1%80%D1%88%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D0%BA%D1%83%D1%80%D0%B3%D0%B0%D0%BD.jpg" },
+      { "name": "Мемориальный комплекс «Катюша»", "note": "Расположен на улице Могилёвской, у моста через Днепр, по левому берегу реки", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/%D0%9C%D1%8D%D0%BC%D0%B0%D1%80%D1%8B%D1%8F%D0%BB%D1%8C%D0%BD%D1%8B_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%C2%AB%D0%9A%D0%B0%D1%86%D1%8E%D1%88%D0%B0%C2%BB._%D0%B3._%D0%92%D0%BE%D1%80%D1%88%D0%B0.JPG/960px-%D0%9C%D1%8D%D0%BC%D0%B0%D1%80%D1%8B%D1%8F%D0%BB%D1%8C%D0%BD%D1%8B_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%C2%AB%D0%9A%D0%B0%D1%86%D1%8E%D1%88%D0%B0%C2%BB._%D0%B3._%D0%92%D0%BE%D1%80%D1%88%D0%B0.JPG" }
     ]
   },
   "8": {
-    "intro": "Могилев — областной центр на востоке Беларуси, город на Днепре. Освобождён 28 июня 1944 года в ходе Могилевской операции. 21 часть и соединение получили наименование «Могилевских», 28 воинов удостоены звания Героя Советского Союза.",
+    "intro": "Могилёв — областной центр на востоке Беларуси, город на Днепре. Освобождён 28 июня 1944 года в ходе Могилёвской операции. 21 часть и соединение получили наименование «Могилёвских», 28 воинов удостоены звания Героя Советского Союза.",
     "heroes": ["П. И. Иванов", "Н. И. Бирюков"],
     "museums": [
-      { "name": "Могилевский областной краеведческий музей", "url": "https://mokm.mogilev.by/" }
+      { "name": "Могилёвский областной краеведческий музей", "url": "https://mogilevmuseum.by/" }
     ],
     "monuments": [
-      { "name": "Памятник воинам-героям обороны и освобождения Могилева", "note": "Танк Т-34 на пьедестале", "photo": "" },
-      { "name": "Мемориальные доски и улицы в честь освободителей", "note": "Центр города", "photo": "" }
+      { "name": "Памятник воинам-героям обороны и освобождения Могилёва", "note": "Танк Т-34 на пьедестале", "photo": "https://mogilevnews.by/wp-content/uploads/2026/07/dsc07440.jpg" },
+      { "name": "Мемориальные доски и улицы в честь освободителей (доска в честь С. Ф. Шутова)", "note": "Центр города", "photo": "https://csgpb.by/geroi/wp-content/uploads/2020/04/%D0%A1.-%D0%A4.-%D0%A8%D1%83%D1%82%D0%BE%D0%B2.jpg" },
+      { "name": "Мемориальный комплекс «Буйничское поле»", "note": "В 5 км от города, у агрогородка Буйничи (автодорога Могилёв — Бобруйск)", "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8c/%D0%9C%D0%B0%D0%B3%D1%96%D0%BB%D1%91%D1%9E._%D0%91%D1%83%D0%B9%D0%BD%D1%96%D1%86%D0%BA%D0%B0%D0%B5_%D0%BF%D0%BE%D0%BB%D0%B5.JPG?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" },
+      { "name": "Луполовский лагерь смерти", "note": "Проспект Шмидта", "photo": "https://imgs.search.brave.com/dxQVQYsJ4urLmc3zcAZuBSdPkRO_iCQmuyDNYS9TflE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ucHIu/Ynkvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjQvMDQvTWVtb3Jp/YWxueWota29tcGxl/a3MtTHVwb2xvdnNr/aWotbGFnZXItdm9l/bm5vcGxlbm55aC12/LU1vZ2lsZXZlLTEu/anBn" },
+      { "name": "Мемориальный комплекс «Борцам за советскую власть»", "note": "На Советской площади", "photo": "https://upload.wikimedia.org/wikipedia/commons/6/63/%D0%9C%D0%B0%D0%B3%D1%96%D0%BB%D1%91%D1%9E._%D0%A1%D0%B0%D0%B2%D0%B5%D1%86%D0%BA%D0%B0%D1%8F_%D0%BF%D0%BB%D0%BE%D1%88%D1%87%D0%B0.JPG?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" },
+      { "name": "Памятник бойцам сводного батальона милиции", "note": "Место боя у д. Гаи", "photo": "https://imgs.search.brave.com/6uHR_gCDDm3UPWuvr12nnWOgjzDjTEx5LURx-eU49vM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tb2N0/LmJ5L3N0YXRpYy9p/bWFnZXMvcHJpZG5l/cHJvdmllL21scC1p/bWFnZS0xMzIuanBn" }
     ]
   },
   "9": {
-    "intro": "Бобруйск — город в Могилевской области, крупный узел обороны противника. Освобождён 29 июня 1944 года в ходе Бобруйской операции. 20 войсковых частей и соединений получили наименование «Бобруйских».",
+    "intro": "Бобруйск — город в Могилёвской области, крупный узел обороны противника. Освобождён 29 июня 1944 года в ходе Бобруйской операции. 20 войсковых частей и соединений получили наименование «Бобруйских».",
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Памятник в честь войсковых частей и соединений, отличившихся при освобождении Бобруйска", "note": "площадь Победы", "photo": "" }
+      { "name": "Памятник в честь войсковых частей и соединений, отличившихся при освобождении Бобруйска", "note": "Площадь Победы", "photo": "https://wiki.bobr.by/images/thumb/f/fc/%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg/700px-%D0%91%D0%BE%D0%B1%D1%80%D1%83%D0%B9%D1%81%D0%BA_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%87%D0%B0%D1%81%D1%82%D1%8F%D0%BC.jpg" },
+      { "name": "Памятник партизанам и подпольщикам", "note": "Ул. Интернациональная, 38", "photo": "https://savehistory.by/upload/iblock/fe3/g4d70tjbebyna18hne655z3y3lnzu3r9.jpg" },
+      { "name": "Мемориал боевой славы танкистам-днепровцам", "note": "Ул. Горелика (1975)", "photo": "https://avatars.mds.yandex.net/get-altay/3923004/2a00000174fbfe86f38ec09c1717379307aa/orig" },
+      { "name": "Воинское захоронение № 3002", "note": "Территория Бобруйской крепости", "photo": "https://mogilev-region.gov.by/files/zhertvam_fashizma1.jpg" }
     ]
   },
   "10": {
@@ -102,7 +128,10 @@
       { "name": "Национальный Полоцкий историко-культурный музей-заповедник", "url": "https://polotsk.museum.by/" }
     ],
     "monuments": [
-      { "name": "Братская могила № 4250 «Освободителям Полоцка»", "note": "Площадь Свободы, проспект Франциска Скорины", "photo": "https://savehistory.by/upload/iblock/cf2/zkerpwme3puvje3vwk0oya2mvjq0lj2q.jpg" }
+      { "name": "Братская могила № 4250 «Освободителям Полоцка»", "note": "Площадь Свободы, проспект Франциска Скорины", "photo": "https://savehistory.by/upload/iblock/cf2/zkerpwme3puvje3vwk0oya2mvjq0lj2q.jpg" },
+      { "name": "Мемориальный комплекс «Курган Бессмертия»", "note": "Левый берег Западной Двины (1966)", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Kurgan_Bessmertija_Polotsk_%28Belarus%29.JPG/1920px-Kurgan_Bessmertija_Polotsk_%28Belarus%29.JPG?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
+      { "name": "Мемориальный комплекс памяти жертв фашизма «Урочище Пески»", "note": "Полоцкий район (2020)", "photo": "https://fondmira.by/wp-content/uploads/2015/11/154.jpg" },
+      { "name": "Памятник «23-м воинам-гвардейцам»", "note": "у Нижне-Покровской улицы, 34", "photo": "https://avatars.mds.yandex.net/get-altay/15251677/2a000001988b35ecde6e7b8b34ba867bd40c/XXXL" }
     ]
   },
   "11": {
@@ -110,8 +139,10 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Мемориальный комплекс освободителям Пинска", "note": "1950–1967", "photo": "" },
-      { "name": "Вечный огонь и братская могила", "note": "Площадь Ленина", "photo": "" }
+      { "name": "Мемориальный комплекс освободителям Пинска", "note": "1950–1967", "photo": "https://imgs.search.brave.com/S00vuKPQDFVTYUV0Vl2jdzdu-CkMlOzJINi0Vu5Vnbg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zYXZl/aGlzdG9yeS5ieS91/cGxvYWQvaWJsb2Nr/L2JhNy9oazR0NmM4/cjl0ajczMzh2ZDh0/a3ZlNmpqNnJkYmtv/ZS5qcGc" },
+      { "name": "Вечный огонь и братская могила", "note": "Площадь Ленина", "photo": "https://avatars.mds.yandex.net/get-altay/13793720/2a00000191a21571f41fec1af0b082030e78/L_height" },
+      { "name": "Мемориальный комплекс «Партизанам Полесья»", "note": "Городской сквер перед Дворцом культуры «Трикотажник» (2002)", "photo": "https://planetabelarus.by/upload/resize_cache/iblock/4c2/1330_887_18e21fe612b4afb807a26ecc22279a1d9/4c28459cfa186fa49fdd3f9e64c9a95d.jpg" },
+      { "name": "Обелиск на месте первого боя В. З. Коржа", "note": "д. Галево под Пинском", "photo": "https://ldd.by/wp-content/uploads/2025/03/230825_072.jpg" }
     ]
   },
   "12": {
@@ -119,7 +150,10 @@
     "heroes": [],
     "museums": [],
     "monuments": [
-      { "name": "Памятник Освобождения (1964) с Вечным огнём", "note": "Сквер у городского Дома культуры", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg/960px-%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" }
+      { "name": "Памятник Освобождения (1964) с Вечным огнём", "note": "Сквер у городского Дома культуры", "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg/960px-%D0%92%D0%B5%D1%87%D0%BD%D1%8B%D0%B9_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C-2.jpg?utm_source=be.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
+      { "name": "Мемориальный комплекс «Урочище Гай»", "note": "У железной дороги Барановичи — Минск (1972)", "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%D0%93%D0%B0%D0%B9.jpg?utm_source=ru.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" },
+      { "name": "Памятник советским воинам и узникам лагеря смерти (Шталаг-337) (Леснянский лагерь смерти)", "note": "между д. Тартаки и д. Берёзовка", "photo": "https://belarusenc.by/upload/iblock/9c7/ekxetef2at5028f3occnzr3z8p7ng683/LYASNYANSKI-LAGER-SMERTSI_01-small.jpg" },
+      { "name": "Мемориалы на месте Колдычевского лагеря смерти", "note": "Барановичский район, д. Колдычево", "photo": "https://october.moy.su/_ph/15/927380596.jpg" }
     ]
   },
   "18": {
@@ -128,7 +162,7 @@
     "museums": [],
     "monuments": [
       { "name": "Братская могила", "note": "Ул. М. Фрунзе д. 44-46", "photo": "https://izvezda.by/images/storage/simplecatalog/002614_487341.jpg" },
-      { "name": "Мемориальный комплекс Воинам землякам", "note": "Возле ул. Школьной, 24", "photo": "https://savehistory.by/upload/iblock/756/7e37zo3vnxzp5f1j0mi5uxfqs7p2yqvp.jpg" }
+      { "name": "Мемориальный комплекс Воинам-землякам", "note": "Возле ул. Школьной, 24", "photo": "https://savehistory.by/upload/iblock/756/7e37zo3vnxzp5f1j0mi5uxfqs7p2yqvp.jpg" }
     ]
   }
 }
