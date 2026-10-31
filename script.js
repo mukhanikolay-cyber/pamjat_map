@@ -390,9 +390,6 @@ function zapolnit(arr, other, fields) {
   return out;
 }
 
-// info_by.json — источник истины для monuments.
-// Остальные поля (intro, heroes, museums, photo, sources) берём из info.json,
-// недостающие добиваем из info_by.
 function zapolnitinfo(base, other, fields) {
   if (!other) return base;
   const out = {};
@@ -401,7 +398,6 @@ function zapolnitinfo(base, other, fields) {
   for (const k in other) {
     const o = other[k];
 
-    // Города нет в info.json — берём info_by целиком
     if (!base[k]) {
       const entry = {};
       if (o.intro)   entry.intro   = o.intro;
@@ -416,7 +412,6 @@ function zapolnitinfo(base, other, fields) {
       continue;
     }
 
-    // Город есть в info.json
     const b = base[k];
     const m = {};
     for (const f in b) m[f] = b[f];
@@ -425,8 +420,23 @@ function zapolnitinfo(base, other, fields) {
       const fld = fields[i];
 
       if (fld === 'monuments') {
-        if (Array.isArray(o.monuments) && o.monuments.length) {
-          m.monuments = o.monuments.slice();
+        const bm = Array.isArray(b.monuments) ? b.monuments : [];
+        const om = (o && Array.isArray(o.monuments)) ? o.monuments : [];
+
+        if (bm.length) {
+          const merged = [];
+          for (let j = 0; j < bm.length; j++) {
+            const bb = bm[j] || {};
+            const oo = om[j] || {};
+            merged.push({
+              name:  bb.name  || oo.name  || '',
+              note:  bb.note  || oo.note  || '',
+              photo: bb.photo || oo.photo || ''
+            });
+          }
+          m.monuments = merged;
+        } else if (om.length) {
+          m.monuments = om.slice();
         }
         continue;
       }
