@@ -369,56 +369,67 @@ function zapolnitinfo(base, other, fields) {
   for (const k in base) out[k] = base[k];
   for (const k in other) {
     const o = other[k];
+
     if (!base[k]) {
+      const entry = {};
+      if (o && o.photo) entry.photo = o.photo;
+      if (o && o.sources) entry.sources = o.sources;
+
+      if (o && Array.isArray(o.monuments) && o.monuments.length) {
+        entry.monuments = o.monuments;
+      }
+      
       const photos = [];
-      const oms = (o && o.monuments) ? o.monuments : [];
+      const oms = (o && Array.isArray(o.monuments)) ? o.monuments : [];
       for (let j = 0; j < oms.length; j++) {
         const fp = fotki(oms[j] && oms[j].photo);
         for (let x = 0; x < fp.length; x++) photos.push(fp[x]);
       }
-      const entry = {};
-      if (o && o.photo) entry.photo = o.photo;
-      if (o && o.sources) entry.sources = o.sources;
       if (photos.length) entry.monumentPhotos = photos;
       out[k] = entry;
       continue;
     }
+
     const b = base[k];
     const m = {};
     for (const f in b) m[f] = b[f];
+
     for (let i = 0; i < fields.length; i++) {
       const fld = fields[i];
+
       if (fld === 'monuments') {
-        if (b.monuments && o.monuments) {
+        const bm = b.monuments || [];
+        const om = o.monuments || [];
+        if (bm.length || om.length) {
+          const len = Math.max(bm.length, om.length);
           const mm = [];
-          const len = Math.max(b.monuments.length, o.monuments.length);
           for (let j = 0; j < len; j++) {
-            const bm = b.monuments[j] || {};
-            const om = o.monuments[j] || {};
+            const bmm = bm[j] || {};
+            const omm = om[j] || {};
             const nm = {};
-            for (const kk in bm) nm[kk] = bm[kk];
-            if (!bm.photo && om.photo) nm.photo = om.photo;
-            mm.push(nm);
-          }
-          m.monuments = mm;
-        } else if (!b.monuments && o.monuments) {
-          const mm = [];
-          for (let j = 0; j < o.monuments.length; j++) {
-            const om = o.monuments[j] || {};
-            const nm = {};
-            for (const kk in om) nm[kk] = om[kk];
+            for (const kk in bmm) nm[kk] = bmm[kk];
+            for (const kk in omm) {
+              const v = nm[kk];
+              const empty = v == null || v === '' ||
+                            (Array.isArray(v) && !v.length);
+              if (empty && omm[kk]) nm[kk] = omm[kk];
+            }
+            if (!nm.photo && bmm.photo) nm.photo = bmm.photo;
+            if (!nm.photo && omm.photo) nm.photo = omm.photo;
             mm.push(nm);
           }
           m.monuments = mm;
         }
         continue;
       }
+
       const v = b[fld];
       let empty = !v;
       if (Array.isArray(v) && !v.length) empty = true;
       if (typeof v === 'string' && !v.trim()) empty = true;
       if (empty && o[fld]) m[fld] = o[fld];
     }
+
     out[k] = m;
   }
   return out;
