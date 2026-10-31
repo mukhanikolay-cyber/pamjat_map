@@ -41,8 +41,6 @@ const sortlabels = {
   }
 };
 
-const textfields = ['title', 'date', 'operation', 'units', 'description', 'memory'];
-
 function dechtml(s) {
   const ta = document.createElement('textarea');
   ta.innerHTML = s;
@@ -299,11 +297,11 @@ async function vzjatjson(url, def) {
 }
 
 async function vzjatbazu() {
-  let pTxt = await vzjattext('langs/points_ruby.json');
-  if (pTxt == null) pTxt = await vzjattext('points_ruby.json');
-  if (pTxt == null) throw new Error('не найден points_ruby.json');
-  try { pointsbase = JSON.parse(pTxt); } catch (e) { throw new Error('points_ruby.json: ' + e.message); }
-  if (!Array.isArray(pointsbase)) throw new Error('points_ruby.json не массив');
+  let pTxt = await vzjattext('langs/points.json');
+  if (pTxt == null) pTxt = await vzjattext('points.json');
+  if (pTxt == null) throw new Error('не найден points.json');
+  try { pointsbase = JSON.parse(pTxt); } catch (e) { throw new Error('points.json: ' + e.message); }
+  if (!Array.isArray(pointsbase)) throw new Error('points.json не массив');
 
   let iTxt = await vzjattext('langs/info.json');
   if (iTxt == null) iTxt = await vzjattext('info.json');
@@ -313,15 +311,28 @@ async function vzjatbazu() {
   }
 }
 
-function raskryt(point, idx) {
-  const out = {};
-  for (const k in point) {
-    const v = point[k];
-    if (textfields.indexOf(k) >= 0 && Array.isArray(v) && v.length === 2) {
-      out[k] = v[idx] || '';
-    } else {
-      out[k] = v;
+function slitpoints(base, over) {
+  if (!over || !over.length) return base.slice();
+  const byId = {};
+  for (let i = 0; i < over.length; i++) {
+    const o = over[i];
+    if (o && o.id != null) byId[o.id] = o;
+  }
+  const out = [];
+  for (let i = 0; i < base.length; i++) {
+    const p = base[i];
+    const o = byId[p.id];
+    if (!o) { out.push(p); continue; }
+    const m = {};
+    for (const k in p) m[k] = p[k];
+    for (const k in o) {
+      if (k === 'id') continue;
+      if (k === 'sources') { m[k] = sobratistochniki(p[k], o[k]); continue; }
+      if (k === 'photo') { m[k] = sobratfoto(p[k], o[k]); continue; }
+      if (k === 'memoryPhoto') { m[k] = o[k] || p[k]; continue; }
+      m[k] = o[k];
     }
+    out.push(m);
   }
   return out;
 }
@@ -339,21 +350,10 @@ function slitinfo(base, over) {
       if (f === 'sources') { m[f] = sobratistochniki(b[f], o[f]); continue; }
       if (f === 'photo') { m[f] = sobratfoto(b[f], o[f]); continue; }
       if (f === 'monuments') {
-        const om = o.monuments || [];
-        const bm = b.monuments || [];
-        const len = Math.max(om.length, bm.length);
-        const mm = [];
-        for (let j = 0; j < len; j++) {
-          const omm = om[j] || {};
-          const bmm = bm[j] || {};
-          const nm = {};
-          for (const kk in bmm) nm[kk] = bmm[kk];
-          for (const kk in omm) nm[kk] = omm[kk];
-          if (!nm.photo && bmm.photo) nm.photo = bmm.photo;
-          if (!nm.photo && omm.photo) nm.photo = omm.photo;
-          mm.push(nm);
+        // BY — источник истины для памятников
+        if (Array.isArray(o.monuments) && o.monuments.length) {
+          m.monuments = o.monuments.slice();
         }
-        m.monuments = mm;
         continue;
       }
       m[f] = o[f];
@@ -363,33 +363,60 @@ function slitinfo(base, over) {
   return out;
 }
 
+function zapolnit(arr, other, fields) {
+  if (!Array.isArray(other) || !other.length) return arr.slice();
+  const byId = {};
+  for (let i = 0; i < other.length; i++) {
+    const o = other[i];
+    if (o && o.id != null) byId[o.id] = o;
+  }
+  const out = [];
+  for (let i = 0; i < arr.length; i++) {
+    const p = arr[i];
+    const o = byId[p.id];
+    if (!o) { out.push(p); continue; }
+    const m = {};
+    for (const k in p) m[k] = p[k];
+    for (let f = 0; f < fields.length; f++) {
+      const fld = fields[f];
+      const v = p[fld];
+      let empty = !v;
+      if (Array.isArray(v) && !v.length) empty = true;
+      if (typeof v === 'string' && !v.trim()) empty = true;
+      if (empty && o[fld]) m[fld] = o[fld];
+    }
+    out.push(m);
+  }
+  return out;
+}
+
+// info_by.json — источник истины для monuments.
+// Остальные поля (intro, heroes, museums, photo, sources) берём из info.json,
+// недостающие добиваем из info_by.
 function zapolnitinfo(base, other, fields) {
   if (!other) return base;
   const out = {};
   for (const k in base) out[k] = base[k];
+
   for (const k in other) {
     const o = other[k];
 
+    // Города нет в info.json — берём info_by целиком
     if (!base[k]) {
       const entry = {};
-      if (o && o.photo) entry.photo = o.photo;
-      if (o && o.sources) entry.sources = o.sources;
-
-      if (o && Array.isArray(o.monuments) && o.monuments.length) {
-        entry.monuments = o.monuments;
+      if (o.intro)   entry.intro   = o.intro;
+      if (o.heroes)  entry.heroes  = o.heroes;
+      if (o.museums) entry.museums = o.museums;
+      if (o.photo)   entry.photo   = o.photo;
+      if (o.sources) entry.sources = o.sources;
+      if (Array.isArray(o.monuments) && o.monuments.length) {
+        entry.monuments = o.monuments.slice();
       }
-      
-      const photos = [];
-      const oms = (o && Array.isArray(o.monuments)) ? o.monuments : [];
-      for (let j = 0; j < oms.length; j++) {
-        const fp = fotki(oms[j] && oms[j].photo);
-        for (let x = 0; x < fp.length; x++) photos.push(fp[x]);
-      }
-      if (photos.length) entry.monumentPhotos = photos;
       out[k] = entry;
       continue;
     }
 
+    // Город есть в info.json
     const b = base[k];
     const m = {};
     for (const f in b) m[f] = b[f];
@@ -398,27 +425,8 @@ function zapolnitinfo(base, other, fields) {
       const fld = fields[i];
 
       if (fld === 'monuments') {
-        const bm = b.monuments || [];
-        const om = o.monuments || [];
-        if (bm.length || om.length) {
-          const len = Math.max(bm.length, om.length);
-          const mm = [];
-          for (let j = 0; j < len; j++) {
-            const bmm = bm[j] || {};
-            const omm = om[j] || {};
-            const nm = {};
-            for (const kk in bmm) nm[kk] = bmm[kk];
-            for (const kk in omm) {
-              const v = nm[kk];
-              const empty = v == null || v === '' ||
-                            (Array.isArray(v) && !v.length);
-              if (empty && omm[kk]) nm[kk] = omm[kk];
-            }
-            if (!nm.photo && bmm.photo) nm.photo = bmm.photo;
-            if (!nm.photo && omm.photo) nm.photo = omm.photo;
-            mm.push(nm);
-          }
-          m.monuments = mm;
+        if (Array.isArray(o.monuments) && o.monuments.length) {
+          m.monuments = o.monuments.slice();
         }
         continue;
       }
@@ -438,17 +446,20 @@ function zapolnitinfo(base, other, fields) {
 async function vzjatlang(code) {
   const cfg = langs[code];
   if (!cfg) return { points: pointsbase, info: infobase };
-  const idx = code === 'by' ? 1 : 0;
-  const points = pointsbase.map(function (p) { return raskryt(p, idx); });
-  let info;
   if (cfg.over) {
+    const pOver = await vzjatjson('langs/points_' + cfg.over + '.json', []);
     const iOver = await vzjatjson('langs/info_' + cfg.over + '.json', {});
-    info = slitinfo(infobase, iOver || {});
-  } else {
-    const iBy = await vzjatjson('langs/info_by.json', {});
-    info = zapolnitinfo(infobase, iBy || {}, ['photo', 'sources', 'monuments']);
+    const points = slitpoints(pointsbase, Array.isArray(pOver) ? pOver : []);
+    const info = slitinfo(infobase, iOver || {});
+    console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length);
+    return { points, info };
   }
-  console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length);
+  const pBy = await vzjatjson('langs/points_by.json', []);
+  const iBy = await vzjatjson('langs/info_by.json', {});
+  const points = zapolnit(pointsbase, Array.isArray(pBy) ? pBy : [], ['photo', 'memoryPhoto', 'sources']);
+  const info = zapolnitinfo(infobase, iBy || {}, ['photo', 'sources', 'monuments']);
+  console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length,
+    'baseInfo:', Object.keys(infobase).length, 'byInfo:', Object.keys(iBy || {}).length);
   return { points, info };
 }
 
@@ -915,11 +926,10 @@ function risuemkartochku(id) {
     geroi += '</ul></div>';
   }
 
-  let monuments = [];
-  if (info.monuments && info.monuments.length) monuments = info.monuments;
-  else if (p.memory) monuments = [{ name: p.memory, note: '', photo: info.monumentPhotos || p.memoryPhoto || '' }];
-
+  // Памятники: только из info.monuments (т.е. из info_by.json для 13 городов).
+  // p.memory в карточке памятников не участвует — он только для лайтбокса на карте.
   let memsec = '';
+  const monuments = (info.monuments && info.monuments.length) ? info.monuments : [];
   if (monuments.length) {
     memsec = '<div class="detail-section"><h4>' + esc(ui.places) + '</h4>';
     for (let i = 0; i < monuments.length; i++) {
@@ -937,6 +947,9 @@ function risuemkartochku(id) {
       '</div>';
     }
     memsec += '</div>';
+  } else if (p.memory) {
+    memsec = '<div class="detail-section"><h4>' + esc(ui.places) + '</h4>' +
+             '<p>' + esc(p.memory) + '</p></div>';
   }
 
   let muzei = '';
@@ -1225,8 +1238,7 @@ async function perekluchit(code, initial) {
     data = await vzjatlang(code);
   } catch (e) {
     console.error('перевод не загрузился:', e);
-    const idx = code === 'by' ? 1 : 0;
-    data = { points: pointsbase.map(function (p) { return raskryt(p, idx); }), info: infobase };
+    data = { points: pointsbase, info: infobase };
   }
 
   pointdata = data.points;
