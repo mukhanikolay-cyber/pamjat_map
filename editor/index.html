@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>редактор</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--panel:rgba(255,255,255,.96);--border:#eee;--input:#f3f4f6;--red:#b30000;--red-h:#8f0000;--sub:#777;--shadow:rgba(0,0,0,.15)}
+[data-theme=dark]{--bg:#121212;--text:#e8e8e8;--panel:rgba(24,24,24,.96);--border:#2a2a2a;--input:#1e1e1e;--red:#e03a3a;--red-h:#ff5252;--sub:#999;--shadow:rgba(0,0,0,.6)}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;overflow:hidden}
+#map{flex:1;min-width:0;height:100vh}
+#side{width:420px;height:100vh;overflow-y:auto;background:var(--panel);border-left:1px solid var(--border);padding:14px;box-shadow:-2px 0 12px var(--shadow)}
+h3{color:var(--red);margin:12px 0 6px;font-size:13px}
+label{font-size:11px;font-weight:600;display:block;margin-top:8px;color:var(--sub)}
+input,select,textarea{width:100%;padding:6px;margin-top:2px;border:1px solid var(--border);border-radius:4px;background:var(--input);color:var(--text);font:inherit;font-size:13px}
+textarea{resize:vertical}
+button{background:var(--red);color:#fff;border:0;padding:6px 10px;border-radius:4px;cursor:pointer;font-size:12px;margin:4px 4px 0 0}
+button:hover{background:var(--red-h)}
+button.sec{background:var(--input);color:var(--text)}
+.row{display:flex;gap:8px}.row>*{flex:1}
+.item{border:1px solid var(--border);border-radius:4px;padding:6px;margin-bottom:6px;font-size:12px}
+.img-prev{max-width:100%;max-height:100px;border-radius:3px;display:block;margin-top:4px;border:1px solid var(--border)}
+.st{font-size:11px;margin-left:4px}.st.ok{color:#2a8a2a}.st.err{color:#c00}
+pre{background:var(--input);padding:8px;border-radius:4px;font-size:11px;max-height:200px;overflow:auto;white-space:pre-wrap;word-break:break-all}
+.tabs{display:flex;gap:4px;margin:8px 0}.tabs button{flex:1;background:var(--input);color:var(--text)}.tabs button.act{background:var(--red);color:#fff}
+.hide{display:none}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;padding:8px 16px;border-radius:4px;opacity:0;transition:.2s;pointer-events:none;font-size:13px;z-index:9999}
+#toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="side">
+<div class="row">
+<select id="lang"><option value="ru">RU</option><option value="by">BY</option></select>
+<select id="city"><option value="">—</option></select>
+</div>
+<button id="new" class="sec" style="width:100%">+ новая</button>
+<div class="tabs"><button id="t1" class="act">point</button><button id="t2">info</button></div>
+<div id="s1">
+<div class="row"><div><label>id</label><input id="id" type="number"></div><div><label>lat</label><input id="lat" type="number" step="any"></div><div><label>lng</label><input id="lng" type="number" step="any"></div></div>
+<label>title</label><input id="title">
+<label>date</label><input id="date">
+<label>operation</label><input id="op">
+<label>units</label><input id="units">
+<label>description</label><textarea id="desc" rows="2"></textarea>
+<label>memory</label><textarea id="mem" rows="2"></textarea>
+<label>memoryPhoto</label><input id="memphoto"><div id="memprev"></div>
+<h3>photo[]</h3><div id="photos"></div><button id="addphoto" class="sec">+ фото</button>
+<h3>sources[]</h3><div id="srcs"></div><button id="addsrc" class="sec">+ источник</button>
+</div>
+<div id="s2" class="hide">
+<label>intro</label><textarea id="intro" rows="3"></textarea>
+<h3>heroes[]</h3><div id="heroes"></div><button id="addhero" class="sec">+ герой</button>
+<h3>museums[]</h3><div id="museums"></div><button id="addmus" class="sec">+ музей</button>
+<h3>monuments[]</h3><div id="mons"></div><button id="addmon" class="sec">+ памятник</button>
+</div>
+<h3>json</h3>
+<pre id="outp">—</pre><button id="cp" class="sec">copy point</button>
+<pre id="outi">—</pre><button id="ci" class="sec">copy info</button>
+</div>
+<div id="toast"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const B='../langs/';
+let map,markers=[],pts=[],inf={},lang='ru',picking=false;
+
+const $=id=>document.getElementById(id);
+
+map=L.map('map').setView([53.5,28],7);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OSM'}).addTo(map);
+
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1500)}
+
+async function vzjatbazu(){
+  const pf=lang==='ru'?'points.json':'points_by.json';
+  const nf=lang==='ru'?'info.json':'info_by.json';
+  try{
+    const [p,i]=await Promise.all([fetch(B+pf).then(r=>r.json()),fetch(B+nf).then(r=>r.json())]);
+    pts=p;inf=i;risuem();
+    const c=$('city');c.innerHTML='<option value="">—</option>';
+    pts.forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.id+' '+p.title;c.appendChild(o)});
+  }catch(e){toast('ошибка json')}
+}
+
+function risuem(){
+  markers.forEach(m=>map.removeLayer(m));markers=[];
+  pts.forEach(p=>{
+    if(typeof p.lat!=='number'||typeof p.lng!=='number')return;
+    const m=L.marker([p.lat,p.lng]).addTo(map).bindPopup(p.title||'');
+    m.on('click',()=>vybrat(p.id));
+    markers.push(m);
+  });
+}
+
+function vybrat(id){
+  const p=pts.find(x=>x.id==id);if(!p)return;
+  picking=false;
+  $('id').value=p.id;$('lat').value=p.lat;$('lng').value=p.lng;
+  $('title').value=p.title||'';$('date').value=p.date||'';
+  $('op').value=p.operation||'';$('units').value=p.units||'';
+  $('desc').value=p.description||'';$('mem').value=p.memory||'';
+  $('memphoto').value=p.memoryPhoto||'';
+  mprev(p.memoryPhoto);
+  rp(p.photo||[]);rs(p.sources||[]);
+  const i=inf[p.id]||{};
+  $('intro').value=i.intro||'';
+  rh(i.heroes||[]);rm(i.museums||[]);rmon(i.monuments||[]);
+  map.setView([p.lat,p.lng],9);
+  obnovit();
+}
+
+function mprev(url){
+  const c=$('memprev');c.innerHTML='';
+  if(!url)return;
+  const im=document.createElement('img');im.className='img-prev';im.src=url;
+  im.onerror=()=>{im.style.display='none';c.textContent='✗'};
+  c.appendChild(im);
+}
+
+function proveritfoto(url,st){
+  if(!url){st.textContent='';st.className='st';return}
+  st.textContent='...';st.className='st';
+  const im=new Image();
+  im.onload=()=>{st.textContent='✓';st.className='st ok'};
+  im.onerror=()=>{st.textContent='✗';st.className='st err'};
+  im.src=url;
+}
+
+function rp(arr){
+  const c=$('photos');c.innerHTML='';
+  arr.forEach((u,i)=>{
+    const d=document.createElement('div');d.className='item';
+    const inp=document.createElement('input');inp.value=u;inp.className='ph';
+    const del=document.createElement('button');del.textContent='×';del.className='sec';
+    const cb=document.createElement('button');cb.textContent='?';cb.className='sec';
+    const st=document.createElement('span');st.className='st';
+    const im=document.createElement('img');im.className='img-prev';im.src=u;
+    im.onerror=()=>im.style.display='none';
+    del.onclick=()=>{const v=ga('.ph');v.splice(i,1);rp(v);obnovit()};
+    cb.onclick=()=>proveritfoto(inp.value,st);
+    inp.oninput=obnovit;
+    d.append(inp,del,cb,st,im);c.appendChild(d);
+  });
+}
+
+function rs(arr){
+  const c=$('srcs');c.innerHTML='';
+  arr.forEach((s,i)=>{
+    const d=document.createElement('div');d.className='item';
+    const u=document.createElement('input');u.value=s.url||'';u.className='su';u.placeholder='url';
+    const l=document.createElement('input');l.value=s.label||'';l.className='sl';l.placeholder='label';l.style.marginTop='4px';
+    const del=document.createElement('button');del.textContent='×';del.className='sec';
+    del.onclick=()=>{const us=ga('.su'),ls=ga('.sl');us.splice(i,1);ls.splice(i,1);rs(us.map((v,j)=>({url:v,label:ls[j]})));obnovit()};
+    u.oninput=l.oninput=obnovit;
+    d.append(u,l,del);c.appendChild(d);
+  });
+}
+
+function rh(arr){
+  const c=$('heroes');c.innerHTML='';
+  arr.forEach((h,i)=>{
+    const d=document.createElement('div');d.className='item';
+    const inp=document.createElement('input');inp.value=h;inp.className='hr';
+    const del=document.createElement('button');del.textContent='×';del.className='sec';
+    del.onclick=()=>{const v=ga('.hr');v.splice(i,1);rh(v);obnovit()};
+    inp.oninput=obnovit;
+    d.append(inp,del);c.appendChild(d);
+  });
+}
+
+function rm(arr){
+  const c=$('museums');c.innerHTML='';
+  arr.forEach((m,i)=>{
+    const d=document.createElement('div');d.className='item';
+    const n=document.createElement('input');n.value=m.name||'';n.className='mn';n.placeholder='name';
+    const u=document.createElement('input');u.value=m.url||'';u.className='mu';u.placeholder='url';u.style.marginTop='4px';
+    const del=document.createElement('button');del.textContent='×';del.className='sec';
+    del.onclick=()=>{const ns=ga('.mn'),us=ga('.mu');ns.splice(i,1);us.splice(i,1);rm(ns.map((v,j)=>({name:v,url:us[j]})));obnovit()};
+    n.oninput=u.oninput=obnovit;
+    d.append(n,u,del);c.appendChild(d);
+  });
+}
+
+function rmon(arr){
+  const c=$('mons');c.innerHTML='';
+  arr.forEach((m,i)=>{
+    const d=document.createElement('div');d.className='item';
+    const n=document.createElement('input');n.value=m.name||'';n.className='mo';n.placeholder='name';
+    const t=document.createElement('input');t.value=m.note||'';t.className='mt';t.placeholder='note';t.style.marginTop='4px';
+    const p=document.createElement('input');p.value=m.photo||'';p.className='mp';p.placeholder='photo';p.style.marginTop='4px';
+    const cb=document.createElement('button');cb.textContent='?';cb.className='sec';
+    const st=document.createElement('span');st.className='st';
+    const del=document.createElement('button');del.textContent='×';del.className='sec';
+    del.onclick=()=>{const ns=ga('.mo'),ts=ga('.mt'),ps=ga('.mp');ns.splice(i,1);ts.splice(i,1);ps.splice(i,1);rmon(ns.map((v,j)=>({name:v,note:ts[j],photo:ps[j]})));obnovit()};
+    cb.onclick=()=>proveritfoto(p.value,st);
+    n.oninput=t.oninput=p.oninput=obnovit;
+    d.append(n,t,p,cb,st,del);c.appendChild(d);
+  });
+}
+
+function ga(cls){return [...document.querySelectorAll(cls)].map(i=>i.value.trim())}
+
+function sobratpoint(){
+  const srcs=[];const su=ga('.su'),sl=ga('.sl');
+  su.forEach((u,i)=>{if(u)srcs.push({url:u,label:sl[i]||''})});
+  return{
+    id:parseInt($('id').value)||0,
+    lat:parseFloat($('lat').value)||0,
+    lng:parseFloat($('lng').value)||0,
+    title:$('title').value.trim(),
+    date:$('date').value.trim(),
+    operation:$('op').value.trim(),
+    units:$('units').value.trim(),
+    description:$('desc').value.trim(),
+    memory:$('mem').value.trim(),
+    photo:ga('.ph').filter(Boolean),
+    memoryPhoto:$('memphoto').value.trim(),
+    sources:srcs
+  };
+}
+
+function sobratinfo(){
+  const mus=[];const mn=ga('.mn'),mu=ga('.mu');
+  mn.forEach((n,i)=>{if(n)mus.push({name:n,url:mu[i]||''})});
+  const mon=[];const mo=ga('.mo'),mt=ga('.mt'),mp=ga('.mp');
+  mo.forEach((n,i)=>{if(n)mon.push({name:n,note:mt[i]||'',photo:mp[i]||''})});
+  return{
+    intro:$('intro').value.trim(),
+    heroes:ga('.hr').filter(Boolean),
+    museums:mus,
+    monuments:mon
+  };
+}
+
+function obnovit(){
+  $('outp').textContent=JSON.stringify(sobratpoint(),null,2);
+  $('outi').textContent=JSON.stringify(sobratinfo(),null,2);
+}
+
+$('lang').onchange=e=>{lang=e.target.value;vzjatbazu()};
+$('city').onchange=e=>{if(e.target.value)vybrat(e.target.value);else reset()};
+
+$('new').onclick=()=>{
+  reset();
+  const mx=pts.reduce((m,p)=>Math.max(m,p.id||0),0);
+  $('id').value=mx+1;
+  picking=true;
+  toast('клик на карте — координаты');
+};
+
+map.on('click',e=>{
+  if(!picking)return;
+  $('lat').value=e.latlng.lat.toFixed(5);
+  $('lng').value=e.latlng.lng.toFixed(5);
+  picking=false;
+  obnovit();
+});
+
+function reset(){
+  ['id','lat','lng','title','date','op','units','desc','mem','memphoto','intro'].forEach(k=>$(k).value='');
+  rp([]);rs([]);rh([]);rm([]);rmon([]);
+  $('memprev').innerHTML='';picking=false;obnovit();
+}
+
+$('addphoto').onclick=()=>{const v=ga('.ph');v.push('');rp(v);obnovit()};
+$('addsrc').onclick=()=>{const us=ga('.su'),ls=ga('.sl');us.push('');ls.push('');rs(us.map((v,i)=>({url:v,label:ls[i]})));obnovit()};
+$('addhero').onclick=()=>{const v=ga('.hr');v.push('');rh(v);obnovit()};
+$('addmus').onclick=()=>{const ns=ga('.mn'),us=ga('.mu');ns.push('');us.push('');rm(ns.map((v,i)=>({name:v,url:us[i]})));obnovit()};
+$('addmon').onclick=()=>{const ns=ga('.mo'),ts=ga('.mt'),ps=ga('.mp');ns.push('');ts.push('');ps.push('');rmon(ns.map((v,i)=>({name:v,note:ts[i],photo:ps[i]})));obnovit()};
+
+$('t1').onclick=()=>{$('s1').classList.remove('hide');$('s2').classList.add('hide');$('t1').classList.add('act');$('t2').classList.remove('act')};
+$('t2').onclick=()=>{$('s1').classList.add('hide');$('s2').classList.remove('hide');$('t1').classList.remove('act');$('t2').classList.add('act')};
+
+$('cp').onclick=()=>{navigator.clipboard.writeText($('outp').textContent);toast('point')};
+$('ci').onclick=()=>{navigator.clipboard.writeText($('outi').textContent);toast('info')};
+
+$('memphoto').oninput=()=>{mprev($('memphoto').value);obnovit()};
+
+document.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',obnovit));
+
+vzjatbazu();
+</script>
+</body>
+</html>
