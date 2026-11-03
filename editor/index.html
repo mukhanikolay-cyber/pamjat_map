@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>редактор</title>
+<title>editor</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--bg:#fff;--text:#1a1a1a;--panel:rgba(255,255,255,.96);--border:#eee;--input:#f3f4f6;--red:#b30000;--red-h:#8f0000;--sub:#777;--shadow:rgba(0,0,0,.15)}
@@ -11,7 +11,7 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;overflow:hidden}
 #map{flex:1;min-width:0;height:100vh}
-#side{width:420px;height:100vh;overflow-y:auto;background:var(--panel);border-left:1px solid var(--border);padding:14px;box-shadow:-2px 0 12px var(--shadow)}
+#side{width:460px;height:100vh;overflow-y:auto;background:var(--panel);border-left:1px solid var(--border);padding:14px;box-shadow:-2px 0 12px var(--shadow)}
 h3{color:var(--red);margin:12px 0 6px;font-size:13px}
 label{font-size:11px;font-weight:600;display:block;margin-top:8px;color:var(--sub)}
 input,select,textarea{width:100%;padding:6px;margin-top:2px;border:1px solid var(--border);border-radius:4px;background:var(--input);color:var(--text);font:inherit;font-size:13px}
@@ -23,7 +23,7 @@ button.sec{background:var(--input);color:var(--text)}
 .item{border:1px solid var(--border);border-radius:4px;padding:6px;margin-bottom:6px;font-size:12px}
 .img-prev{max-width:100%;max-height:100px;border-radius:3px;display:block;margin-top:4px;border:1px solid var(--border)}
 .st{font-size:11px;margin-left:4px}.st.ok{color:#2a8a2a}.st.err{color:#c00}
-pre{background:var(--input);padding:8px;border-radius:4px;font-size:11px;max-height:200px;overflow:auto;white-space:pre-wrap;word-break:break-all}
+pre{background:var(--input);padding:8px;border-radius:4px;font-size:11px;max-height:160px;overflow:auto;white-space:pre-wrap;word-break:break-all}
 .tabs{display:flex;gap:4px;margin:8px 0}.tabs button{flex:1;background:var(--input);color:var(--text)}.tabs button.act{background:var(--red);color:#fff}
 .hide{display:none}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;padding:8px 16px;border-radius:4px;opacity:0;transition:.2s;pointer-events:none;font-size:13px;z-index:9999}
@@ -34,254 +34,191 @@ pre{background:var(--input);padding:8px;border-radius:4px;font-size:11px;max-hei
 <div id="map"></div>
 <div id="side">
 <div class="row">
-<select id="lang"><option value="ru">RU</option><option value="by">BY</option></select>
 <select id="city"><option value="">—</option></select>
+<button id="new" class="sec">+</button>
+<button id="del" class="sec">×</button>
 </div>
-<button id="new" class="sec" style="width:100%">+ новая</button>
-<div class="tabs"><button id="t1" class="act">point</button><button id="t2">info</button></div>
+<div class="tabs"><button id="t1" class="act">points ruby</button><button id="t2">points ru</button><button id="t3">info</button></div>
 <div id="s1">
-<div class="row"><div><label>id</label><input id="id" type="number"></div><div><label>lat</label><input id="lat" type="number" step="any"></div><div><label>lng</label><input id="lng" type="number" step="any"></div></div>
-<label>title</label><input id="title">
-<label>date</label><input id="date">
-<label>operation</label><input id="op">
-<label>units</label><input id="units">
-<label>description</label><textarea id="desc" rows="2"></textarea>
-<label>memory</label><textarea id="mem" rows="2"></textarea>
+<div class="row"><div><label>id</label><input id="id" type="number" readonly></div><div><label>lat</label><input id="lat" type="number" step="any"></div><div><label>lng</label><input id="lng" type="number" step="any"></div></div>
+<label>title ru</label><input id="title"><label>title by</label><input id="title_by">
+<label>date ru</label><input id="date"><label>date by</label><input id="date_by">
+<label>operation ru</label><input id="op"><label>operation by</label><input id="op_by">
+<label>units ru</label><textarea id="units" rows="2"></textarea><label>units by</label><textarea id="units_by" rows="2"></textarea>
+<label>description ru</label><textarea id="desc" rows="2"></textarea><label>description by</label><textarea id="desc_by" rows="2"></textarea>
+<label>memory ru</label><textarea id="mem" rows="2"></textarea><label>memory by</label><textarea id="mem_by" rows="2"></textarea>
 <label>memoryPhoto</label><input id="memphoto"><div id="memprev"></div>
-<h3>photo[]</h3><div id="photos"></div><button id="addphoto" class="sec">+ фото</button>
-<h3>sources[]</h3><div id="srcs"></div><button id="addsrc" class="sec">+ источник</button>
+<h3>photo[]</h3><div id="photos"></div><button id="addphoto" class="sec">+</button>
+<h3>sources[]</h3><div id="srcs"></div><button id="addsrc" class="sec">+</button>
 </div>
 <div id="s2" class="hide">
-<label>intro</label><textarea id="intro" rows="3"></textarea>
-<h3>heroes[]</h3><div id="heroes"></div><button id="addhero" class="sec">+ герой</button>
-<h3>museums[]</h3><div id="museums"></div><button id="addmus" class="sec">+ музей</button>
-<h3>monuments[]</h3><div id="mons"></div><button id="addmon" class="sec">+ памятник</button>
+<label>title</label><input id="r_title"><label>date</label><input id="r_date"><label>operation</label><input id="r_op"><label>units</label><textarea id="r_units" rows="2"></textarea><label>description</label><textarea id="r_desc" rows="2"></textarea><label>memory</label><textarea id="r_mem" rows="2"></textarea><label>memoryPhoto</label><input id="r_memphoto"><div id="r_memprev"></div>
+<h3>photo[]</h3><div id="r_photos"></div><button id="r_addphoto" class="sec">+</button>
+<h3>sources[]</h3><div id="r_srcs"></div><button id="r_addsrc" class="sec">+</button>
 </div>
-<h3>json</h3>
-<pre id="outp">—</pre><button id="cp" class="sec">copy point</button>
-<pre id="outi">—</pre><button id="ci" class="sec">copy info</button>
+<div id="s3" class="hide">
+<div class="row"><div><label>lang</label><select id="infolang"><option value="ru">ru</option><option value="by">by</option></select></div></div>
+<label>intro</label><textarea id="intro" rows="3"></textarea>
+<h3>heroes[]</h3><div id="heroes"></div><button id="addhero" class="sec">+</button>
+<h3>museums[]</h3><div id="museums"></div><button id="addmus" class="sec">+</button>
+<h3>monuments[]</h3><div id="mons"></div><button id="addmon" class="sec">+</button>
+</div>
+<h3>full</h3>
+<pre id="fullruby">—</pre><button id="cpruby" class="sec">copy ruby</button>
+<pre id="fullru">—</pre><button id="cpru" class="sec">copy ru</button>
+<pre id="fulliru">—</pre><button id="cpiru" class="sec">copy info ru</button>
+<pre id="fulliby">—</pre><button id="cpiby" class="sec">copy info by</button>
 </div>
 <div id="toast"></div>
-
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-const B='../langs/';
-let map,markers=[],pts=[],inf={},lang='ru',picking=false;
-
+const B='https://raw.githubusercontent.com/mukhanikolay-cyber/pamjat_map/main/langs/';
+let map,mk={},pr=[],pru=[],iru={},iby={},infolang='ru',picking=false,curid=null,filling=false,mode='ruby';
 const $=id=>document.getElementById(id);
-
-map=L.map('map').setView([53.5,28],7);
+map=L.map('map').setView([53.7,27.8],6);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OSM'}).addTo(map);
-
 function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1500)}
-
 async function vzjatbazu(){
-  const pf=lang==='ru'?'points.json':'points_by.json';
-  const nf=lang==='ru'?'info.json':'info_by.json';
   try{
-    const [p,i]=await Promise.all([fetch(B+pf).then(r=>r.json()),fetch(B+nf).then(r=>r.json())]);
-    pts=p;inf=i;risuem();
-    const c=$('city');c.innerHTML='<option value="">—</option>';
-    pts.forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.id+' '+p.title;c.appendChild(o)});
-  }catch(e){toast('ошибка json')}
+    const [a,b,c,d]=await Promise.all([
+      fetch(B+'points_ruby.json').then(r=>r.json()),
+      fetch(B+'points.json').then(r=>r.json()),
+      fetch(B+'info.json').then(r=>r.json()),
+      fetch(B+'info_by.json').then(r=>r.json())
+    ]);
+    pr=a;pru=b;iru=c;iby=d;
+    risuem();spisok();obnovitjson();
+  }catch(e){toast('json error')}
 }
-
+function spisok(){
+  const s=$('city');s.innerHTML='<option value="">—</option>';
+  pr.forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.id+' '+(p.title?p.title[0]:'')+' / '+(p.title?p.title[1]:'');s.appendChild(o)});
+  if(curid!=null)s.value=curid;
+}
 function risuem(){
-  markers.forEach(m=>map.removeLayer(m));markers=[];
-  pts.forEach(p=>{
+  Object.values(mk).forEach(m=>map.removeLayer(m));mk={};
+  pr.forEach(p=>{
     if(typeof p.lat!=='number'||typeof p.lng!=='number')return;
-    const m=L.marker([p.lat,p.lng]).addTo(map).bindPopup(p.title||'');
-    m.on('click',()=>vybrat(p.id));
-    markers.push(m);
+    const m=L.marker([p.lat,p.lng]).addTo(map).bindPopup((p.title?p.title[0]:'')+' / '+(p.title?p.title[1]:''));
+    m.on('click',()=>vybrat(p.id));mk[p.id]=m;
   });
 }
-
+function obnovitmarker(id){
+  const p=pr.find(x=>x.id==id);if(!p)return;
+  const m=mk[id];
+  if(m){m.setLatLng([p.lat,p.lng]);m.setPopupContent((p.title?p.title[0]:'')+' / '+(p.title?p.title[1]:''));}
+  else risuem();
+}
 function vybrat(id){
-  const p=pts.find(x=>x.id==id);if(!p)return;
-  picking=false;
+  const p=pr.find(x=>x.id==id),r=pru.find(x=>x.id==id);
+  if(!p)return;
+  curid=p.id;picking=false;filling=true;
   $('id').value=p.id;$('lat').value=p.lat;$('lng').value=p.lng;
-  $('title').value=p.title||'';$('date').value=p.date||'';
-  $('op').value=p.operation||'';$('units').value=p.units||'';
-  $('desc').value=p.description||'';$('mem').value=p.memory||'';
-  $('memphoto').value=p.memoryPhoto||'';
-  mprev(p.memoryPhoto);
+  $('title').value=p.title?p.title[0]:'';$('title_by').value=p.title?p.title[1]:'';
+  $('date').value=p.date?p.date[0]:'';$('date_by').value=p.date?p.date[1]:'';
+  $('op').value=p.operation?p.operation[0]:'';$('op_by').value=p.operation?p.operation[1]:'';
+  $('units').value=p.units?p.units[0]:'';$('units_by').value=p.units?p.units[1]:'';
+  $('desc').value=p.description?p.description[0]:'';$('desc_by').value=p.description?p.description[1]:'';
+  $('mem').value=p.memory?p.memory[0]:'';$('mem_by').value=p.memory?p.memory[1]:'';
+  $('memphoto').value=p.memoryPhoto||'';mprev(p.memoryPhoto);
   rp(p.photo||[]);rs(p.sources||[]);
-  const i=inf[p.id]||{};
-  $('intro').value=i.intro||'';
-  rh(i.heroes||[]);rm(i.museums||[]);rmon(i.monuments||[]);
-  map.setView([p.lat,p.lng],9);
-  obnovit();
+  if(r){
+    $('r_title').value=r.title||'';$('r_date').value=r.date||'';$('r_op').value=r.operation||'';
+    $('r_units').value=r.units||'';$('r_desc').value=r.description||'';$('r_mem').value=r.memory||'';
+    $('r_memphoto').value=r.memoryPhoto||'';rmprev(r.memoryPhoto);
+    rrp(r.photo||[]);rrs(r.sources||[]);
+  }else{
+    ['r_title','r_date','r_op','r_units','r_desc','r_mem','r_memphoto'].forEach(k=>$(k).value='');
+    $('r_memprev').innerHTML='';rrp([]);rrs([]);
+  }
+  zapolnitinfo();
+  $('city').value=id;map.setView([p.lat,p.lng],9);
+  filling=false;obnovit();
 }
-
-function mprev(url){
-  const c=$('memprev');c.innerHTML='';
-  if(!url)return;
-  const im=document.createElement('img');im.className='img-prev';im.src=url;
-  im.onerror=()=>{im.style.display='none';c.textContent='✗'};
-  c.appendChild(im);
+function zapolnitinfo(){
+  if(curid==null)return;
+  const i=(infolang==='ru'?iru:iby)[curid]||{};
+  $('intro').value=i.intro||'';rh(i.heroes||[]);rm(i.museums||[]);rmon(i.monuments||[]);
 }
-
-function proveritfoto(url,st){
-  if(!url){st.textContent='';st.className='st';return}
-  st.textContent='...';st.className='st';
-  const im=new Image();
-  im.onload=()=>{st.textContent='✓';st.className='st ok'};
-  im.onerror=()=>{st.textContent='✗';st.className='st err'};
-  im.src=url;
-}
-
-function rp(arr){
-  const c=$('photos');c.innerHTML='';
-  arr.forEach((u,i)=>{
-    const d=document.createElement('div');d.className='item';
-    const inp=document.createElement('input');inp.value=u;inp.className='ph';
-    const del=document.createElement('button');del.textContent='×';del.className='sec';
-    const cb=document.createElement('button');cb.textContent='?';cb.className='sec';
-    const st=document.createElement('span');st.className='st';
-    const im=document.createElement('img');im.className='img-prev';im.src=u;
-    im.onerror=()=>im.style.display='none';
-    del.onclick=()=>{const v=ga('.ph');v.splice(i,1);rp(v);obnovit()};
-    cb.onclick=()=>proveritfoto(inp.value,st);
-    inp.oninput=obnovit;
-    d.append(inp,del,cb,st,im);c.appendChild(d);
-  });
-}
-
-function rs(arr){
-  const c=$('srcs');c.innerHTML='';
-  arr.forEach((s,i)=>{
-    const d=document.createElement('div');d.className='item';
-    const u=document.createElement('input');u.value=s.url||'';u.className='su';u.placeholder='url';
-    const l=document.createElement('input');l.value=s.label||'';l.className='sl';l.placeholder='label';l.style.marginTop='4px';
-    const del=document.createElement('button');del.textContent='×';del.className='sec';
-    del.onclick=()=>{const us=ga('.su'),ls=ga('.sl');us.splice(i,1);ls.splice(i,1);rs(us.map((v,j)=>({url:v,label:ls[j]})));obnovit()};
-    u.oninput=l.oninput=obnovit;
-    d.append(u,l,del);c.appendChild(d);
-  });
-}
-
-function rh(arr){
-  const c=$('heroes');c.innerHTML='';
-  arr.forEach((h,i)=>{
-    const d=document.createElement('div');d.className='item';
-    const inp=document.createElement('input');inp.value=h;inp.className='hr';
-    const del=document.createElement('button');del.textContent='×';del.className='sec';
-    del.onclick=()=>{const v=ga('.hr');v.splice(i,1);rh(v);obnovit()};
-    inp.oninput=obnovit;
-    d.append(inp,del);c.appendChild(d);
-  });
-}
-
-function rm(arr){
-  const c=$('museums');c.innerHTML='';
-  arr.forEach((m,i)=>{
-    const d=document.createElement('div');d.className='item';
-    const n=document.createElement('input');n.value=m.name||'';n.className='mn';n.placeholder='name';
-    const u=document.createElement('input');u.value=m.url||'';u.className='mu';u.placeholder='url';u.style.marginTop='4px';
-    const del=document.createElement('button');del.textContent='×';del.className='sec';
-    del.onclick=()=>{const ns=ga('.mn'),us=ga('.mu');ns.splice(i,1);us.splice(i,1);rm(ns.map((v,j)=>({name:v,url:us[j]})));obnovit()};
-    n.oninput=u.oninput=obnovit;
-    d.append(n,u,del);c.appendChild(d);
-  });
-}
-
-function rmon(arr){
-  const c=$('mons');c.innerHTML='';
-  arr.forEach((m,i)=>{
-    const d=document.createElement('div');d.className='item';
-    const n=document.createElement('input');n.value=m.name||'';n.className='mo';n.placeholder='name';
-    const t=document.createElement('input');t.value=m.note||'';t.className='mt';t.placeholder='note';t.style.marginTop='4px';
-    const p=document.createElement('input');p.value=m.photo||'';p.className='mp';p.placeholder='photo';p.style.marginTop='4px';
-    const cb=document.createElement('button');cb.textContent='?';cb.className='sec';
-    const st=document.createElement('span');st.className='st';
-    const del=document.createElement('button');del.textContent='×';del.className='sec';
-    del.onclick=()=>{const ns=ga('.mo'),ts=ga('.mt'),ps=ga('.mp');ns.splice(i,1);ts.splice(i,1);ps.splice(i,1);rmon(ns.map((v,j)=>({name:v,note:ts[j],photo:ps[j]})));obnovit()};
-    cb.onclick=()=>proveritfoto(p.value,st);
-    n.oninput=t.oninput=p.oninput=obnovit;
-    d.append(n,t,p,cb,st,del);c.appendChild(d);
-  });
-}
-
+function mprev(url){const c=$('memprev');c.innerHTML='';if(!url)return;const im=document.createElement('img');im.className='img-prev';im.src=url;im.onerror=()=>{im.style.display='none';c.textContent='✗'};c.appendChild(im)}
+function rmprev(url){const c=$('r_memprev');c.innerHTML='';if(!url)return;const im=document.createElement('img');im.className='img-prev';im.src=url;im.onerror=()=>{im.style.display='none';c.textContent='✗'};c.appendChild(im)}
+function proveritfoto(url,st){if(!url){st.textContent='';st.className='st';return}st.textContent='...';st.className='st';const im=new Image();im.onload=()=>{st.textContent='✓';st.className='st ok'};im.onerror=()=>{st.textContent='✗';st.className='st err'};im.src=url}
+function rp(arr){const c=$('photos');c.innerHTML='';arr.forEach((u,i)=>{const d=document.createElement('div');d.className='item';const inp=document.createElement('input');inp.value=u;inp.className='ph';const del=document.createElement('button');del.textContent='×';del.className='sec';const cb=document.createElement('button');cb.textContent='?';cb.className='sec';const st=document.createElement('span');st.className='st';const im=document.createElement('img');im.className='img-prev';im.src=u;im.onerror=()=>im.style.display='none';del.onclick=()=>{const v=ga('.ph');v.splice(i,1);rp(v);obnovit()};cb.onclick=()=>proveritfoto(inp.value,st);inp.oninput=obnovit;d.append(inp,del,cb,st,im);c.appendChild(d)})}
+function rrp(arr){const c=$('r_photos');c.innerHTML='';arr.forEach((u,i)=>{const d=document.createElement('div');d.className='item';const inp=document.createElement('input');inp.value=u;inp.className='rph';const del=document.createElement('button');del.textContent='×';del.className='sec';const cb=document.createElement('button');cb.textContent='?';cb.className='sec';const st=document.createElement('span');st.className='st';const im=document.createElement('img');im.className='img-prev';im.src=u;im.onerror=()=>im.style.display='none';del.onclick=()=>{const v=rga('.rph');v.splice(i,1);rrp(v);obnovit()};cb.onclick=()=>proveritfoto(inp.value,st);inp.oninput=obnovit;d.append(inp,del,cb,st,im);c.appendChild(d)})}
+function rs(arr){const c=$('srcs');c.innerHTML='';arr.forEach((s,i)=>{const d=document.createElement('div');d.className='item';const u=document.createElement('input');u.value=s.url||'';u.className='su';u.placeholder='url';const l=document.createElement('input');l.value=s.label||'';l.className='sl';l.placeholder='label';l.style.marginTop='4px';const del=document.createElement('button');del.textContent='×';del.className='sec';del.onclick=()=>{const us=ga('.su'),ls=ga('.sl');us.splice(i,1);ls.splice(i,1);rs(us.map((v,j)=>({url:v,label:ls[j]})));obnovit()};u.oninput=l.oninput=obnovit;d.append(u,l,del);c.appendChild(d)})}
+function rrs(arr){const c=$('r_srcs');c.innerHTML='';arr.forEach((s,i)=>{const d=document.createElement('div');d.className='item';const u=document.createElement('input');u.value=s.url||'';u.className='rsu';u.placeholder='url';const l=document.createElement('input');l.value=s.label||'';l.className='rsl';l.placeholder='label';l.style.marginTop='4px';const del=document.createElement('button');del.textContent='×';del.className='sec';del.onclick=()=>{const us=rga('.rsu'),ls=rga('.rsl');us.splice(i,1);ls.splice(i,1);rrs(us.map((v,j)=>({url:v,label:ls[j]})));obnovit()};u.oninput=l.oninput=obnovit;d.append(u,l,del);c.appendChild(d)})}
+function rh(arr){const c=$('heroes');c.innerHTML='';arr.forEach((h,i)=>{const d=document.createElement('div');d.className='item';const inp=document.createElement('input');inp.value=h;inp.className='hr';const del=document.createElement('button');del.textContent='×';del.className='sec';del.onclick=()=>{const v=ga('.hr');v.splice(i,1);rh(v);obnovit()};inp.oninput=obnovit;d.append(inp,del);c.appendChild(d)})}
+function rm(arr){const c=$('museums');c.innerHTML='';arr.forEach((m,i)=>{const d=document.createElement('div');d.className='item';const n=document.createElement('input');n.value=m.name||'';n.className='mn';n.placeholder='name';const u=document.createElement('input');u.value=m.url||'';u.className='mu';u.placeholder='url';u.style.marginTop='4px';const del=document.createElement('button');del.textContent='×';del.className='sec';del.onclick=()=>{const ns=ga('.mn'),us=ga('.mu');ns.splice(i,1);us.splice(i,1);rm(ns.map((v,j)=>({name:v,url:us[j]})));obnovit()};n.oninput=u.oninput=obnovit;d.append(n,u,del);c.appendChild(d)})}
+function rmon(arr){const c=$('mons');c.innerHTML='';arr.forEach((m,i)=>{const d=document.createElement('div');d.className='item';const n=document.createElement('input');n.value=m.name||'';n.className='mo';n.placeholder='name';const t=document.createElement('input');t.value=m.note||'';t.className='mt';t.placeholder='note';t.style.marginTop='4px';const p=document.createElement('input');p.value=m.photo||'';p.className='mp';p.placeholder='photo';p.style.marginTop='4px';const cb=document.createElement('button');cb.textContent='?';cb.className='sec';const st=document.createElement('span');st.className='st';const del=document.createElement('button');del.textContent='×';del.className='sec';del.onclick=()=>{const ns=ga('.mo'),ts=ga('.mt'),ps=ga('.mp');ns.splice(i,1);ts.splice(i,1);ps.splice(i,1);rmon(ns.map((v,j)=>({name:v,note:ts[j],photo:ps[j]})));obnovit()};cb.onclick=()=>proveritfoto(p.value,st);n.oninput=t.oninput=p.oninput=obnovit;d.append(n,t,p,cb,st,del);c.appendChild(d)})}
 function ga(cls){return [...document.querySelectorAll(cls)].map(i=>i.value.trim())}
-
-function sobratpoint(){
-  const srcs=[];const su=ga('.su'),sl=ga('.sl');
-  su.forEach((u,i)=>{if(u)srcs.push({url:u,label:sl[i]||''})});
-  return{
-    id:parseInt($('id').value)||0,
-    lat:parseFloat($('lat').value)||0,
-    lng:parseFloat($('lng').value)||0,
-    title:$('title').value.trim(),
-    date:$('date').value.trim(),
-    operation:$('op').value.trim(),
-    units:$('units').value.trim(),
-    description:$('desc').value.trim(),
-    memory:$('mem').value.trim(),
-    photo:ga('.ph').filter(Boolean),
-    memoryPhoto:$('memphoto').value.trim(),
-    sources:srcs
-  };
+function rga(cls){return [...document.querySelectorAll(cls)].map(i=>i.value.trim())}
+function sobratruby(){
+  const srcs=[];const su=ga('.su'),sl=ga('.sl');su.forEach((u,i)=>{if(u)srcs.push({url:u,label:sl[i]||''})});
+  return{id:parseInt($('id').value)||0,lat:parseFloat($('lat').value)||0,lng:parseFloat($('lng').value)||0,
+    title:[$('title').value.trim(),$('title_by').value.trim()],
+    date:[$('date').value.trim(),$('date_by').value.trim()],
+    operation:[$('op').value.trim(),$('op_by').value.trim()],
+    units:[$('units').value.trim(),$('units_by').value.trim()],
+    description:[$('desc').value.trim(),$('desc_by').value.trim()],
+    memory:[$('mem').value.trim(),$('mem_by').value.trim()],
+    photo:ga('.ph').filter(Boolean),memoryPhoto:$('memphoto').value.trim(),sources:srcs};
 }
-
+function sobratru(){
+  const srcs=[];const su=rga('.rsu'),sl=rga('.rsl');su.forEach((u,i)=>{if(u)srcs.push({url:u,label:sl[i]||''})});
+  return{id:parseInt($('id').value)||0,lat:parseFloat($('lat').value)||0,lng:parseFloat($('lng').value)||0,
+    title:$('r_title').value.trim(),date:$('r_date').value.trim(),operation:$('r_op').value.trim(),
+    units:$('r_units').value.trim(),description:$('r_desc').value.trim(),memory:$('r_mem').value.trim(),
+    photo:rga('.rph').filter(Boolean),memoryPhoto:$('r_memphoto').value.trim(),sources:srcs};
+}
 function sobratinfo(){
-  const mus=[];const mn=ga('.mn'),mu=ga('.mu');
-  mn.forEach((n,i)=>{if(n)mus.push({name:n,url:mu[i]||''})});
-  const mon=[];const mo=ga('.mo'),mt=ga('.mt'),mp=ga('.mp');
-  mo.forEach((n,i)=>{if(n)mon.push({name:n,note:mt[i]||'',photo:mp[i]||''})});
-  return{
-    intro:$('intro').value.trim(),
-    heroes:ga('.hr').filter(Boolean),
-    museums:mus,
-    monuments:mon
-  };
+  const mus=[];const mn=ga('.mn'),mu=ga('.mu');mn.forEach((n,i)=>{if(n)mus.push({name:n,url:mu[i]||''})});
+  const mon=[];const mo=ga('.mo'),mt=ga('.mt'),mp=ga('.mp');mo.forEach((n,i)=>{if(n)mon.push({name:n,note:mt[i]||'',photo:mp[i]||''})});
+  return{intro:$('intro').value.trim(),heroes:ga('.hr').filter(Boolean),museums:mus,monuments:mon};
 }
-
 function obnovit(){
-  $('outp').textContent=JSON.stringify(sobratpoint(),null,2);
-  $('outi').textContent=JSON.stringify(sobratinfo(),null,2);
+  if(filling||curid==null)return;
+  const r=sobratruby();const idx=pr.findIndex(x=>x.id==curid);if(idx>=0)pr[idx]=r;
+  const u=sobratru();const jdx=pru.findIndex(x=>x.id==curid);if(jdx>=0)pru[jdx]=u;
+  const i=sobratinfo();if(infolang==='ru')iru[curid]=i;else iby[curid]=i;
+  const opt=[...$('city').options].find(o=>o.value==curid);
+  if(opt)opt.textContent=curid+' '+(r.title[0]||'')+' / '+(r.title[1]||'');
+  obnovitmarker(curid);obnovitjson();
 }
-
-$('lang').onchange=e=>{lang=e.target.value;vzjatbazu()};
+function obnovitjson(){
+  $('fullruby').textContent=JSON.stringify(pr,null,2);
+  $('fullru').textContent=JSON.stringify(pru,null,2);
+  $('fulliru').textContent=JSON.stringify(iru,null,2);
+  $('fulliby').textContent=JSON.stringify(iby,null,2);
+}
 $('city').onchange=e=>{if(e.target.value)vybrat(e.target.value);else reset()};
-
 $('new').onclick=()=>{
-  reset();
-  const mx=pts.reduce((m,p)=>Math.max(m,p.id||0),0);
-  $('id').value=mx+1;
-  picking=true;
-  toast('клик на карте — координаты');
+  const mx=pr.reduce((m,p)=>Math.max(m,p.id||0),0);const id=mx+1;const c=map.getCenter();
+  const emptyR={id,lat:+c.lat.toFixed(5),lng:+c.lng.toFixed(5),title:['',''],date:['',''],operation:['',''],units:['',''],description:['',''],memory:['',''],photo:[],memoryPhoto:'',sources:[]};
+  const emptyU={id,lat:+c.lat.toFixed(5),lng:+c.lng.toFixed(5),title:'',date:'',operation:'',units:'',description:'',memory:'',photo:[],memoryPhoto:'',sources:[]};
+  pr.push(emptyR);pru.push(emptyU);iru[id]={intro:'',heroes:[],museums:[],monuments:[]};iby[id]={intro:'',heroes:[],museums:[],monuments:[]};
+  risuem();spisok();vybrat(id);picking=true;toast('клик на карте — координаты');
 };
-
-map.on('click',e=>{
-  if(!picking)return;
-  $('lat').value=e.latlng.lat.toFixed(5);
-  $('lng').value=e.latlng.lng.toFixed(5);
-  picking=false;
-  obnovit();
-});
-
-function reset(){
-  ['id','lat','lng','title','date','op','units','desc','mem','memphoto','intro'].forEach(k=>$(k).value='');
-  rp([]);rs([]);rh([]);rm([]);rmon([]);
-  $('memprev').innerHTML='';picking=false;obnovit();
-}
-
+$('del').onclick=()=>{if(curid==null)return;if(!confirm('удалить '+curid+'?'))return;pr=pr.filter(p=>p.id!=curid);pru=pru.filter(p=>p.id!=curid);delete iru[curid];delete iby[curid];reset();risuem();spisok();obnovitjson()};
+map.on('click',e=>{if(!picking)return;$('lat').value=e.latlng.lat.toFixed(5);$('lng').value=e.latlng.lng.toFixed(5);picking=false;obnovit()});
+function reset(){curid=null;filling=true;['id','lat','lng','title','title_by','date','date_by','op','op_by','units','units_by','desc','desc_by','mem','mem_by','memphoto','intro','r_title','r_date','r_op','r_units','r_desc','r_mem','r_memphoto'].forEach(k=>$(k).value='');rp([]);rs([]);rrp([]);rrs([]);rh([]);rm([]);rmon([]);$('memprev').innerHTML='';$('r_memprev').innerHTML='';picking=false;filling=false;$('city').value=''}
 $('addphoto').onclick=()=>{const v=ga('.ph');v.push('');rp(v);obnovit()};
 $('addsrc').onclick=()=>{const us=ga('.su'),ls=ga('.sl');us.push('');ls.push('');rs(us.map((v,i)=>({url:v,label:ls[i]})));obnovit()};
 $('addhero').onclick=()=>{const v=ga('.hr');v.push('');rh(v);obnovit()};
 $('addmus').onclick=()=>{const ns=ga('.mn'),us=ga('.mu');ns.push('');us.push('');rm(ns.map((v,i)=>({name:v,url:us[i]})));obnovit()};
 $('addmon').onclick=()=>{const ns=ga('.mo'),ts=ga('.mt'),ps=ga('.mp');ns.push('');ts.push('');ps.push('');rmon(ns.map((v,i)=>({name:v,note:ts[i],photo:ps[i]})));obnovit()};
-
-$('t1').onclick=()=>{$('s1').classList.remove('hide');$('s2').classList.add('hide');$('t1').classList.add('act');$('t2').classList.remove('act')};
-$('t2').onclick=()=>{$('s1').classList.add('hide');$('s2').classList.remove('hide');$('t1').classList.remove('act');$('t2').classList.add('act')};
-
-$('cp').onclick=()=>{navigator.clipboard.writeText($('outp').textContent);toast('point')};
-$('ci').onclick=()=>{navigator.clipboard.writeText($('outi').textContent);toast('info')};
-
+$('r_addphoto').onclick=()=>{const v=rga('.rph');v.push('');rrp(v);obnovit()};
+$('r_addsrc').onclick=()=>{const us=rga('.rsu'),ls=rga('.rsl');us.push('');ls.push('');rrs(us.map((v,i)=>({url:v,label:ls[i]})));obnovit()};
+$('t1').onclick=()=>{mode='ruby';$('s1').classList.remove('hide');$('s2').classList.add('hide');$('s3').classList.add('hide');$('t1').classList.add('act');$('t2').classList.remove('act');$('t3').classList.remove('act')};
+$('t2').onclick=()=>{mode='ru';$('s1').classList.add('hide');$('s2').classList.remove('hide');$('s3').classList.add('hide');$('t1').classList.remove('act');$('t2').classList.add('act');$('t3').classList.remove('act')};
+$('t3').onclick=()=>{mode='info';$('s1').classList.add('hide');$('s2').classList.add('hide');$('s3').classList.remove('hide');$('t1').classList.remove('act');$('t2').classList.remove('act');$('t3').classList.add('act')};
+$('infolang').onchange=e=>{infolang=e.target.value;zapolnitinfo()};
+$('cpruby').onclick=()=>{navigator.clipboard.writeText($('fullruby').textContent);toast('ruby')};
+$('cpru').onclick=()=>{navigator.clipboard.writeText($('fullru').textContent);toast('ru')};
+$('cpiru').onclick=()=>{navigator.clipboard.writeText($('fulliru').textContent);toast('info ru')};
+$('cpiby').onclick=()=>{navigator.clipboard.writeText($('fulliby').textContent);toast('info by')};
 $('memphoto').oninput=()=>{mprev($('memphoto').value);obnovit()};
-
+$('r_memphoto').oninput=()=>{rmprev($('r_memphoto').value);obnovit()};
 document.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',obnovit));
-
 vzjatbazu();
 </script>
 </body>
