@@ -100,7 +100,8 @@ function risuem(){
   pr.forEach(p=>{
     if(typeof p.lat!=='number'||typeof p.lng!=='number')return;
     const m=L.marker([p.lat,p.lng]).addTo(map).bindPopup((p.title?p.title[0]:'')+' / '+(p.title?p.title[1]:''));
-    m.on('click',()=>vybrat(p.id));mk[p.id]=m;
+    m.on('click',()=>{savecur();vybrat(p.id)});
+    mk[p.id]=m;
   });
 }
 function obnovitmarker(id){
@@ -154,7 +155,7 @@ function ga(cls){return [...document.querySelectorAll(cls)].map(i=>i.value.trim(
 function rga(cls){return [...document.querySelectorAll(cls)].map(i=>i.value.trim())}
 function sobratruby(){
   const srcs=[];const su=ga('.su'),sl=ga('.sl');su.forEach((u,i)=>{if(u)srcs.push({url:u,label:sl[i]||''})});
-  return{id:parseInt($('id').value)||0,lat:parseFloat($('lat').value)||0,lng:parseFloat($('lng').value)||0,
+  return{id:curid||0,lat:parseFloat($('lat').value)||0,lng:parseFloat($('lng').value)||0,
     title:[$('title').value.trim(),$('title_by').value.trim()],
     date:[$('date').value.trim(),$('date_by').value.trim()],
     operation:[$('op').value.trim(),$('op_by').value.trim()],
@@ -165,7 +166,7 @@ function sobratruby(){
 }
 function sobratru(){
   const srcs=[];const su=rga('.rsu'),sl=rga('.rsl');su.forEach((u,i)=>{if(u)srcs.push({url:u,label:sl[i]||''})});
-  return{id:parseInt($('id').value)||0,lat:parseFloat($('lat').value)||0,lng:parseFloat($('lng').value)||0,
+  return{id:curid||0,lat:parseFloat($('lat').value)||0,lng:parseFloat($('lng').value)||0,
     title:$('r_title').value.trim(),date:$('r_date').value.trim(),operation:$('r_op').value.trim(),
     units:$('r_units').value.trim(),description:$('r_desc').value.trim(),memory:$('r_mem').value.trim(),
     photo:rga('.rph').filter(Boolean),memoryPhoto:$('r_memphoto').value.trim(),sources:srcs};
@@ -175,8 +176,16 @@ function sobratinfo(){
   const mon=[];const mo=ga('.mo'),mt=ga('.mt'),mp=ga('.mp');mo.forEach((n,i)=>{if(n)mon.push({name:n,note:mt[i]||'',photo:mp[i]||''})});
   return{intro:$('intro').value.trim(),heroes:ga('.hr').filter(Boolean),museums:mus,monuments:mon};
 }
+function savecur(){
+  if(curid==null)return;
+  if(parseInt($('id').value)!==curid)return;
+  const r=sobratruby();const idx=pr.findIndex(x=>x.id==curid);if(idx>=0)pr[idx]=r;
+  const u=sobratru();const jdx=pru.findIndex(x=>x.id==curid);if(jdx>=0)pru[jdx]=u;
+  const i=sobratinfo();if(infolang==='ru')iru[curid]=i;else iby[curid]=i;
+}
 function obnovit(){
   if(filling||curid==null)return;
+  if(parseInt($('id').value)!==curid)return;
   const r=sobratruby();const idx=pr.findIndex(x=>x.id==curid);if(idx>=0)pr[idx]=r;
   const u=sobratru();const jdx=pru.findIndex(x=>x.id==curid);if(jdx>=0)pru[jdx]=u;
   const i=sobratinfo();if(infolang==='ru')iru[curid]=i;else iby[curid]=i;
@@ -190,15 +199,22 @@ function obnovitjson(){
   $('fulliru').textContent=JSON.stringify(iru,null,2);
   $('fulliby').textContent=JSON.stringify(iby,null,2);
 }
-$('city').onchange=e=>{if(e.target.value)vybrat(e.target.value);else reset()};
+$('city').onchange=e=>{savecur();if(e.target.value)vybrat(e.target.value);else reset()};
 $('new').onclick=()=>{
+  savecur();
   const mx=pr.reduce((m,p)=>Math.max(m,p.id||0),0);const id=mx+1;const c=map.getCenter();
   const emptyR={id,lat:+c.lat.toFixed(5),lng:+c.lng.toFixed(5),title:['',''],date:['',''],operation:['',''],units:['',''],description:['',''],memory:['',''],photo:[],memoryPhoto:'',sources:[]};
   const emptyU={id,lat:+c.lat.toFixed(5),lng:+c.lng.toFixed(5),title:'',date:'',operation:'',units:'',description:'',memory:'',photo:[],memoryPhoto:'',sources:[]};
   pr.push(emptyR);pru.push(emptyU);iru[id]={intro:'',heroes:[],museums:[],monuments:[]};iby[id]={intro:'',heroes:[],museums:[],monuments:[]};
   risuem();spisok();vybrat(id);picking=true;toast('клик на карте — координаты');
 };
-$('del').onclick=()=>{if(curid==null)return;if(!confirm('удалить '+curid+'?'))return;pr=pr.filter(p=>p.id!=curid);pru=pru.filter(p=>p.id!=curid);delete iru[curid];delete iby[curid];reset();risuem();spisok();obnovitjson()};
+$('del').onclick=()=>{
+  if(curid==null)return;
+  savecur();
+  if(!confirm('удалить '+curid+'?'))return;
+  pr=pr.filter(p=>p.id!=curid);pru=pru.filter(p=>p.id!=curid);delete iru[curid];delete iby[curid];
+  reset();risuem();spisok();obnovitjson();
+};
 map.on('click',e=>{if(!picking)return;$('lat').value=e.latlng.lat.toFixed(5);$('lng').value=e.latlng.lng.toFixed(5);picking=false;obnovit()});
 function reset(){curid=null;filling=true;['id','lat','lng','title','title_by','date','date_by','op','op_by','units','units_by','desc','desc_by','mem','mem_by','memphoto','intro','r_title','r_date','r_op','r_units','r_desc','r_mem','r_memphoto'].forEach(k=>$(k).value='');rp([]);rs([]);rrp([]);rrs([]);rh([]);rm([]);rmon([]);$('memprev').innerHTML='';$('r_memprev').innerHTML='';picking=false;filling=false;$('city').value=''}
 $('addphoto').onclick=()=>{const v=ga('.ph');v.push('');rp(v);obnovit()};
@@ -211,11 +227,11 @@ $('r_addsrc').onclick=()=>{const us=rga('.rsu'),ls=rga('.rsl');us.push('');ls.pu
 $('t1').onclick=()=>{mode='ruby';$('s1').classList.remove('hide');$('s2').classList.add('hide');$('s3').classList.add('hide');$('t1').classList.add('act');$('t2').classList.remove('act');$('t3').classList.remove('act')};
 $('t2').onclick=()=>{mode='ru';$('s1').classList.add('hide');$('s2').classList.remove('hide');$('s3').classList.add('hide');$('t1').classList.remove('act');$('t2').classList.add('act');$('t3').classList.remove('act')};
 $('t3').onclick=()=>{mode='info';$('s1').classList.add('hide');$('s2').classList.add('hide');$('s3').classList.remove('hide');$('t1').classList.remove('act');$('t2').classList.remove('act');$('t3').classList.add('act')};
-$('infolang').onchange=e=>{infolang=e.target.value;zapolnitinfo()};
-$('cpruby').onclick=()=>{navigator.clipboard.writeText($('fullruby').textContent);toast('ruby')};
-$('cpru').onclick=()=>{navigator.clipboard.writeText($('fullru').textContent);toast('ru')};
-$('cpiru').onclick=()=>{navigator.clipboard.writeText($('fulliru').textContent);toast('info ru')};
-$('cpiby').onclick=()=>{navigator.clipboard.writeText($('fulliby').textContent);toast('info by')};
+$('infolang').onchange=e=>{savecur();infolang=e.target.value;zapolnitinfo()};
+$('cpruby').onclick=()=>{savecur();navigator.clipboard.writeText($('fullruby').textContent);toast('ruby')};
+$('cpru').onclick=()=>{savecur();navigator.clipboard.writeText($('fullru').textContent);toast('ru')};
+$('cpiru').onclick=()=>{savecur();navigator.clipboard.writeText($('fulliru').textContent);toast('info ru')};
+$('cpiby').onclick=()=>{savecur();navigator.clipboard.writeText($('fulliby').textContent);toast('info by')};
 $('memphoto').oninput=()=>{mprev($('memphoto').value);obnovit()};
 $('r_memphoto').oninput=()=>{rmprev($('r_memphoto').value);obnovit()};
 document.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',obnovit));
