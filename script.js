@@ -9,7 +9,6 @@ const redcolor = [170, 15, 15];
 
 const minproz = 0.15;
 const zatuhanie = 2;
-let rubibase = null;
 
 const mecjacy = {
   'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3,
@@ -297,6 +296,20 @@ async function vzjatjson(url, def) {
   }
 }
 
+let rubibase = null;
+let prumap = null;
+let pbymap = null;
+
+async function ensuremaps() {
+  if (prumap !== null) return;
+  const ru = await vzjatjson('langs/points.json', []);
+  const by = await vzjatjson('langs/points_by.json', []);
+  prumap = {};
+  pbymap = {};
+  if (Array.isArray(ru)) for (let i = 0; i < ru.length; i++) { const p = ru[i]; if (p && p.id != null) prumap[p.id] = p; }
+  if (Array.isArray(by)) for (let i = 0; i < by.length; i++) { const p = by[i]; if (p && p.id != null) pbymap[p.id] = p; }
+}
+
 async function vzjatbazu() {
   let rTxt = await vzjattext('langs/points_ruby.json');
   if (rTxt == null) rTxt = await vzjattext('points_ruby.json');
@@ -483,11 +496,25 @@ async function vzjatlang(code) {
   const iBy = await vzjatjson('langs/info_by.json', {});
 
   if (rubibase) {
+    await ensuremaps();
     const points = razkrutitruby(rubibase, code);
+    for (let i = 0; i < points.length; i++) {
+      const pt = points[i];
+      const ru = prumap[pt.id];
+      const by = pbymap[pt.id];
+      const photmerged = sobratfoto(pt.photo, by && by.photo, ru && ru.photo);
+      pt.photo = photmerged || [];
+      if (!pt.memoryPhoto) {
+        pt.memoryPhoto = (by && by.memoryPhoto) || (ru && ru.memoryPhoto) || '';
+      }
+      const srcmerged = sobratistochniki(pt.sources, by && by.sources, ru && ru.sources);
+      if (srcmerged.length) pt.sources = srcmerged;
+    }
     const info = code === 'by'
       ? slitinfo(infobase, iBy || {})
       : zapolnitinfo(infobase, iBy || {}, ['photo', 'sources', 'monuments']);
-    console.log('[ruby lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length);
+    console.log('[ruby lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length,
+      'photos:', points.filter(p => p.photo && p.photo.length).length);
     return { points, info };
   }
 
