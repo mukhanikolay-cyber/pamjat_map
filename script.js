@@ -9,6 +9,7 @@ const redcolor = [170, 15, 15];
 
 const minproz = 0.15;
 const zatuhanie = 2;
+let rubibase = null;
 
 const mecjacy = {
   'января': 0, 'февраля': 1, 'марта': 2, 'апреля': 3,
@@ -297,17 +298,42 @@ async function vzjatjson(url, def) {
 }
 
 async function vzjatbazu() {
-  let pTxt = await vzjattext('langs/points.json');
-  if (pTxt == null) pTxt = await vzjattext('points.json');
-  if (pTxt == null) throw new Error('не найден points.json');
-  try { pointsbase = JSON.parse(pTxt); } catch (e) { throw new Error('points.json: ' + e.message); }
-  if (!Array.isArray(pointsbase)) throw new Error('points.json не массив');
+  let rTxt = await vzjattext('langs/points_ruby.json');
+  if (rTxt == null) rTxt = await vzjattext('points_ruby.json');
+  rubibase = null;
+  if (rTxt != null) {
+    try {
+      const parsed = JSON.parse(rTxt);
+      if (Array.isArray(parsed) && parsed.length) {
+        rubibase = parsed;
+        console.log('[vzjatbazu] points_ruby.json:', rubibase.length, 'точек');
+      } else {
+        console.warn('points_ruby.json: пустой или не массив');
+      }
+    } catch (e) {
+      console.warn('points_ruby.json: ошибка парсинга -', e.message);
+    }
+  }
+
+  if (!rubibase) {
+    let pTxt = await vzjattext('langs/points.json');
+    if (pTxt == null) pTxt = await vzjattext('points.json');
+    if (pTxt == null) throw new Error('не найден ни points_ruby.json, ни points.json');
+    try { pointsbase = JSON.parse(pTxt); } catch (e) { throw new Error('points.json: ' + e.message); }
+    if (!Array.isArray(pointsbase)) throw new Error('points.json не массив');
+    console.log('[vzjatbazu] fallback points.json:', pointsbase.length);
+  } else {
+    pointsbase = [];
+  }
 
   let iTxt = await vzjattext('langs/info.json');
   if (iTxt == null) iTxt = await vzjattext('info.json');
   infobase = {};
   if (iTxt != null) {
-    try { infobase = JSON.parse(iTxt) || {}; } catch (e) { console.warn('JSON ошибка: langs/info.json -', e.message); infobase = {}; }
+    try { infobase = JSON.parse(iTxt) || {}; } catch (e) {
+      console.warn('JSON ошибка: langs/info.json -', e.message);
+      infobase = {};
+    }
   }
 }
 
@@ -454,23 +480,60 @@ function zapolnitinfo(base, other, fields) {
 }
 
 async function vzjatlang(code) {
-  const cfg = langs[code];
-  if (!cfg) return { points: pointsbase, info: infobase };
-  if (cfg.over) {
-    const pOver = await vzjatjson('langs/points_' + cfg.over + '.json', []);
-    const iOver = await vzjatjson('langs/info_' + cfg.over + '.json', {});
-    const points = slitpoints(pointsbase, Array.isArray(pOver) ? pOver : []);
-    const info = slitinfo(infobase, iOver || {});
-    console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length);
+  const iBy = await vzjatjson('langs/info_by.json', {});
+
+  if (rubibase) {
+    const points = razkrutitruby(rubibase, code);
+    const info = code === 'by'
+      ? slitinfo(infobase, iBy || {})
+      : zapolnitinfo(infobase, iBy || {}, ['photo', 'sources', 'monuments']);
+    console.log('[ruby lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length);
     return { points, info };
   }
+
+  if (code === 'by') {
+    const pOver = await vzjatjson('langs/points_by.json', []);
+    const points = slitpoints(pointsbase, Array.isArray(pOver) ? pOver : []);
+    const info = slitinfo(infobase, iBy || {});
+    console.log('[fallback by] points:', points.length, 'info:', Object.keys(info).length);
+    return { points, info };
+  }
+
   const pBy = await vzjatjson('langs/points_by.json', []);
-  const iBy = await vzjatjson('langs/info_by.json', {});
   const points = zapolnit(pointsbase, Array.isArray(pBy) ? pBy : [], ['photo', 'memoryPhoto', 'sources']);
   const info = zapolnitinfo(infobase, iBy || {}, ['photo', 'sources', 'monuments']);
-  console.log('[lang=' + code + '] points:', points.length, 'info:', Object.keys(info).length,
-    'baseInfo:', Object.keys(infobase).length, 'byInfo:', Object.keys(iBy || {}).length);
+  console.log('[fallback ru] points:', points.length, 'info:', Object.keys(info).length);
   return { points, info };
+}
+
+function valueat(v, idx) {
+  if (v == null) return '';
+  if (Array.isArray(v)) return v[idx] != null ? v[idx] : (v[0] || '');
+  return String(v);
+}
+
+function razkrutitruby(arr, code) {
+  const idx = code === 'by' ? 1 : 0;
+  const out = [];
+  for (let i = 0; i < arr.length; i++) {
+    const p = arr[i];
+    if (!p || p.id == null) continue;
+    out.push({
+      id: p.id,
+      lat: p.lat,
+      lng: p.lng,
+      title: valueat(p.title, idx),
+      date: valueat(p.date, idx),
+      operation: valueat(p.operation, idx),
+      units: valueat(p.units, idx),
+      description: valueat(p.description, idx),
+      memory: valueat(p.memory, idx),
+      photo: p.photo,
+      memoryPhoto: p.memoryPhoto || '',
+      sources: p.sources
+    });
+  }
+  return out;
 }
 
 function pinicon(datestr, id) {
